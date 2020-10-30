@@ -8,7 +8,11 @@ export default {
   component: Button
 }
 
-export const Default = () => <Button onClick={action('onClick')}>Action</Button>
+export const Default = () => (
+  <Button margin="100px" onClick={action('onClick')}>
+    Action
+  </Button>
+)
 
 export const Primary = () => (
   <Button variant="primary" onClick={action('onClick')}>

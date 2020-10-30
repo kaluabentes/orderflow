@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+import margin from '../../../styles/utils/margin'
+
 export const Container = styled.button`
   border: 1px solid transparent;
   padding: 13px 20px;
@@ -8,6 +10,8 @@ export const Container = styled.button`
   display: block;
   width: 100%;
   font-weight: 500;
+
+  ${margin}
 
   &:focus {
     outline: none;
