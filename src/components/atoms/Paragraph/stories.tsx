@@ -7,7 +7,13 @@ export default {
   component: Paragraph
 }
 
-export const Default = () => <Paragraph>Pepers Restaurante</Paragraph>
+export const Default = () => (
+  <div>
+    <Paragraph size="xsmall">xsmall text</Paragraph>
+    <Paragraph size="small">small text</Paragraph>
+    <Paragraph size="medium">medium text</Paragraph>
+  </div>
+)
 
 export const Muted = () => (
   <Paragraph variant="muted">Pepers Restaurante</Paragraph>

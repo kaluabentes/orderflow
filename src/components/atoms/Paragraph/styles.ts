@@ -4,6 +4,10 @@ import styled from '../../../styles/utils/styled'
 export const Container = styled('p')(css`
   margin: 0;
 
+  ${props => css`
+    font-size: ${props.theme.typography.size[props.size]};
+  `}
+
   ${props =>
     props.variant === 'default' &&
     css`
