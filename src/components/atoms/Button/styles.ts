@@ -1,17 +1,16 @@
-import styled, { css } from 'styled-components'
+import { css } from 'styled-components'
 
 import margin from '../../../styles/utils/margin'
+import styled from '../../../styles/utils/styled'
 
-export const Container = styled.button`
+export const Container = styled('button')(css`
   border: 1px solid transparent;
   padding: 13px 20px;
-  border-radius: 8px;
+  border-radius: 7px;
   cursor: pointer;
   display: block;
   width: 100%;
   font-weight: 500;
-
-  ${margin}
 
   &:focus {
     outline: none;
@@ -49,4 +48,4 @@ export const Container = styled.button`
       background: ${props => props.theme.colors.warning};
       color: white;
     `}
-`
+`)
