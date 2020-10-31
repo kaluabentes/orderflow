@@ -4,7 +4,7 @@ export default {
     info: '#3858cd',
     warning: '#fe932a',
     text: '#000000',
-    textMuted: '#808080'
+    textMuted: '#b3b3b3'
   },
   typography: {
     fontFamily: "'Poppins', sans-serif"
