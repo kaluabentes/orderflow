@@ -1,21 +1,15 @@
 import React from 'react'
+import { BaseProps } from '../../BaseProps'
 
 import { Container } from './styles'
 
-interface ButtonProps {
-  children: React.ReactNode
+interface ButtonProps extends BaseProps {
   onClick: () => void
   variant?: 'default' | 'primary' | 'info' | 'warning'
 }
 
-export default function Button({
-  children,
-  onClick,
-  variant = 'default'
-}: ButtonProps) {
-  return (
-    <Container onClick={onClick} variant={variant}>
-      {children}
-    </Container>
-  )
+function Button({ onClick, variant = 'default', ...baseProps }: ButtonProps) {
+  return <Container {...baseProps} onClick={onClick} variant={variant} />
 }
+
+export default Button
