@@ -1,7 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import React from 'react'
 
-import useIsMounted from '../../../hooks/useIsMounted'
 import Button from '../../atoms/Button'
 import Heading from '../../atoms/Heading'
 import Logo from '../../atoms/Logo'
@@ -34,12 +33,10 @@ function Home({
   enterText,
   verifyText
 }: HomeProps) {
-  const isMounted = useIsMounted()
-
   return (
     <Container>
       <Cover src={coverSrc} />
-      <Content isMounted={isMounted}>
+      <Content>
         <Logo src={logoSrc} margin="0 0 80px 0" />
         <FadeInUp>
           <Heading size="large" align="center" margin="0 0 15px 0">
