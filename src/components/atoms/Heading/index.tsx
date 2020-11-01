@@ -15,8 +15,8 @@ interface HeadingProps extends ComponentProps {
     | 'xxxlarge'
 }
 
-function Heading({ as, size = 'medium', ...ComponentProps }: HeadingProps) {
-  return <Container {...ComponentProps} as={as} size={size} />
+function Heading({ as, size = 'medium', ...props }: HeadingProps) {
+  return <Container {...props} as={as} size={size} />
 }
 
 export default Heading

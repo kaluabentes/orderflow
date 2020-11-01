@@ -10,8 +10,8 @@ interface LogoProps extends ComponentProps {
   src: string
 }
 
-function Logo({ src, ...ComponentProps }: LogoProps) {
-  return <Image {...ComponentProps} src={src} alt="" />
+function Logo({ src, ...componentProps }: LogoProps) {
+  return <Image {...componentProps} src={src} alt="" />
 }
 
 export default Logo

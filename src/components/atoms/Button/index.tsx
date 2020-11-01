@@ -8,12 +8,8 @@ interface ButtonProps extends ComponentProps {
   variant?: 'default' | 'primary' | 'info' | 'warning'
 }
 
-function Button({
-  onClick,
-  variant = 'default',
-  ...componentProps
-}: ButtonProps) {
-  return <Container {...componentProps} onClick={onClick} variant={variant} />
+function Button({ onClick, variant = 'default', ...props }: ButtonProps) {
+  return <Container {...props} onClick={onClick} variant={variant} />
 }
 
 export default Button
