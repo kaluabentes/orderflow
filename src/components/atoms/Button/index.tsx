@@ -1,15 +1,19 @@
 import React from 'react'
-import { BaseProps } from '../../BaseProps'
+import { ComponentProps } from '../../ComponentProps'
 
 import { Container } from './styles'
 
-interface ButtonProps extends BaseProps {
+interface ButtonProps extends ComponentProps {
   onClick: () => void
   variant?: 'default' | 'primary' | 'info' | 'warning'
 }
 
-function Button({ onClick, variant = 'default', ...baseProps }: ButtonProps) {
-  return <Container {...baseProps} onClick={onClick} variant={variant} />
+function Button({
+  onClick,
+  variant = 'default',
+  ...ComponentProps
+}: ButtonProps) {
+  return <Container {...ComponentProps} onClick={onClick} variant={variant} />
 }
 
 export default Button

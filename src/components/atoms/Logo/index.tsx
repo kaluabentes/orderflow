@@ -1,14 +1,17 @@
 import React from 'react'
-import { BaseProps } from '../../BaseProps'
+import { ComponentProps } from '../../ComponentProps'
 
 import { Image } from './styles'
 
-interface LogoProps extends BaseProps {
+export const logoSrc =
+  'https://s3.amazonaws.com/thumbnails.venngage.com/template/50856174-6975-471b-b1b0-20fbd6e76781.png'
+
+interface LogoProps extends ComponentProps {
   src: string
 }
 
-function Logo({ src, ...baseProps }: LogoProps) {
-  return <Image {...baseProps} src={src} alt="" />
+function Logo({ src, ...ComponentProps }: LogoProps) {
+  return <Image {...ComponentProps} src={src} alt="" />
 }
 
 export default Logo

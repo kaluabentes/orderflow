@@ -1,9 +1,9 @@
 import React from 'react'
-import { BaseProps } from '../../BaseProps'
+import { ComponentProps } from '../../ComponentProps'
 
 import { Container } from './styles'
 
-interface ParagraphProps extends BaseProps {
+interface ParagraphProps extends ComponentProps {
   variant?: 'default' | 'muted'
   size?: 'xsmall' | 'small' | 'medium'
 }

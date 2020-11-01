@@ -1,11 +1,11 @@
 import React from 'react'
-import { BaseProps } from '../../BaseProps'
+import { ComponentProps } from '../../ComponentProps'
 
 import { Container } from './styles'
 
-interface HeadingProps extends BaseProps {
+interface HeadingProps extends ComponentProps {
   as?: string
-  size:
+  size?:
     | 'xsmall'
     | 'small'
     | 'medium'
@@ -15,8 +15,8 @@ interface HeadingProps extends BaseProps {
     | 'xxxlarge'
 }
 
-function Heading({ as, size = 'medium', ...baseProps }: HeadingProps) {
-  return <Container {...baseProps} as={as} size={size} />
+function Heading({ as, size = 'medium', ...ComponentProps }: HeadingProps) {
+  return <Container {...ComponentProps} as={as} size={size} />
 }
 
 export default Heading
