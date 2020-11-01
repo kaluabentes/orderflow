@@ -1,10 +1,12 @@
 import { action } from '@storybook/addon-actions'
 import React from 'react'
+
+import useIsMounted from '../../../hooks/useIsMounted'
 import Button from '../../atoms/Button'
 import Heading from '../../atoms/Heading'
-
 import Logo from '../../atoms/Logo'
 import Paragraph from '../../atoms/Paragraph'
+import FadeInUp from '../../atoms/FadeInUp'
 
 import { Container, Cover, Content } from './styles'
 
@@ -32,17 +34,23 @@ function Home({
   enterText,
   verifyText
 }: HomeProps) {
+  const isMounted = useIsMounted()
+
   return (
     <Container>
       <Cover src={coverSrc} />
-      <Content>
+      <Content isMounted={isMounted}>
         <Logo src={logoSrc} margin="0 0 80px 0" />
-        <Heading size="large" align="center" margin="0 0 15px 0">
-          {title}
-        </Heading>
-        <Paragraph align="center" variant="muted" margin="0 0 30px 0">
-          {text}
-        </Paragraph>
+        <FadeInUp>
+          <Heading size="large" align="center" margin="0 0 15px 0">
+            {title}
+          </Heading>
+        </FadeInUp>
+        <FadeInUp delay="0.7s">
+          <Paragraph align="center" variant="muted" margin="0 0 30px 0">
+            {text}
+          </Paragraph>
+        </FadeInUp>
         <Button variant="primary" onClick={onEnter} margin="0 0 15px 0">
           {enterText}
         </Button>

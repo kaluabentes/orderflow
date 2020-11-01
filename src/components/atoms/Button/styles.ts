@@ -10,6 +10,7 @@ export const Container = styled('button')(css`
   display: block;
   width: 100%;
   font-weight: 500;
+  font-size: 0.875rem;
 
   &:focus {
     outline: none;
