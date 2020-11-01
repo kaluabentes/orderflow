@@ -1,6 +1,5 @@
 import { css } from 'styled-components'
 
-import margin from '../../../styles/utils/margin'
 import styled from '../../../styles/utils/styled'
 
 export const Container = styled('button')(css`
@@ -14,14 +13,14 @@ export const Container = styled('button')(css`
 
   &:focus {
     outline: none;
+    box-shadow: 0px 0px 0px 1px inset ${props => props.theme.colors.info};
     border-color: ${props => props.theme.colors.info};
-    border-width: 2px;
   }
 
   ${props =>
     props.variant === 'default' &&
     css`
-      border-color: rgba(0, 0, 0, 0.3);
+      border-color: rgba(0, 0, 0, 0.2);
       background: white;
     `}
 

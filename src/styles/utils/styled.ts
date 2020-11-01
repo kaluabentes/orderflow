@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import margin from './margin'
+
+import { margin, align } from './mixins'
 
 export default type => styles => styled(type)`
   ${styles}
-
-  // Extension styles
   ${margin}
+  ${align}
 `
