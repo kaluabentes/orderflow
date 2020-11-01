@@ -1,19 +1,23 @@
 import React from 'react'
+import { useRouter } from 'next/dist/client/router'
 
 import { logoSrc } from '../components/atoms/Logo'
 import Home, { coverSrc } from '../components/templates/Home'
+import getTranslation from '../i18n/getTranslation'
 
 function HomePage() {
+  const router = useRouter()
+
   return (
     <Home
-      title="Dona Rosa Bar e Restaurante"
-      text="Faça seu pedido online e entregaremos na sua porta"
-      enterText="Entrar"
-      verifyText="Verificar disponibilidade"
+      title={getTranslation('app.home.title')}
+      text={getTranslation('app.home.text')}
+      enterText={getTranslation('app.home.enterText')}
+      verifyText={getTranslation('app.home.verifyText')}
       coverSrc={coverSrc}
       logoSrc={logoSrc}
-      onEnter={() => {}}
-      onVerify={() => {}}
+      onEnter={() => router.push('/login')}
+      onVerify={() => router.push('/availability')}
     />
   )
 }
