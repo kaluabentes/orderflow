@@ -8,6 +8,9 @@ import Paragraph from '../../atoms/Paragraph'
 
 import { Container, Cover, Content } from './styles'
 
+export const coverSrc =
+  'https://images.pexels.com/photos/33162/food-restaurant-menu-asia.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500'
+
 interface HomeProps {
   coverSrc: string
   logoSrc: string
