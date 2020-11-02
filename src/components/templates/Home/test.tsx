@@ -28,8 +28,8 @@ describe('Home template', () => {
       />
     )
 
-    await userEvent.click(screen.getByLabelText(enterLabel))
-    await userEvent.click(screen.getByLabelText(verifyLabel))
+    await userEvent.click(screen.getByText(enterLabel))
+    await userEvent.click(screen.getByText(verifyLabel))
 
     expect(handleEnter).toHaveBeenCalledTimes(1)
     expect(handleVerify).toHaveBeenCalledTimes(1)
