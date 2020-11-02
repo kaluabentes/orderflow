@@ -36,7 +36,7 @@ function Home({
     <Container>
       <Cover src={coverSrc} />
       <Content>
-        <Logo src={logoSrc} margin="0 0 80px 0" />
+        <Logo src={logoSrc} margin="0 0 40px 0" />
         <FadeInUp>
           <Heading size="large" align="center" margin="0 0 15px 0">
             {title}
