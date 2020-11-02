@@ -18,8 +18,8 @@ interface HomeProps {
   text: string
   onEnter: () => void
   onVerify: () => void
-  enterText: string
-  verifyText: string
+  enterLabel: string
+  verifyLabel: string
 }
 
 function Home({
@@ -29,8 +29,8 @@ function Home({
   text,
   onEnter,
   onVerify,
-  enterText,
-  verifyText
+  enterLabel,
+  verifyLabel
 }: HomeProps) {
   return (
     <Container>
@@ -48,9 +48,9 @@ function Home({
           </Paragraph>
         </FadeInUp>
         <Button variant="primary" onClick={onEnter} margin="0 0 15px 0">
-          {enterText}
+          {enterLabel}
         </Button>
-        <Button onClick={onVerify}>{verifyText}</Button>
+        <Button onClick={onVerify}>{verifyLabel}</Button>
       </Content>
     </Container>
   )

@@ -13,8 +13,8 @@ export const Default = () => (
   <Home
     title="Dona Rosa Bar e Restaurante"
     text="Faça seu pedido online e entregaremos na sua porta"
-    enterText="Entrar"
-    verifyText="Verificar disponibilidade"
+    enterLabel="Entrar"
+    verifyLabel="Verificar disponibilidade"
     coverSrc={coverSrc}
     logoSrc={logoSrc}
     onEnter={action('onEnter')}

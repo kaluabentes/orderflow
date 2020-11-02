@@ -12,8 +12,8 @@ function HomePage() {
     <Home
       title={getTranslation('app.home.title')}
       text={getTranslation('app.home.text')}
-      enterText={getTranslation('app.home.enterText')}
-      verifyText={getTranslation('app.home.verifyText')}
+      enterLabel={getTranslation('app.home.enterLabel')}
+      verifyLabel={getTranslation('app.home.verifyLabel')}
       coverSrc={coverSrc}
       logoSrc={logoSrc}
       onEnter={() => router.push('/login')}
