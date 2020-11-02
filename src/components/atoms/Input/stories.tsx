@@ -13,8 +13,12 @@ export const Default = () => {
   return (
     <Input
       placeholder="Digite seu email"
-      onChange={e => setValue(e.target.value)}
+      onChange={event => setValue(event.target.value)}
       value={value}
+      name="email"
+      type="email"
+      label="Email"
+      error="This field must be filled"
     />
   )
 }

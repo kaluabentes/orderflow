@@ -11,6 +11,5 @@ export default createGlobalStyle`
   body {
     color: ${props => props.theme.colors.text};
     font-family: ${props => props.theme.typography.fontFamily};
-    padding: 0 !important;
   }
 `
