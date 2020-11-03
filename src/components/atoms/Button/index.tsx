@@ -9,7 +9,9 @@ interface ButtonProps extends ComponentProps {
 }
 
 function Button({ onClick, variant = 'default', ...props }: ButtonProps) {
-  return <Container {...props} onClick={onClick} variant={variant} />
+  return (
+    <Container {...props} onClick={onClick} variant={variant} type="button" />
+  )
 }
 
 export default Button
