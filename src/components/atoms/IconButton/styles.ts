@@ -6,8 +6,8 @@ export const Container = styled('button')(css`
   color: ${props => props.theme.colors.textMuted};
   padding: 0;
   line-height: 0;
-  height: 44px;
-  width: 44px;
+  height: 50px;
+  width: 50px;
   background: transparent;
   border: none;
   cursor: pointer;
