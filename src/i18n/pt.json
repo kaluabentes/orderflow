@@ -2,5 +2,7 @@
   "app.home.title": "Done Rosa Bar e Restaurante",
   "app.home.text": "Faça seu pedido online e entregaremos na sua porta",
   "app.home.enterLabel": "Entrar",
-  "app.home.verifyLabel": "Verificar disponibilidade"
+  "app.home.verifyLabel": "Verificar disponibilidade",
+  "app.login.title": "Entrar",
+  "app.login.phoneError": "Formato de celular inválido"
 }
