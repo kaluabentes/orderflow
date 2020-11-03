@@ -1,8 +1,8 @@
 import React from 'react'
 import getString from '../../../i18n/getString'
 
-import filterNumber from '../../../utils/filters/number'
-import formatPhone from '../../../utils/formatters/phone'
+import filterNumber from '../../../utils/filters/filterNumber'
+import formatPhone from '../../../utils/formatters/formatPhone'
 import Button from '../../atoms/Button'
 import Heading from '../../atoms/Heading'
 import Input from '../../atoms/Input'
