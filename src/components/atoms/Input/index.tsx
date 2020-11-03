@@ -2,8 +2,9 @@ import React from 'react'
 
 import { ComponentProps } from '../../ComponentProps'
 import Label from '../Label'
+import ErrorMessage from '../ErrorMessage'
 
-import { Container, Field, ErrorMessage } from './styles'
+import { Container, Field } from './styles'
 
 interface InputProps extends ComponentProps {
   label?: string
@@ -11,19 +12,38 @@ interface InputProps extends ComponentProps {
   onChange: (event: any) => void
   value: string
   name: string
-  type: string
+  type?: string
   error?: string
+  maxLength?: string
 }
 
-function Input({ label, name, error, ...props }: InputProps) {
+function Input({
+  label,
+  name,
+  error,
+  maxLength,
+  placeholder,
+  onChange,
+  value,
+  type,
+  ...props
+}: InputProps) {
   return (
-    <Container>
+    <Container {...props}>
       {label && (
         <Label htmlFor={name} margin="0 0 7px 0">
           {label}
         </Label>
       )}
-      <Field name={name} {...props} />
+      <Field
+        hasError={Boolean(error)}
+        name={name}
+        maxLength={maxLength}
+        onChange={onChange}
+        value={value}
+        type={type}
+        placeholder={placeholder}
+      />
       {error && <ErrorMessage>{error}</ErrorMessage>}
     </Container>
   )
