@@ -4,7 +4,7 @@ import styled from '../../../styles/utils/styled'
 
 export const Container = styled('button')(css`
   border: 1px solid transparent;
-  padding: 16px 20px;
+  padding: 13px 20px;
   border-radius: 7px;
   cursor: pointer;
   display: block;

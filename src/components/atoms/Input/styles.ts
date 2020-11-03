@@ -8,7 +8,7 @@ export const Container = styled('div')(css`
 `)
 
 export const Field = styled('input')(css`
-  height: 50px;
+  height: 44px;
   padding: 0 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 7px;
