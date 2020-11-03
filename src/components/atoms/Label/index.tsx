@@ -1,9 +1,9 @@
-import React from 'react'
+import { css } from 'styled-components'
 
-import { Container } from './styles'
+import styled from '../../../styles/utils/styled'
 
-function Label(props) {
-  return <Container {...props} />
-}
+const Label = styled('label')(css`
+  font-weight: 500;
+`)
 
 export default Label
