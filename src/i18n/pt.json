@@ -4,5 +4,6 @@
   "app.home.enterLabel": "Entrar",
   "app.home.verifyLabel": "Verificar disponibilidade",
   "app.login.title": "Entrar",
+  "app.login.text": "Informe seu celular para que possamos enviar um código de verificação",
   "app.login.phoneError": "Formato de celular inválido"
 }
