@@ -36,6 +36,7 @@ function Input({
         </Label>
       )}
       <Field
+        id={name}
         hasError={Boolean(error)}
         name={name}
         maxLength={maxLength}
