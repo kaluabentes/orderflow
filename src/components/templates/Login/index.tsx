@@ -7,12 +7,9 @@ import Button from '../../atoms/Button'
 import Heading from '../../atoms/Heading'
 import Input from '../../atoms/Input'
 import Paragraph from '../../atoms/Paragraph'
+import Base from '../Base'
 
-import {
-  Container,
-  CustomIconButton as IconButton,
-  OuterContainer
-} from './styles'
+import { CustomIconButton as IconButton } from './styles'
 
 interface LoginProps {
   title: string
@@ -36,33 +33,28 @@ function Login({
   const [phone, setPhone] = React.useState('')
 
   return (
-    <OuterContainer>
-      <Container>
-        <IconButton margin="0 0 30px 0" name="arrow_back" onClick={onBack} />
-        <Heading size="large" margin="0 0 10px 0">
-          {title}
-        </Heading>
-        <Paragraph margin="0 0 20px 0" variant="muted">
-          {text}
-        </Paragraph>
-        <Input
-          name="phone"
-          value={phone}
-          onChange={event => setPhone(formatPhone(event.target.value))}
-          margin="0 0 20px 0"
-          label={phoneLabel}
-          maxLength="15"
-          placeholder="(00) 00000-0000"
-          error={error}
-        />
-        <Button
-          variant="primary"
-          onClick={() => onAdvance(filterNumber(phone))}
-        >
-          {advanceLabel}
-        </Button>
-      </Container>
-    </OuterContainer>
+    <Base hasPadding>
+      <IconButton margin="0 0 30px 0" name="arrow_back" onClick={onBack} />
+      <Heading size="large" margin="0 0 10px 0">
+        {title}
+      </Heading>
+      <Paragraph margin="0 0 20px 0" variant="muted">
+        {text}
+      </Paragraph>
+      <Input
+        name="phone"
+        value={phone}
+        onChange={event => setPhone(formatPhone(event.target.value))}
+        margin="0 0 20px 0"
+        label={phoneLabel}
+        maxLength="15"
+        placeholder="(00) 00000-0000"
+        error={error}
+      />
+      <Button variant="primary" onClick={() => onAdvance(filterNumber(phone))}>
+        {advanceLabel}
+      </Button>
+    </Base>
   )
 }
 
