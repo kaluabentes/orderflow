@@ -4,4 +4,8 @@ const translationMap = {
   pt
 }
 
-export default key => translationMap[process.env.LOCALE][key]
+function getString(key) {
+  return translationMap[process.env.LOCALE][key]
+}
+
+export default getString
