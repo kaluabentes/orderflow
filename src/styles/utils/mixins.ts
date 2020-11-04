@@ -9,6 +9,11 @@ export const align = props =>
 export const margin = props =>
   props.margin &&
   css`
-    display: block;
     margin: ${props.margin};
+  `
+
+export const padding = props =>
+  props.padding &&
+  css`
+    padding: ${props.padding};
   `
