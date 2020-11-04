@@ -4,5 +4,5 @@ import styled from '../../../styles/utils/styled'
 import IconButton from '../../atoms/IconButton'
 
 export const CustomIconButton = styled(IconButton)(css`
-  transform: translateX(-12px);
+  transform: translate(-12px, -12px);
 `)
