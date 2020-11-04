@@ -4,7 +4,8 @@ export default {
     info: '#3858cd',
     warning: '#fe932a',
     text: '#000000',
-    textMuted: 'rgba(0, 0, 0, 0.4)'
+    textMuted: 'rgba(0, 0, 0, 0.4)',
+    background: '#f7f7fa'
   },
   typography: {
     fontFamily: "'Poppins', sans-serif",
