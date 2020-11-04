@@ -6,7 +6,8 @@ import Logo from '../../atoms/Logo'
 import Paragraph from '../../atoms/Paragraph'
 import FadeInUp from '../../atoms/FadeInUp'
 
-import { Container, Cover, Content } from './styles'
+import { Cover, Content } from './styles'
+import Base from '../Base'
 
 export const coverSrc =
   'https://images.pexels.com/photos/33162/food-restaurant-menu-asia.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500'
@@ -33,26 +34,30 @@ function Home({
   verifyLabel
 }: HomeProps) {
   return (
-    <Container>
+    <Base>
       <Cover src={coverSrc} />
       <Content>
         <Logo src={logoSrc} margin="0 0 40px 0" />
-        <FadeInUp>
+        <FadeInUp delay="0s">
           <Heading size="large" align="center" margin="0 0 15px 0">
             {title}
           </Heading>
         </FadeInUp>
-        <FadeInUp delay="0.7s">
+        <FadeInUp delay="0.2s">
           <Paragraph align="center" variant="muted" margin="0 0 30px 0">
             {text}
           </Paragraph>
         </FadeInUp>
-        <Button variant="primary" onClick={onEnter} margin="0 0 15px 0">
-          {enterLabel}
-        </Button>
-        <Button onClick={onVerify}>{verifyLabel}</Button>
+        <FadeInUp delay="0.4s">
+          <Button variant="primary" onClick={onEnter} margin="0 0 15px 0">
+            {enterLabel}
+          </Button>
+        </FadeInUp>
+        <FadeInUp delay="0.6s">
+          <Button onClick={onVerify}>{verifyLabel}</Button>
+        </FadeInUp>
       </Content>
-    </Container>
+    </Base>
   )
 }
 
