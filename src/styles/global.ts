@@ -6,11 +6,11 @@ export default createGlobalStyle`
 
   * {
     box-sizing: border-box;
+    font-family: ${props => props.theme.typography.fontFamily};
   }
 
   body {
-    color: ${props => props.theme.colors.text};
-    font-family: ${props => props.theme.typography.fontFamily};
     padding: 0 !important;
+    color: ${props => props.theme.colors.text};
   }
 `
