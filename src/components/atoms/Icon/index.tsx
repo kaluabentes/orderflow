@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { ComponentProps } from '../../ComponentProps'
+import { CommonProps } from '../../CommonProps'
 
 import { Container } from './styles'
 
-interface IconProps extends ComponentProps {
+interface IconProps extends CommonProps {
   name: string
 }
 

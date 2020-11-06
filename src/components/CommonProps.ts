@@ -1,6 +1,6 @@
 import React from 'react'
 
-export interface ComponentProps {
+export interface CommonProps {
   margin?: string
   padding?: string
   children?: React.ReactNode

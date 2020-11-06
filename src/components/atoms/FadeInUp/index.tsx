@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { ComponentProps } from '../../ComponentProps'
+import { CommonProps } from '../../CommonProps'
 
 import { Container } from './styles'
 
-interface FadeInUpProps extends ComponentProps {
+interface FadeInUpProps extends CommonProps {
   delay?: string
 }
 

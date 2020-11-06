@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { ComponentProps } from '../../ComponentProps'
+import { CommonProps } from '../../CommonProps'
 import Label from '../Label'
 import ErrorMessage from '../ErrorMessage'
 
 import { Container, Field } from './styles'
 
-interface InputProps extends ComponentProps {
+interface InputProps extends CommonProps {
   label?: string
   placeholder?: string
   onChange: (event: any) => void

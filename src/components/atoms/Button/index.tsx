@@ -1,9 +1,9 @@
 import React from 'react'
-import { ComponentProps } from '../../ComponentProps'
+import { CommonProps } from '../../CommonProps'
 
 import { Container } from './styles'
 
-interface ButtonProps extends ComponentProps {
+interface ButtonProps extends CommonProps {
   onClick: () => void
   variant?: 'default' | 'primary' | 'info' | 'warning'
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { ComponentProps } from '../../ComponentProps'
+import { CommonProps } from '../../CommonProps'
 import { Container, Content } from './styles'
 
-interface BaseProps extends ComponentProps {
+interface BaseProps extends CommonProps {
   hasPadding?: boolean
 }
 

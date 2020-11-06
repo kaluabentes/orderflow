@@ -1,9 +1,9 @@
 import React from 'react'
-import { ComponentProps } from '../../ComponentProps'
+import { CommonProps } from '../../CommonProps'
 
 import { Container } from './styles'
 
-interface ParagraphProps extends ComponentProps {
+interface ParagraphProps extends CommonProps {
   variant?: 'default' | 'muted'
   size?: 'xsmall' | 'small' | 'medium'
 }

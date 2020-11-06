@@ -1,9 +1,9 @@
 import React from 'react'
-import { ComponentProps } from '../../ComponentProps'
+import { CommonProps } from '../../CommonProps'
 
 import { Container } from './styles'
 
-interface HeadingProps extends ComponentProps {
+interface HeadingProps extends CommonProps {
   as?: string
   size?:
     | 'xsmall'

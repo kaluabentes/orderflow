@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { ComponentProps } from '../../ComponentProps'
+import { CommonProps } from '../../CommonProps'
 import Icon from '../Icon'
 
 import { Container } from './styles'
 
-interface IconButtonProps extends ComponentProps {
+interface IconButtonProps extends CommonProps {
   name: string
   onClick: () => void
 }
