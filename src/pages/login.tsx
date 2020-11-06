@@ -9,7 +9,7 @@ export default function LoginPage() {
   const [error, setError] = React.useState('')
 
   function handleAdvance(phone) {
-    if (phone.length < 15) {
+    if (phone.length < 11) {
       setError(getString('app.login.phoneError'))
       return
     }
