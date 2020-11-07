@@ -4,7 +4,6 @@ import twilio from 'twilio'
 const accountSid = process.env.TWILIO_ACCOUNT_SID
 const serviceSid = process.env.TWILIO_SERVICE_SID
 const authToken = process.env.TWILIO_AUTH_TOKEN
-const storeName = process.env.STORE_NAME
 
 export default async (request: NowRequest, response: NowResponse) => {
   const { method } = request
@@ -14,12 +13,12 @@ export default async (request: NowRequest, response: NowResponse) => {
     response.setHeader('Allow', ['POST'])
     response
       .status(405)
-      .send(`Method ${method} not allowed. Methods allowed: POST`)
+      .send({ error: `Method ${method} not allowed. Methods allowed: POST` })
     return
   }
 
   if (!phone) {
-    response.status(400).send({ message: 'Phone field is required' })
+    response.status(400).send({ error: 'Phone field is required' })
     return
   }
 
@@ -31,9 +30,14 @@ export default async (request: NowRequest, response: NowResponse) => {
 
   const client = twilio(accountSid, authToken)
 
-  const verification = await client.verify
-    .services(serviceSid)
-    .verifications.create({ to: `+55${phone}`, channel: 'sms' })
+  try {
+    const verification = await client.verify
+      .services(serviceSid)
+      .verifications.create({ to: `+55${phone}`, channel: 'sms' })
 
-  response.status(200).send(verification)
+    response.status(200).send(verification)
+  } catch (error) {
+    response.status(400).send({ error })
+    return
+  }
 }
