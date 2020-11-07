@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import Color from 'color'
 
 import styled from '../../../styles/utils/styled'
 import DotLoader from '../DotLoader'
@@ -14,6 +15,7 @@ export const Container = styled('button')(css`
   width: 100%;
   font-weight: 500;
   font-size: 0.875rem;
+  transition: 0.5s;
 
   &:focus {
     outline: none;
@@ -26,6 +28,10 @@ export const Container = styled('button')(css`
     css`
       border-color: rgba(0, 0, 0, 0.2);
       background: white;
+
+      &:hover {
+        background: rgba(160, 160, 160, 0.1);
+      }
     `}
 
   ${props =>
@@ -34,6 +40,11 @@ export const Container = styled('button')(css`
       border-color: ${props => props.theme.colors.primary};
       background: ${props => props.theme.colors.primary};
       color: white;
+
+      &:hover {
+        background: ${props =>
+          Color(props.theme.colors.primary).darken(0.1).hex()};
+      }
 
       & ${Loader} {
         & div {
@@ -49,6 +60,11 @@ export const Container = styled('button')(css`
       background: ${props => props.theme.colors.info};
       color: white;
 
+      &:hover {
+        background: ${props =>
+          Color(props.theme.colors.info).darken(0.1).hex()};
+      }
+
       & ${Loader} {
         & div {
           background: white;
@@ -62,6 +78,11 @@ export const Container = styled('button')(css`
       border-color: ${props => props.theme.colors.warning};
       background: ${props => props.theme.colors.warning};
       color: white;
+
+      &:hover {
+        background: ${props =>
+          Color(props.theme.colors.warning).darken(0.1).hex()};
+      }
 
       & ${Loader} {
         & div {
