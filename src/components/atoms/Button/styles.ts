@@ -1,6 +1,9 @@
 import { css } from 'styled-components'
 
 import styled from '../../../styles/utils/styled'
+import DotLoader from '../DotLoader'
+
+export const Loader = styled(DotLoader)(css``)
 
 export const Container = styled('button')(css`
   border: 1px solid transparent;
@@ -31,6 +34,12 @@ export const Container = styled('button')(css`
       border-color: ${props => props.theme.colors.primary};
       background: ${props => props.theme.colors.primary};
       color: white;
+
+      & ${Loader} {
+        & div {
+          background: white;
+        }
+      }
     `}
 
   ${props =>
@@ -39,6 +48,12 @@ export const Container = styled('button')(css`
       border-color: ${props => props.theme.colors.info};
       background: ${props => props.theme.colors.info};
       color: white;
+
+      & ${Loader} {
+        & div {
+          background: white;
+        }
+      }
     `}
 
   ${props =>
@@ -47,5 +62,11 @@ export const Container = styled('button')(css`
       border-color: ${props => props.theme.colors.warning};
       background: ${props => props.theme.colors.warning};
       color: white;
+
+      & ${Loader} {
+        & div {
+          background: white;
+        }
+      }
     `}
 `)
