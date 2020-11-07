@@ -3,10 +3,12 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import getString from '../i18n/getString'
 import Login from '../components/templates/Login'
+import { sendVerificationCode } from '../modules/auth/service'
 
 export default function LoginPage() {
   const router = useRouter()
   const [error, setError] = React.useState('')
+  const [isLoading, setIsLoading] = React.useState(false)
 
   function handleAdvance(phone) {
     if (phone.length < 11) {
@@ -15,9 +17,10 @@ export default function LoginPage() {
     }
 
     setError('')
-    // 1. Store in the context
-    // 2. Send to backend
-    router.push('/verify')
+    setIsLoading(true)
+    sendVerificationCode(phone).then(() => {
+      router.push('/verify')
+    })
   }
 
   return (
@@ -29,6 +32,7 @@ export default function LoginPage() {
       advanceLabel="Avançar"
       phoneLabel="Celular"
       error={error}
+      isLoading={isLoading}
     />
   )
 }

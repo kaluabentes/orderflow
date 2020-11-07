@@ -1,5 +1,5 @@
+import axios from 'axios'
+
 export function sendVerificationCode(phone) {
-  return new Promise(resolve => {
-    setTimeout(() => resolve('ok'), 2000)
-  })
+  return axios.post('/api/login', { phone })
 }

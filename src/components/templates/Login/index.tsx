@@ -17,6 +17,7 @@ interface LoginProps {
   advanceLabel: string
   phoneLabel: string
   error?: string
+  isLoading: boolean
   onAdvance: (phone) => void
   onBack: () => void
 }
@@ -27,6 +28,7 @@ function Login({
   advanceLabel,
   phoneLabel,
   error,
+  isLoading,
   onAdvance,
   onBack
 }: LoginProps) {
@@ -51,7 +53,11 @@ function Login({
         placeholder="(00) 00000-0000"
         error={error}
       />
-      <Button variant="primary" onClick={() => onAdvance(filterNumber(phone))}>
+      <Button
+        variant="primary"
+        isLoading={isLoading}
+        onClick={() => onAdvance(filterNumber(phone))}
+      >
         {advanceLabel}
       </Button>
     </Base>
