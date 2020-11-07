@@ -18,7 +18,9 @@ interface LoginProps {
   phoneLabel: string
   error?: string
   isLoading: boolean
-  onAdvance: (phone) => void
+  phone: string
+  onPhoneChange: (event: any) => void
+  onAdvance: () => void
   onBack: () => void
 }
 
@@ -29,11 +31,11 @@ function Login({
   phoneLabel,
   error,
   isLoading,
+  phone,
+  onPhoneChange,
   onAdvance,
   onBack
 }: LoginProps) {
-  const [phone, setPhone] = React.useState('')
-
   return (
     <Base hasPadding>
       <IconButton margin="0 0 30px 0" name="arrow_back" onClick={onBack} />
@@ -46,18 +48,14 @@ function Login({
       <Input
         name="phone"
         value={phone}
-        onChange={event => setPhone(formatPhone(event.target.value))}
+        onChange={onPhoneChange}
         margin="0 0 20px 0"
         label={phoneLabel}
         maxLength="15"
         placeholder="(00) 00000-0000"
         error={error}
       />
-      <Button
-        variant="primary"
-        isLoading={isLoading}
-        onClick={() => onAdvance(filterNumber(phone))}
-      >
+      <Button variant="primary" isLoading={isLoading} onClick={onAdvance}>
         {advanceLabel}
       </Button>
     </Base>
