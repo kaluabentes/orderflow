@@ -1,34 +1,28 @@
 import React from 'react'
-import { cleanup, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+
 import { renderWithTheme } from '../../../utils/test-utils'
 
 import Login from '.'
 
-afterEach(cleanup)
-
 describe('Login template', () => {
-  test('all controls should work', async () => {
-    const handleBack = jest.fn()
+  test('can submit phone', async () => {
     const handleAdvance = jest.fn()
     const userInput = '48996288801'
+    const advanceLabel = 'Avançar'
+    const phoneLabel = 'Celular'
 
     renderWithTheme(
       <Login
-        title="Entrar"
-        text="Informe seu celular para que possamos enviar um codigo de verificação"
-        onBack={handleBack}
         onAdvance={handleAdvance}
-        advanceLabel="Avançar"
-        phoneLabel="Celular"
+        advanceLabel={advanceLabel}
+        phoneLabel={phoneLabel}
       />
     )
 
-    await userEvent.click(screen.getByText('arrow_back'))
-    expect(handleBack).toHaveBeenCalledTimes(1)
-
-    await userEvent.type(screen.getByLabelText('Celular'), userInput)
-    await userEvent.click(screen.getByText('Avançar'))
+    await userEvent.type(screen.getByLabelText(phoneLabel), userInput)
+    await userEvent.click(screen.getByText(advanceLabel))
     expect(handleAdvance).toHaveBeenCalledWith(userInput)
   })
 })
