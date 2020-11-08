@@ -6,10 +6,13 @@ import ErrorMessage from '../ErrorMessage'
 
 import { Container, Field } from './styles'
 
-interface InputProps extends CommonProps {
+export interface InputProps extends CommonProps {
+  inputRef?: object
   label?: string
   placeholder?: string
   onChange: (event: any) => void
+  onKeyPress?: (event: any) => void
+  onPaste?: (event: any) => void
   value: string
   name: string
   type?: string
@@ -18,12 +21,15 @@ interface InputProps extends CommonProps {
 }
 
 function Input({
+  inputRef,
   label,
   name,
   error,
   maxLength,
   placeholder,
   onChange,
+  onKeyPress,
+  onPaste,
   value,
   type,
   ...props
@@ -36,11 +42,14 @@ function Input({
         </Label>
       )}
       <Field
+        ref={inputRef}
         id={name}
         hasError={Boolean(error)}
         name={name}
         maxLength={maxLength}
         onChange={onChange}
+        onKeyPress={onKeyPress}
+        onPaste={onPaste}
         value={value}
         type={type}
         placeholder={placeholder}
