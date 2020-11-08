@@ -49,7 +49,7 @@ function Home({
           </Paragraph>
         </FadeInUp>
         <FadeInUp delay="0.4s">
-          <Button variant="primary" onClick={onEnter} margin="0 0 15px 0">
+          <Button variant="primary" onClick={onEnter} margin="0 0 20px 0">
             {enterLabel}
           </Button>
         </FadeInUp>
