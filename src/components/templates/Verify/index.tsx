@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Button from '../../atoms/Button'
 import Heading from '../../atoms/Heading'
@@ -7,15 +7,14 @@ import Paragraph from '../../atoms/Paragraph'
 import BackNavPage from '../BackNavPage'
 
 interface VerifyProps {
-  title: string
-  text: React.ReactNode
+  title?: string
+  text?: React.ReactNode
   advanceLabel: string
   codeLabel: string
   error?: string
   isLoading?: boolean
-  onCodeChange?: (event: any) => void
-  onAdvance: () => void
-  onBack: () => void
+  onAdvance: (code) => void
+  onBack?: () => void
 }
 
 function Verify({
@@ -25,10 +24,11 @@ function Verify({
   codeLabel,
   error,
   isLoading,
-  onCodeChange,
   onAdvance,
   onBack
 }: VerifyProps) {
+  const [code, setCode] = useState('')
+
   return (
     <BackNavPage onBack={onBack}>
       <Heading size="large" margin="0 0 10px 0">
@@ -40,11 +40,15 @@ function Verify({
       <CodeInput
         margin="0 0 20px 0"
         error={error}
-        onChange={onCodeChange}
+        onChange={code => setCode(code)}
         id="verificationCode"
         label={codeLabel}
       />
-      <Button variant="primary" isLoading={isLoading} onClick={onAdvance}>
+      <Button
+        variant="primary"
+        isLoading={isLoading}
+        onClick={() => onAdvance(code)}
+      >
         {advanceLabel}
       </Button>
     </BackNavPage>
