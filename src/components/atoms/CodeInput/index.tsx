@@ -29,7 +29,7 @@ function CodeInput({ label, id, onChange, error, ...props }: CodeInputProps) {
       nextInput.focus()
     }
 
-    onChange(`${first}${second}${third}${fourth}`)
+    onChange(`${first}${second}${third}${value}`)
   }
 
   function handlePaste(event) {
