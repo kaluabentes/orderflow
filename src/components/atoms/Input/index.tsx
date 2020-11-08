@@ -14,7 +14,8 @@ export interface InputProps extends CommonProps {
   onKeyPress?: (event: any) => void
   onPaste?: (event: any) => void
   value: string
-  name: string
+  name?: string
+  id: string
   type?: string
   error?: string
   maxLength?: string
@@ -23,6 +24,7 @@ export interface InputProps extends CommonProps {
 function Input({
   inputRef,
   label,
+  id,
   name,
   error,
   maxLength,
@@ -37,13 +39,13 @@ function Input({
   return (
     <Container {...props}>
       {label && (
-        <Label htmlFor={name} margin="0 0 7px 0">
+        <Label htmlFor={id} margin="0 0 7px 0">
           {label}
         </Label>
       )}
       <Field
         ref={inputRef}
-        id={name}
+        id={id}
         hasError={Boolean(error)}
         name={name}
         maxLength={maxLength}
