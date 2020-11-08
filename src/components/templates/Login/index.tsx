@@ -9,14 +9,14 @@ import Paragraph from '../../atoms/Paragraph'
 import BackNavPage from '../BackNavPage'
 
 interface LoginProps {
-  title: string
-  text: string
+  title?: string
+  text?: string
   advanceLabel: string
   phoneLabel: string
   error?: string
   isLoading?: boolean
   onAdvance: (phone) => void
-  onBack: () => void
+  onBack?: () => void
 }
 
 function Login({
@@ -40,7 +40,7 @@ function Login({
         {text}
       </Paragraph>
       <Input
-        name="phone"
+        id="phone"
         value={phone}
         onChange={event => setPhone(formatPhone(event.target.value))}
         margin="0 0 20px 0"
