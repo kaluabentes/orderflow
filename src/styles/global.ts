@@ -13,4 +13,8 @@ export default createGlobalStyle`
     padding: 0 !important;
     color: ${props => props.theme.colors.text};
   }
+
+  strong {
+    color: ${props => props.theme.colors.text};
+  }
 `
