@@ -14,10 +14,10 @@ export const Container = styled('div')(css`
 export const Content = styled('div')(css`
   background: white;
   height: 100vh;
+  width: 100%;
   overflow: auto;
 
   @media (min-width: 600px) {
-    width: 100%;
     max-width: 400px;
     margin-bottom: 50px;
     margin-top: 50px;
