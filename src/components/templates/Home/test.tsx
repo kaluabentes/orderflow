@@ -9,7 +9,7 @@ import { logoSrc } from '../../atoms/Logo'
 afterEach(cleanup)
 
 describe('Home template', () => {
-  test('buttons should work', async () => {
+  test('can use buttons', async () => {
     const handleEnter = jest.fn()
     const handleVerify = jest.fn()
     const enterLabel = 'Enter'
@@ -17,12 +17,8 @@ describe('Home template', () => {
 
     renderWithTheme(
       <Home
-        title="Dona Rosa Bar e Restaurante"
-        text="Faça seu pedido online e entregaremos na sua porta"
         enterLabel={enterLabel}
         verifyLabel={verifyLabel}
-        coverSrc={coverSrc}
-        logoSrc={logoSrc}
         onEnter={handleEnter}
         onVerify={handleVerify}
       />
