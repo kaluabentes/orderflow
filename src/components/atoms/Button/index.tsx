@@ -17,7 +17,13 @@ function Button({
   ...props
 }: ButtonProps) {
   return (
-    <Container {...props} onClick={onClick} variant={variant} type="button">
+    <Container
+      {...props}
+      onClick={onClick}
+      variant={variant}
+      type="button"
+      disabled={isLoading}
+    >
       {isLoading ? <Loader /> : children}
     </Container>
   )
