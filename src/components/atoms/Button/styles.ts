@@ -24,6 +24,13 @@ export const Container = styled('button')(css`
   }
 
   ${props =>
+    props.disabled &&
+    css`
+      opacity: 0.8;
+      cursor: default;
+    `}
+
+  ${props =>
     props.variant === 'default' &&
     css`
       border-color: rgba(0, 0, 0, 0.2);
