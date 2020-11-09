@@ -31,7 +31,7 @@ function Verify({
 
   return (
     <BackNavPage onBack={onBack}>
-      <Heading size="large" margin="0 0 10px 0">
+      <Heading size="large" margin="0 0 20px 0">
         {title}
       </Heading>
       <Paragraph margin="0 0 20px 0" variant="muted">
