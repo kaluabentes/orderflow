@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { createContext, useState } from 'react'
 import { merge } from 'lodash'
+import useLocalStorageState from '../../utils/hooks/useLocalStorageState'
 
 const AuthStateContext = createContext(undefined)
 AuthStateContext.displayName = 'AuthStateContext'
@@ -14,7 +15,10 @@ const INITIAL_STATE = {
 }
 
 function AuthProvider({ children }) {
-  const [state, setState] = useState(INITIAL_STATE)
+  const [state, setState] = useLocalStorageState(
+    'orderflow.auth',
+    INITIAL_STATE
+  )
 
   function dispatch(nextState) {
     setState(merge(state, nextState))
