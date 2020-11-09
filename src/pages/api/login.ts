@@ -26,6 +26,7 @@ export default async (request: NowRequest, response: NowResponse) => {
     response.status(400).send({
       message: 'The phone number must have 11 digits with DD included'
     })
+    return
   }
 
   const client = twilio(accountSid, authToken)
