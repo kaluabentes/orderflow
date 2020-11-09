@@ -3,12 +3,14 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import getString from '../i18n/getString'
 import Login from '../components/templates/Login'
-import { sendVerificationCode } from '../modules/auth/service'
+import { makeLogin } from '../modules/auth/actions'
+import { useAuth } from '../modules/auth/context'
 
 export default function LoginPage() {
   const router = useRouter()
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [, dispatch] = useAuth()
 
   async function handleAdvance(phone) {
     if (phone.length < 11) {
@@ -20,7 +22,7 @@ export default function LoginPage() {
     setIsLoading(true)
 
     try {
-      await sendVerificationCode(phone)
+      await makeLogin(dispatch, phone)
       router.push('/verify')
     } catch (error) {
       const { code } = error.response.data.error
