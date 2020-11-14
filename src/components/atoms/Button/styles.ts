@@ -9,7 +9,7 @@ export const Loader = styled(DotLoader)(css``)
 export const Container = styled('button')(css`
   border: 1px solid transparent;
   padding: 13px 20px;
-  border-radius: 7px;
+  border-radius: 6px;
   cursor: pointer;
   display: block;
   width: 100%;
