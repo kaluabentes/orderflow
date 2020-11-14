@@ -10,7 +10,7 @@ function HomePage() {
 
   return (
     <Home
-      title={getString('app.home.title')}
+      title={process.env.STORE_NAME}
       text={getString('app.home.text')}
       enterLabel={getString('app.home.enterLabel')}
       verifyLabel={getString('app.home.verifyLabel')}
