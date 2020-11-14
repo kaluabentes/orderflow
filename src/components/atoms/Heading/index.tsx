@@ -4,7 +4,7 @@ import { CommonProps } from '../../CommonProps'
 import { Container } from './styles'
 
 interface HeadingProps extends CommonProps {
-  as?: string
+  variant?: string
   size?:
     | 'xsmall'
     | 'small'
@@ -15,8 +15,8 @@ interface HeadingProps extends CommonProps {
     | 'xxxlarge'
 }
 
-function Heading({ as, size = 'medium', ...props }: HeadingProps) {
-  return <Container {...props} as={as} size={size} />
+function Heading({ variant, size = 'medium', ...props }: HeadingProps) {
+  return <Container {...props} as={variant} size={size} />
 }
 
 export default Heading
