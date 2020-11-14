@@ -8,6 +8,10 @@ class UsersService {
   static create(user) {
     return User.create(user)
   }
+
+  static update(id, data) {
+    return User.updateOne({ _id: id }, data)
+  }
 }
 
 export default UsersService
