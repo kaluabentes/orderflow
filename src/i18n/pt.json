@@ -11,5 +11,11 @@
   "app.verify.text": "Informe o código de verificação enviado para",
   "app.verify.advanceLabel": "Avançar",
   "app.verify.codeLabel": "Código de verificação",
-  "app.verify.codeError": "Código inválido"
+  "app.verify.codeError": "Código inválido",
+  "app.register.nameLabel": "Nome",
+  "app.register.districtLabel": "Bairro",
+  "app.register.streetLabel": "Rua",
+  "app.register.numberLabel": "Número",
+  "app.register.complementLabel": "Complemento",
+  "app.register.submitLabel": "Avançar"
 }
