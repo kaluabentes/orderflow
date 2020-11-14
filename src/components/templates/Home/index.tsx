@@ -8,6 +8,7 @@ import FadeInUp from '../../atoms/FadeInUp'
 
 import { Cover, Content } from './styles'
 import Base from '../Base'
+import getString from '~/i18n/getString'
 
 export const coverSrc =
   'https://images.pexels.com/photos/33162/food-restaurant-menu-asia.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500'
@@ -16,23 +17,11 @@ interface HomeProps {
   coverSrc?: string
   logoSrc?: string
   title?: string
-  text?: string
   onEnter: () => void
   onVerify: () => void
-  enterLabel: string
-  verifyLabel: string
 }
 
-function Home({
-  coverSrc,
-  logoSrc,
-  title,
-  text,
-  onEnter,
-  onVerify,
-  enterLabel,
-  verifyLabel
-}: HomeProps) {
+function Home({ coverSrc, logoSrc, title, onEnter, onVerify }: HomeProps) {
   return (
     <Base>
       <Cover src={coverSrc} />
@@ -45,16 +34,18 @@ function Home({
         </FadeInUp>
         <FadeInUp delay="0.2s">
           <Paragraph align="center" variant="muted" margin="0 0 30px 0">
-            {text}
+            {getString('app.home.text')}
           </Paragraph>
         </FadeInUp>
         <FadeInUp delay="0.4s">
           <Button variant="primary" onClick={onEnter} margin="0 0 20px 0">
-            {enterLabel}
+            {getString('app.home.enterLabel')}
           </Button>
         </FadeInUp>
         <FadeInUp delay="0.6s">
-          <Button onClick={onVerify}>{verifyLabel}</Button>
+          <Button onClick={onVerify}>
+            {getString('app.home.verifyLabel')}
+          </Button>
         </FadeInUp>
       </Content>
     </Base>
