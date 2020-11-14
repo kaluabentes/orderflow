@@ -7,7 +7,7 @@ export const Container = styled('div')(css`
   width: 100%;
 `)
 
-export const Field = styled('input')(css`
+export const inputStyles = css`
   height: 44px;
   padding: 0 10px;
   border: 1px solid rgba(0, 0, 0, 0.2);
@@ -25,4 +25,6 @@ export const Field = styled('input')(css`
     css`
       border-color: ${props => props.theme.colors.primary};
     `}
-`)
+`
+
+export const Field = styled('input')(inputStyles)
