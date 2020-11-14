@@ -4,7 +4,7 @@ import Button from '../../atoms/Button'
 import Heading from '../../atoms/Heading'
 import CodeInput from '../../atoms/CodeInput'
 import Paragraph from '../../atoms/Paragraph'
-import BackNavPage from '../BackNavPage'
+import InnerPage from '../InnerPage'
 
 interface VerifyProps {
   title?: string
@@ -30,8 +30,8 @@ function Verify({
   const [code, setCode] = useState('')
 
   return (
-    <BackNavPage onBack={onBack}>
-      <Heading size="large" margin="0 0 20px 0">
+    <InnerPage onBack={onBack} title={title}>
+      <Heading variant="h2" size="large" margin="0 0 20px 0">
         {title}
       </Heading>
       <Paragraph margin="0 0 20px 0" variant="muted">
@@ -51,7 +51,7 @@ function Verify({
       >
         {advanceLabel}
       </Button>
-    </BackNavPage>
+    </InnerPage>
   )
 }
 
