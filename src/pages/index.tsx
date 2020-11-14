@@ -3,7 +3,6 @@ import { useRouter } from 'next/dist/client/router'
 
 import { logoSrc } from '../components/atoms/Logo'
 import Home, { coverSrc } from '../components/templates/Home'
-import getString from '../i18n/getString'
 
 function HomePage() {
   const router = useRouter()
