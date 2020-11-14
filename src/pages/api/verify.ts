@@ -53,15 +53,15 @@ export default async (request: NowRequest, response: NowResponse) => {
   const client = twilio(accountSid, authToken)
 
   try {
-    const verificationCheck = await client.verify
+    await client.verify
       .services(serviceSid)
       .verificationChecks.create({ to: `+55${phone}`, code })
 
     await connectDb()
     const user = await UsersService.getOneByPhone(phone)
-    const token = await AuthService.createToken({ sub: phone })
 
     if (user) {
+      const token = await AuthService.createToken({ sub: user._id })
       response.status(200).send({
         token,
         user
@@ -77,6 +77,8 @@ export default async (request: NowRequest, response: NowResponse) => {
       number: '',
       complement: ''
     })
+
+    const token = await AuthService.createToken({ sub: newUser._id })
 
     response.status(200).send({
       token,
