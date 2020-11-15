@@ -17,8 +17,20 @@ export interface InputProps extends CommonProps {
   name?: string
   id: string
   type?: string
-  error?: string
+  error?: string | Array<string>
   maxLength?: string
+}
+
+export function renderError(error) {
+  if (!error) {
+    return null
+  }
+
+  if (Array.isArray(error)) {
+    return error.map(err => <ErrorMessage>{err}</ErrorMessage>)
+  }
+
+  return error
 }
 
 function Input({
@@ -56,7 +68,7 @@ function Input({
         type={type}
         placeholder={placeholder}
       />
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      {renderError(error)}
     </Container>
   )
 }
