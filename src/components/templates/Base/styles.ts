@@ -22,7 +22,7 @@ export const Content = styled('div')(css`
     margin-bottom: 50px;
     margin-top: 50px;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 10px;
     height: auto;
   }
 
