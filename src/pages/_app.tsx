@@ -6,7 +6,6 @@ import { Integrations } from '@sentry/tracing'
 
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
-import { AuthProvider } from '../modules/auth/context'
 
 Sentry.init({
   dsn:
@@ -18,10 +17,8 @@ Sentry.init({
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <ThemeProvider theme={theme}>
-      <AuthProvider>
-        <GlobalStyle />
-        <Component {...pageProps} />
-      </AuthProvider>
+      <GlobalStyle />
+      <Component {...pageProps} />
     </ThemeProvider>
   )
 }
