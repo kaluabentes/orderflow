@@ -4,11 +4,13 @@ import { CommonProps } from '~/components/CommonProps'
 import Label from '~/components/atoms/Label'
 
 import { Container, Field } from './styles'
+import { renderError } from '../Input'
 
 interface SelectProps extends CommonProps {
   label?: string
   id: string
   value: string
+  error?: string | Array<string>
   onChange: (event: any) => void
 }
 
@@ -18,6 +20,7 @@ function Select({
   id,
   value,
   onChange,
+  error,
   ...containerProps
 }: SelectProps) {
   return (
@@ -27,9 +30,15 @@ function Select({
           {label}
         </Label>
       )}
-      <Field id={id} value={value} onChange={onChange}>
+      <Field
+        id={id}
+        value={value}
+        onChange={onChange}
+        hasError={Boolean(error)}
+      >
         {children}
       </Field>
+      {renderError(error)}
     </Container>
   )
 }
