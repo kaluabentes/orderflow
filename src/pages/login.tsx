@@ -4,13 +4,13 @@ import { useRouter } from 'next/router'
 import getString from '../i18n/getString'
 import Login from '../components/templates/Login'
 import { makeLogin } from '../modules/auth/actions'
-import { useAuth } from '../modules/auth/context'
+import useAuth from '../modules/auth/hook'
 
 export default function LoginPage() {
   const router = useRouter()
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
-  const [, dispatch] = useAuth()
+  const [, setAuth] = useAuth()
 
   async function handleAdvance(phone) {
     if (phone.length < 11) {
@@ -22,7 +22,7 @@ export default function LoginPage() {
     setIsLoading(true)
 
     try {
-      await makeLogin(dispatch, phone)
+      await makeLogin(setAuth, phone)
       router.push('/verify')
     } catch (error) {
       const { code } = error.response.data.error
