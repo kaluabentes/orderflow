@@ -12,20 +12,11 @@ describe('Home template', () => {
   test('can use buttons', async () => {
     const handleEnter = jest.fn()
     const handleVerify = jest.fn()
-    const enterLabel = 'Enter'
-    const verifyLabel = 'Verify'
 
-    renderWithTheme(
-      <Home
-        enterLabel={enterLabel}
-        verifyLabel={verifyLabel}
-        onEnter={handleEnter}
-        onVerify={handleVerify}
-      />
-    )
+    renderWithTheme(<Home onEnter={handleEnter} onVerify={handleVerify} />)
 
-    await userEvent.click(screen.getByText(enterLabel))
-    await userEvent.click(screen.getByText(verifyLabel))
+    await userEvent.click(screen.getByText('Entrar'))
+    await userEvent.click(screen.getByText('Verificar disponibilidade'))
 
     expect(handleEnter).toHaveBeenCalledTimes(1)
     expect(handleVerify).toHaveBeenCalledTimes(1)
