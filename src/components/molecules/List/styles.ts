@@ -9,6 +9,6 @@ export const Container = styled('ul')(css`
 `)
 
 export const Item = styled('li')(css`
-  padding: 20px 0;
+  padding: 15px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `)
