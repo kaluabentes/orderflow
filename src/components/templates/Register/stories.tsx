@@ -10,8 +10,6 @@ export default {
 
 export const Default = () => (
   <Register
-    title="Cadastro"
-    text="Preencha as seguintes informações para que possamos atende-lo melhor."
     onBack={action('onBack')}
     onSubmit={action('onSubmit')}
     districts={[
