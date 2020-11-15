@@ -17,5 +17,9 @@
   "app.register.streetLabel": "Rua",
   "app.register.numberLabel": "Número",
   "app.register.complementLabel": "Complemento",
-  "app.register.submitLabel": "Avançar"
+  "app.register.submitLabel": "Avançar",
+  "app.register.title": "Cadastro",
+  "app.register.subTitle": "Continue seu cadastro",
+  "app.register.text": "Preencha as seguintes informações para que possamos atendê-lo melhor.",
+  "app.validation.requiredError": "O campo ${field} é obrigatório"
 }
