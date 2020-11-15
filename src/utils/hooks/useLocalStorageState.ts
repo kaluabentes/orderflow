@@ -1,25 +1,27 @@
 import { useEffect, useState } from 'react'
 
-function useLocalStorageState(key, initialState) {
+import Storage from '~/utils/services/Storage'
+
+function useLocalStorageState(key, initialState?) {
   const [state, setState] = useState(initialState)
 
   useEffect(() => {
-    const localState = localStorage.getItem(key)
+    const localState = Storage.getItem(key)
 
     if (localState) {
-      setState(JSON.parse(localState))
+      setState(localState)
       return
     }
 
-    localStorage.setItem(key, JSON.stringify(state))
+    Storage.setItem(key, state)
   }, [])
 
-  function handleUpdate(state) {
-    localStorage.setItem(key, JSON.stringify(state))
-    setState(state)
+  function mixedSetState(state) {
+    const newState = Storage.storeData(key, state)
+    setState(newState)
   }
 
-  return [state, handleUpdate]
+  return [state, mixedSetState]
 }
 
 export default useLocalStorageState
