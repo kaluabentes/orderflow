@@ -4,7 +4,7 @@ import { get } from 'lodash'
 
 import Verify from '../components/templates/Verify'
 import getString from '../i18n/getString'
-import { useAuth } from '../modules/auth/context'
+import useAuth from '../modules/auth/hook'
 import formatPhone from '../utils/formatters/formatPhone'
 import { checkCode } from '../modules/auth/actions'
 
@@ -12,9 +12,8 @@ function VerifyPage() {
   const [error, setError] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
-  const [auth, dispatch] = useAuth()
+  const [auth, setAuth] = useAuth()
   const phone = get(auth, 'user.phone', '')
-  const name = get(auth, 'user.name', '')
 
   async function handleAdvance(code) {
     if (code.length < 4) {
@@ -26,20 +25,16 @@ function VerifyPage() {
     setIsLoading(true)
 
     try {
-      await checkCode(dispatch, phone, code)
+      const user = await checkCode(setAuth, phone, code)
 
-      if (!name) {
+      if (!user.name) {
         router.push('/register')
         return
       }
 
       router.push('/menu')
     } catch (error) {
-      const { code } = error.response.data.error
-
-      if (code === 20404) {
-        setError(getString('app.verify.codeError'))
-      }
+      setError(getString('app.verify.codeError'))
     } finally {
       setIsLoading(false)
     }
