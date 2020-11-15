@@ -6,7 +6,7 @@ import useAuth from '~/modules/auth/hook'
 import { register } from '~/modules/auth/service'
 import Validation from '~/utils/services/Validation'
 
-const INITIAL_ERRORS = {
+const INITIAL_ERROR = {
   name: null,
   district: null,
   street: null,
@@ -21,7 +21,7 @@ const DataSchema = {
 }
 
 function RegisterPage() {
-  const [errors, setErrors] = useState<any>(INITIAL_ERRORS)
+  const [error, setError] = useState<any>(INITIAL_ERROR)
   const router = useRouter()
   const [auth] = useAuth()
   const [isLoading, setIsLoading] = useState(false)
@@ -30,11 +30,11 @@ function RegisterPage() {
     const validation = Validation.make(DataSchema, data)
 
     if (!validation.isValid) {
-      setErrors(validation.error)
+      setError(validation.error)
       return
     }
 
-    setErrors(INITIAL_ERRORS)
+    setError(INITIAL_ERROR)
     setIsLoading(true)
     await register(auth.token, data)
     router.push('/menu')
@@ -43,7 +43,7 @@ function RegisterPage() {
   return (
     <Register
       isLoading={isLoading}
-      errors={errors}
+      error={error}
       onBack={() => router.push('/verify')}
       onSubmit={handleSubmit}
       districts={[
