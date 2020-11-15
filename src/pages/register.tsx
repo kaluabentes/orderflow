@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import Register from '~/components/templates/Register'
 import useAuth from '~/modules/auth/hook'
 import { register } from '~/modules/auth/service'
-import validate from '~/utils/validation/validate'
+import Validation from '~/utils/services/Validation'
 
 const INITIAL_ERRORS = {
   name: null,
@@ -27,7 +27,7 @@ function RegisterPage() {
   const [isLoading, setIsLoading] = useState(false)
 
   async function handleSubmit(data) {
-    const validation = validate(DataSchema, data)
+    const validation = Validation.make(DataSchema, data)
 
     if (!validation.isValid) {
       setErrors(validation.error)
