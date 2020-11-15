@@ -16,14 +16,25 @@ interface District {
 }
 
 interface RegisterProps {
-  onBack: () => void
-  title: string
-  text: string
   districts: District[]
+  errors: {
+    name: string | null
+    district: string | null
+    street: string | null
+    number: string | null
+  }
+  isLoading?: boolean
+  onBack: () => void
   onSubmit: (data) => void
 }
 
-function Register({ onBack, title, text, districts, onSubmit }: RegisterProps) {
+function Register({
+  onBack,
+  districts,
+  onSubmit,
+  errors,
+  isLoading
+}: RegisterProps) {
   const [name, setName] = useState('')
   const [district, setDistrict] = useState('')
   const [street, setStreet] = useState('')
@@ -38,12 +49,12 @@ function Register({ onBack, title, text, districts, onSubmit }: RegisterProps) {
   }
 
   return (
-    <InnerPage onBack={onBack} title={title}>
+    <InnerPage onBack={onBack} title={getString('app.register.title')}>
       <Heading variant="h2" size="large" margin="0 0 20px 0">
-        {title}
+        {getString('app.register.subTitle')}
       </Heading>
       <Paragraph margin="0 0 20px 0" variant="muted">
-        {text}
+        {getString('app.register.text')}
       </Paragraph>
       <Input
         label={getString('app.register.nameLabel')}
@@ -51,6 +62,7 @@ function Register({ onBack, title, text, districts, onSubmit }: RegisterProps) {
         onChange={event => setName(event.target.value)}
         value={name}
         margin="0 0 20px 0"
+        error={errors.name}
       />
       <Select
         label={getString('app.register.districtLabel')}
@@ -58,6 +70,7 @@ function Register({ onBack, title, text, districts, onSubmit }: RegisterProps) {
         onChange={event => setDistrict(event.target.value)}
         value={district}
         margin="0 0 20px 0"
+        error={errors.district}
       >
         <option value="">{getString('app.global.selectBlankOption')}</option>
         {districts.map(district => (
@@ -73,6 +86,7 @@ function Register({ onBack, title, text, districts, onSubmit }: RegisterProps) {
           onChange={event => setStreet(event.target.value)}
           value={street}
           margin="0 0 20px 0"
+          error={errors.street}
         />
         <Input
           label={getString('app.register.numberLabel')}
@@ -80,6 +94,7 @@ function Register({ onBack, title, text, districts, onSubmit }: RegisterProps) {
           onChange={event => setNumber(event.target.value)}
           value={number}
           margin="0 0 20px 0"
+          error={errors.number}
         />
       </AddressGrid>
       <Input
@@ -89,7 +104,11 @@ function Register({ onBack, title, text, districts, onSubmit }: RegisterProps) {
         value={complement}
         margin="0 0 20px 0"
       />
-      <Button onClick={() => onSubmit(data)} variant="primary">
+      <Button
+        isLoading={isLoading}
+        onClick={() => onSubmit(data)}
+        variant="primary"
+      >
         {getString('app.register.submitLabel')}
       </Button>
     </InnerPage>
