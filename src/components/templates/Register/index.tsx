@@ -17,14 +17,14 @@ interface District {
 
 interface RegisterProps {
   districts: District[]
-  errors: {
+  error?: {
     name: string | null
     district: string | null
     street: string | null
     number: string | null
   }
   isLoading?: boolean
-  onBack: () => void
+  onBack?: () => void
   onSubmit: (data) => void
 }
 
@@ -32,7 +32,7 @@ function Register({
   onBack,
   districts,
   onSubmit,
-  errors,
+  error = {},
   isLoading
 }: RegisterProps) {
   const [name, setName] = useState('')
@@ -62,7 +62,7 @@ function Register({
         onChange={event => setName(event.target.value)}
         value={name}
         margin="0 0 20px 0"
-        error={errors.name}
+        error={error.name}
       />
       <Select
         label={getString('app.register.districtLabel')}
@@ -70,7 +70,7 @@ function Register({
         onChange={event => setDistrict(event.target.value)}
         value={district}
         margin="0 0 20px 0"
-        error={errors.district}
+        error={error.district}
       >
         <option value="">{getString('app.global.selectBlankOption')}</option>
         {districts.map(district => (
@@ -86,7 +86,7 @@ function Register({
           onChange={event => setStreet(event.target.value)}
           value={street}
           margin="0 0 20px 0"
-          error={errors.street}
+          error={error.street}
         />
         <Input
           label={getString('app.register.numberLabel')}
@@ -94,7 +94,7 @@ function Register({
           onChange={event => setNumber(event.target.value)}
           value={number}
           margin="0 0 20px 0"
-          error={errors.number}
+          error={error.number}
         />
       </AddressGrid>
       <Input
