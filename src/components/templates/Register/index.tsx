@@ -50,7 +50,7 @@ function Register({
 
   return (
     <InnerPage onBack={onBack} title={getString('app.register.title')}>
-      <Heading variant="h2" size="large" margin="0 0 20px 0">
+      <Heading variant="h2" size="large" margin="0 0 15px 0">
         {getString('app.register.subTitle')}
       </Heading>
       <Paragraph margin="0 0 20px 0" variant="muted">
