@@ -17,6 +17,14 @@
       "pre-push": "yarn test"
     }
   },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./jest.setup.js"
+    ],
+    "moduleNameMapper": {
+      "^~(.*)$": "<rootDir>/src$1"
+    }
+  },
   "dependencies": {
     "@sentry/react": "^5.27.3",
     "@sentry/tracing": "^5.27.3",
