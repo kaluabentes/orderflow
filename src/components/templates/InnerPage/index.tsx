@@ -16,7 +16,7 @@ function InnerPage({ children, title = 'Title', onBack }: InnerPageProps) {
     <Base hasPadding>
       <Header>
         <IconButton name="arrow_back" onClick={onBack} />
-        <Heading>{title}</Heading>
+        <Heading size="small">{title}</Heading>
         <BlankBrick />
       </Header>
       {children}
