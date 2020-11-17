@@ -97,7 +97,7 @@ export const NavItem = styled(`button`)(css`
     padding: 0;
     color: white;
     opacity: 0.7;
-    margin-right: 25px;
+    margin-right: 30px;
 
     ${props =>
       props.isActive &&
