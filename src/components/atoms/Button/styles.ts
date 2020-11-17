@@ -15,7 +15,11 @@ export const Container = styled('button')(css`
   width: 100%;
   font-weight: 500;
   font-size: 0.875rem;
-  transition: 0.5s;
+  transition: 0.2s;
+
+  &:active {
+    transform: scale(0.95);
+  }
 
   &:focus {
     outline: none;
