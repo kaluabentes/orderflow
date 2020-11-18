@@ -110,5 +110,5 @@ export const NavItem = styled(`button`)(css`
 export const ProfileText = styled(Heading)(css`
   width: 100%;
   text-align: right;
-  padding-right: 20px;
+  padding-right: 30px;
 `)
