@@ -12,6 +12,7 @@ export default createGlobalStyle`
   body {
     padding: 0 !important;
     color: ${props => props.theme.colors.text};
+    background: ${props => props.theme.colors.background}
   }
 
   strong {
