@@ -24,5 +24,7 @@
   "app.validation.requiredError": "O campo ${field} é obrigatório",
   "app.availability.title": "Disponibilidade",
   "app.availability.subTitle": "Lista de bairros suportados",
-  "app.availability.text": "Verifique na lista abaixo os bairros onde entragamos"
+  "app.availability.text": "Verifique na lista abaixo os bairros onde entragamos",
+  "app.hero.addressTitle": "Entregar em",
+  "app.hero.searchPlaceholder": "O que você deseja?"
 }
