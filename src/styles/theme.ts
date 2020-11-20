@@ -18,5 +18,8 @@ export default {
       small: '1rem',
       xsmall: '0.8rem'
     }
+  },
+  layout: {
+    maxWidth: '900px'
   }
 }
