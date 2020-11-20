@@ -18,7 +18,7 @@ export const Container = styled('header')(css`
   padding: 20px;
   color: white;
   width: 100%;
-  max-width: 1200px;
+  max-width: ${props => props.theme.layout.maxWidth}px;
   margin: 0 auto;
 
   & i {
