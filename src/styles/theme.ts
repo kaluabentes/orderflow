@@ -4,7 +4,7 @@ export default {
     info: '#3858cd',
     warning: '#fe932a',
     text: '#000000',
-    textMuted: 'rgba(0, 0, 0, 0.5)',
+    textMuted: 'rgba(0, 0, 0, 0.4)',
     background: '#f4f4f4'
   },
   typography: {
