@@ -35,12 +35,14 @@ export const Title = styled(`h4`)(css`
   margin: 0 0 10px 0;
   font-weight: 400;
   font-size: 1rem;
+  line-height: 1.4em;
 `)
 
 export const Description = styled(`p`)(css`
   margin: 0 0 15px 0;
   font-size: 0.875rem;
   color: ${props => props.theme.colors.textMuted};
+  line-height: 1.4em;
 `)
 
 export const Price = styled('p')(css`
