@@ -2,7 +2,11 @@ import { css } from 'styled-components'
 
 import styled from '~/styles/utils/styled'
 
-export const Container = styled('section')(css``)
+export const Container = styled('section')(css`
+  max-width: ${props => props.theme.layout.maxWidth};
+  width: 100%;
+  margin: 0 auto;
+`)
 
 export const Title = styled('h3')(css`
   margin: 0 0 20px 0;
