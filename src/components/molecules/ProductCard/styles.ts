@@ -31,7 +31,7 @@ export const Image = styled('img')(css`
 
 export const Content = styled(`div`)(css``)
 
-export const Title = styled(`h3`)(css`
+export const Title = styled(`h4`)(css`
   margin: 0 0 10px 0;
   font-weight: 400;
   font-size: 1rem;
