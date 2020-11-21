@@ -4,9 +4,10 @@ import { CommonProps } from '../../CommonProps'
 import { Container, Loader } from './styles'
 
 interface ButtonProps extends CommonProps {
-  onClick: () => void
+  onClick?: () => void
   isLoading?: boolean
   variant?: 'default' | 'primary' | 'info' | 'warning'
+  type?: string
 }
 
 function Button({
@@ -14,6 +15,7 @@ function Button({
   variant = 'default',
   isLoading = false,
   children,
+  type = 'button',
   ...props
 }: ButtonProps) {
   return (
@@ -21,7 +23,7 @@ function Button({
       {...props}
       onClick={onClick}
       variant={variant}
-      type="button"
+      type={type}
       disabled={isLoading}
     >
       {isLoading ? <Loader /> : children}

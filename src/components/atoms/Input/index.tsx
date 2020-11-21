@@ -30,7 +30,7 @@ export function renderError(error) {
     return error.map(err => <ErrorMessage>{err}</ErrorMessage>)
   }
 
-  return error
+  return <ErrorMessage>{error}</ErrorMessage>
 }
 
 function Input({

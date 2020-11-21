@@ -12,7 +12,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [, setAuth] = useAuth()
 
-  async function handleAdvance(phone) {
+  async function handleSubmit({ phone }) {
     if (phone.length < 11) {
       setError(getString('app.login.phoneError'))
       return
@@ -37,14 +37,10 @@ export default function LoginPage() {
 
   return (
     <Login
-      title={getString('app.login.title')}
-      text={getString('app.login.text')}
       onBack={() => router.push('/')}
-      onAdvance={handleAdvance}
-      advanceLabel={getString('app.login.advanceLabel')}
-      phoneLabel={getString('app.login.phoneLabel')}
-      error={error}
+      onSubmit={handleSubmit}
       isLoading={isLoading}
+      error={error}
     />
   )
 }

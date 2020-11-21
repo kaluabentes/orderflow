@@ -1,61 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import filterNumber from '../../../utils/filters/filterNumber'
-import formatPhone from '../../../utils/formatters/formatPhone'
-import Button from '../../atoms/Button'
+import LoginForm from '~/components/organisms/LoginForm'
+import getString from '~/i18n/getString'
 import Heading from '../../atoms/Heading'
-import Input from '../../atoms/Input'
 import Paragraph from '../../atoms/Paragraph'
 import InnerPage from '../InnerPage'
 
 interface LoginProps {
-  title?: string
-  text?: string
-  advanceLabel: string
-  phoneLabel: string
   error?: string
   isLoading?: boolean
-  onAdvance: (phone) => void
+  onSubmit: (phone) => void
   onBack?: () => void
 }
 
-function Login({
-  title,
-  text,
-  advanceLabel,
-  phoneLabel,
-  error,
-  isLoading,
-  onAdvance,
-  onBack
-}: LoginProps) {
-  const [phone, setPhone] = useState('')
-
+function Login({ error, isLoading, onSubmit, onBack }: LoginProps) {
   return (
-    <InnerPage onBack={onBack} title={title}>
+    <InnerPage onBack={onBack} title={getString('app.login.title')}>
       <Heading variant="h2" size="large" margin="0 0 20px 0">
-        {title}
+        {getString('app.login.subTitle')}
       </Heading>
       <Paragraph margin="0 0 20px 0" variant="muted">
-        {text}
+        {getString('app.login.text')}
       </Paragraph>
-      <Input
-        id="phone"
-        value={phone}
-        onChange={event => setPhone(formatPhone(event.target.value))}
-        margin="0 0 20px 0"
-        label={phoneLabel}
-        maxLength="15"
-        placeholder="(00) 00000-0000"
-        error={error}
-      />
-      <Button
-        variant="primary"
-        isLoading={isLoading}
-        onClick={() => onAdvance(filterNumber(phone))}
-      >
-        {advanceLabel}
-      </Button>
+      <LoginForm error={error} isLoading={isLoading} onSubmit={onSubmit} />
     </InnerPage>
   )
 }
