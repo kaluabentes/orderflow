@@ -7,7 +7,7 @@ import Input from '~/components/atoms/Input'
 import getString from '~/i18n/getString'
 import formatPhone from '~/utils/formatters/formatPhone'
 
-interface LoginProps {
+interface LoginFormProps {
   onSubmit: (values) => void
   error?: string
   isLoading?: boolean
@@ -21,7 +21,7 @@ const LoginSchema = Yup.object().shape({
   )
 })
 
-function LoginForm({ onSubmit, error, isLoading }: LoginProps) {
+function LoginForm({ onSubmit, error, isLoading }: LoginFormProps) {
   const initialValues = {
     phone: ''
   }
@@ -51,7 +51,7 @@ function LoginForm({ onSubmit, error, isLoading }: LoginProps) {
             variant="primary"
             isLoading={isLoading}
           >
-            {getString('app.login.advanceLabel')}
+            {getString('app.login.submitLabel')}
           </Button>
         </>
       )}

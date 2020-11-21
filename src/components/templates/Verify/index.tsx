@@ -1,36 +1,24 @@
 import React, { useState } from 'react'
 
-import Button from '../../atoms/Button'
-import Heading from '../../atoms/Heading'
-import CodeInput from '../../atoms/CodeInput'
-import Paragraph from '../../atoms/Paragraph'
-import InnerPage from '../InnerPage'
+import getString from '~/i18n/getString'
+import Button from '~/components/atoms/Button'
+import CodeInput from '~/components/atoms/CodeInput'
+import Paragraph from '~/components/atoms/Paragraph'
+import InnerPage from '~/components/templates/InnerPage'
 
 interface VerifyProps {
-  title?: string
-  text?: React.ReactNode
-  advanceLabel: string
-  codeLabel: string
+  text: React.ReactNode
   error?: string
   isLoading?: boolean
-  onAdvance: (code) => void
+  onSubmit: (code) => void
   onBack?: () => void
 }
 
-function Verify({
-  title,
-  text,
-  advanceLabel,
-  codeLabel,
-  error,
-  isLoading,
-  onAdvance,
-  onBack
-}: VerifyProps) {
+function Verify({ text, error, isLoading, onSubmit, onBack }: VerifyProps) {
   const [code, setCode] = useState('')
 
   return (
-    <InnerPage onBack={onBack} title={title}>
+    <InnerPage onBack={onBack} title={getString('app.verify.title')}>
       <Paragraph margin="0 0 20px 0" variant="muted">
         {text}
       </Paragraph>
@@ -39,14 +27,14 @@ function Verify({
         error={error}
         onChange={code => setCode(code)}
         id="verificationCode"
-        label={codeLabel}
+        label={getString('app.verify.codeLabel')}
       />
       <Button
         variant="primary"
         isLoading={isLoading}
-        onClick={() => onAdvance(code)}
+        onClick={() => onSubmit(code)}
       >
-        {advanceLabel}
+        {getString('app.verify.submitLabel')}
       </Button>
     </InnerPage>
   )

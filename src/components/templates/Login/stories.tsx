@@ -13,8 +13,8 @@ export const Default = () => (
     title="Entrar"
     text="Informe seu celular para que possamos enviar um codigo de verificação"
     onBack={action('onBack')}
-    onAdvance={action('onAdvance')}
-    advanceLabel="Avançar"
+    onSubmit={action('onSubmit')}
+    submitLabel="Avançar"
     phoneLabel="Celular"
   />
 )

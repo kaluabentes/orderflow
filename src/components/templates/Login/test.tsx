@@ -8,21 +8,21 @@ import Login from '.'
 
 describe('Login template', () => {
   test('can submit phone', async () => {
-    const handleAdvance = jest.fn()
+    const handleSubmit = jest.fn()
     const userInput = '48996288801'
-    const advanceLabel = 'Avançar'
+    const submitLabel = 'Avançar'
     const phoneLabel = 'Celular'
 
     renderWithTheme(
       <Login
-        onAdvance={handleAdvance}
-        advanceLabel={advanceLabel}
+        onSubmit={handleSubmit}
+        submitLabel={submitLabel}
         phoneLabel={phoneLabel}
       />
     )
 
     await userEvent.type(screen.getByLabelText(phoneLabel), userInput)
-    await userEvent.click(screen.getByText(advanceLabel))
-    expect(handleAdvance).toHaveBeenCalledWith(userInput)
+    await userEvent.click(screen.getByText(submitLabel))
+    expect(handleSubmit).toHaveBeenCalledWith(userInput)
   })
 })

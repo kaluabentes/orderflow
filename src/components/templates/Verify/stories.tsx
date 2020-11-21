@@ -18,8 +18,8 @@ export const Default = () => (
       </>
     }
     onBack={action('onBack')}
-    onAdvance={action('onAdvance')}
-    advanceLabel="Avançar"
+    onSubmit={action('onSubmit')}
+    submitLabel="Avançar"
     codeLabel="Código de verificação"
   />
 )

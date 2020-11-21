@@ -15,7 +15,7 @@ function VerifyPage() {
   const [auth, setAuth] = useAuth()
   const phone = get(auth, 'user.phone', '')
 
-  async function handleAdvance(code) {
+  async function handleSubmit(code) {
     if (code.length < 4) {
       setError(getString('app.verify.codeError'))
       return
@@ -43,7 +43,6 @@ function VerifyPage() {
   return (
     <Verify
       error={error}
-      title="Verificar"
       text={
         <>
           {`${getString('app.verify.text')} `}
@@ -51,9 +50,7 @@ function VerifyPage() {
         </>
       }
       onBack={() => router.push('/login')}
-      onAdvance={handleAdvance}
-      advanceLabel={getString('app.verify.advanceLabel')}
-      codeLabel={getString('app.verify.codeLabel')}
+      onSubmit={handleSubmit}
       isLoading={isLoading}
     />
   )

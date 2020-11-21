@@ -6,20 +6,20 @@ import { cleanup, screen } from '@testing-library/react'
 
 describe('Verify Template', () => {
   test('can type or paste and submit code', async () => {
-    const handleAdvance = jest.fn()
-    const advanceLabel = 'Avançar'
+    const handleSubmit = jest.fn()
+    const submitLabel = 'Avançar'
     const codeLabel = 'Código'
 
     renderWithTheme(
       <Verify
-        onAdvance={handleAdvance}
-        advanceLabel={advanceLabel}
+        onSubmit={handleSubmit}
+        submitLabel={submitLabel}
         codeLabel={codeLabel}
       />
     )
 
     await userEvent.type(screen.getByLabelText(codeLabel), '1234')
-    await userEvent.click(screen.getByText(advanceLabel))
-    expect(handleAdvance).toHaveBeenCalledWith('1234')
+    await userEvent.click(screen.getByText(submitLabel))
+    expect(handleSubmit).toHaveBeenCalledWith('1234')
   })
 })
