@@ -11,7 +11,8 @@ function getString(key, params?) {
     let newString
 
     Object.keys(params).forEach(key => {
-      newString = string.replaceAll(`\$\{${key}\}`, params[key])
+      const regex = new RegExp(`:${key}`, 'g')
+      newString = string.replace(regex, params[key])
     })
 
     return newString

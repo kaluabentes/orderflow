@@ -22,7 +22,7 @@
   "app.register.title": "Cadastro",
   "app.register.subTitle": "Continue seu cadastro",
   "app.register.text": "Preencha as seguintes informações para que possamos atendê-lo melhor.",
-  "validation.required": "O campo ${field} é obrigatório",
+  "validation.required": "O campo :field é obrigatório :field",
   "app.availability.title": "Disponibilidade",
   "app.availability.subTitle": "Lista de bairros suportados",
   "app.availability.text": "Verifique na lista abaixo os bairros onde entragamos",
