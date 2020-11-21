@@ -3,17 +3,16 @@ import { cleanup, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { renderWithTheme } from '../../../utils/test-utils'
 
-import Home, { coverSrc } from '.'
-import { logoSrc } from '../../atoms/Logo'
+import Welcome from '.'
 
 afterEach(cleanup)
 
-describe('Home template', () => {
+describe('Welcome template', () => {
   test('can use buttons', async () => {
     const handleEnter = jest.fn()
     const handleVerify = jest.fn()
 
-    renderWithTheme(<Home onEnter={handleEnter} onVerify={handleVerify} />)
+    renderWithTheme(<Welcome onEnter={handleEnter} onVerify={handleVerify} />)
 
     await userEvent.click(screen.getByText('Entrar'))
     await userEvent.click(screen.getByText('Verificar disponibilidade'))
