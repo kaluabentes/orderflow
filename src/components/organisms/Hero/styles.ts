@@ -5,6 +5,7 @@ import styled from '~/styles/utils/styled'
 export const OuterContainer = styled('div')(css`
   background: ${props => props.theme.colors.primary};
   width: 100%;
+  margin-bottom: 40px;
 `)
 
 export const Container = styled('div')(css`
@@ -14,7 +15,7 @@ export const Container = styled('div')(css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 20px;
+  padding: 120px 20px 40px 20px;
   color: white;
 `)
 
