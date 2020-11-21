@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
 import Register from '~/components/templates/Register'
-import useAuth from '~/modules/auth/hook'
+import useAuth from '~/modules/auth/hooks/useAuth'
 import { register } from '~/modules/auth/service'
 import Validation from '~/utils/services/Validation'
 
