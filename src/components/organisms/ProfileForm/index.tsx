@@ -31,11 +31,7 @@ const ProfileSchema = Yup.object().shape({
   complement: Yup.string()
 })
 
-export default function ProfileForm({
-  districts,
-  onSubmit,
-  isLoading
-}: ProfileFormProps) {
+function ProfileForm({ districts, onSubmit, isLoading }: ProfileFormProps) {
   const initialValues = {
     name: '',
     district: '',
@@ -115,3 +111,5 @@ export default function ProfileForm({
     </Formik>
   )
 }
+
+export default ProfileForm
