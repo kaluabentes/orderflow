@@ -31,9 +31,6 @@ function Verify({
 
   return (
     <InnerPage onBack={onBack} title={title}>
-      <Heading variant="h2" size="large" margin="0 0 20px 0">
-        {title}
-      </Heading>
       <Paragraph margin="0 0 20px 0" variant="muted">
         {text}
       </Paragraph>
