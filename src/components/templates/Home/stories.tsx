@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import React from 'react'
 
 import { logoSrc } from '~/components/atoms/Logo'
-import { cardProps } from '~/components/molecules/ProductCard'
+import { productProps } from '~/components/molecules/ProductCard/mock'
 
 import Home from '.'
 
@@ -12,12 +12,12 @@ export default {
 }
 
 const products = [
-  cardProps,
-  cardProps,
-  cardProps,
-  cardProps,
-  cardProps,
-  cardProps
+  productProps,
+  productProps,
+  productProps,
+  productProps,
+  productProps,
+  productProps
 ]
 
 export const Default = () => (
