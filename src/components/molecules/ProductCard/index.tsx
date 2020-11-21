@@ -1,5 +1,6 @@
 import React from 'react'
 import Truncate from 'react-truncate'
+import getString from '~/i18n/getString'
 
 import {
   Container,
@@ -45,7 +46,9 @@ function ProductCard({ image, title, description, price }: ProductCardProps) {
         <Description>
           <Truncate lines={2}>{description}</Truncate>
         </Description>
-        <Price>{price}</Price>
+        <Price>
+          {getString('app.currency')} {price.toLocaleString()}
+        </Price>
       </Content>
     </Container>
   )
