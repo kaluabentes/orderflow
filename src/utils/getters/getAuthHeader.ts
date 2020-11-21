@@ -1,4 +1,4 @@
-function buildAuthHeader(token, addConfig?) {
+function getAuthHeader(token, addConfig?) {
   return {
     headers: {
       Authorization: token
@@ -7,4 +7,4 @@ function buildAuthHeader(token, addConfig?) {
   }
 }
 
-export default buildAuthHeader
+export default getAuthHeader

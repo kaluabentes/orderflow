@@ -12,7 +12,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [, setAuth] = useAuth()
 
-  async function handleSubmit(phone) {
+  async function handleSubmit({ phone }) {
     if (phone.length < 11) {
       setError(getString('app.login.phoneError'))
       return
