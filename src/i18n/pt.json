@@ -1,8 +1,8 @@
 {
-  "app.home.title": "Done Rosa Bar e Restaurante",
-  "app.home.text": "Faça seu pedido online e entregaremos na sua porta",
-  "app.home.enterLabel": "Entrar",
-  "app.home.verifyLabel": "Verificar disponibilidade",
+  "app.welcome.title": "Done Rosa Bar e Restaurante",
+  "app.welcome.text": "Faça seu pedido online e entregaremos na sua porta",
+  "app.welcome.enterLabel": "Entrar",
+  "app.welcome.verifyLabel": "Verificar disponibilidade",
   "app.login.title": "Entrar",
   "app.login.text": "Informe seu celular para que possamos enviar um código de verificação",
   "app.login.phoneError": "Número inválido",
@@ -26,5 +26,12 @@
   "app.availability.subTitle": "Lista de bairros suportados",
   "app.availability.text": "Verifique na lista abaixo os bairros onde entragamos",
   "app.hero.addressTitle": "Entregar em",
-  "app.hero.searchPlaceholder": "O que você deseja?"
+  "app.hero.searchPlaceholder": "O que você deseja?",
+  "app.home.title": "Home",
+  "app.home.greeting": "Olá",
+  "app.header.home": "Home",
+  "app.header.about": "Sobre",
+  "app.header.orders": "Pedido",
+  "app.header.profile": "Perfil",
+  "app.header.logout": "Sair"
 }
