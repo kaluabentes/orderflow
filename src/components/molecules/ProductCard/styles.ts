@@ -84,7 +84,6 @@ export const LoaderDescription = styled('div')(css`
 
 export const LoaderPrice = styled('div')(css`
   height: 15px;
-  margin-bottom: 20px;
   width: 25%;
 
   ${skeleton}
