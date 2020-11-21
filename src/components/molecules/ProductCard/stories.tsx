@@ -1,7 +1,8 @@
 import React from 'react'
 import StoryContainer from '~/components/utils/StoryContainer'
 
-import ProductCard, { cardProps } from '.'
+import ProductCard from '.'
+import { productProps } from './mock'
 
 export default {
   title: 'Molecules/ProductCard',
@@ -10,12 +11,18 @@ export default {
 
 export const Default = () => (
   <StoryContainer>
-    <ProductCard {...cardProps} />
+    <ProductCard {...productProps} />
   </StoryContainer>
 )
 
 export const NoImage = () => (
   <StoryContainer>
-    <ProductCard {...cardProps} image={undefined} />
+    <ProductCard {...productProps} image={undefined} />
+  </StoryContainer>
+)
+
+export const Loader = () => (
+  <StoryContainer>
+    <ProductCard.Loader />
   </StoryContainer>
 )

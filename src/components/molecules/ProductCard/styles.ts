@@ -1,6 +1,11 @@
 import { css } from 'styled-components'
 
 import styled from '~/styles/utils/styled'
+import skeleton from '~/styles/animations/skeleton'
+
+const imageWidth = '95px'
+const imageHeight = '95px'
+const imageRadius = '10px'
 
 export const Container = styled('button')(css`
   display: flex;
@@ -22,14 +27,16 @@ export const Container = styled('button')(css`
 `)
 
 export const Image = styled('img')(css`
-  width: 95px;
-  height: 95px;
+  width: ${imageWidth};
+  height: ${imageHeight};
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: ${imageRadius};
   margin-right: 20px;
 `)
 
-export const Content = styled(`div`)(css``)
+export const Content = styled(`div`)(css`
+  width: 100%;
+`)
 
 export const Title = styled(`h4`)(css`
   margin: 0 0 10px 0;
@@ -48,4 +55,37 @@ export const Description = styled(`p`)(css`
 export const Price = styled('p')(css`
   margin: 0;
   font-weight: bold;
+`)
+
+export const LoaderImage = styled('div')(css`
+  height: ${imageHeight};
+  min-width: ${imageWidth};
+  border-radius: ${imageRadius};
+  margin-right: 20px;
+
+  ${skeleton}
+`)
+
+export const LoaderTitle = styled('div')(css`
+  height: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+
+  ${skeleton}
+`)
+
+export const LoaderDescription = styled('div')(css`
+  height: 15px;
+  margin-bottom: 20px;
+  width: 50%;
+
+  ${skeleton}
+`)
+
+export const LoaderPrice = styled('div')(css`
+  height: 15px;
+  margin-bottom: 20px;
+  width: 25%;
+
+  ${skeleton}
 `)
