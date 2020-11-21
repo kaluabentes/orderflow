@@ -10,7 +10,7 @@ export const OuterContainer = styled('div')(css`
 
 export const Container = styled('div')(css`
   width: 100%;
-  max-width: 600px;
+  max-width: ${props => props.theme.layout.maxWidth};
   margin: 0 auto;
   display: flex;
   flex-direction: column;
