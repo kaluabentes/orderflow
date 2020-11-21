@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import fadeInUp from '~/styles/animations/fadeInUp'
 
 import styled from '~/styles/utils/styled'
 
@@ -28,6 +29,7 @@ export const EditAddressButton = styled('button')(css`
   padding: 10px;
   cursor: pointer;
   margin-bottom: 20px;
+  ${fadeInUp}
 
   &:active {
     transform: scale(0.95);
@@ -46,4 +48,5 @@ export const AddressTitle = styled('span')(css`
   font-size: 12px;
   color: white;
   opacity: 0.7;
+  ${fadeInUp}
 `)
