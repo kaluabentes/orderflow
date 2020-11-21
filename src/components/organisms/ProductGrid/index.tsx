@@ -3,13 +3,14 @@ import { CommonProps } from '~/components/CommonProps'
 
 import { Container, Title, Grid } from './styles'
 
-interface ProductGridProps extends CommonProps {
+interface ProductGridProps {
   title: string
+  children: React.ReactNode
 }
 
-function ProductGrid({ title, children, ...commonProps }: ProductGridProps) {
+function ProductGrid({ title, children }: ProductGridProps) {
   return (
-    <Container {...commonProps}>
+    <Container>
       <Title>{title}</Title>
       <Grid>{children}</Grid>
     </Container>
