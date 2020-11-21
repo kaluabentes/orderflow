@@ -2,13 +2,13 @@ import React from 'react'
 import { useRouter } from 'next/dist/client/router'
 
 import { logoSrc } from '../components/atoms/Logo'
-import Home, { coverSrc } from '../components/templates/Home'
+import Welcome, { coverSrc } from '../components/templates/Welcome'
 
 function HomePage() {
   const router = useRouter()
 
   return (
-    <Home
+    <Welcome
       title={process.env.STORE_NAME}
       coverSrc={coverSrc}
       logoSrc={logoSrc}
