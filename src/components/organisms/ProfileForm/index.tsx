@@ -24,10 +24,10 @@ interface ProfileFormProps {
 const ProfileSchema = Yup.object().shape({
   name: Yup.string().required(getRequiredError('app.register.nameLabel')),
   district: Yup.string().required(
-    getRequiredError('app.district.districtLabel')
+    getRequiredError('app.register.districtLabel')
   ),
-  street: Yup.string().required(getRequiredError('app.street.streetLabel')),
-  number: Yup.string().required(getRequiredError('app.number.numberLabel')),
+  street: Yup.string().required(getRequiredError('app.register.streetLabel')),
+  number: Yup.string().required(getRequiredError('app.register.numberLabel')),
   complement: Yup.string()
 })
 
