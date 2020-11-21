@@ -8,7 +8,7 @@ import getString from '~/i18n/getString'
 import formatPhone from '~/utils/formatters/formatPhone'
 
 interface LoginFormProps {
-  onSubmit: (values) => void
+  onSubmit: (phone) => void
   error?: string
   isLoading?: boolean
 }
@@ -30,7 +30,7 @@ function LoginForm({ onSubmit, error, isLoading }: LoginFormProps) {
     <Formik
       initialValues={initialValues}
       validationSchema={LoginSchema}
-      onSubmit={onSubmit}
+      onSubmit={values => onSubmit(values)}
     >
       {({ values, errors, setFieldValue, handleSubmit }) => (
         <>

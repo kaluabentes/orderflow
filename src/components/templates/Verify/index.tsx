@@ -7,7 +7,7 @@ import Paragraph from '~/components/atoms/Paragraph'
 import InnerPage from '~/components/templates/InnerPage'
 
 interface VerifyProps {
-  text: React.ReactNode
+  text?: React.ReactNode
   error?: string
   isLoading?: boolean
   onSubmit: (code) => void
