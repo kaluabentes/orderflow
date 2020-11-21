@@ -1,18 +1,30 @@
 import React from 'react'
-import { CommonProps } from '~/components/CommonProps'
+import ProductCard from '~/components/molecules/ProductCard'
 
 import { Container, Title, Grid } from './styles'
 
 interface ProductGridProps {
+  isLoading?: boolean
   title: string
   children: React.ReactNode
 }
 
-function ProductGrid({ title, children }: ProductGridProps) {
+function ProductGrid({ isLoading, title, children }: ProductGridProps) {
   return (
     <Container>
       <Title>{title}</Title>
-      <Grid>{children}</Grid>
+      <Grid>
+        {isLoading ? (
+          <>
+            <ProductCard.Loader />
+            <ProductCard.Loader />
+            <ProductCard.Loader />
+            <ProductCard.Loader />
+          </>
+        ) : (
+          children
+        )}
+      </Grid>
     </Container>
   )
 }

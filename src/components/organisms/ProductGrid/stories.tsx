@@ -1,5 +1,7 @@
 import React from 'react'
-import ProductCard, { cardProps } from '~/components/molecules/ProductCard'
+
+import ProductCard from '~/components/molecules/ProductCard'
+import { productProps } from '~/components/molecules/ProductCard/mock'
 import StoryContainer from '~/components/utils/StoryContainer'
 
 import ProductGrid from '.'
@@ -10,17 +12,27 @@ export default {
 }
 
 const products = [
-  cardProps,
-  cardProps,
-  cardProps,
-  cardProps,
-  cardProps,
-  cardProps
+  productProps,
+  productProps,
+  productProps,
+  productProps,
+  productProps,
+  productProps
 ]
 
 export const Default = () => (
   <StoryContainer>
     <ProductGrid title="Hamburguers">
+      {products.map(product => (
+        <ProductCard {...product} />
+      ))}
+    </ProductGrid>
+  </StoryContainer>
+)
+
+export const Loading = () => (
+  <StoryContainer>
+    <ProductGrid isLoading title="Hamburguers">
       {products.map(product => (
         <ProductCard {...product} />
       ))}
