@@ -9,6 +9,7 @@ export const OuterContainer = styled('div')(css`
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 10;
 `)
 
 export const Container = styled('header')(css`
@@ -18,7 +19,6 @@ export const Container = styled('header')(css`
   padding: 20px;
   color: white;
   width: 100%;
-  max-width: ${props => props.theme.layout.maxWidth}px;
   margin: 0 auto;
 
   & i {
@@ -85,6 +85,10 @@ export const NavItem = styled(`button`)(css`
 
   &:active {
     transform: scale(0.9);
+  }
+
+  &:hover {
+    opacity: 1;
   }
 
   ${props =>
