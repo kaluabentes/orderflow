@@ -1,54 +1,45 @@
 import React from 'react'
+import ProductCard from '~/components/molecules/ProductCard'
 
-import Button from '../../atoms/Button'
-import Heading from '../../atoms/Heading'
-import Logo from '../../atoms/Logo'
-import Paragraph from '../../atoms/Paragraph'
-import FadeInUp from '../../atoms/FadeInUp'
-
-import { Cover, Content } from './styles'
-import Base from '../Base'
+import Header from '~/components/organisms/Header'
+import Hero from '~/components/organisms/Hero'
+import ProductGrid from '~/components/organisms/ProductGrid'
+import { navItems } from '~/config/header'
 import getString from '~/i18n/getString'
 
-export const coverSrc =
-  'https://images.pexels.com/photos/33162/food-restaurant-menu-asia.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500'
-
-interface HomeProps {
-  coverSrc?: string
-  logoSrc?: string
-  title?: string
-  onEnter: () => void
-  onVerify: () => void
-}
-
-function Home({ coverSrc, logoSrc, title, onEnter, onVerify }: HomeProps) {
+function Home({
+  products,
+  logoSrc,
+  address,
+  userName,
+  currentPath,
+  cartCount,
+  onNavClick,
+  onCartClick,
+  onAddressClick
+}) {
   return (
-    <Base>
-      <Cover src={coverSrc} />
-      <Content>
-        <Logo src={logoSrc} margin="0 0 40px 0" />
-        <FadeInUp delay="0s">
-          <Heading size="large" align="center" margin="0 0 15px 0">
-            {title}
-          </Heading>
-        </FadeInUp>
-        <FadeInUp delay="0.2s">
-          <Paragraph align="center" variant="muted" margin="0 0 30px 0">
-            {getString('app.home.text')}
-          </Paragraph>
-        </FadeInUp>
-        <FadeInUp delay="0.4s">
-          <Button variant="primary" onClick={onEnter} margin="0 0 20px 0">
-            {getString('app.home.enterLabel')}
-          </Button>
-        </FadeInUp>
-        <FadeInUp delay="0.6s">
-          <Button onClick={onVerify}>
-            {getString('app.home.verifyLabel')}
-          </Button>
-        </FadeInUp>
-      </Content>
-    </Base>
+    <>
+      <Header
+        title={getString('app.home.title')}
+        profileText={`${getString('app.home.greeting')}, ${userName}`}
+        currentPath={currentPath}
+        navItems={navItems}
+        onNavClick={onNavClick}
+        onCartClick={onCartClick}
+        cartCount={cartCount}
+      />
+      <Hero
+        logoSrc={logoSrc}
+        address={address}
+        onAddressClick={onAddressClick}
+      />
+      <ProductGrid title="Hamburguers">
+        {products.map(product => (
+          <ProductCard {...product} />
+        ))}
+      </ProductGrid>
+    </>
   )
 }
 
