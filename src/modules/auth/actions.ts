@@ -1,5 +1,3 @@
-import Storage from '~/utils/services/Storage'
-
 import { login, register, verify } from './service'
 
 export async function makeLogin(setState, phone) {

@@ -15,7 +15,7 @@ class Storage {
     localStorage.setItem(key, JSON.stringify(data))
   }
 
-  static storeData(key, data) {
+  static storeItem(key, data) {
     const storedData = Storage.getItem(key)
     const newData = merge(storedData, data)
 

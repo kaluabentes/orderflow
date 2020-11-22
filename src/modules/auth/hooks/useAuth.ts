@@ -1,4 +1,4 @@
-import useLocalStorageState from '~/utils/hooks/useLocalStorageState'
+import useStorageState from '~/utils/hooks/useStorageState'
 
 const INITIAL_STATE = {
   token: null,
@@ -8,7 +8,7 @@ const INITIAL_STATE = {
 const STORAGE_KEY = 'orderflow.auth'
 
 function useAuth() {
-  return useLocalStorageState(STORAGE_KEY, INITIAL_STATE)
+  return useStorageState(STORAGE_KEY, INITIAL_STATE)
 }
 
 export default useAuth

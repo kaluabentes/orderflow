@@ -1,19 +1,41 @@
-import React from 'react'
-import { useRouter } from 'next/dist/client/router'
+import React, { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 import { logoSrc } from '../components/atoms/Logo'
-import Welcome, { coverSrc } from '../components/templates/Welcome'
+import { productProps } from '~/components/molecules/ProductCard/mock'
+import Home from '~/components/templates/Home'
+import useAuth from '~/modules/auth/hooks/useAuth'
+
+const products = [
+  productProps,
+  productProps,
+  productProps,
+  productProps,
+  productProps,
+  productProps
+]
 
 function HomePage() {
   const router = useRouter()
+  const [auth] = useAuth()
+
+  useEffect(() => {
+    if (!auth.token && auth.isReady) {
+      router.push('/welcome')
+    }
+  }, [])
 
   return (
-    <Welcome
-      title={process.env.STORE_NAME}
-      coverSrc={coverSrc}
+    <Home
+      products={products}
       logoSrc={logoSrc}
-      onEnter={() => router.push('/login')}
-      onVerify={() => router.push('/availability')}
+      address="Servidão Vitórias, 40"
+      userName="Kaluã"
+      cartCount={10}
+      currentPath="/"
+      onAddressClick={() => {}}
+      onCartClick={() => {}}
+      onNavClick={() => {}}
     />
   )
 }

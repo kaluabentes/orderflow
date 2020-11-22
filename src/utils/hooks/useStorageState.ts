@@ -2,26 +2,31 @@ import { useEffect, useState } from 'react'
 
 import Storage from '~/utils/services/Storage'
 
-function useLocalStorageState(key, initialState?) {
-  const [state, setState] = useState(initialState)
+const INITIAL_STATE = {
+  isReady: false
+}
+
+function useStorageState(key, initialState?) {
+  const [state, setState] = useState({ ...INITIAL_STATE, ...initialState })
 
   useEffect(() => {
     const localState = Storage.getItem(key)
 
     if (localState) {
-      setState(localState)
+      setState({ isReady: true, ...localState })
       return
     }
 
+    setState({ isReady: true, ...state })
     Storage.setItem(key, state)
   }, [])
 
   function mixedSetState(state) {
-    const newState = Storage.storeData(key, state)
+    const newState = Storage.storeItem(key, state)
     setState(newState)
   }
 
   return [state, mixedSetState]
 }
 
-export default useLocalStorageState
+export default useStorageState

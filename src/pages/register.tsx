@@ -13,7 +13,7 @@ function RegisterPage() {
   async function handleSubmit(values) {
     setIsLoading(true)
     await register(auth.token, values)
-    router.push('/menu')
+    router.push('/')
   }
 
   return (
