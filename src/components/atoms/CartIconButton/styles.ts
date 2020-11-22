@@ -9,7 +9,7 @@ export const Container = styled('div')(css`
 
 export const Counter = styled('span')(css`
   background: #00ff00;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
   height: 20px;
   width: 20px;

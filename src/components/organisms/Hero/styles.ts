@@ -45,7 +45,7 @@ export const EditAddressButton = styled('button')(css`
 `)
 
 export const AddressTitle = styled('span')(css`
-  font-size: 12px;
+  font-size: 0.75rem;
   color: white;
   opacity: 0.7;
   ${fadeInUp}
