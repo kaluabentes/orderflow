@@ -13,11 +13,11 @@ function useStorageState(key, initialState?) {
     const localState = Storage.getItem(key)
 
     if (localState) {
-      setState({ isReady: true, ...localState })
+      setState({ ...localState, isReady: true })
       return
     }
 
-    setState({ isReady: true, ...state })
+    setState({ ...state, isReady: true })
     Storage.setItem(key, state)
   }, [])
 

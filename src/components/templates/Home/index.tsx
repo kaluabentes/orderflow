@@ -7,6 +7,25 @@ import ProductGrid from '~/components/organisms/ProductGrid'
 import { navItems } from '~/config/header'
 import getString from '~/i18n/getString'
 
+interface Product {
+  image: string
+  title: string
+  description: string
+  price: number
+}
+
+interface HomeProps {
+  products: Product[]
+  logoSrc: string
+  address: string
+  userName: string
+  currentPath: string
+  cartCount: number
+  onNavClick: (path) => void
+  onCartClick: () => void
+  onAddressClick: () => void
+}
+
 function Home({
   products,
   logoSrc,
@@ -17,7 +36,7 @@ function Home({
   onNavClick,
   onCartClick,
   onAddressClick
-}) {
+}: HomeProps) {
   return (
     <>
       <Header

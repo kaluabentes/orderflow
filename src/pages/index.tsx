@@ -23,7 +23,11 @@ function HomePage() {
     if (!auth.token && auth.isReady) {
       router.push('/welcome')
     }
-  }, [])
+  }, [auth])
+
+  if (!auth.token) {
+    return null
+  }
 
   return (
     <Home
@@ -35,7 +39,7 @@ function HomePage() {
       currentPath="/"
       onAddressClick={() => {}}
       onCartClick={() => {}}
-      onNavClick={() => {}}
+      onNavClick={path => router.push(path)}
     />
   )
 }

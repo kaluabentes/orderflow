@@ -32,7 +32,7 @@ function VerifyPage() {
         return
       }
 
-      router.push('/menu')
+      router.push('/')
     } catch (error) {
       setError(getString('app.verify.codeError'))
     } finally {
