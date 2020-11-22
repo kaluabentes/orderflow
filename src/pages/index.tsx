@@ -25,6 +25,10 @@ function HomePage() {
     }
   }, [auth])
 
+  function getUserName() {
+    return auth.user.name.split(' ')[0]
+  }
+
   if (!auth.token) {
     return null
   }
@@ -34,7 +38,7 @@ function HomePage() {
       products={products}
       logoSrc={logoSrc}
       address="Servidão Vitórias, 40"
-      userName="Kaluã"
+      userName={getUserName()}
       cartCount={10}
       currentPath="/"
       onAddressClick={() => {}}

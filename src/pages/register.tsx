@@ -2,17 +2,17 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
 import Register from '~/components/templates/Register'
+import { registerUser } from '~/modules/auth/actions'
 import useAuth from '~/modules/auth/hooks/useAuth'
-import { register } from '~/modules/auth/service'
 
 function RegisterPage() {
   const router = useRouter()
-  const [auth] = useAuth()
+  const [auth, setAuth] = useAuth()
   const [isLoading, setIsLoading] = useState(false)
 
   async function handleSubmit(values) {
     setIsLoading(true)
-    await register(auth.token, values)
+    await registerUser(setAuth, auth.token, values)
     router.push('/')
   }
 
