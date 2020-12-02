@@ -18,3 +18,7 @@ export const Default = () => (
 export const Muted = () => (
   <Paragraph variant="muted">Pepers Restaurante</Paragraph>
 )
+
+export const Weight = () => (
+  <Paragraph weight="bold">Pepers Restaurante</Paragraph>
+)

@@ -7,6 +7,10 @@ export const Container = styled('p')(css`
   font-weight: 300;
 
   ${props => css`
+    font-weight: ${props.weight};
+  `}
+
+  ${props => css`
     font-size: ${props.theme.typography.size[props.size]};
   `}
 
