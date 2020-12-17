@@ -8,7 +8,7 @@ export default {
     background: '#f4f4f4'
   },
   typography: {
-    fontFamily: "'Poppins', sans-serif",
+    fontFamily: "'Poppins', 'Courier New', sans-serif",
     size: {
       xxxlarge: '3.052rem',
       xxlarge: '2.441rem',
