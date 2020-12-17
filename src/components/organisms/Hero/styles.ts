@@ -29,7 +29,6 @@ export const EditAddressButton = styled('button')(css`
   padding: 10px;
   cursor: pointer;
   margin-bottom: 20px;
-  ${fadeInUp}
 
   &:active {
     transform: scale(0.95);
@@ -48,5 +47,4 @@ export const AddressTitle = styled('span')(css`
   font-size: 0.75rem;
   color: white;
   opacity: 0.7;
-  ${fadeInUp}
 `)

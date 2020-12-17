@@ -35,10 +35,8 @@ function Hero({
             {process.env.STORE_NAME}
           </Heading>
         </FadeInUp>
-        <AddressTitle delay="1s">
-          {getString('app.hero.addressTitle')}
-        </AddressTitle>
-        <EditAddressButton delay="1s" onClick={onAddressClick}>
+        <AddressTitle>{getString('app.hero.addressTitle')}</AddressTitle>
+        <EditAddressButton onClick={onAddressClick}>
           {address} <Icon name="edit" />
         </EditAddressButton>
         <SearchInput
