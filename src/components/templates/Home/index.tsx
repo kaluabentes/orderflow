@@ -8,14 +8,21 @@ import { navItems } from '~/config/header'
 import getString from '~/i18n/getString'
 
 interface Product {
+  id: string | number
   image: string
   title: string
   description: string
   price: number
 }
 
-interface HomeProps {
+interface Category {
+  id: string | number
+  name: string
   products: Product[]
+}
+
+interface HomeProps {
+  categories: Category[]
   logoSrc: string
   address: string
   userName: string
@@ -27,7 +34,7 @@ interface HomeProps {
 }
 
 function Home({
-  products,
+  categories,
   logoSrc,
   address,
   userName,
@@ -53,11 +60,13 @@ function Home({
         address={address}
         onAddressClick={onAddressClick}
       />
-      <ProductGrid title="Hamburguers">
-        {products.map(product => (
-          <ProductCard {...product} />
-        ))}
-      </ProductGrid>
+      {categories.map(category => (
+        <ProductGrid key={category.id} title={category.name}>
+          {category.products.map(product => (
+            <ProductCard key={product.id} {...product} />
+          ))}
+        </ProductGrid>
+      ))}
     </>
   )
 }
