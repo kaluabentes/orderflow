@@ -6,7 +6,7 @@ import styled from '~/styles/utils/styled'
 export const OuterContainer = styled('div')(css`
   background: ${props => props.theme.colors.primary};
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 `)
 
 export const Container = styled('div')(css`
