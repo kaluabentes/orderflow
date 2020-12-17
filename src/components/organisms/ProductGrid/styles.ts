@@ -6,7 +6,7 @@ export const Container = styled('section')(css`
   max-width: ${props => props.theme.layout.maxWidth};
   width: 100%;
   margin: 0 auto 40px auto;
-  padding: 20px;
+  padding: 0 20px;
 `)
 
 export const Title = styled('h3')(css`
