@@ -47,6 +47,7 @@ function Home({
   return (
     <>
       <Header
+        logoSrc={logoSrc}
         title={getString('app.home.title')}
         profileText={`${getString('app.home.greeting')}, ${userName}`}
         currentPath={currentPath}
