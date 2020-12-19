@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
-import CartIconButton from '~/components/atoms/CartIconButton'
+import React, { useState, useEffect } from 'react'
+
+import CounterIconButton from '~/components/atoms/CounterIconButton'
 import Heading from '~/components/atoms/Heading'
 import IconButton from '~/components/atoms/IconButton'
+import theme from '~/styles/theme'
 import useIsMobile from '~/utils/hooks/useIsMobile'
+import useScroll from '~/utils/hooks/useScroll'
 
 import {
   OuterContainer,
@@ -10,7 +13,9 @@ import {
   Nav,
   NavItem,
   NavHeader,
-  ProfileText
+  ProfileText,
+  CountersContainer,
+  BrandLogo
 } from './styles'
 
 interface NavItem {
@@ -20,6 +25,7 @@ interface NavItem {
 
 interface HeaderProps {
   title: string
+  logoSrc: string
   profileText: string
   currentPath: string
   navItems: NavItem[]
@@ -35,7 +41,8 @@ function Header({
   onNavClick,
   onCartClick,
   currentPath,
-  cartCount
+  cartCount,
+  logoSrc
 }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
   const isMobile = useIsMobile()
@@ -43,6 +50,7 @@ function Header({
   return (
     <OuterContainer>
       <Container>
+        {!isMobile && <BrandLogo src={logoSrc} alt="" />}
         <Nav isOpen={isOpen}>
           <NavHeader>
             <Heading size="medium" variant="h2">
@@ -64,7 +72,9 @@ function Header({
         {isMobile && (
           <>
             <IconButton name="sort" onClick={() => setIsOpen(true)} />
-            <Heading size="medium">{title}</Heading>
+            <Heading margin="0 -45px 0 0" size="medium">
+              {title}
+            </Heading>
           </>
         )}
         {!isMobile && (
@@ -72,7 +82,21 @@ function Header({
             {profileText}
           </ProfileText>
         )}
-        <CartIconButton count={cartCount} onClick={onCartClick} />
+        <CountersContainer>
+          <CounterIconButton
+            name="notifications"
+            count={cartCount}
+            onClick={onCartClick}
+            margin="0 15px 0 0"
+            counterBackgroundColor={theme.colors.info}
+            counterTextColor="white"
+          />
+          <CounterIconButton
+            name="shopping_cart"
+            count={cartCount}
+            onClick={onCartClick}
+          />
+        </CountersContainer>
       </Container>
     </OuterContainer>
   )
