@@ -16,6 +16,7 @@ export const Container = styled('button')(css`
   border-radius: 10px;
   width: 100%;
   cursor: pointer;
+  transition: 0.3s;
 
   &:focus {
     outline: 0;
@@ -23,6 +24,11 @@ export const Container = styled('button')(css`
 
   &:active {
     transform: scale(0.98);
+  }
+
+  &:hover {
+    box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.05);
+    transform: scale(1.01);
   }
 `)
 
