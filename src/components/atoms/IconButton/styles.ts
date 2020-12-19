@@ -13,4 +13,8 @@ export const Container = styled('button')(css`
   & i {
     font-size: 30px;
   }
+
+  &:focus {
+    outline: 0;
+  }
 `)
