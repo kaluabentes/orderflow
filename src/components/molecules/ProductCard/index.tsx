@@ -42,7 +42,7 @@ function ProductCard({ image, title, description, price }: ProductCardProps) {
 
   useEffect(() => {
     setTimeout(forceUpdate, 500)
-  }, [])
+  }, [forceUpdate])
 
   return (
     <Container>
