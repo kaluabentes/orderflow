@@ -18,9 +18,6 @@ interface AvailabilityProps {
 function Availability({ onBack, districts }: AvailabilityProps) {
   return (
     <InnerPage onBack={onBack} title={getString('app.availability.title')}>
-      <Heading variant="h2" size="large" margin="0 0 20px 0">
-        {getString('app.availability.subTitle')}
-      </Heading>
       <Paragraph variant="muted" margin="0 0 15px 0">
         {getString('app.availability.text')}
       </Paragraph>
