@@ -8,18 +8,18 @@ export const Container = styled('div')(css`
 `)
 
 export const Counter = styled('span')(css`
-  background: #00ff00;
-  font-size: 0.75rem;
-  font-weight: 500;
-  height: 20px;
-  width: 20px;
+  background: ${props => props.backgroundColor};
+  font-size: 0.7rem;
+  font-weight: 700;
+  height: 18px;
+  width: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   position: absolute;
-  right: -5px;
-  top: -10px;
-  color: black !important;
+  right: -2px;
+  top: -4px;
+  color: ${props => props.textColor} !important;
   z-index: 1;
 `)
