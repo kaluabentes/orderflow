@@ -53,6 +53,7 @@ export const Nav = styled('nav')(css`
     height: auto;
     transform: translateX(0);
     background: transparent;
+    margin-left: 75px;
   }
 `)
 
@@ -115,4 +116,16 @@ export const ProfileText = styled(Heading)(css`
   width: 100%;
   text-align: right;
   padding-right: 30px;
+`)
+
+export const CountersContainer = styled('div')(css`
+  display: flex;
+`)
+
+export const BrandLogo = styled('img')(css`
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  left: 20px;
 `)
