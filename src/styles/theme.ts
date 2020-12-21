@@ -9,7 +9,7 @@ export default {
     radioBackground: '#e6e6e6'
   },
   typography: {
-    fontFamily: "'Poppins', 'Courier New', sans-serif",
+    fontFamily: "'Poppins', sans-serif",
     size: {
       xxxlarge: '3.052rem',
       xxlarge: '2.441rem',
