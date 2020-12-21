@@ -13,6 +13,7 @@ export const Container = styled('button')(css`
   align-items: center;
   border: 0;
   outline: 0;
+  cursor: pointer;
 
   ${props =>
     props.isChecked &&
