@@ -84,14 +84,6 @@ function Header({
         )}
         <CountersContainer>
           <CounterIconButton
-            name="notifications"
-            count={cartCount}
-            onClick={onCartClick}
-            margin="0 15px 0 0"
-            counterBackgroundColor={theme.colors.info}
-            counterTextColor="white"
-          />
-          <CounterIconButton
             name="shopping_cart"
             count={cartCount}
             onClick={onCartClick}
