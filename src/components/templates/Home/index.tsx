@@ -22,6 +22,7 @@ interface Category {
 }
 
 interface HomeProps {
+  isLoading?: boolean
   categories: Category[]
   logoSrc: string
   address: string
@@ -34,6 +35,7 @@ interface HomeProps {
 }
 
 function Home({
+  isLoading,
   categories,
   logoSrc,
   address,
@@ -61,13 +63,17 @@ function Home({
         address={address}
         onAddressClick={onAddressClick}
       />
-      {categories.map(category => (
-        <ProductGrid key={category.id} title={category.name}>
-          {category.products.map(product => (
-            <ProductCard key={product.id} {...product} />
-          ))}
-        </ProductGrid>
-      ))}
+      {isLoading ? (
+        <ProductGrid isLoading />
+      ) : (
+        categories.map(category => (
+          <ProductGrid key={category.id} title={category.name}>
+            {category.products.map(product => (
+              <ProductCard key={product.id} {...product} />
+            ))}
+          </ProductGrid>
+        ))
+      )}
     </>
   )
 }

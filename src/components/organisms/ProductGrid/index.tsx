@@ -5,8 +5,8 @@ import { Container, Title, Grid } from './styles'
 
 interface ProductGridProps {
   isLoading?: boolean
-  title: string
-  children: React.ReactNode
+  title?: string
+  children?: React.ReactNode
 }
 
 function ProductGrid({ isLoading, title, children }: ProductGridProps) {

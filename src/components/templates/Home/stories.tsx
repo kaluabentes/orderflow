@@ -2,27 +2,33 @@ import { action } from '@storybook/addon-actions'
 import React from 'react'
 
 import { logoSrc } from '~/components/atoms/Logo'
-import { productProps } from '~/components/molecules/ProductCard/mock'
 
 import Home from '.'
+import { categories } from './mock'
 
 export default {
   title: 'Templates/Home',
   component: Home
 }
 
-const products = [
-  productProps,
-  productProps,
-  productProps,
-  productProps,
-  productProps,
-  productProps
-]
-
 export const Default = () => (
   <Home
-    products={products}
+    categories={categories}
+    logoSrc={logoSrc}
+    address="Servidão Vitórias, 40"
+    userName="Kaluã"
+    cartCount={10}
+    currentPath="/"
+    onAddressClick={action('onAddressClick')}
+    onCartClick={action('onCartClick')}
+    onNavClick={action('onNavClick')}
+  />
+)
+
+export const Loading = () => (
+  <Home
+    isLoading
+    categories={categories}
     logoSrc={logoSrc}
     address="Servidão Vitórias, 40"
     userName="Kaluã"

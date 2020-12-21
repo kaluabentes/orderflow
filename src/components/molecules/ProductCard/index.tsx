@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Truncate from 'react-truncate'
 
 import getString from '~/i18n/getString'
@@ -38,12 +38,6 @@ function Loader() {
 }
 
 function ProductCard({ image, title, description, price }: ProductCardProps) {
-  const forceUpdate = useForceUpdate()
-
-  useEffect(() => {
-    setTimeout(forceUpdate, 1000)
-  }, [forceUpdate])
-
   return (
     <Container>
       {image && <Image src={image} alt="" />}
