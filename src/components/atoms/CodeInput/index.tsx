@@ -48,7 +48,7 @@ function CodeInput({ label, id, onChange, error, ...props }: CodeInputProps) {
 
   return (
     <Container {...props}>
-      <Label htmlFor={id} margin="0 0 7px 0">
+      <Label htmlFor={id} margin="0 0 10px 0">
         {label}
       </Label>
       <Grid>
