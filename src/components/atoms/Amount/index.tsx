@@ -10,9 +10,10 @@ enum Mode {
 interface AmountProps {
   value: number
   onChange: (value) => void
+  isDisabled: boolean
 }
 
-function Amount({ value, onChange }: AmountProps) {
+function Amount({ value, isDisabled, onChange }: AmountProps) {
   const methods = {
     add: handleAdd,
     subtract: handleSubtract
@@ -38,11 +39,14 @@ function Amount({ value, onChange }: AmountProps) {
 
   return (
     <Container>
-      <Button onClick={() => handleChange(Mode.Subtract)}>
+      <Button
+        onClick={() => handleChange(Mode.Subtract)}
+        disabled={value === 0}
+      >
         <ButtonLabel>-</ButtonLabel>
       </Button>
       <Count>{value}</Count>
-      <Button onClick={() => handleChange(Mode.Add)}>
+      <Button onClick={() => handleChange(Mode.Add)} disabled={isDisabled}>
         <ButtonLabel>+</ButtonLabel>
       </Button>
     </Container>

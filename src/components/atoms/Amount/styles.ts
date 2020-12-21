@@ -32,6 +32,13 @@ export const Button = styled('button')(css`
   &:last-of-type {
     right: 0;
   }
+
+  ${props =>
+    props.disabled &&
+    css`
+      opacity: 0.5;
+      cursor: initial;
+    `}
 `)
 
 export const ButtonLabel = styled('span')(css`

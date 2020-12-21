@@ -10,9 +10,11 @@ export default {
 export const Default = () => {
   const [value, setValue] = useState(0)
 
-  return (
-    <Amount value={value} onChange={value => setValue(value)}>
-      E-mail
-    </Amount>
-  )
+  return <Amount value={value} onChange={value => setValue(value)} />
+}
+
+export const Disabled = () => {
+  const [value, setValue] = useState(0)
+
+  return <Amount isDisabled value={value} onChange={value => setValue(value)} />
 }
