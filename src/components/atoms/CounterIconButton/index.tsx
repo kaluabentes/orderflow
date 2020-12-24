@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { CommonProps } from '~/components/CommonProps'
-import IconButton from '../IconButton'
+import Icon from '../Icon'
 
 import { Container, Counter } from './styles'
 
@@ -22,14 +22,14 @@ function CounterIconButton({
   ...props
 }: CounterIconButtonProps) {
   return (
-    <Container {...props}>
+    <Container onClick={onClick} {...props}>
       <Counter
         textColor={counterTextColor}
         backgroundColor={counterBackgroundColor}
       >
         {count}
       </Counter>
-      <IconButton name={name} onClick={onClick} />
+      <Icon name={name} />
     </Container>
   )
 }

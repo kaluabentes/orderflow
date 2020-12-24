@@ -3,9 +3,8 @@ import React, { useState, useEffect } from 'react'
 import CounterIconButton from '~/components/atoms/CounterIconButton'
 import Heading from '~/components/atoms/Heading'
 import IconButton from '~/components/atoms/IconButton'
-import theme from '~/styles/theme'
 import useIsMobile from '~/utils/hooks/useIsMobile'
-import useScroll from '~/utils/hooks/useScroll'
+import SearchInput from '~/components/atoms/SearchInput'
 
 import {
   OuterContainer,
@@ -15,8 +14,14 @@ import {
   NavHeader,
   ProfileText,
   CountersContainer,
-  BrandLogo
+  BrandLogo,
+  EditAddressContainer,
+  EditAddressButton,
+  AddressTitle,
+  ActionsContainer
 } from './styles'
+import getString from '~/i18n/getString'
+import Icon from '~/components/atoms/Icon'
 
 interface NavItem {
   path: string
@@ -29,23 +34,52 @@ interface HeaderProps {
   profileText: string
   currentPath: string
   navItems: NavItem[]
+  cartCount: string | number
+  address: string
+  searchValue: string
   onNavClick: (path) => void
   onCartClick: () => void
-  cartCount: string | number
+  onAddressClick: () => void
+  onSearchChange: (event: React.ChangeEvent) => void
+  onClose: () => void
 }
 
 function Header({
   title,
   navItems,
   profileText,
-  onNavClick,
-  onCartClick,
   currentPath,
   cartCount,
-  logoSrc
+  logoSrc,
+  address,
+  searchValue,
+  onAddressClick,
+  onClose,
+  onSearchChange,
+  onNavClick,
+  onCartClick
 }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const isMobile = useIsMobile()
+
+  function handleOnSearchClose() {
+    onClose()
+    setIsSearchOpen(false)
+  }
+
+  function renderSearchInput(hasCloseButton) {
+    return (
+      <SearchInput
+        value={searchValue}
+        onChange={onSearchChange}
+        onClose={handleOnSearchClose}
+        hasCloseButton={hasCloseButton}
+        margin={!isSearchOpen ? '0 0 0 20px' : null}
+        placeholder="O que você deseja?"
+      />
+    )
+  }
 
   return (
     <OuterContainer>
@@ -69,7 +103,19 @@ function Header({
             </NavItem>
           ))}
         </Nav>
-        {isMobile && (
+        {!isMobile && renderSearchInput(searchValue)}
+        {isMobile && isSearchOpen && renderSearchInput(true)}
+        {!isMobile && (
+          <>
+            <EditAddressContainer>
+              <AddressTitle>{getString('app.hero.addressTitle')}</AddressTitle>
+              <EditAddressButton onClick={onAddressClick}>
+                {address} <Icon name="edit" />
+              </EditAddressButton>
+            </EditAddressContainer>
+          </>
+        )}
+        {isMobile && !isSearchOpen && (
           <>
             <IconButton name="sort" onClick={() => setIsOpen(true)} />
             <Heading margin="0 -45px 0 0" size="medium">
@@ -82,13 +128,24 @@ function Header({
             {profileText}
           </ProfileText>
         )}
-        <CountersContainer>
-          <CounterIconButton
-            name="shopping_cart"
-            count={cartCount}
-            onClick={onCartClick}
-          />
-        </CountersContainer>
+        <ActionsContainer>
+          {isMobile && !isSearchOpen && (
+            <IconButton
+              onClick={() => setIsSearchOpen(true)}
+              margin="0 20px 0 0"
+              name="search"
+            />
+          )}
+          {!isSearchOpen && (
+            <CountersContainer>
+              <CounterIconButton
+                name="shopping_cart"
+                count={cartCount}
+                onClick={onCartClick}
+              />
+            </CountersContainer>
+          )}
+        </ActionsContainer>
       </Container>
     </OuterContainer>
   )

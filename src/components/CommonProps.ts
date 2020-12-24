@@ -6,4 +6,5 @@ export interface CommonProps {
   children?: React.ReactNode
   align?: 'center' | 'right' | 'left' | 'justify'
   className?: string
+  color?: string
 }

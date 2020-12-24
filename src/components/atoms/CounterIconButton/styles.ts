@@ -2,9 +2,17 @@ import { css } from 'styled-components'
 
 import styled from '~/styles/utils/styled'
 
-export const Container = styled('div')(css`
+export const Container = styled('button')(css`
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  outline: 0;
+
+  & i {
+    font-size: 30px;
+  }
 `)
 
 export const Counter = styled('span')(css`

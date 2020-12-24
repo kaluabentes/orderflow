@@ -8,8 +8,8 @@ interface IconProps extends CommonProps {
   name: string
 }
 
-function Icon({ name }: IconProps) {
-  return <Container>{name}</Container>
+function Icon({ name, ...commonProps }: IconProps) {
+  return <Container {...commonProps}>{name}</Container>
 }
 
 export default Icon

@@ -17,3 +17,9 @@ export const padding = props =>
   css`
     padding: ${props.padding};
   `
+
+export const color = props =>
+  props.color &&
+  css`
+    color: ${props.color};
+  `

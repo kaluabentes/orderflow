@@ -16,13 +16,17 @@ export const Container = styled('header')(css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 12px 20px;
   color: white;
   width: 100%;
   margin: 0 auto;
 
   & i {
     color: white;
+  }
+
+  @media (max-width: 769px) {
+    padding: 20px;
   }
 `)
 
@@ -113,7 +117,7 @@ export const NavItem = styled(`button`)(css`
 `)
 
 export const ProfileText = styled(Heading)(css`
-  width: 100%;
+  width: 40%;
   text-align: right;
   padding-right: 30px;
 `)
@@ -128,4 +132,41 @@ export const BrandLogo = styled('img')(css`
   border-radius: 50%;
   position: absolute;
   left: 20px;
+`)
+
+export const EditAddressContainer = styled('div')(css`
+  width: 100%;
+  margin-left: 20px;
+`)
+
+export const EditAddressButton = styled('button')(css`
+  background: transparent;
+  border: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  & i {
+    margin-left: 10px;
+  }
+`)
+
+export const AddressTitle = styled('span')(css`
+  font-size: 0.75rem;
+  color: white;
+  opacity: 0.7;
+`)
+
+export const ActionsContainer = styled('div')(css`
+  display: flex;
 `)

@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions'
-import React from 'react'
+import React, { useState } from 'react'
+import { logoSrc } from '~/components/atoms/Logo'
 
 import { navItems } from '~/config/header'
 
@@ -10,14 +11,24 @@ export default {
   component: Header
 }
 
-export const Default = () => (
-  <Header
-    title="Menu"
-    profileText="Olá, Kaluã"
-    currentPath="/menu"
-    navItems={navItems}
-    onNavClick={action('onNavClick')}
-    onCartClick={action('onCartClick')}
-    cartCount={10}
-  />
-)
+export const Default = () => {
+  const [value, setValue] = useState('')
+
+  return (
+    <Header
+      title="Menu"
+      profileText="Olá, Kaluã"
+      currentPath="/menu"
+      navItems={navItems}
+      onNavClick={action('onNavClick')}
+      onCartClick={action('onCartClick')}
+      onAddressClick={action('onAddressClick')}
+      onSearchChange={event => setValue(event.target.value)}
+      onClose={() => setValue('')}
+      searchValue={value}
+      cartCount={10}
+      logoSrc={logoSrc}
+      address="Servidão Vitórias, 40"
+    />
+  )
+}
