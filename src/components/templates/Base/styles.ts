@@ -15,14 +15,13 @@ export const Content = styled('div')(css`
   height: 100vh;
   width: 100%;
   overflow: auto;
-  box-shadow: 0 3px 20px 2px rgba(0, 0, 0, 0.05);
 
   @media (min-width: 600px) {
     max-width: 400px;
     margin-bottom: 50px;
     margin-top: 50px;
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 10px;
     height: auto;
   }
 

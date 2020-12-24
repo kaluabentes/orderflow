@@ -120,6 +120,9 @@ export const ProfileText = styled(Heading)(css`
   width: 40%;
   text-align: right;
   padding-right: 30px;
+  font-weight: 500;
+  color: white;
+  opacity: 0.7;
 `)
 
 export const CountersContainer = styled('div')(css`
@@ -170,7 +173,7 @@ export const ActionsContainer = styled('div')(css`
 
 export const EditAddressButton = styled('button')(css`
   width: 100%;
-  margin-left: 20px;
+  margin-left: 40px;
   background: transparent;
   border: 0;
   color: white;
@@ -183,40 +186,38 @@ export const EditAddressButton = styled('button')(css`
     outline: 0;
   }
 
-  ${props =>
-    props.isMobile &&
-    css`
-      position: fixed;
-      left: 0;
-      top: 70px;
-      width: 100%;
-      color: ${props => props.theme.colors.text};
-      margin-left: 0px;
-      background: white;
-      padding: 15px 20px;
-      z-index: 3;
-      box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.05);
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    position: fixed;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    color: ${props => props.theme.colors.text};
+    margin-left: 0 !important;
+    background: white;
+    padding: 0;
+    z-index: 3;
+    box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.05);
 
-      ${props =>
-        props.isSearchOpen &&
-        css`
-          top: 90px;
-        `}
+    ${props =>
+      props.isSearchOpen &&
+      css`
+        top: 90px;
+      `}
 
-      ${props =>
-        !props.isScrolled &&
-        css`
+    ${props =>
+      !props.isScrolled &&
+      css`
+        color: white;
+        background: transparent;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+        & ${AddressTitle} {
           color: white;
-          background: transparent;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-          & ${AddressTitle} {
-            color: white;
-          }
-
-          & ${EditAddressContent} {
-            color: white;
-          }
-        `}
-    `}
+        & ${EditAddressContent} {
+          color: white;
+        }
+      `}
+  }
 `)
