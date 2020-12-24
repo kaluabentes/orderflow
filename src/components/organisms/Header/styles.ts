@@ -141,6 +141,16 @@ export const EditAddressContent = styled('div')(css`
   & i {
     margin-left: 10px;
   }
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    color: ${props => props.theme.colors.text};
+    padding: 0;
+    margin: 0;
+
+    & i {
+      margin-left: 10px;
+    }
+  }
 `)
 
 export const AddressTitle = styled('span')(css`
@@ -149,7 +159,8 @@ export const AddressTitle = styled('span')(css`
   opacity: 0.7;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
-    opacity: 0.4;
+    color: ${props => props.theme.colors.textMuted};
+    margin-bottom: 10px;
   }
 `)
 
@@ -166,6 +177,7 @@ export const EditAddressButton = styled('button')(css`
   cursor: pointer;
   padding: 0;
   text-align: left;
+  transition: 0.3s;
 
   &:focus {
     outline: 0;
@@ -177,12 +189,13 @@ export const EditAddressButton = styled('button')(css`
       position: fixed;
       left: 0;
       top: 70px;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
       width: 100%;
       color: ${props => props.theme.colors.text};
       margin-left: 0px;
       background: white;
       padding: 15px 20px;
+      z-index: 3;
+      box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.05);
 
       ${props =>
         props.isSearchOpen &&
@@ -190,19 +203,20 @@ export const EditAddressButton = styled('button')(css`
           top: 90px;
         `}
 
-      & ${AddressTitle} {
-        color: ${props => props.theme.colors.textMuted};
-        margin-bottom: 10px;
-      }
+      ${props =>
+        !props.isScrolled &&
+        css`
+          color: white;
+          background: transparent;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
-      & ${EditAddressButton} {
-        color: ${props => props.theme.colors.text};
-        padding: 0;
-        margin: 0;
+          & ${AddressTitle} {
+            color: white;
+          }
 
-        & i {
-          margin-left: 10px;
-        }
-      }
+          & ${EditAddressContent} {
+            color: white;
+          }
+        `}
     `}
 `)

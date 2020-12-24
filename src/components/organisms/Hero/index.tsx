@@ -3,16 +3,17 @@ import Heading from '~/components/atoms/Heading'
 import Icon from '~/components/atoms/Icon'
 import Logo from '~/components/atoms/Logo'
 import getString from '~/i18n/getString'
-import { OuterContainer, Container } from './styles'
+import { OuterContainer, Container, Overlay } from './styles'
 
 interface HeroProps {
   logoSrc: string
-  isSearchOpen: boolean
+  isSearchOpen?: boolean
+  coverSrc: string
 }
 
-function Hero({ logoSrc, isSearchOpen }: HeroProps) {
+function Hero({ logoSrc, isSearchOpen = false, coverSrc }: HeroProps) {
   return (
-    <OuterContainer isSearchOpen={isSearchOpen}>
+    <OuterContainer isSearchOpen={isSearchOpen} coverSrc={coverSrc}>
       <Container>
         <Logo margin="0 0 30px 0" src={logoSrc} />
         <FadeInUp>
@@ -21,6 +22,7 @@ function Hero({ logoSrc, isSearchOpen }: HeroProps) {
           </Heading>
         </FadeInUp>
       </Container>
+      <Overlay />
     </OuterContainer>
   )
 }

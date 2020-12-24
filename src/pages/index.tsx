@@ -5,6 +5,7 @@ import { logoSrc } from '../components/atoms/Logo'
 import Home from '~/components/templates/Home'
 import useAuth from '~/modules/auth/hooks/useAuth'
 import useCategories from '~/modules/products/hooks/useCategories'
+import { coverSrc } from '~/components/templates/Welcome'
 
 function HomePage() {
   const router = useRouter()
@@ -31,6 +32,7 @@ function HomePage() {
       isLoading={isLoading}
       categories={categories}
       logoSrc={logoSrc}
+      coverSrc={coverSrc}
       address="Servidão Vitórias, 40"
       userName={getUserName()}
       cartCount={10}

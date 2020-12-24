@@ -27,6 +27,7 @@ interface HomeProps {
   isLoading?: boolean
   categories: Category[]
   logoSrc: string
+  coverSrc: string
   address: string
   userName: string
   currentPath: string
@@ -43,6 +44,7 @@ function Home({
   isLoading,
   categories,
   logoSrc,
+  coverSrc,
   address,
   userName,
   currentPath,
@@ -87,12 +89,7 @@ function Home({
         onSearchClose={handleSearchClose}
         onSearchChange={onSearchChange}
       />
-      <Hero
-        isSearchOpen={isSearchOpen}
-        logoSrc={logoSrc}
-        address={address}
-        onAddressClick={onAddressClick}
-      />
+      <Hero isSearchOpen={isSearchOpen} logoSrc={logoSrc} coverSrc={coverSrc} />
       {isLoading ? (
         <ProductGrid isLoading />
       ) : (

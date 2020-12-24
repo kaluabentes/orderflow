@@ -66,8 +66,26 @@ function Header({
   onCartClick
 }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const isMobile = useIsMobile()
   const isMounted = useIsMounted()
+
+  useEffect(() => {
+    function handleScroll() {
+      if (window.pageYOffset > 100) {
+        setIsScrolled(true)
+        return
+      }
+
+      setIsScrolled(false)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   function handleOnSearchClose() {
     onSearchClose()
@@ -88,7 +106,11 @@ function Header({
 
   function renderAddressSection() {
     const component = (
-      <EditAddressButton isMobile={isMobile} isSearchOpen={isSearchOpen}>
+      <EditAddressButton
+        isScrolled={isScrolled}
+        isMobile={isMobile}
+        isSearchOpen={isSearchOpen}
+      >
         <AddressTitle>{getString('app.hero.addressTitle')}</AddressTitle>
         <EditAddressContent onClick={onAddressClick}>
           {address} <Icon name="edit" />
