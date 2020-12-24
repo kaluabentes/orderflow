@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ProductCard from '~/components/molecules/ProductCard'
+import Footer from '~/components/organisms/Footer'
 
 import Header from '~/components/organisms/Header'
 import Hero from '~/components/organisms/Hero'
@@ -103,6 +104,7 @@ function Home({
           </ProductGrid>
         ))
       )}
+      <Footer />
     </>
   )
 }
