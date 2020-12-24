@@ -5,7 +5,7 @@ import styled from '~/styles/utils/styled'
 export const Container = styled('section')(css`
   max-width: ${props => props.theme.layout.maxWidth};
   width: 100%;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 0 auto;
   padding: 0 20px;
 `)
 

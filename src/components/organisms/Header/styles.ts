@@ -194,7 +194,7 @@ export const EditAddressButton = styled('button')(css`
     color: ${props => props.theme.colors.text};
     margin-left: 0 !important;
     background: white;
-    padding: 0;
+    padding: 15px 20px;
     z-index: 3;
     box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.05);
 

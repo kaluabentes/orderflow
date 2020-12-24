@@ -10,15 +10,15 @@ export interface InputProps extends CommonProps {
   inputRef?: object
   label?: string
   placeholder?: string
-  onChange: (event: any) => void
-  onKeyPress?: (event: any) => void
-  onPaste?: (event: any) => void
   value: string
   name?: string
   id: string
   type?: string
   error?: string | Array<string>
   maxLength?: string
+  onChange: (event: any) => void
+  onKeyPress?: (event: any) => void
+  onPaste?: (event: any) => void
 }
 
 export function renderError(error) {
@@ -41,11 +41,11 @@ function Input({
   error,
   maxLength,
   placeholder,
+  value,
+  type,
   onChange,
   onKeyPress,
   onPaste,
-  value,
-  type,
   ...props
 }: InputProps) {
   return (
@@ -62,7 +62,7 @@ function Input({
         name={name}
         maxLength={maxLength}
         onChange={onChange}
-        onKeyPress={onKeyPress}
+        onKeyPress={evt => console.log(evt)}
         onPaste={onPaste}
         value={value}
         type={type}

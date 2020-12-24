@@ -5,7 +5,7 @@ import styled from '~/styles/utils/styled'
 
 export const OuterContainer = styled('div')(css`
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   margin-top: 70px;
   background-image: url("${props => props.coverSrc}");
   background-size: cover;

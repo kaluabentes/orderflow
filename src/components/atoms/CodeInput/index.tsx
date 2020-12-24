@@ -46,6 +46,10 @@ function CodeInput({ label, id, onChange, error, ...props }: CodeInputProps) {
     setFourth(fourthLetter)
   }
 
+  function handleKeyPress(event) {
+    console.log(event)
+  }
+
   return (
     <Container {...props}>
       <Label htmlFor={id} margin="0 0 10px 0">
@@ -85,6 +89,7 @@ function CodeInput({ label, id, onChange, error, ...props }: CodeInputProps) {
           onPaste={handlePaste}
           onChange={event => handleChange(event.target.value, setFourth)}
           maxLength={1}
+          onKeyPress={handleKeyPress}
         />
       </Grid>
       {error && <ErrorMessage>{error}</ErrorMessage>}

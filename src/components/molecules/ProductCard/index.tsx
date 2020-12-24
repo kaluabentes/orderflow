@@ -38,6 +38,12 @@ function Loader() {
 }
 
 function ProductCard({ image, title, description, price }: ProductCardProps) {
+  const forceUpdate = useForceUpdate()
+
+  useEffect(() => {
+    setTimeout(forceUpdate, 500)
+  }, [])
+
   return (
     <Container>
       {image && <Image src={image} alt="" />}
