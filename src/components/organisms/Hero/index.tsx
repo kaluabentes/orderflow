@@ -2,49 +2,24 @@ import FadeInUp from '~/components/atoms/FadeInUp'
 import Heading from '~/components/atoms/Heading'
 import Icon from '~/components/atoms/Icon'
 import Logo from '~/components/atoms/Logo'
-import SearchInput from '~/components/atoms/SearchInput'
 import getString from '~/i18n/getString'
-import {
-  OuterContainer,
-  Container,
-  EditAddressButton,
-  AddressTitle
-} from './styles'
+import { OuterContainer, Container } from './styles'
 
 interface HeroProps {
   logoSrc: string
-  address: string
-  search?: string
-  onAddressClick: () => void
-  onSearchChange?: () => void
+  isSearchOpen: boolean
 }
 
-function Hero({
-  logoSrc,
-  address,
-  search,
-  onAddressClick,
-  onSearchChange
-}: HeroProps) {
+function Hero({ logoSrc, isSearchOpen }: HeroProps) {
   return (
-    <OuterContainer>
+    <OuterContainer isSearchOpen={isSearchOpen}>
       <Container>
         <Logo margin="0 0 30px 0" src={logoSrc} />
         <FadeInUp>
-          <Heading size="large" margin="0 0 30px 0" align="center">
+          <Heading size="large" align="center">
             {process.env.STORE_NAME}
           </Heading>
         </FadeInUp>
-        <AddressTitle>{getString('app.hero.addressTitle')}</AddressTitle>
-        <EditAddressButton onClick={onAddressClick}>
-          {address} <Icon name="edit" />
-        </EditAddressButton>
-        <SearchInput
-          onChange={onSearchChange}
-          value={search}
-          placeholder={getString('app.hero.searchPlaceholder')}
-          margin="0 0 -65px 0"
-        />
       </Container>
     </OuterContainer>
   )

@@ -4,9 +4,20 @@ import fadeInUp from '~/styles/animations/fadeInUp'
 import styled from '~/styles/utils/styled'
 
 export const OuterContainer = styled('div')(css`
-  background: ${props => props.theme.colors.primary};
+  background: white;
   width: 100%;
   margin-bottom: 60px;
+  margin-top: 143px;
+
+  ${props =>
+    props.isSearchOpen &&
+    css`
+      margin-top: 163px;
+    `}
+
+  @media (min-width: ${props => props.theme.breakpoints.desktop}px) {
+    margin-top: 73.99px;
+  }
 `)
 
 export const Container = styled('div')(css`
@@ -16,35 +27,6 @@ export const Container = styled('div')(css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 120px 20px 40px 20px;
-  color: white;
-`)
-
-export const EditAddressButton = styled('button')(css`
-  background: transparent;
-  border: 0;
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  cursor: pointer;
-  margin-bottom: 20px;
-
-  &:active {
-    transform: scale(0.95);
-  }
-
-  &:focus {
-    outline: 0;
-  }
-
-  & i {
-    margin-left: 10px;
-  }
-`)
-
-export const AddressTitle = styled('span')(css`
-  font-size: 0.75rem;
-  color: white;
-  opacity: 0.7;
+  padding: 60px 20px;
+  color: ${props => props.theme.colors.text};
 `)

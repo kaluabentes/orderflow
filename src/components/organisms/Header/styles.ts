@@ -25,7 +25,7 @@ export const Container = styled('header')(css`
     color: white;
   }
 
-  @media (max-width: 769px) {
+  @media (max-width: 823px) {
     padding: 20px;
   }
 `)
@@ -40,7 +40,7 @@ export const Nav = styled('nav')(css`
   top: 0;
   height: 100vh;
   width: 300px;
-  color: black;
+  color: ${props => props.theme.colors.text};
   z-index: 10;
   transition: 0.5s;
   transform: translateX(-300px);
@@ -51,7 +51,7 @@ export const Nav = styled('nav')(css`
       transform: translateX(0);
     `}
 
-  @media (min-width: 769px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}px) {
     position: static;
     flex-direction: row;
     height: auto;
@@ -62,7 +62,7 @@ export const Nav = styled('nav')(css`
 `)
 
 export const NavHeader = styled('header')(css`
-  color: black;
+  color: ${props => props.theme.colors.text};
   display: flex;
   justify-content: space-between;
   padding: 20px;
@@ -72,7 +72,7 @@ export const NavHeader = styled('header')(css`
     color: ${props => props.theme.colors.textMuted} !important;
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}px) {
     display: none;
   }
 `)
@@ -99,10 +99,10 @@ export const NavItem = styled(`button`)(css`
   ${props =>
     props.isActive &&
     css`
-      color: black;
+      color: ${props => props.theme.colors.text};
     `}
 
-  @media (min-width: 769px) {
+  @media (min-width: ${props => props.theme.breakpoints.desktop}px) {
     padding: 0;
     color: white;
     opacity: 0.7;
@@ -134,27 +134,9 @@ export const BrandLogo = styled('img')(css`
   left: 20px;
 `)
 
-export const EditAddressContainer = styled('div')(css`
-  width: 100%;
-  margin-left: 20px;
-`)
-
-export const EditAddressButton = styled('button')(css`
-  background: transparent;
-  border: 0;
-  color: white;
+export const EditAddressContent = styled('div')(css`
   display: flex;
   align-items: center;
-  cursor: pointer;
-  padding: 0;
-
-  &:active {
-    transform: scale(0.95);
-  }
-
-  &:focus {
-    outline: 0;
-  }
 
   & i {
     margin-left: 10px;
@@ -165,8 +147,62 @@ export const AddressTitle = styled('span')(css`
   font-size: 0.75rem;
   color: white;
   opacity: 0.7;
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+    opacity: 0.4;
+  }
 `)
 
 export const ActionsContainer = styled('div')(css`
   display: flex;
+`)
+
+export const EditAddressButton = styled('button')(css`
+  width: 100%;
+  margin-left: 20px;
+  background: transparent;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+
+  &:focus {
+    outline: 0;
+  }
+
+  ${props =>
+    props.isMobile &&
+    css`
+      position: fixed;
+      left: 0;
+      top: 70px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      width: 100%;
+      color: ${props => props.theme.colors.text};
+      margin-left: 0px;
+      background: white;
+      padding: 15px 20px;
+
+      ${props =>
+        props.isSearchOpen &&
+        css`
+          top: 90px;
+        `}
+
+      & ${AddressTitle} {
+        color: ${props => props.theme.colors.textMuted};
+        margin-bottom: 10px;
+      }
+
+      & ${EditAddressButton} {
+        color: ${props => props.theme.colors.text};
+        padding: 0;
+        margin: 0;
+
+        & i {
+          margin-left: 10px;
+        }
+      }
+    `}
 `)

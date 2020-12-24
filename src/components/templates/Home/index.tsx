@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import ProductCard from '~/components/molecules/ProductCard'
 
 import Header from '~/components/organisms/Header'
@@ -6,6 +6,7 @@ import Hero from '~/components/organisms/Hero'
 import ProductGrid from '~/components/organisms/ProductGrid'
 import { navItems } from '~/config/header'
 import getString from '~/i18n/getString'
+import useIsMobile from '~/utils/hooks/useIsMobile'
 
 interface Product {
   id: string | number
@@ -29,9 +30,12 @@ interface HomeProps {
   userName: string
   currentPath: string
   cartCount: number
+  searchValue: string
   onNavClick: (path) => void
   onCartClick: () => void
   onAddressClick: () => void
+  onSearchClose: () => void
+  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 function Home({
@@ -42,10 +46,27 @@ function Home({
   userName,
   currentPath,
   cartCount,
+  searchValue,
+  onAddressClick,
   onNavClick,
   onCartClick,
-  onAddressClick
+  onSearchClose,
+  onSearchChange
 }: HomeProps) {
+  const isMobile = useIsMobile()
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+
+  useEffect(() => {
+    if (isMobile) {
+      setIsSearchOpen(false)
+    }
+  }, [isMobile])
+
+  function handleSearchClose() {
+    onSearchClose()
+    setIsSearchOpen(false)
+  }
+
   return (
     <>
       <Header
@@ -54,11 +75,19 @@ function Home({
         profileText={`${getString('app.home.greeting')}, ${userName}`}
         currentPath={currentPath}
         navItems={navItems}
+        isSearchOpen={isSearchOpen}
+        searchValue={searchValue}
+        cartCount={cartCount}
+        address={address}
+        onAddressClick={onAddressClick}
         onNavClick={onNavClick}
         onCartClick={onCartClick}
-        cartCount={cartCount}
+        onSearchOpen={() => setIsSearchOpen(true)}
+        onSearchClose={handleSearchClose}
+        onSearchChange={onSearchChange}
       />
       <Hero
+        isSearchOpen={isSearchOpen}
         logoSrc={logoSrc}
         address={address}
         onAddressClick={onAddressClick}

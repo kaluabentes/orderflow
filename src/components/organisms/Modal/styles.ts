@@ -102,6 +102,6 @@ export const CloseButton = styled(IconButton)`
 
   & i {
     font-size: 24px;
-    color: black;
+    color: ${props => props.theme.colors.text};
   }
 `

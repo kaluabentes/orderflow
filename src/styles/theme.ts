@@ -1,9 +1,11 @@
+import { css } from 'styled-components'
+
 export default {
   colors: {
     primary: '#ff5555',
     info: '#3858cd',
     warning: '#fe932a',
-    text: '#000000',
+    text: '#555',
     textMuted: 'rgba(0, 0, 0, 0.4)',
     background: '#f4f4f4',
     radioBackground: '#e6e6e6'
@@ -22,5 +24,9 @@ export default {
   },
   layout: {
     maxWidth: '900px'
+  },
+  breakpoints: {
+    mobile: 823,
+    desktop: 824
   }
 }

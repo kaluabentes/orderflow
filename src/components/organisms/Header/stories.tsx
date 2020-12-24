@@ -13,6 +13,7 @@ export default {
 
 export const Default = () => {
   const [value, setValue] = useState('')
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
 
   return (
     <Header
@@ -24,11 +25,16 @@ export const Default = () => {
       onCartClick={action('onCartClick')}
       onAddressClick={action('onAddressClick')}
       onSearchChange={event => setValue(event.target.value)}
-      onClose={() => setValue('')}
       searchValue={value}
       cartCount={10}
       logoSrc={logoSrc}
       address="Servidão Vitórias, 40"
+      isSearchOpen={isSearchOpen}
+      onSearchOpen={() => setIsSearchOpen(true)}
+      onSearchClose={() => {
+        setValue('')
+        setIsSearchOpen(false)
+      }}
     />
   )
 }

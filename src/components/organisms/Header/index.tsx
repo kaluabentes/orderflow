@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Portal } from 'react-portal'
 
 import CounterIconButton from '~/components/atoms/CounterIconButton'
 import Heading from '~/components/atoms/Heading'
@@ -15,13 +16,14 @@ import {
   ProfileText,
   CountersContainer,
   BrandLogo,
-  EditAddressContainer,
   EditAddressButton,
   AddressTitle,
-  ActionsContainer
+  ActionsContainer,
+  EditAddressContent
 } from './styles'
 import getString from '~/i18n/getString'
 import Icon from '~/components/atoms/Icon'
+import useIsMounted from '~/utils/hooks/useIsMounted'
 
 interface NavItem {
   path: string
@@ -37,11 +39,13 @@ interface HeaderProps {
   cartCount: string | number
   address: string
   searchValue: string
+  isSearchOpen: boolean
+  onSearchOpen: () => void
+  onSearchClose: () => void
   onNavClick: (path) => void
   onCartClick: () => void
   onAddressClick: () => void
   onSearchChange: (event: React.ChangeEvent) => void
-  onClose: () => void
 }
 
 function Header({
@@ -53,19 +57,20 @@ function Header({
   logoSrc,
   address,
   searchValue,
+  isSearchOpen,
+  onSearchOpen,
+  onSearchClose,
   onAddressClick,
-  onClose,
   onSearchChange,
   onNavClick,
   onCartClick
 }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const isMobile = useIsMobile()
+  const isMounted = useIsMounted()
 
   function handleOnSearchClose() {
-    onClose()
-    setIsSearchOpen(false)
+    onSearchClose()
   }
 
   function renderSearchInput(hasCloseButton) {
@@ -81,40 +86,50 @@ function Header({
     )
   }
 
+  function renderAddressSection() {
+    const component = (
+      <EditAddressButton isMobile={isMobile} isSearchOpen={isSearchOpen}>
+        <AddressTitle>{getString('app.hero.addressTitle')}</AddressTitle>
+        <EditAddressContent onClick={onAddressClick}>
+          {address} <Icon name="edit" />
+        </EditAddressContent>
+      </EditAddressButton>
+    )
+
+    if (isMobile) {
+      return <Portal>{component}</Portal>
+    }
+
+    return component
+  }
+
   return (
     <OuterContainer>
       <Container>
         {!isMobile && <BrandLogo src={logoSrc} alt="" />}
-        <Nav isOpen={isOpen}>
-          <NavHeader>
-            <Heading size="medium" variant="h2">
-              {profileText}
-            </Heading>
-            <IconButton onClick={() => setIsOpen(false)} name="close" />
-          </NavHeader>
-          {navItems.map(item => (
-            <NavItem
-              key={item.label}
-              type="button"
-              isActive={currentPath === item.path}
-              onClick={() => onNavClick(item.path)}
-            >
-              {item.label}
-            </NavItem>
-          ))}
-        </Nav>
+        {isMounted && (
+          <Nav isOpen={isOpen}>
+            <NavHeader>
+              <Heading size="medium" variant="h2">
+                {profileText}
+              </Heading>
+              <IconButton onClick={() => setIsOpen(false)} name="close" />
+            </NavHeader>
+            {navItems.map(item => (
+              <NavItem
+                key={item.label}
+                type="button"
+                isActive={currentPath === item.path}
+                onClick={() => onNavClick(item.path)}
+              >
+                {item.label}
+              </NavItem>
+            ))}
+          </Nav>
+        )}
         {!isMobile && renderSearchInput(searchValue)}
         {isMobile && isSearchOpen && renderSearchInput(true)}
-        {!isMobile && (
-          <>
-            <EditAddressContainer>
-              <AddressTitle>{getString('app.hero.addressTitle')}</AddressTitle>
-              <EditAddressButton onClick={onAddressClick}>
-                {address} <Icon name="edit" />
-              </EditAddressButton>
-            </EditAddressContainer>
-          </>
-        )}
+        {renderAddressSection()}
         {isMobile && !isSearchOpen && (
           <>
             <IconButton name="sort" onClick={() => setIsOpen(true)} />
@@ -131,7 +146,7 @@ function Header({
         <ActionsContainer>
           {isMobile && !isSearchOpen && (
             <IconButton
-              onClick={() => setIsSearchOpen(true)}
+              onClick={onSearchOpen}
               margin="0 20px 0 0"
               name="search"
             />

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import { logoSrc } from '../components/atoms/Logo'
@@ -10,6 +10,7 @@ function HomePage() {
   const router = useRouter()
   const [auth] = useAuth()
   const [categories, isLoading] = useCategories()
+  const [searchValue, setSearchValue] = useState('')
 
   useEffect(() => {
     if (!auth.token && auth.isReady) {
@@ -37,6 +38,9 @@ function HomePage() {
       onAddressClick={() => {}}
       onCartClick={() => {}}
       onNavClick={path => router.push(path)}
+      searchValue={searchValue}
+      onSearchChange={event => setSearchValue(event.target.value)}
+      onSearchClose={() => setSearchValue('')}
     />
   )
 }

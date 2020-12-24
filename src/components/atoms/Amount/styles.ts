@@ -19,7 +19,7 @@ export const Button = styled('button')(css`
   align-items: center;
   border: 0;
   outline: 0;
-  color: black;
+  color: ${props => props.theme.colors.text};
   background: white;
   border: 2px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
+import theme from '~/styles/theme'
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    function handleResize() {
-      if (window.innerWidth < 769) {
+    function verify() {
+      if (window.innerWidth <= theme.breakpoints.mobile) {
         setIsMobile(true)
         return
       }
@@ -13,11 +14,11 @@ function useIsMobile() {
       setIsMobile(false)
     }
 
-    handleResize()
-    window.addEventListener('resize', handleResize)
+    verify()
+    window.addEventListener('resize', verify)
 
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', verify)
     }
   }, [])
 
