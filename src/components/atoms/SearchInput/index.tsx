@@ -39,10 +39,6 @@ function SearchInput({
       return null
     }
 
-    if (input && input.value) {
-      return null
-    }
-
     return <Placeholder onClick={handleFocus}>{placeholder}</Placeholder>
   }
   return (
