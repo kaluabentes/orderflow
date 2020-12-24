@@ -19,7 +19,7 @@ export const Input = styled('input')(css`
   outline: 0;
   width: 100%;
   margin-left: 10px;
-  height: 50px;
+  height: 45px;
   color: white;
 `)
 
