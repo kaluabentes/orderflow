@@ -132,9 +132,8 @@ export const ProfileText = styled(Heading)(css`
   width: 40%;
   text-align: right;
   padding-right: 30px;
-  font-weight: 500;
+  font-weight: 400;
   color: white;
-  opacity: 0.7;
 `)
 
 export const CountersContainer = styled('div')(css`
