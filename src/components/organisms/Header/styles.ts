@@ -181,6 +181,7 @@ export const EditAddressButton = styled('button')(css`
   padding: 0;
   text-align: left;
   transition: 0.3s;
+  font-weight: 500;
 
   &:focus {
     outline: 0;
@@ -202,22 +203,6 @@ export const EditAddressButton = styled('button')(css`
       props.isSearchOpen &&
       css`
         top: 90px;
-      `}
-
-    ${props =>
-      !props.isScrolled &&
-      css`
-        color: white;
-        background: transparent;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-
-        & ${AddressTitle} {
-          color: white;
-        }
-
-        & ${EditAddressContent} {
-          color: white;
-        }
       `}
   }
 `)

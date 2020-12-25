@@ -1,9 +1,8 @@
 import FadeInUp from '~/components/atoms/FadeInUp'
-import Heading from '~/components/atoms/Heading'
 import Icon from '~/components/atoms/Icon'
 import Logo from '~/components/atoms/Logo'
 import getString from '~/i18n/getString'
-import { OuterContainer, Container, Overlay } from './styles'
+import { OuterContainer, Container, Overlay, Heading } from './styles'
 
 interface HeroProps {
   logoSrc: string
@@ -17,9 +16,7 @@ function Hero({ logoSrc, isSearchOpen = false, coverSrc }: HeroProps) {
       <Container>
         <Logo margin="0 0 30px 0" src={logoSrc} />
         <FadeInUp>
-          <Heading size="large" align="center">
-            {process.env.STORE_NAME}
-          </Heading>
+          <Heading>{process.env.STORE_NAME}</Heading>
         </FadeInUp>
       </Container>
       <Overlay />

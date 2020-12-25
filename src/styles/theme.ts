@@ -5,7 +5,7 @@ export default {
     primary: '#ff5555',
     info: '#3858cd',
     warning: '#fe932a',
-    text: '#555',
+    text: '#333',
     textMuted: 'rgba(0, 0, 0, 0.4)',
     background: '#f4f4f4',
     radioBackground: '#e6e6e6'
