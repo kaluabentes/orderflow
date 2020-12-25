@@ -8,7 +8,12 @@ export const Container = styled(List.Item)(css``)
 export const ContentGrid = styled('div')(css`
   display: flex;
   justify-content: space-between;
+  align-items: ${props => props.alignItems};
   margin-bottom: 20px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 `)
 
 export const Description = styled('p')(css`

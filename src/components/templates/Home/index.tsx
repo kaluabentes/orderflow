@@ -101,17 +101,20 @@ function Home({
           {
             id: 1,
             description: '1x Sextou - Quarterão - apenas sanduíche',
-            price: 20.9
+            price: 20.9,
+            quantity: 3
           },
           {
             id: 2,
             description: '1x Sextou - Quarterão - apenas sanduíche',
-            price: 21.9
+            price: 21.9,
+            quantity: 2
           },
           {
             id: 3,
             description: '1x Sextou - Quarterão - apenas sanduíche',
-            price: 21.9
+            price: 21.9,
+            quantity: 10
           }
         ]}
         subtotal={12.9}
@@ -120,6 +123,9 @@ function Home({
         onAdvance={() => alert('onAdvance')}
         onEdit={() => alert('onEdit')}
         onRemove={() => alert('onRemove')}
+        onQuantityChange={(productId, value) =>
+          alert(`onQuantityChange - ${productId} - ${value}`)
+        }
         {...props}
       />
     )

@@ -15,6 +15,7 @@ interface Product {
   id: Id
   description: string
   price: number
+  quantity: number
 }
 
 interface OrderSummaryProps {
@@ -26,6 +27,7 @@ interface OrderSummaryProps {
   onAdvance: () => void
   onEdit: (productId: Id) => void
   onRemove: (productId: Id) => void
+  onQuantityChange: (productId: Id, value: number) => void
 }
 
 function OrderSummary({
@@ -36,19 +38,22 @@ function OrderSummary({
   isFixed = false,
   onAdvance,
   onEdit,
-  onRemove
+  onRemove,
+  onQuantityChange
 }: OrderSummaryProps) {
   return (
     <Container isFixed={isFixed}>
       <Title>{getString('app.orderSummary.title')}</Title>
       <List margin="0 0 20px 0">
-        {products.map(({ id, description, price }) => (
+        {products.map(({ id, description, price, quantity }) => (
           <OrderSummaryItem
             key={id}
             description={description}
             price={price}
+            quantity={quantity}
             onEdit={() => onEdit(id)}
             onRemove={() => onRemove(id)}
+            onQuantityChange={value => onQuantityChange(id, value)}
           />
         ))}
       </List>
