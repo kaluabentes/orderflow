@@ -13,4 +13,5 @@ export interface CommonProps {
   className?: string
   color?: string
   dimension?: Dimension
+  flex?: string
 }

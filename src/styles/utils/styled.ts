@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { margin, align, padding, color } from './mixins'
+import { margin, align, padding, color, flex } from './mixins'
 
 export default type => styles => styled(type)`
   ${styles}
@@ -8,4 +8,5 @@ export default type => styles => styled(type)`
   ${padding}
   ${align}
   ${color}
+  ${flex}
 `

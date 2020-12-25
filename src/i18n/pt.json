@@ -34,5 +34,12 @@
   "app.header.about": "Sobre",
   "app.header.orders": "Pedido",
   "app.header.profile": "Perfil",
-  "app.header.logout": "Sair"
+  "app.header.logout": "Sair",
+  "app.edit": "Editar",
+  "app.remove": "Remover",
+  "app.orderSummary.title": "Resumo do pedido",
+  "app.subtotal": "Subtotal",
+  "app.deliveryFee": "Taxa de entrega",
+  "app.total": "Total",
+  "app.advance": "Avançar"
 }

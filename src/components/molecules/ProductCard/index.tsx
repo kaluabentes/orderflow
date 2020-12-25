@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Truncate from 'react-truncate'
 
 import getString from '~/i18n/getString'
+import formatMoney from '~/utils/formatters/formatMoney'
 import useForceUpdate from '~/utils/hooks/useForceUpdate'
 
 import {
@@ -54,9 +55,7 @@ function ProductCard({ image, title, description, price }: ProductCardProps) {
         <Description>
           <Truncate lines={2}>{description}</Truncate>
         </Description>
-        <Price>
-          {getString('app.currency')} {price.toLocaleString()}
-        </Price>
+        <Price>{formatMoney(price)}</Price>
       </Content>
     </Container>
   )

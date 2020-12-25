@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import Box from '~/components/Box'
 import ProductCard from '~/components/molecules/ProductCard'
 import Footer from '~/components/organisms/Footer'
 
 import Header from '~/components/organisms/Header'
 import Hero from '~/components/organisms/Hero'
+import OrderSummary from '~/components/organisms/OrderSummary'
 import ProductGrid from '~/components/organisms/ProductGrid'
 import { navItems } from '~/config/header'
 import getString from '~/i18n/getString'
 import useIsMobile from '~/utils/hooks/useIsMobile'
+
+import { MainGrid } from './styles'
+
+const ORDER_FIXED_OFFSET = 322
 
 interface Product {
   id: string | number
@@ -58,6 +64,24 @@ function Home({
 }: HomeProps) {
   const isMobile = useIsMobile()
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [isOrderFixed, setIsOrderFixed] = useState(false)
+
+  useEffect(() => {
+    function handleScroll() {
+      if (window.pageYOffset > ORDER_FIXED_OFFSET) {
+        setIsOrderFixed(true)
+        return
+      }
+
+      setIsOrderFixed(false)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   useEffect(() => {
     if (isMobile) {
@@ -68,6 +92,37 @@ function Home({
   function handleSearchClose() {
     onSearchClose()
     setIsSearchOpen(false)
+  }
+
+  function renderOrderSummary(props = {}) {
+    return (
+      <OrderSummary
+        products={[
+          {
+            id: 1,
+            description: '1x Sextou - Quarterão - apenas sanduíche',
+            price: 20.9
+          },
+          {
+            id: 2,
+            description: '1x Sextou - Quarterão - apenas sanduíche',
+            price: 21.9
+          },
+          {
+            id: 3,
+            description: '1x Sextou - Quarterão - apenas sanduíche',
+            price: 21.9
+          }
+        ]}
+        subtotal={12.9}
+        deliveryFee={12.49}
+        total={25.39}
+        onAdvance={() => alert('onAdvance')}
+        onEdit={() => alert('onEdit')}
+        onRemove={() => alert('onRemove')}
+        {...props}
+      />
+    )
   }
 
   return (
@@ -91,16 +146,29 @@ function Home({
       />
       <Hero isSearchOpen={isSearchOpen} logoSrc={logoSrc} coverSrc={coverSrc} />
       {isLoading ? (
-        <ProductGrid isLoading />
+        <MainGrid>
+          <ProductGrid isLoading />
+        </MainGrid>
       ) : (
-        categories.map(category => (
-          <ProductGrid key={category.id} title={category.name}>
-            {category.products.map(product => (
-              <ProductCard key={product.id} {...product} />
+        <MainGrid>
+          <Box flex="1" margin={!isMobile ? '0 30px 0 0' : null}>
+            {categories.map(category => (
+              <ProductGrid key={category.id} title={category.name}>
+                {category.products.map(product => (
+                  <ProductCard key={product.id} {...product} />
+                ))}
+              </ProductGrid>
             ))}
-          </ProductGrid>
-        ))
+          </Box>
+          {!isMobile && (
+            <>
+              {renderOrderSummary()}
+              {isOrderFixed && renderOrderSummary({ isFixed: true })}
+            </>
+          )}
+        </MainGrid>
       )}
+
       <Footer />
     </>
   )

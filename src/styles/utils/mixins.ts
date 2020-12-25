@@ -23,3 +23,9 @@ export const color = props =>
   css`
     color: ${props.color};
   `
+
+export const flex = props =>
+  props.flex &&
+  css`
+    flex: ${props.flex};
+  `

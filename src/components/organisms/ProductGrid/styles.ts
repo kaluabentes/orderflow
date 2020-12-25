@@ -3,10 +3,8 @@ import { css } from 'styled-components'
 import styled from '~/styles/utils/styled'
 
 export const Container = styled('section')(css`
-  max-width: ${props => props.theme.layout.maxWidth};
   width: 100%;
-  margin: 0 auto 30px auto;
-  padding: 0 20px;
+  margin: 0 0 30px auto;
 
   &:last-of-type {
     margin-bottom: 0;
