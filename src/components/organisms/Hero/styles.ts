@@ -36,7 +36,7 @@ export const Container = styled('div')(css`
   color: white;
   z-index: 2;
   position: relative;
-  padding: 30px 20px;
+  padding: 40px 20px;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
   }

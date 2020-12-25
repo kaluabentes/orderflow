@@ -23,9 +23,9 @@ function SearchInput({
 }: SearchInputProps) {
   const inputRef = useRef()
   const [isFocused, setIsFocused] = useState(false)
-  const input = inputRef.current as HTMLInputElement
 
   function handleFocus() {
+    const input = inputRef.current as HTMLInputElement
     setIsFocused(true)
     input.focus()
   }

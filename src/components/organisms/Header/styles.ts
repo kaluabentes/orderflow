@@ -25,8 +25,20 @@ export const Container = styled('header')(css`
     color: white;
   }
 
-  @media (max-width: 823px) {
+  ${props =>
+    props.isSearchOpen &&
+    css`
+      padding: 5px;
+    `}
+
+  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     padding: 20px;
+
+    ${props =>
+      props.isSearchOpen &&
+      css`
+        padding: 12.5px;
+      `}
   }
 `)
 
@@ -198,11 +210,5 @@ export const EditAddressButton = styled('button')(css`
     padding: 15px 20px;
     z-index: 3;
     box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.05);
-
-    ${props =>
-      props.isSearchOpen &&
-      css`
-        top: 90px;
-      `}
   }
 `)

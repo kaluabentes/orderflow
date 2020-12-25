@@ -5,12 +5,17 @@ import styled from '~/styles/utils/styled'
 export const Container = styled('section')(css`
   max-width: ${props => props.theme.layout.maxWidth};
   width: 100%;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 30px auto;
   padding: 0 20px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 `)
 
 export const Title = styled('h3')(css`
   margin: 0 0 20px 0;
+  font-size: 25px;
 `)
 
 export const Grid = styled('div')(css`

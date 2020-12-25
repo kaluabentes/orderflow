@@ -127,7 +127,7 @@ function Header({
 
   return (
     <OuterContainer>
-      <Container>
+      <Container isSearchOpen={isSearchOpen}>
         {!isMobile && <BrandLogo src={logoSrc} alt="" />}
         {isMounted && (
           <Nav isOpen={isOpen}>
