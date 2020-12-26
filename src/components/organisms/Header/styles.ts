@@ -132,7 +132,7 @@ export const ProfileText = styled(Heading)(css`
   width: 40%;
   text-align: right;
   padding-right: 30px;
-  font-weight: 400;
+  font-weight: 400 !important;
   color: white;
 `)
 

@@ -76,7 +76,7 @@ function OrderSummary({
   return (
     <Container isFixed={isFixed}>
       <Title>{getString('app.orderSummary.title')}</Title>
-      <Scroller>
+      <Scroller isFixed={isFixed}>
         <List margin="0 0 20px 0">
           {products.map(({ id, description, price, quantity }) => (
             <OrderSummaryItem

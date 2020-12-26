@@ -33,10 +33,17 @@ export const Grid = styled('div')(css`
     `}
 `)
 
-export const Header = styled('header')(css`
+export const Header = styled('button')(css`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
 
   ${props =>
     !props.isExpanded &&

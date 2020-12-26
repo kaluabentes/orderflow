@@ -1,3 +1,4 @@
+import { StringifyOptions } from 'querystring'
 import React from 'react'
 
 interface Dimension {
@@ -14,4 +15,5 @@ export interface CommonProps {
   color?: string
   dimension?: Dimension
   flex?: string
+  size?: string
 }

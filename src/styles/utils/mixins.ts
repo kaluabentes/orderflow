@@ -29,3 +29,9 @@ export const flex = props =>
   css`
     flex: ${props.flex};
   `
+
+export const size = props =>
+  props.size &&
+  css`
+    font-size: ${props.size};
+  `

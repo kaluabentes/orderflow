@@ -7,9 +7,11 @@ export const MainGrid = styled('div')(css`
   margin: 0 auto;
   width: 1265px;
   align-items: flex-start;
-  padding: 0 20px;
+  padding: 20px 20px;
+  margin-top: 74px;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     width: 100%;
+    margin-top: 142px;
   }
 `)

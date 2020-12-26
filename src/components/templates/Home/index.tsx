@@ -13,7 +13,7 @@ import useIsMobile from '~/utils/hooks/useIsMobile'
 
 import { MainGrid } from './styles'
 
-const ORDER_FIXED_OFFSET = 322
+const ORDER_FIXED_OFFSET = 20
 
 interface Product {
   id: string | number
@@ -150,34 +150,35 @@ function Home({
         onSearchClose={handleSearchClose}
         onSearchChange={onSearchChange}
       />
-      <Hero isSearchOpen={isSearchOpen} logoSrc={logoSrc} coverSrc={coverSrc} />
-      {isLoading ? (
-        <MainGrid>
-          <Box flex="1" margin={!isMobile ? '0 30px 0 0' : null}>
-            <ProductGrid isLoading />
-          </Box>
-          {!isMobile && <OrderSummary.Loader />}
-        </MainGrid>
-      ) : (
-        <MainGrid>
-          <Box flex="1" margin={!isMobile ? '0 30px 0 0' : null}>
-            {categories.map(category => (
-              <ProductGrid key={category.id} title={category.name}>
-                {category.products.map(product => (
-                  <ProductCard key={product.id} {...product} />
-                ))}
-              </ProductGrid>
-            ))}
-          </Box>
-          {!isMobile && (
-            <>
-              {renderOrderSummary()}
-              {isOrderFixed && renderOrderSummary({ isFixed: true })}
-            </>
-          )}
-        </MainGrid>
-      )}
 
+      <MainGrid>
+        {isLoading ? (
+          <>
+            <Box flex="1" margin={!isMobile ? '0 30px 0 0' : null}>
+              <ProductGrid isLoading />
+            </Box>
+            {!isMobile && <OrderSummary.Loader />}
+          </>
+        ) : (
+          <>
+            <Box flex="1" margin={!isMobile ? '0 30px 0 0' : null}>
+              {categories.map(category => (
+                <ProductGrid key={category.id} title={category.name}>
+                  {category.products.map(product => (
+                    <ProductCard key={product.id} {...product} />
+                  ))}
+                </ProductGrid>
+              ))}
+            </Box>
+            {!isMobile && (
+              <>
+                {renderOrderSummary()}
+                {isOrderFixed && renderOrderSummary({ isFixed: true })}
+              </>
+            )}
+          </>
+        )}
+      </MainGrid>
       <Footer />
     </>
   )
