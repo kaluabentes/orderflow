@@ -10,10 +10,10 @@ enum Mode {
 interface AmountProps {
   value: number
   onChange: (value) => void
-  isDisabled: boolean
+  isDisabled?: boolean
 }
 
-function Amount({ value, isDisabled, onChange }: AmountProps) {
+function Amount({ value, isDisabled = false, onChange }: AmountProps) {
   const methods = {
     add: handleAdd,
     subtract: handleSubtract
