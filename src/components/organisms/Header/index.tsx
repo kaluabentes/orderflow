@@ -45,7 +45,7 @@ interface HeaderProps {
   onNavClick: (path) => void
   onCartClick: () => void
   onAddressClick: () => void
-  onSearchChange: (event: React.ChangeEvent) => void
+  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 function Header({
@@ -132,7 +132,7 @@ function Header({
         {isMounted && (
           <Nav isOpen={isOpen}>
             <NavHeader>
-              <Heading size="medium" variant="h2">
+              <Heading size="medium" as="h2">
                 {profileText}
               </Heading>
               <IconButton onClick={() => setIsOpen(false)} name="close" />
@@ -161,7 +161,7 @@ function Header({
           </>
         )}
         {!isMobile && (
-          <ProfileText size="small" variant="h2">
+          <ProfileText size="small" as="h2">
             {profileText}
           </ProfileText>
         )}

@@ -2,8 +2,8 @@ import React from 'react'
 
 import LoginForm from '~/components/organisms/LoginForm'
 import getString from '~/i18n/getString'
-import Heading from '../../atoms/Heading'
-import Paragraph from '../../atoms/Paragraph'
+import Heading from '../../../components/atoms/Heading'
+import Paragraph from '../../../components/atoms/Paragraph'
 import InnerPage from '../InnerPage'
 
 interface LoginProps {

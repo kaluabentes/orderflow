@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { categories } from '~/components/templates/Home/mock'
+import { categories } from '~/storefront/templates/Home/mock'
 
 const mock = categories
 

@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
 import { logoSrc } from '../components/atoms/Logo'
-import Home from '~/components/templates/Home'
-import useAuth from '~/modules/auth/hooks/useAuth'
-import useCategories from '~/modules/products/hooks/useCategories'
-import { coverSrc } from '~/components/templates/Welcome'
+import Home from '~/storefront/templates/Home'
+import useAuth from '~/storefront/modules/auth/hooks/useAuth'
+import useCategories from '~/storefront/modules/products/hooks/useCategories'
+import { coverSrc } from '~/storefront/templates/Welcome'
 
 function HomePage() {
   const router = useRouter()

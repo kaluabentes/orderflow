@@ -11,10 +11,10 @@ import { Container, ContentGrid, Description, Price } from './styles'
 interface OrderSummaryItemProps extends CommonProps {
   description: string
   price: number
-  quantity: number
+  quantity?: number
   onEdit: () => void
   onRemove: () => void
-  onQuantityChange: (value: number) => void
+  onQuantityChange?: (value: number) => void
 }
 
 function OrderSummaryItem({

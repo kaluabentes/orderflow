@@ -38,7 +38,7 @@ interface OrderSummaryProps {
   onAdvance: () => void
   onEdit: (productId: Id) => void
   onRemove: (productId: Id) => void
-  onQuantityChange: (productId: Id, value: number) => void
+  onQuantityChange?: (productId: Id, value: number) => void
 }
 
 function Loader() {

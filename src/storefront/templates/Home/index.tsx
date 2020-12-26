@@ -33,17 +33,17 @@ interface HomeProps {
   isLoading?: boolean
   categories: Category[]
   logoSrc: string
-  coverSrc: string
+  coverSrc?: string
   address: string
   userName: string
   currentPath: string
   cartCount: number
-  searchValue: string
+  searchValue?: string
   onNavClick: (path) => void
   onCartClick: () => void
   onAddressClick: () => void
-  onSearchClose: () => void
-  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onSearchClose?: () => void
+  onSearchChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 function Home({

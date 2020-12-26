@@ -9,5 +9,5 @@ export default {
 }
 
 export const Default = () => (
-  <CartIconButton onClick={action('onClick')} count={10} />
+  <CartIconButton name="shopping_cart" onClick={action('onClick')} count={10} />
 )

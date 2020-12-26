@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { CommonProps } from '../../CommonProps'
-import IconButton from '../../atoms/IconButton'
+import { CommonProps } from '../../../components/CommonProps'
+import IconButton from '../../../components/atoms/IconButton'
 import Base from '../Base'
 import { Header, BlankBrick } from './styles'
-import Heading from '../../atoms/Heading'
+import Heading from '../../../components/atoms/Heading'
 
 interface InnerPageProps extends CommonProps {
   onBack: () => void

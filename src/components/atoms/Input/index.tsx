@@ -12,7 +12,7 @@ export interface InputProps extends CommonProps {
   placeholder?: string
   value: string
   name?: string
-  id: string
+  id?: string
   type?: string
   error?: string | Array<string>
   maxLength?: string

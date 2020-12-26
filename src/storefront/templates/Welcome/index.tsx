@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Button from '../../atoms/Button'
-import Heading from '../../atoms/Heading'
-import Logo from '../../atoms/Logo'
-import Paragraph from '../../atoms/Paragraph'
-import FadeInUp from '../../atoms/FadeInUp'
+import Button from '../../../components/atoms/Button'
+import Heading from '../../../components/atoms/Heading'
+import Logo from '../../../components/atoms/Logo'
+import Paragraph from '../../../components/atoms/Paragraph'
+import FadeInUp from '../../../components/atoms/FadeInUp'
 
 import { Cover, Content } from './styles'
 import Base from '../Base'

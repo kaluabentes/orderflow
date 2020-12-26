@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CommonProps } from '../../CommonProps'
+import { CommonProps } from '../../../components/CommonProps'
 import { Container, Content } from './styles'
 
 interface BaseProps extends CommonProps {

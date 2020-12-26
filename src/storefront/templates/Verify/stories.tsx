@@ -10,7 +10,6 @@ export default {
 
 export const Default = () => (
   <Verify
-    title="Verificar"
     text={
       <>
         Informe o codigo de verificação enviado para{' '}
@@ -19,7 +18,5 @@ export const Default = () => (
     }
     onBack={action('onBack')}
     onSubmit={action('onSubmit')}
-    submitLabel="Avançar"
-    codeLabel="Código de verificação"
   />
 )

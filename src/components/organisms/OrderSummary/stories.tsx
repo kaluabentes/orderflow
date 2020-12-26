@@ -2,7 +2,6 @@ import { action } from '@storybook/addon-actions'
 import React from 'react'
 
 import OrderSummary from '.'
-import List from '../List'
 
 export default {
   title: 'Molecules/OrderSummary',
@@ -15,17 +14,20 @@ export const Default = () => (
       {
         id: 1,
         description: '1x Sextou - Quarterão - apenas sanduíche',
-        price: 20.9
+        price: 20.9,
+        quantity: 2
       },
       {
         id: 2,
         description: '1x Sextou - Quarterão - apenas sanduíche',
-        price: 21.9
+        price: 21.9,
+        quantity: 3
       },
       {
         id: 3,
         description: '1x Sextou - Quarterão - apenas sanduíche',
-        price: 21.9
+        price: 21.9,
+        quantity: 5
       }
     ]}
     subtotal={12.9}

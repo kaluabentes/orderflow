@@ -6,9 +6,9 @@ import IconButton from '../IconButton'
 import { Container, Input, Placeholder } from './styles'
 
 interface SearchInputProps extends CommonProps {
-  onChange?: (event: any) => void
-  onClose: () => void
-  hasCloseButton: boolean
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onClose?: () => void
+  hasCloseButton?: boolean
   value?: string
   placeholder?: string
 }

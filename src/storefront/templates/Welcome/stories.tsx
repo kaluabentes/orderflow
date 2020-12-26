@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import React from 'react'
 
 import Welcome, { coverSrc } from '.'
-import { logoSrc } from '../../atoms/Logo'
+import { logoSrc } from '../../../components/atoms/Logo'
 
 export default {
   title: 'Templates/Welcome',
