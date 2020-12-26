@@ -2,7 +2,7 @@ import React from 'react'
 import { useRouter } from 'next/dist/client/router'
 
 import { logoSrc } from '~/components/atoms/Logo'
-import Welcome, { coverSrc } from '~/components/templates/Welcome'
+import Welcome, { coverSrc } from '~/storefront/templates/Welcome'
 
 function WelcomePage() {
   const router = useRouter()

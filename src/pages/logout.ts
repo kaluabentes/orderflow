@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-import useAuth from '~/modules/auth/hooks/useAuth'
+import useAuth from '~/storefront/modules/auth/hooks/useAuth'
 
 function Logout() {
   const [, setAuth] = useAuth()

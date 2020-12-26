@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import React from 'react'
-import Availability from '~/components/templates/Availability'
+import Availability from '~/storefront/templates/Availability'
 
 function AvailabilityPage() {
   const router = useRouter()

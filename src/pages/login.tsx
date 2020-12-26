@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 
 import { useRouter } from 'next/router'
 import getString from '../i18n/getString'
-import Login from '../components/templates/Login'
-import { makeLogin } from '../modules/auth/actions'
-import useAuth from '../modules/auth/hooks/useAuth'
+import Login from '~/storefront/templates/Login'
+import { makeLogin } from '~/storefront/modules/auth/actions'
+import useAuth from '~/storefront/modules/auth/hooks/useAuth'
 
 export default function LoginPage() {
   const router = useRouter()

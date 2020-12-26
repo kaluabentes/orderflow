@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
-import Register from '~/components/templates/Register'
-import { registerUser } from '~/modules/auth/actions'
-import useAuth from '~/modules/auth/hooks/useAuth'
+import Register from '~/storefront/templates/Register'
+import { registerUser } from '~/storefront/modules/auth/actions'
+import useAuth from '~/storefront/modules/auth/hooks/useAuth'
 
 function RegisterPage() {
   const router = useRouter()

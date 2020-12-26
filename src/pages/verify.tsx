@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { get } from 'lodash'
 
-import Verify from '../components/templates/Verify'
+import Verify from '~/storefront/templates/Verify'
 import getString from '../i18n/getString'
-import useAuth from '../modules/auth/hooks/useAuth'
+import useAuth from '~/storefront/modules/auth/hooks/useAuth'
 import formatPhone from '../utils/formatters/formatPhone'
-import { checkCode } from '../modules/auth/actions'
+import { checkCode } from '~/storefront/modules/auth/actions'
 
 function VerifyPage() {
   const [error, setError] = useState('')
