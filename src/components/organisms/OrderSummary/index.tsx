@@ -4,6 +4,10 @@ import Button from '~/components/atoms/Button'
 import Box from '~/components/Box'
 import List from '~/components/molecules/List'
 import OrderSummaryItem from '~/components/molecules/OrderSummaryItem'
+import {
+  LoaderPrice,
+  LoaderTitle
+} from '~/components/molecules/ProductCard/styles'
 import getString from '~/i18n/getString'
 import formatMoney from '~/utils/formatters/formatMoney'
 
@@ -28,6 +32,15 @@ interface OrderSummaryProps {
   onEdit: (productId: Id) => void
   onRemove: (productId: Id) => void
   onQuantityChange: (productId: Id, value: number) => void
+}
+
+function Loader() {
+  return (
+    <Container>
+      <LoaderTitle />
+      <LoaderPrice />
+    </Container>
+  )
 }
 
 function OrderSummary({
@@ -75,5 +88,7 @@ function OrderSummary({
     </Container>
   )
 }
+
+OrderSummary.Loader = Loader
 
 export default OrderSummary

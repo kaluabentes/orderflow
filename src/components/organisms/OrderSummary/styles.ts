@@ -15,7 +15,7 @@ export const Container = styled('section')(css`
       position: fixed;
       top: 74px;
       z-index: 10;
-      transform: translateX(760px);
+      transform: translateX(825px);
       border-radius: 0;
       max-height: calc(100% - 74px);
       overflow: auto;

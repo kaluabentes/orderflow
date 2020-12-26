@@ -5,7 +5,7 @@ import styled from '~/styles/utils/styled'
 export const MainGrid = styled('div')(css`
   display: flex;
   margin: 0 auto;
-  width: 1200px;
+  width: 1265px;
   align-items: flex-start;
   padding: 0 20px;
 
