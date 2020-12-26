@@ -1,11 +1,15 @@
-import pt from './pt.json'
+import pt from './pt.js'
 
-const translationMap = {
+const TRANSLATION = {
   pt
 }
 
+function getTranslation(key) {
+  return TRANSLATION[process.env.LOCALE][key]
+}
+
 function getString(key, params?) {
-  const string = translationMap[process.env.LOCALE][key]
+  const string = getTranslation(key)
 
   if (params) {
     let newString
