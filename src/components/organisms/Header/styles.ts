@@ -97,7 +97,7 @@ export const NavItem = styled(`button`)(css`
   background: transparent;
   border: 0;
   padding: 20px;
-  font-weight: 500;
+  font-weight: 400;
   cursor: pointer;
 
   &:active {
@@ -171,6 +171,7 @@ export const AddressTitle = styled('span')(css`
   font-size: 0.75rem;
   color: white;
   opacity: 0.7;
+  font-weight: 400;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     color: ${props => props.theme.colors.textMuted};

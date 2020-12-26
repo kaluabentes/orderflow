@@ -27,4 +27,5 @@ export const Placeholder = styled('p')(css`
   margin: 0;
   position: absolute;
   left: 50px;
+  font-weight: 400;
 `)

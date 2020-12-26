@@ -36,3 +36,5 @@ export const Default = () => (
     onRemove={action('onRemove')}
   />
 )
+
+export const Loader = () => <OrderSummary.Loader />

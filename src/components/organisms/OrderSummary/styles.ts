@@ -8,6 +8,7 @@ export const Container = styled('section')(css`
   padding: 40px;
   border-radius: 10px;
   max-width: 400px;
+  flex: 1;
 
   ${props =>
     props.isFixed &&

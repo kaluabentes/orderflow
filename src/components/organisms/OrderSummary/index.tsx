@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Button from '~/components/atoms/Button'
-import Box from '~/components/Box'
+import Box from '~/components/atoms/Box'
 import List from '~/components/molecules/List'
 import OrderSummaryItem from '~/components/molecules/OrderSummaryItem'
 import {
@@ -37,8 +37,20 @@ interface OrderSummaryProps {
 function Loader() {
   return (
     <Container>
+      <LoaderPrice style={{ marginBottom: 20 }} />
       <LoaderTitle />
-      <LoaderPrice />
+      <LoaderPrice style={{ marginBottom: 20 }} />
+      <LoaderTitle />
+      <LoaderPrice style={{ marginBottom: 20 }} />
+      <LoaderTitle />
+      <LoaderPrice style={{ marginBottom: 20 }} />
+      <LoaderTitle />
+      <LoaderPrice style={{ marginBottom: 20 }} />
+      <LoaderTitle />
+      <LoaderPrice style={{ marginBottom: 20 }} />
+      <LoaderTitle />
+      <LoaderPrice style={{ marginBottom: 20 }} />
+      <LoaderTitle />
     </Container>
   )
 }

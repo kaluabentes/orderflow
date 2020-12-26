@@ -4,7 +4,7 @@ import styled from '~/styles/utils/styled'
 
 export const Container = styled('section')(css`
   width: 100%;
-  margin: 0 0 30px auto;
+  margin: 0 0 30px 0;
 
   &:last-of-type {
     margin-bottom: 0;

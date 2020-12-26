@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Box from '~/components/Box'
+import Box from '~/components/atoms/Box'
 import ProductCard from '~/components/molecules/ProductCard'
 import Footer from '~/components/organisms/Footer'
 
@@ -153,7 +153,10 @@ function Home({
       <Hero isSearchOpen={isSearchOpen} logoSrc={logoSrc} coverSrc={coverSrc} />
       {isLoading ? (
         <MainGrid>
-          <ProductGrid isLoading />
+          <Box flex="1" margin={!isMobile ? '0 30px 0 0' : null}>
+            <ProductGrid isLoading />
+          </Box>
+          {!isMobile && <OrderSummary.Loader />}
         </MainGrid>
       ) : (
         <MainGrid>
