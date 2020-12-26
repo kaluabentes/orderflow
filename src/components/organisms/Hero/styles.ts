@@ -9,11 +9,11 @@ const addressHeight = 73
 export const OuterContainer = styled('div')(css`
   width: 100%;
   margin-bottom: 30px;
-  background-image: url("${props => props.coverSrc}");
   background-size: cover;
   background-position: center center;
   position: relative;
   margin-top: ${headerHeight}px;
+  overflow: hidden;
 
   ${props =>
     props.isSearchOpen &&
@@ -50,6 +50,15 @@ export const Overlay = styled('div')(css`
   top: 0;
   left: 0;
   z-index: 1;
+`)
+
+export const Image = styled('img')(css`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
 `)
 
 export const Heading = styled('h2')(css`

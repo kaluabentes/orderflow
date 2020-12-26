@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
+import IconButton from '~/components/atoms/IconButton'
 import ProductCard from '~/components/molecules/ProductCard'
 
-import { Container, Title, Grid } from './styles'
+import { Container, Title, Grid, Header, ExpandButton } from './styles'
 
 interface ProductGridProps {
   isLoading?: boolean
@@ -10,10 +11,20 @@ interface ProductGridProps {
 }
 
 function ProductGrid({ isLoading, title, children }: ProductGridProps) {
+  const [isExpanded, setIsExpanded] = useState(true)
+
   return (
     <Container>
-      <Title>{title}</Title>
-      <Grid>
+      {!isLoading && (
+        <Header isExpanded={isExpanded}>
+          <Title>{title}</Title>
+          <ExpandButton
+            name={isExpanded ? 'expand_less' : 'expand_more'}
+            onClick={() => setIsExpanded(prev => !prev)}
+          />
+        </Header>
+      )}
+      <Grid isExpanded={isExpanded}>
         {isLoading ? (
           <>
             <ProductCard.Loader />

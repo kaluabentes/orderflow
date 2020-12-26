@@ -11,7 +11,14 @@ import {
 import getString from '~/i18n/getString'
 import formatMoney from '~/utils/formatters/formatMoney'
 
-import { Container, Title, Summary, SubtotalLabel, TotalLabel } from './styles'
+import {
+  Container,
+  Title,
+  Summary,
+  SubtotalLabel,
+  TotalLabel,
+  Scroller
+} from './styles'
 
 type Id = string | number
 
@@ -69,19 +76,21 @@ function OrderSummary({
   return (
     <Container isFixed={isFixed}>
       <Title>{getString('app.orderSummary.title')}</Title>
-      <List margin="0 0 20px 0">
-        {products.map(({ id, description, price, quantity }) => (
-          <OrderSummaryItem
-            key={id}
-            description={description}
-            price={price}
-            quantity={quantity}
-            onEdit={() => onEdit(id)}
-            onRemove={() => onRemove(id)}
-            onQuantityChange={value => onQuantityChange(id, value)}
-          />
-        ))}
-      </List>
+      <Scroller>
+        <List margin="0 0 20px 0">
+          {products.map(({ id, description, price, quantity }) => (
+            <OrderSummaryItem
+              key={id}
+              description={description}
+              price={price}
+              quantity={quantity}
+              onEdit={() => onEdit(id)}
+              onRemove={() => onRemove(id)}
+              onQuantityChange={value => onQuantityChange(id, value)}
+            />
+          ))}
+        </List>
+      </Scroller>
       <Summary>
         <Box align="left">
           <SubtotalLabel>{getString('app.subtotal')}</SubtotalLabel>
