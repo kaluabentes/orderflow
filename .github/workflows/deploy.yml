@@ -1,0 +1,23 @@
+name: 'Release'
+
+on:
+  push:
+    breanches:
+      - main
+    tags:
+      - '*'
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.4.6
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: 'polar-everglades-97840'
+          heroku_email: 'kaluanbentes@gmail.com'
