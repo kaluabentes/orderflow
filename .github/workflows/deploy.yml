@@ -2,13 +2,13 @@ name: 'Deploy'
 
 on:
   push:
-    breanches:
+    branches:
       - main
     tags:
       - '*'
 
 jobs:
-  test-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
