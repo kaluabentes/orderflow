@@ -1,16 +1,11 @@
-import { get } from 'lodash'
-import pt from './pt.js'
+import pt from './pt.json'
 
 const TRANSLATION = {
   pt
 }
 
-function getTranslation(key) {
-  return get(TRANSLATION, `${process.env.LOCALE}.${key}`, '')
-}
-
 function getString(key, params?) {
-  const string = getTranslation(key)
+  const string = TRANSLATION[process.env.LOCALE][key]
 
   if (params) {
     let newString

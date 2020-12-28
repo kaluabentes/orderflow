@@ -128,12 +128,13 @@ export const NavItem = styled(`button`)(css`
   }
 `)
 
-export const ProfileText = styled(Heading)(css`
+export const ProfileText = styled('p')(css`
   width: 40%;
   text-align: right;
   padding-right: 30px;
   font-weight: 400 !important;
   color: white;
+  font-size: 1rem;
 `)
 
 export const CountersContainer = styled('div')(css`
