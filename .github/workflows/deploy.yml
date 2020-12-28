@@ -35,7 +35,15 @@ jobs:
       - name: Building application
         run: npm run build
         env:
-          REACT_APP_API_URL: http://sciencenewsscraper.sa-east-1.elasticbeanstalk.com/api
+          STORE_NAME: Peppes Restaurante
+          PROVIDER_NAME: Orderflow
+          PROVIDER_URL: https://orderflow.com
+          LOCALE: pt
+          TWILIO_ACCOUNT_SID: ${{secrets.TWILIO_ACCOUNT_SID}}
+          TWILIO_AUTH_TOKEN: ${{secrets.TWILIO_AUTH_TOKEN}}
+          TWILIO_SERVICE_SID: ${{secrets.TWILIO_SERVICE_SID}}
+          JWT_SECRET: secret
+          MONGODB_URI: ${{secrets.MONGODB_URI}}
 
       - name: Generate deployment package
         run: zip -r deploy.zip * -x "**node_modules**"
