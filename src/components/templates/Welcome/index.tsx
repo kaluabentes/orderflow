@@ -34,7 +34,7 @@ function Welcome({
       <Content>
         <Logo src={logoSrc} margin="0 0 40px 0" />
         <FadeInUp delay="0s">
-          <Heading size="large" align="center" margin="0 0 15px 0">
+          <Heading size="xlarge" align="center" margin="0 0 15px 0">
             {title}
           </Heading>
         </FadeInUp>

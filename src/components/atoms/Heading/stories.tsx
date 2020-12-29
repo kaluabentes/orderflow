@@ -21,14 +21,8 @@ export const Default = () => (
     <Heading size="large" as="h2">
       Pepers Restaurante
     </Heading>
-    <Heading size="medium" as="h2">
-      Pepers Restaurante
-    </Heading>
-    <Heading size="small" as="h2">
-      Pepers Restaurante
-    </Heading>
-    <Heading size="xsmall" as="h2">
-      Pepers Restaurante
-    </Heading>
+    <Heading as="h2">Pepers Restaurante</Heading>
+    <Heading as="h2">Pepers Restaurante</Heading>
+    <Heading as="h2">Pepers Restaurante</Heading>
   </div>
 )

@@ -9,9 +9,9 @@ export default {
 
 export const Default = () => (
   <div>
-    <Paragraph size="xsmall">xsmall text</Paragraph>
-    <Paragraph size="small">small text</Paragraph>
-    <Paragraph size="medium">medium text</Paragraph>
+    <Paragraph>xsmall text</Paragraph>
+    <Paragraph>small text</Paragraph>
+    <Paragraph>medium text</Paragraph>
   </div>
 )
 

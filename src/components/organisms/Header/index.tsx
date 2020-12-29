@@ -132,9 +132,7 @@ function Header({
         {isMounted && (
           <Nav isOpen={isOpen}>
             <NavHeader>
-              <Heading size="medium" as="h2">
-                {profileText}
-              </Heading>
+              <Heading as="h2">{profileText}</Heading>
               <IconButton onClick={() => setIsOpen(false)} name="close" />
             </NavHeader>
             {navItems.map(item => (
@@ -155,9 +153,7 @@ function Header({
         {isMobile && !isSearchOpen && (
           <>
             <IconButton name="sort" onClick={() => setIsOpen(true)} />
-            <Heading margin="0 -45px 0 0" size="medium">
-              {title}
-            </Heading>
+            <Heading margin="0 -45px 0 0">{title}</Heading>
           </>
         )}
         {!isMobile && <ProfileText>{profileText}</ProfileText>}

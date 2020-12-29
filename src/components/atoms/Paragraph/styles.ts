@@ -5,13 +5,10 @@ export const Container = styled('p')(css`
   margin: 0;
   line-height: 1.4em;
   font-weight: 300;
+  font-size: 1rem;
 
   ${props => css`
     font-weight: ${props.weight};
-  `}
-
-  ${props => css`
-    font-size: ${props.theme.typography.size[props.size]};
   `}
 
   ${props =>
