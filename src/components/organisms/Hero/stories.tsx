@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import React from 'react'
 
 import { logoSrc } from '~/components/atoms/Logo'
-import { coverSrc } from '~/storefront/templates/Welcome'
+import { coverSrc } from '~/components/templates/Welcome'
 
 import Hero from '.'
 
