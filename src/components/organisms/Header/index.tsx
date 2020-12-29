@@ -160,11 +160,7 @@ function Header({
             </Heading>
           </>
         )}
-        {!isMobile && (
-          <ProfileText size="small" as="h2">
-            {profileText}
-          </ProfileText>
-        )}
+        {!isMobile && <ProfileText>{profileText}</ProfileText>}
         <ActionsContainer>
           {isMobile && !isSearchOpen && (
             <IconButton

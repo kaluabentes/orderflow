@@ -4,7 +4,7 @@ import getString from '~/i18n/getString'
 import Button from '~/components/atoms/Button'
 import CodeInput from '~/components/atoms/CodeInput'
 import Paragraph from '~/components/atoms/Paragraph'
-import InnerPage from '~/storefront/templates/InnerPage'
+import InnerPage from '~/components/templates/InnerPage'
 
 interface VerifyProps {
   text?: React.ReactNode

@@ -16,7 +16,7 @@ export const Container = styled('section')(css`
     props.isFixed &&
     css`
       position: fixed;
-      top: 74px;
+      top: 79px;
       z-index: 10;
       transform: translateX(825px);
       border-radius: 0;

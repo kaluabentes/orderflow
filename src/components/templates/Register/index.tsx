@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import InnerPage from '~/storefront/templates/InnerPage'
+import InnerPage from '~/components/templates/InnerPage'
 import Paragraph from '~/components/atoms/Paragraph'
 import getString from '~/i18n/getString'
 import ProfileForm from '~/components/organisms/ProfileForm'
