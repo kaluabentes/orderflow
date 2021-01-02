@@ -10,7 +10,11 @@ async function connectDb() {
   }
 
   const db: any = await mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true
+    auth: {
+      authSource: 'admin'
+    },
+    useNewUrlParser: true,
+    useUnifiedTopology: true
   } as any)
 
   connection.isConnected = db.connections[0].readyState
