@@ -132,7 +132,7 @@ function Header({
         {isMounted && (
           <Nav isOpen={isOpen}>
             <NavHeader>
-              <Heading size="1.2rem" as="h2">
+              <Heading fontSize="medium" as="h2">
                 {profileText}
               </Heading>
               <IconButton onClick={() => setIsOpen(false)} name="close" />

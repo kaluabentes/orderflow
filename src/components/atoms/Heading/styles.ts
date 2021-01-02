@@ -7,6 +7,6 @@ export const Container = styled('h1')(css`
   font-weight: 600;
 
   ${props => css`
-    font-size: ${props.theme.typography.size[props.size]};
+    font-size: ${props.theme.typography.size[props.fontSize]};
   `}
 `)

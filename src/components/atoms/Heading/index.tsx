@@ -5,7 +5,7 @@ import { Container } from './styles'
 
 interface HeadingProps extends CommonProps {
   as?: string
-  size?:
+  fontSize?:
     | 'xsmall'
     | 'small'
     | 'medium'
@@ -15,8 +15,8 @@ interface HeadingProps extends CommonProps {
     | 'xxxlarge'
 }
 
-function Heading({ as = 'h1', size = 'medium', ...props }: HeadingProps) {
-  return <Container {...props} as={as} size={size} />
+function Heading({ as = 'h1', fontSize = 'medium', ...props }: HeadingProps) {
+  return <Container {...props} as={as} fontSize={fontSize} />
 }
 
 export default Heading

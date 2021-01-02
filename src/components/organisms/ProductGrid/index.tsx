@@ -24,7 +24,7 @@ function ProductGrid({ isLoading, title, children }: ProductGridProps) {
           <Title>{title}</Title>
           <Icon
             color="#bbb"
-            size="30px"
+            fontSize="30px"
             name={isExpanded ? 'expand_less' : 'expand_more'}
           />
         </Header>

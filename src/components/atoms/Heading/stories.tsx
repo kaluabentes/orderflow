@@ -9,16 +9,16 @@ export default {
 
 export const Default = () => (
   <div>
-    <Heading size="xxxlarge" as="h2">
+    <Heading fontSize="xxxlarge" as="h2">
       Pepers Restaurante
     </Heading>
-    <Heading size="xxlarge" as="h2">
+    <Heading fontSize="xxlarge" as="h2">
       Pepers Restaurante
     </Heading>
-    <Heading size="xlarge" as="h2">
+    <Heading fontSize="xlarge" as="h2">
       Pepers Restaurante
     </Heading>
-    <Heading size="large" as="h2">
+    <Heading fontSize="large" as="h2">
       Pepers Restaurante
     </Heading>
     <Heading as="h2">Pepers Restaurante</Heading>
