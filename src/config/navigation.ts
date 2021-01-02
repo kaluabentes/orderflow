@@ -3,7 +3,7 @@ import getString from '~/i18n/getString'
 export const navItems = [
   {
     label: getString('app.header.about'),
-    path: '/about'
+    path: '/'
   },
   {
     label: getString('app.header.orders'),

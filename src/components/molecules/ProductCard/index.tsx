@@ -42,7 +42,7 @@ function ProductCard({ image, title, description, price }: ProductCardProps) {
   const forceUpdate = useForceUpdate()
 
   useEffect(() => {
-    setTimeout(forceUpdate, 500)
+    setTimeout(forceUpdate, 1000)
   }, [])
 
   return (

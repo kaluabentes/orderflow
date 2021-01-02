@@ -132,7 +132,9 @@ function Header({
         {isMounted && (
           <Nav isOpen={isOpen}>
             <NavHeader>
-              <Heading as="h2">{profileText}</Heading>
+              <Heading size="1.2rem" as="h2">
+                {profileText}
+              </Heading>
               <IconButton onClick={() => setIsOpen(false)} name="close" />
             </NavHeader>
             {navItems.map(item => (

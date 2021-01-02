@@ -79,6 +79,7 @@ export const NavHeader = styled('header')(css`
   justify-content: space-between;
   padding: 20px;
   align-items: center;
+  font-size: 1.2rem;
 
   & i {
     color: ${props => props.theme.colors.textMuted} !important;
@@ -99,6 +100,8 @@ export const NavItem = styled(`button`)(css`
   padding: 20px;
   font-weight: 400;
   cursor: pointer;
+  font-size: 1.1rem;
+  transition: 0.3s;
 
   &:active {
     transform: scale(0.9);
@@ -112,6 +115,8 @@ export const NavItem = styled(`button`)(css`
     props.isActive &&
     css`
       color: ${props => props.theme.colors.text};
+      border-left: 5px solid ${props => props.theme.colors.primary};
+      font-weight: 500;
     `}
 
   @media (min-width: ${props => props.theme.breakpoints.desktop}px) {

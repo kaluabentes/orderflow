@@ -7,7 +7,7 @@ import Header from '~/components/organisms/Header'
 import Hero from '~/components/organisms/Hero'
 import OrderSummary from '~/components/organisms/OrderSummary'
 import ProductGrid from '~/components/organisms/ProductGrid'
-import { navItems } from '~/config/header'
+import { navItems } from '~/config/navigation'
 import getString from '~/i18n/getString'
 import useIsMobile from '~/utils/hooks/useIsMobile'
 

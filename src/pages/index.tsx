@@ -31,8 +31,7 @@ function HomePage() {
     <Home
       isLoading={isLoading}
       categories={categories}
-      logoSrc={logoSrc}
-      coverSrc={coverSrc}
+      logoSrc="./orderflow.svg"
       address="Servidão Vitórias, 40"
       userName={getUserName()}
       cartCount={10}

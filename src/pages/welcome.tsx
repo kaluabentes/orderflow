@@ -11,7 +11,7 @@ function WelcomePage() {
     <Welcome
       title={process.env.STORE_NAME}
       coverSrc={coverSrc}
-      logoSrc={logoSrc}
+      logoSrc="/orderflow.svg"
       onEnter={() => router.push('/login')}
       onVerify={() => router.push('/availability')}
     />
