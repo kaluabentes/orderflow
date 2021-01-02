@@ -2,7 +2,7 @@ import { action } from '@storybook/addon-actions'
 import React, { useState } from 'react'
 import { logoSrc } from '~/components/atoms/Logo'
 
-import { navItems } from '~/config/header'
+import { navItems } from '~/config/navigation'
 
 import Header from '.'
 
