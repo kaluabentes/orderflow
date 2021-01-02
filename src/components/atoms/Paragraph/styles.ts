@@ -3,7 +3,7 @@ import styled from '../../../styles/utils/styled'
 
 export const Container = styled('p')(css`
   margin: 0;
-  line-height: 1.4em;
+  line-height: 1.6em;
   font-weight: 300;
   font-size: 1rem;
 
