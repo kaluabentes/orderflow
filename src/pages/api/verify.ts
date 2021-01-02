@@ -85,7 +85,7 @@ export default async (request: NowRequest, response: NowResponse) => {
       user: newUser
     })
   } catch (error) {
-    response.status(400).send({ error })
+    response.status(400).send({ error: error.message, ...error })
     return
   }
 }
