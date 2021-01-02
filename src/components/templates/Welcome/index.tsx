@@ -44,7 +44,7 @@ function Welcome({
           </Paragraph>
         </FadeInUp>
         <FadeInUp delay="0.4s">
-          <Button variant="primary" onClick={onEnter} margin="0 0 20px 0">
+          <Button variant="primary" onClick={onEnter} margin="0 0 10px 0">
             {getString('app.welcome.enterLabel')}
           </Button>
         </FadeInUp>
