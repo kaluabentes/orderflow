@@ -15,5 +15,5 @@ export interface CommonProps {
   color?: string
   dimension?: Dimension
   flex?: string
-  size?: string
+  fontSize?: string
 }
