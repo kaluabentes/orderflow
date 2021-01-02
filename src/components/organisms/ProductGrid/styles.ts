@@ -14,7 +14,7 @@ export const Container = styled('section')(css`
 
 export const Title = styled('h3')(css`
   margin: 0 0 20px 0;
-  font-size: 18px;
+  font-size: ${props => props.theme.typography.size.medium};
 `)
 
 export const Grid = styled('div')(css`

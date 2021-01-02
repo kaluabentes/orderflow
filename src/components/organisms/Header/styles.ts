@@ -16,7 +16,7 @@ export const Container = styled('header')(css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14.5px 20px;
+  padding: 10px 20px;
   color: white;
   width: 100%;
   margin: 0 auto;
@@ -124,6 +124,7 @@ export const NavItem = styled(`button`)(css`
     color: white;
     opacity: 0.7;
     margin-right: 30px;
+    font-size: ${props => props.theme.typography.size.small};
 
     ${props =>
       props.isActive &&

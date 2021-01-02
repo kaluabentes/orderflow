@@ -16,7 +16,7 @@ export const Container = styled('section')(css`
     props.isFixed &&
     css`
       position: fixed;
-      top: 79px;
+      top: 70px;
       z-index: 10;
       transform: translateX(825px);
       border-radius: 0;
@@ -39,8 +39,8 @@ export const Scroller = styled('div')(css`
 `)
 
 export const Title = styled('h3')(css`
-  margin: 0 0 20px 0;
-  font-size: 22px;
+  margin: 0 0 15px 0;
+  font-size: ${props => props.theme.typography.size.medium};
 `)
 
 export const Summary = styled('div')(css`
