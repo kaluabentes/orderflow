@@ -6,7 +6,7 @@ import { Container, Loader } from './styles'
 interface ButtonProps extends CommonProps {
   onClick?: () => void
   isLoading?: boolean
-  variant?: 'default' | 'primary' | 'info' | 'warning'
+  variant?: 'default' | 'primary' | 'info' | 'warning' | 'defaultDark'
   type?: string
 }
 

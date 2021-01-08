@@ -46,6 +46,14 @@ export const Container = styled('button')(css`
     `}
 
   ${props =>
+    props.variant === 'defaultDark' &&
+    css`
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      background: transparent;
+      color: white;
+    `}
+
+  ${props =>
     props.variant === 'primary' &&
     css`
       border-color: ${props => props.theme.colors.primary};
