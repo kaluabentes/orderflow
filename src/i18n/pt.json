@@ -40,7 +40,7 @@
   "app.remove": "Remover",
   "app.orderSummary.title": "Resumo do Pedido",
   "app.subtotal": "Subtotal",
-  "app.deliveryFee": "Taxa de entrega",
+  "app.deliveryTax": "Taxa de entrega",
   "app.total": "Total",
   "app.advance": "Avançar",
   "orderWizard.title": "Monte seu pedido",

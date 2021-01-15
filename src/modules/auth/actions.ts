@@ -1,4 +1,4 @@
-import { login, register, verify } from './service'
+import { login, register, verify } from './api'
 
 export async function makeLogin(setState, phone) {
   await login(phone)

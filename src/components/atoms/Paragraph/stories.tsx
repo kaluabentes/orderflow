@@ -20,5 +20,5 @@ export const Muted = () => (
 )
 
 export const Weight = () => (
-  <Paragraph weight="bold">Pepers Restaurante</Paragraph>
+  <Paragraph weight="600">Pepers Restaurante</Paragraph>
 )

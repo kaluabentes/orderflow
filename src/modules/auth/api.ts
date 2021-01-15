@@ -1,5 +1,6 @@
 import axios from 'axios'
-import getAuthHeader from '~/utils/getters/getAuthHeader'
+
+import getAuthHeader from '~/modules/auth/getAuthHeader'
 
 export function login(phone) {
   return axios.post('/api/login', { phone })

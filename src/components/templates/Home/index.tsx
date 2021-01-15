@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import Box from '~/components/atoms/Box'
+import Heading from '~/components/atoms/Heading'
 import ProductCard from '~/components/molecules/ProductCard'
 import Footer from '~/components/organisms/Footer'
 
 import Header from '~/components/organisms/Header'
 import Hero from '~/components/organisms/Hero'
 import OrderSummary from '~/components/organisms/OrderSummary'
+import { items } from '~/components/organisms/OrderSummary/mock'
 import ProductGrid from '~/components/organisms/ProductGrid'
 import { navItems } from '~/config/navigation'
 import getString from '~/i18n/getString'
+import { Order } from '~/modules/orders/types'
 import useIsMobile from '~/utils/hooks/useIsMobile'
 
 import { MainGrid } from './styles'
@@ -31,6 +34,7 @@ interface Category {
 
 interface HomeProps {
   isLoading?: boolean
+  order: Order
   categories: Category[]
   logoSrc: string
   coverSrc?: string
@@ -48,6 +52,7 @@ interface HomeProps {
 
 function Home({
   isLoading,
+  order,
   categories,
   logoSrc,
   coverSrc,
@@ -97,29 +102,10 @@ function Home({
   function renderOrderSummary(props = {}) {
     return (
       <OrderSummary
-        products={[
-          {
-            id: 1,
-            description: '1x Sextou - Quarterão - apenas sanduíche',
-            price: 20.9,
-            quantity: 3
-          },
-          {
-            id: 2,
-            description: '1x Sextou - Quarterão - apenas sanduíche',
-            price: 21.9,
-            quantity: 2
-          },
-          {
-            id: 3,
-            description: '1x Sextou - Quarterão - apenas sanduíche',
-            price: 21.9,
-            quantity: 10
-          }
-        ]}
-        subtotal={12.9}
-        deliveryFee={12.49}
-        total={25.39}
+        items={order.items}
+        subtotal={order.subtotal}
+        deliveryTax={order.deliveryTax}
+        total={order.total}
         onAdvance={() => alert('onAdvance')}
         onEdit={() => alert('onEdit')}
         onRemove={() => alert('onRemove')}

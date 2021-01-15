@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import getString from '../i18n/getString'
 import Login from '~/components/templates/Login'
 import { makeLogin } from '~/modules/auth/actions'
-import useAuth from '~/modules/auth/hooks/useAuth'
+import useAuth from '~/modules/auth/useAuth'
 
 export default function LoginPage() {
   const router = useRouter()

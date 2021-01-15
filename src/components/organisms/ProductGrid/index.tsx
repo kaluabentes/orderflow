@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Heading from '~/components/atoms/Heading'
 import Icon from '~/components/atoms/Icon'
 import IconButton from '~/components/atoms/IconButton'
 import ProductCard from '~/components/molecules/ProductCard'
@@ -21,7 +22,9 @@ function ProductGrid({ isLoading, title, children }: ProductGridProps) {
           onClick={() => setIsExpanded(prev => !prev)}
           isExpanded={isExpanded}
         >
-          <Title>{title}</Title>
+          <Heading fontSize="large" margin="0 0 20px 0" as="h3">
+            {title}
+          </Heading>
           <Icon
             color="#bbb"
             fontSize="30px"

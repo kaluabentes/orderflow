@@ -9,7 +9,7 @@ import List from '~/components/molecules/List'
 
 import Modal from '~/components/organisms/Modal'
 import getString from '~/i18n/getString'
-import Product from '~/modules/products/interfaces/Product'
+import Product from '~/modules/products/Product'
 import Footer from './Footer'
 import InputItem, { InputItemType } from './InputItem'
 import OptionGroup from './OptionGroup'

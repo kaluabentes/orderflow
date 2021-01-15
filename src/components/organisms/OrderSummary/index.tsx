@@ -3,7 +3,7 @@ import React from 'react'
 import Button from '~/components/atoms/Button'
 import Box from '~/components/atoms/Box'
 import List from '~/components/molecules/List'
-import OrderItem from '~/components/molecules/OrderItem'
+import OrderItemComponent from '~/components/molecules/OrderItem'
 import {
   LoaderPrice,
   LoaderTitle
@@ -19,21 +19,17 @@ import {
   TotalLabel,
   Scroller
 } from './styles'
+import { OrderItem } from '~/modules/orders/types'
+import Icon from '~/components/atoms/Icon'
+import theme from '~/styles/theme'
+import Heading from '~/components/atoms/Heading'
 
 type Id = string | number
 
-interface OrderItemProps {
-  id: Id
-  title: string
-  options: string
-  price: number
-  quantity: number
-}
-
 interface OrderSummaryProps {
-  items: OrderItemProps[]
+  items: OrderItem[]
   subtotal: number
-  deliveryFee: number
+  deliveryTax: number
   total: number
   isFixed?: boolean
   onAdvance: () => void
@@ -66,7 +62,7 @@ function Loader() {
 function OrderSummary({
   items,
   subtotal,
-  deliveryFee,
+  deliveryTax,
   total,
   isFixed = false,
   onAdvance,
@@ -76,38 +72,56 @@ function OrderSummary({
 }: OrderSummaryProps) {
   return (
     <Container isFixed={isFixed}>
-      <Title>{getString('app.orderSummary.title')}</Title>
-      <Scroller isFixed={isFixed}>
-        <List>
-          {items.map(item => (
-            <OrderItem
-              key={item.id}
-              title={item.title}
-              options={item.options}
-              price={item.price}
-              quantity={item.quantity}
-              onEdit={() => onEdit(item.id)}
-              onRemove={() => onRemove(item.id)}
-              onQuantityChange={value => onQuantityChange(item.id, value)}
-            />
-          ))}
-        </List>
-      </Scroller>
-      <Summary>
-        <Box align="left">
-          <SubtotalLabel>{getString('app.subtotal')}</SubtotalLabel>
-          <SubtotalLabel>{getString('app.deliveryFee')}</SubtotalLabel>
-          <TotalLabel>{getString('app.total')}</TotalLabel>
+      {items.length > 0 ? (
+        <>
+          <Heading as="h3" margin="0 0 10px 0" fontSize="large">
+            {getString('app.orderSummary.title')}
+          </Heading>
+          <Scroller isFixed={isFixed}>
+            <List>
+              {items.map(item => (
+                <OrderItemComponent
+                  key={item.id}
+                  title={item.title}
+                  options={item.options}
+                  price={item.price}
+                  quantity={item.quantity}
+                  onQuantityChange={value => onQuantityChange(item.id, value)}
+                  onEdit={() => onEdit(item.id)}
+                  onRemove={() => onRemove(item.id)}
+                />
+              ))}
+            </List>
+          </Scroller>
+          <Summary>
+            <Box align="left">
+              <SubtotalLabel>{getString('app.subtotal')}</SubtotalLabel>
+              <SubtotalLabel>{getString('app.deliveryTax')}</SubtotalLabel>
+              <TotalLabel>{getString('app.total')}</TotalLabel>
+            </Box>
+            <Box align="right">
+              <SubtotalLabel>{formatMoney(subtotal)}</SubtotalLabel>
+              <SubtotalLabel>{formatMoney(deliveryTax)}</SubtotalLabel>
+              <TotalLabel>{formatMoney(total)}</TotalLabel>
+            </Box>
+          </Summary>
+          <Button onClick={onAdvance} variant="primary">
+            {getString('app.advance')}
+          </Button>
+        </>
+      ) : (
+        <Box padding="20px 20px 0 20px" alignItems="center">
+          <Icon
+            margin="0 0 20px 0"
+            fontSize="150px"
+            color={theme.colors.background}
+            name="remove_shopping_cart"
+          />
+          <Heading as="h4" fontSize="xlarge" align="center" fontWeight="500">
+            Ops, nada por aqui ainda
+          </Heading>
         </Box>
-        <Box align="right">
-          <SubtotalLabel>{formatMoney(subtotal)}</SubtotalLabel>
-          <SubtotalLabel>{formatMoney(deliveryFee)}</SubtotalLabel>
-          <TotalLabel>{formatMoney(total)}</TotalLabel>
-        </Box>
-      </Summary>
-      <Button onClick={onAdvance} variant="primary">
-        {getString('app.advance')}
-      </Button>
+      )}
     </Container>
   )
 }

@@ -21,6 +21,10 @@ function mixins(props) {
       value: props['fontSize']
     },
     {
+      name: 'font-weight',
+      value: props['fontWeight']
+    },
+    {
       name: 'flex',
       value: props['flex']
     },

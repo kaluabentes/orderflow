@@ -1,23 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 
-import { logoSrc } from '../components/atoms/Logo'
 import Home from '~/components/templates/Home'
-import useAuth from '~/modules/auth/hooks/useAuth'
-import useCategories from '~/modules/products/hooks/useCategories'
-import { coverSrc } from '~/components/templates/Welcome'
+import useAuth from '~/modules/auth/useAuth'
+import useCategories from '~/modules/categories/useCategories'
+import useProtectedPage from '~/modules/auth/useProtectedPage'
+import useOrder from '~/modules/orders/useOrder'
 
 function HomePage() {
   const router = useRouter()
   const [auth] = useAuth()
   const [categories, isLoading] = useCategories()
   const [searchValue, setSearchValue] = useState('')
+  const [order] = useOrder()
 
-  useEffect(() => {
-    if (!auth.token && auth.isReady) {
-      router.push('/welcome')
-    }
-  }, [auth])
+  useProtectedPage()
 
   function getUserName() {
     return auth.user.name.split(' ')[0]
@@ -29,12 +26,13 @@ function HomePage() {
 
   return (
     <Home
+      order={order}
       isLoading={isLoading}
       categories={categories}
       logoSrc="./orderflow.svg"
       address="Servidão Vitórias, 40"
       userName={getUserName()}
-      cartCount={10}
+      cartCount={order.items.length}
       currentPath="/"
       onAddressClick={() => {}}
       onCartClick={() => {}}

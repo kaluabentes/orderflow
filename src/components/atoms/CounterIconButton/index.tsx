@@ -23,12 +23,14 @@ function CounterIconButton({
 }: CounterIconButtonProps) {
   return (
     <Container onClick={onClick} {...props}>
-      <Counter
-        textColor={counterTextColor}
-        backgroundColor={counterBackgroundColor}
-      >
-        {count}
-      </Counter>
+      {count > 0 && (
+        <Counter
+          textColor={counterTextColor}
+          backgroundColor={counterBackgroundColor}
+        >
+          {count}
+        </Counter>
+      )}
       <Icon name={name} />
     </Container>
   )

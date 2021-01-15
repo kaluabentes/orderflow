@@ -3,7 +3,7 @@ import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import Logo from '~/components/atoms/Logo'
 import Paragraph from '~/components/atoms/Paragraph'
-import Product from '~/modules/products/interfaces/Product'
+import Product from '~/modules/products/Product'
 import formatMoney from '~/utils/formatters/formatMoney'
 
 interface ProductInfoProps {

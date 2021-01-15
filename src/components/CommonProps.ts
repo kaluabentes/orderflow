@@ -19,6 +19,7 @@ export interface CommonProps {
   justifyContent?: string
   flexDirection?: string
   fontSize?: string
+  fontWeight?: string
   position?: string
   top?: string
   left?: string

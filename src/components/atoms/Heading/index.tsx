@@ -13,10 +13,18 @@ interface HeadingProps extends CommonProps {
     | 'xlarge'
     | 'xxlarge'
     | 'xxxlarge'
+  fontWeight?: string
 }
 
-function Heading({ as = 'h1', fontSize = 'medium', ...props }: HeadingProps) {
-  return <Container {...props} as={as} fontSize={fontSize} />
+function Heading({
+  as = 'h1',
+  fontSize = 'medium',
+  fontWeight = '600',
+  ...props
+}: HeadingProps) {
+  return (
+    <Container {...props} as={as} fontWeight={fontWeight} fontSize={fontSize} />
+  )
 }
 
 export default Heading

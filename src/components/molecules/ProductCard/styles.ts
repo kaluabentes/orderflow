@@ -46,7 +46,7 @@ export const Content = styled(`div`)(css`
 
 export const Title = styled(`h4`)(css`
   margin: 0 0 10px 0;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 1rem;
   line-height: 1.4em;
 `)
@@ -62,7 +62,7 @@ export const Description = styled(`p`)(css`
 
 export const Price = styled('p')(css`
   margin: 0;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1rem;
 `)
 

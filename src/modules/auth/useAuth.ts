@@ -5,10 +5,8 @@ const INITIAL_STATE = {
   user: null
 }
 
-const STORAGE_KEY = 'orderflow.auth'
-
 function useAuth() {
-  return useStorageState(STORAGE_KEY, INITIAL_STATE)
+  return useStorageState('orderflow.auth', INITIAL_STATE)
 }
 
 export default useAuth

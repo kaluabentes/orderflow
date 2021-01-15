@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 import Register from '~/components/templates/Register'
 import { registerUser } from '~/modules/auth/actions'
-import useAuth from '~/modules/auth/hooks/useAuth'
+import useAuth from '~/modules/auth/useAuth'
 
 function RegisterPage() {
   const router = useRouter()

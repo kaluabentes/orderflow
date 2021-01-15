@@ -4,7 +4,7 @@ import { get } from 'lodash'
 
 import Verify from '~/components/templates/Verify'
 import getString from '../i18n/getString'
-import useAuth from '~/modules/auth/hooks/useAuth'
+import useAuth from '~/modules/auth/useAuth'
 import formatPhone from '../utils/formatters/formatPhone'
 import { checkCode } from '~/modules/auth/actions'
 
