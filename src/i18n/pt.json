@@ -42,5 +42,7 @@
   "app.subtotal": "Subtotal",
   "app.deliveryFee": "Taxa de entrega",
   "app.total": "Total",
-  "app.advance": "Avançar"
+  "app.advance": "Avançar",
+  "orderWizard.title": "Monte seu pedido",
+  "required": "Obrigatório"
 }

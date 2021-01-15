@@ -9,4 +9,10 @@ export const Container = styled('span')(css`
   padding: 5px;
   border-radius: 8px;
   display: inline-block;
+
+  ${props =>
+    props.isDisabled &&
+    css`
+      opacity: 0.5;
+    `}
 `)

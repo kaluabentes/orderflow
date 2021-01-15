@@ -5,4 +5,6 @@ export const Image = styled('img')(css`
   height: 160px;
   width: 160px;
   border-radius: 10px;
+  object-fit: cover;
+  object-position: center center;
 `)

@@ -6,7 +6,6 @@ export const Content = styled.div<{ isLoading: boolean | undefined }>`
   background: white;
   height: 100vh;
   width: 100%;
-  max-width: 600px;
   transform: translateY(100%);
   transition: 0.3s;
   z-index: 10;
@@ -14,17 +13,25 @@ export const Content = styled.div<{ isLoading: boolean | undefined }>`
   flex-direction: column;
   left: 0;
   top: 0;
+  overflow: auto;
+
   @media (min-width: 600px) {
-    height: 500px;
+    height: 580px;
     border-radius: 10px;
-    margin-top: 50px;
+    margin-top: 40px;
+    max-width: ${props => props.maxWidth || 600}px;
   }
+
   ${props =>
     props.isLoading &&
     css`
       justify-content: center;
       align-items: center;
     `}
+  
+  @media (min-width: ${props => props.theme.breakpoints.desktop}px) {
+    overflow: hidden;
+  }
 `
 
 export const Overlay = styled.button`
@@ -46,14 +53,16 @@ export const Container = styled.div<{ isOpen: boolean }>`
   transition: 0.3s;
   opacity: 0;
   visibility: hidden;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   justify-content: center;
+
   ${props =>
     props.isOpen &&
     css`
       opacity: 1;
       visibility: visible;
+
       & ${Content} {
         transform: translateY(0);
       }
@@ -66,11 +75,13 @@ export const Header = styled.div`
   justify-content: space-between;
   color: ${props => props.theme.colors.text};
   padding: 20px 20px 10px 20px;
+
   & span {
     font-weight: 600;
   }
+
   @media (min-width: 600px) {
-    padding: 30px 30px 0 30px;
+    padding: 30px 30px 15px 30px;
   }
 `
 
@@ -79,9 +90,10 @@ export const Body = styled.div`
   flex-direction: column;
   padding: 20px;
   flex-grow: 1;
+  overflow-y: auto;
+
   @media (min-width: 600px) {
     height: 444px;
-    overflow-y: auto;
     padding: 30px;
   }
 `

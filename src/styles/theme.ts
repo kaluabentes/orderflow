@@ -1,6 +1,4 @@
-import { css } from 'styled-components'
-
-export default {
+const theme = {
   colors: {
     primary: '#ff5555',
     info: '#3858cd',
@@ -30,3 +28,5 @@ export default {
     desktop: 824
   }
 }
+
+export default theme

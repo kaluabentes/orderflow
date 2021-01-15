@@ -16,5 +16,18 @@ export const Default = () => {
 export const Disabled = () => {
   const [value, setValue] = useState(0)
 
-  return <Amount isDisabled value={value} onChange={value => setValue(value)} />
+  return (
+    <>
+      <Amount
+        isLeftDisabled
+        value={value}
+        onChange={value => setValue(value)}
+      />
+      <Amount
+        isRightDisabled
+        value={value}
+        onChange={value => setValue(value)}
+      />
+    </>
+  )
 }

@@ -5,12 +5,17 @@ import { Container } from './styles'
 
 interface CheckboxProps {
   isChecked: boolean
-  onChange: (value) => void
+  isDisabled: boolean
+  onChange: () => void
 }
 
-function Checkbox({ isChecked, onChange }: CheckboxProps) {
+function Checkbox({ isChecked, isDisabled, onChange }: CheckboxProps) {
   return (
-    <Container onClick={onChange} isChecked={isChecked}>
+    <Container
+      onClick={onChange}
+      isChecked={isChecked}
+      disabled={isDisabled && !isChecked}
+    >
       {isChecked && <Icon name="check" />}
     </Container>
   )

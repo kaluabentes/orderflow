@@ -4,29 +4,32 @@ import React from 'react'
 import OrderSummary from '.'
 
 export default {
-  title: 'Molecules/OrderSummary',
+  title: 'Organisms/OrderSummary',
   component: OrderSummary
 }
 
 export const Default = () => (
   <OrderSummary
-    products={[
+    items={[
       {
         id: 1,
-        description: '1x Sextou - Quarterão - apenas sanduíche',
-        price: 20.9,
+        title: '3x Grande 2 Sabores',
+        options: '2x 1/2 Tres queijos, 1x Borda recheada',
+        price: 168.0,
         quantity: 2
       },
       {
         id: 2,
-        description: '1x Sextou - Quarterão - apenas sanduíche',
-        price: 21.9,
+        title: '3x Grande 2 Sabores',
+        options: '2x 1/2 Tres queijos, 1x Borda recheada',
+        price: 168.0,
         quantity: 3
       },
       {
         id: 3,
-        description: '1x Sextou - Quarterão - apenas sanduíche',
-        price: 21.9,
+        title: '3x Grande 2 Sabores',
+        options: '2x 1/2 Tres queijos, 1x Borda recheada',
+        price: 168.0,
         quantity: 5
       }
     ]}

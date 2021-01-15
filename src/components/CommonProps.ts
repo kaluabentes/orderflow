@@ -15,5 +15,17 @@ export interface CommonProps {
   color?: string
   dimension?: Dimension
   flex?: string
+  alignItems?: string
+  justifyContent?: string
+  flexDirection?: string
   fontSize?: string
+  position?: string
+  top?: string
+  left?: string
+  bottom?: string
+  right?: string
+  width?: string
+  height?: string
+  background?: string
+  zIndex?: string
 }

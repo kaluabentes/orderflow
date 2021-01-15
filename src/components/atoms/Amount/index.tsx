@@ -8,12 +8,18 @@ enum Mode {
 }
 
 interface AmountProps {
-  value: number
+  value: number | string
   onChange: (value) => void
-  isDisabled?: boolean
+  isRightDisabled?: boolean
+  isLeftDisabled?: boolean
 }
 
-function Amount({ value, isDisabled = false, onChange }: AmountProps) {
+function Amount({
+  value,
+  isLeftDisabled = false,
+  isRightDisabled = false,
+  onChange
+}: AmountProps) {
   const methods = {
     add: handleAdd,
     subtract: handleSubtract
@@ -24,11 +30,11 @@ function Amount({ value, isDisabled = false, onChange }: AmountProps) {
   }
 
   function handleAdd() {
-    return value + 1
+    return Number(value) + 1
   }
 
   function handleSubtract() {
-    const nextValue = value - 1
+    const nextValue = Number(value) - 1
 
     if (nextValue < 0) {
       return 0
@@ -41,12 +47,12 @@ function Amount({ value, isDisabled = false, onChange }: AmountProps) {
     <Container>
       <Button
         onClick={() => handleChange(Mode.Subtract)}
-        disabled={value === 0}
+        disabled={value === 0 || isLeftDisabled}
       >
         <ButtonLabel>-</ButtonLabel>
       </Button>
       <Count>{value}</Count>
-      <Button onClick={() => handleChange(Mode.Add)} disabled={isDisabled}>
+      <Button onClick={() => handleChange(Mode.Add)} disabled={isRightDisabled}>
         <ButtonLabel>+</ButtonLabel>
       </Button>
     </Container>

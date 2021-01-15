@@ -3,7 +3,7 @@ import React from 'react'
 import Button from '~/components/atoms/Button'
 import Box from '~/components/atoms/Box'
 import List from '~/components/molecules/List'
-import OrderSummaryItem from '~/components/molecules/OrderSummaryItem'
+import OrderItem from '~/components/molecules/OrderItem'
 import {
   LoaderPrice,
   LoaderTitle
@@ -22,15 +22,16 @@ import {
 
 type Id = string | number
 
-interface Product {
+interface OrderItemProps {
   id: Id
-  description: string
+  title: string
+  options: string
   price: number
   quantity: number
 }
 
 interface OrderSummaryProps {
-  products: Product[]
+  items: OrderItemProps[]
   subtotal: number
   deliveryFee: number
   total: number
@@ -63,7 +64,7 @@ function Loader() {
 }
 
 function OrderSummary({
-  products,
+  items,
   subtotal,
   deliveryFee,
   total,
@@ -77,16 +78,17 @@ function OrderSummary({
     <Container isFixed={isFixed}>
       <Title>{getString('app.orderSummary.title')}</Title>
       <Scroller isFixed={isFixed}>
-        <List margin="0 0 20px 0">
-          {products.map(({ id, description, price, quantity }) => (
-            <OrderSummaryItem
-              key={id}
-              description={description}
-              price={price}
-              quantity={quantity}
-              onEdit={() => onEdit(id)}
-              onRemove={() => onRemove(id)}
-              onQuantityChange={value => onQuantityChange(id, value)}
+        <List>
+          {items.map(item => (
+            <OrderItem
+              key={item.id}
+              title={item.title}
+              options={item.options}
+              price={item.price}
+              quantity={item.quantity}
+              onEdit={() => onEdit(item.id)}
+              onRemove={() => onRemove(item.id)}
+              onQuantityChange={value => onQuantityChange(item.id, value)}
             />
           ))}
         </List>

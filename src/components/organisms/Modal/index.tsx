@@ -19,7 +19,8 @@ interface Props {
   title: string
   isOpen: boolean
   isLoading?: boolean
-  onClose: (event?: React.MouseEvent) => void
+  onClose?: (event?: React.MouseEvent) => void
+  maxWidth?: number
 }
 
 export default function Modal({
@@ -27,7 +28,8 @@ export default function Modal({
   isLoading,
   children,
   title,
-  onClose
+  onClose,
+  maxWidth
 }: Props): React.ReactElement | null {
   const containerRef = useRef<HTMLDivElement>(null)
   const hasMounted = useIsMounted()
@@ -100,8 +102,9 @@ export default function Modal({
         role="dialog"
         aria-modal="true"
         ref={containerRef}
+        maxWi
       >
-        <Content isLoading={isLoading}>
+        <Content maxWidth={maxWidth} isLoading={isLoading}>
           {isLoading ? (
             <CircleLoader />
           ) : (

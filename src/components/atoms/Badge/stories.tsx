@@ -8,3 +8,4 @@ export default {
 }
 
 export const Default = () => <Badge>Obrigatório</Badge>
+export const isDisabled = () => <Badge isDisabled>Obrigatório</Badge>

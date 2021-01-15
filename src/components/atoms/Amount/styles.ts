@@ -4,7 +4,7 @@ import styled from '~/styles/utils/styled'
 
 export const Container = styled('div')(css`
   display: inline-flex;
-  width: 70px;
+  width: 80px;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -51,6 +51,6 @@ export const Count = styled('span')(css`
   height: 24px;
   display: flex;
   align-items: center;
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-weight: 600;
+  font-size: 1rem;
 `)

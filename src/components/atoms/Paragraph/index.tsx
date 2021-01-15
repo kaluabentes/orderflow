@@ -15,7 +15,7 @@ function Paragraph({
   weight = 'normal',
   ...props
 }: ParagraphProps) {
-  return <Container weight={weight} variant={variant} {...props} />
+  return <Container {...props} size={size} weight={weight} variant={variant} />
 }
 
 export default Paragraph

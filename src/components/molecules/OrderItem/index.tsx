@@ -2,14 +2,18 @@ import React from 'react'
 
 import ActionButton from '~/components/atoms/ActionButton'
 import Amount from '~/components/atoms/Amount'
+import Box from '~/components/atoms/Box'
+import Heading from '~/components/atoms/Heading'
+import Paragraph from '~/components/atoms/Paragraph'
 import { CommonProps } from '~/components/CommonProps'
 import getString from '~/i18n/getString'
 import formatMoney from '~/utils/formatters/formatMoney'
 
 import { Container, ContentGrid, Description, Price } from './styles'
 
-interface OrderSummaryItemProps extends CommonProps {
-  description: string
+interface OrderItemProps extends CommonProps {
+  title: string
+  options: string
   price: number
   quantity?: number
   onEdit: () => void
@@ -17,18 +21,26 @@ interface OrderSummaryItemProps extends CommonProps {
   onQuantityChange?: (value: number) => void
 }
 
-function OrderSummaryItem({
-  description,
+function OrderItem({
+  title,
+  options,
   price,
   quantity,
   onEdit,
   onRemove,
   onQuantityChange
-}: OrderSummaryItemProps) {
+}: OrderItemProps) {
   return (
     <Container>
       <ContentGrid alignItems="flex-start">
-        <Description>{description}</Description>
+        <Box>
+          <Heading margin="0 0 5px 0" as="h4">
+            {title}
+          </Heading>
+          <Paragraph fontSize="1rem" variant="muted">
+            {options}
+          </Paragraph>
+        </Box>
         <Price>{formatMoney(price)}</Price>
       </ContentGrid>
       <ContentGrid alignItems="center">
@@ -46,4 +58,4 @@ function OrderSummaryItem({
   )
 }
 
-export default OrderSummaryItem
+export default OrderItem
