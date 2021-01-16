@@ -117,7 +117,13 @@ function OrderSummary({
             color={theme.colors.background}
             name="remove_shopping_cart"
           />
-          <Heading as="h4" fontSize="xlarge" align="center" fontWeight="500">
+          <Heading
+            as="h4"
+            fontSize="large"
+            align="center"
+            fontWeight="500"
+            color={theme.colors.textMuted}
+          >
             Ops, nada por aqui ainda
           </Heading>
         </Box>

@@ -46,7 +46,7 @@ export const Content = styled(`div`)(css`
 
 export const Title = styled(`h4`)(css`
   margin: 0 0 10px 0;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1rem;
   line-height: 1.4em;
 `)

@@ -5,13 +5,12 @@ import ProductCard from '~/components/molecules/ProductCard'
 import Footer from '~/components/organisms/Footer'
 
 import Header from '~/components/organisms/Header'
-import Hero from '~/components/organisms/Hero'
 import OrderSummary from '~/components/organisms/OrderSummary'
-import { items } from '~/components/organisms/OrderSummary/mock'
 import ProductGrid from '~/components/organisms/ProductGrid'
 import { navItems } from '~/config/navigation'
 import getString from '~/i18n/getString'
 import { Order } from '~/modules/orders/types'
+import { useForceUpdateContext } from '~/utils/hooks/useForceUpdate'
 import useIsMobile from '~/utils/hooks/useIsMobile'
 
 import { MainGrid } from './styles'
@@ -48,6 +47,7 @@ interface HomeProps {
   onAddressClick: () => void
   onSearchClose?: () => void
   onSearchChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onProductClick: (product: Product) => void
 }
 
 function Home({
@@ -55,7 +55,6 @@ function Home({
   order,
   categories,
   logoSrc,
-  coverSrc,
   address,
   userName,
   currentPath,
@@ -65,11 +64,13 @@ function Home({
   onNavClick,
   onCartClick,
   onSearchClose,
-  onSearchChange
+  onSearchChange,
+  onProductClick
 }: HomeProps) {
   const isMobile = useIsMobile()
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isOrderFixed, setIsOrderFixed] = useState(false)
+  const [status] = useForceUpdateContext()
 
   useEffect(() => {
     function handleScroll() {
@@ -151,7 +152,11 @@ function Home({
               {categories.map(category => (
                 <ProductGrid key={category.id} title={category.name}>
                   {category.products.map(product => (
-                    <ProductCard key={product.id} {...product} />
+                    <ProductCard
+                      onClick={() => onProductClick(product)}
+                      key={product.id}
+                      {...product}
+                    />
                   ))}
                 </ProductGrid>
               ))}

@@ -25,6 +25,6 @@ export default styled.div`
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     border-radius: 50%;
-    animation: ${rotate} 1s linear infinite;
+    animation: ${rotate} 0.5s linear infinite;
   }
 `

@@ -6,7 +6,7 @@ import { Integrations } from '@sentry/tracing'
 
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
-import { OrderProvider } from '~/modules/orders/orderContext'
+import { ForceUpdateProvider } from '~/utils/hooks/useForceUpdate'
 
 Sentry.init({
   dsn:
@@ -17,12 +17,12 @@ Sentry.init({
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <OrderProvider>
+    <ForceUpdateProvider>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
-    </OrderProvider>
+    </ForceUpdateProvider>
   )
 }
 

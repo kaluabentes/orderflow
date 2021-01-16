@@ -40,6 +40,7 @@ function HomePage() {
       searchValue={searchValue}
       onSearchChange={event => setSearchValue(event.target.value)}
       onSearchClose={() => setSearchValue('')}
+      onProductClick={product => {}}
     />
   )
 }
