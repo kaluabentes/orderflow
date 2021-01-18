@@ -195,6 +195,7 @@ function Home({
       </MainGrid>
       <Footer />
       <OrderWizard
+        hasRequiredEmpty
         quantity={orderWizardQuantity}
         onQuantityChange={onOrderWizardQuantityChange}
         isOpen={isOrderWizardOpen}

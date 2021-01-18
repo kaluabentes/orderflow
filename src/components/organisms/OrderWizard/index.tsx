@@ -8,6 +8,7 @@ import OptionGroup from './OptionGroup'
 import ProductInfo from './ProductInfo'
 import getTotalPrice, { FilterMessage } from './getTotalPrice'
 import { Alert } from './styles'
+import Box from '~/components/atoms/Box'
 
 export interface Input {
   id: string
@@ -60,22 +61,24 @@ function OrderWizard({
       isOpen={lazyIsOpen}
       onClose={onClose}
     >
-      <ProductInfo product={product || {}} />
-      {value &&
-        options.map(option => (
-          <OptionGroup
-            isRequired={option.required}
-            key={option.id}
-            id={option.id}
-            type={option.type}
-            title={option.title}
-            subtitle={FilterMessage[option.priceCalcFilter]}
-            inputs={option.inputs}
-            value={value[option.id]}
-            limit={option.limit}
-            onChange={onChange}
-          />
-        ))}
+      <Box padding={hasRequiredEmpty && '0 0 58px 0'}>
+        <ProductInfo product={product || {}} />
+        {value &&
+          options.map(option => (
+            <OptionGroup
+              isRequired={option.required}
+              key={option.id}
+              id={option.id}
+              type={option.type}
+              title={option.title}
+              subtitle={FilterMessage[option.priceCalcFilter]}
+              inputs={option.inputs}
+              value={value[option.id]}
+              limit={option.limit}
+              onChange={onChange}
+            />
+          ))}
+      </Box>
       <Footer
         onConfirm={onConfirm}
         quantity={quantity}
