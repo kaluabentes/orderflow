@@ -12,12 +12,14 @@ interface OptionGroupProps {
   title: string
   subtitle: string
   limit?: number
+  isRequired: boolean
   inputs: Input[]
   value: any
   onChange: (optionId, value: any) => void
 }
 
 function OptionGroup({
+  isRequired,
   id,
   type,
   title,
@@ -67,7 +69,7 @@ function OptionGroup({
     return (
       <InputItem
         price={input.price}
-        key={input.label}
+        key={input.id}
         valueKey={input.id}
         label={input.label}
         type={type}
@@ -87,6 +89,7 @@ function OptionGroup({
         limit={limit}
         amount={getAmount()}
         isDisabled={limit === getAmount()}
+        isRequired={isRequired}
       />
       <List>{inputs.map(renderInputItem)}</List>
     </Box>

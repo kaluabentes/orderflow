@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import useStorageState from '~/utils/hooks/useStorageState'
 import { Order } from './types'
 
@@ -9,7 +10,8 @@ const INITIAL_STATE: Order = {
 }
 
 function useOrder() {
-  return useStorageState('orderflow.order', INITIAL_STATE)
+  // return useStorageState('orderflow.order', INITIAL_STATE)
+  return useState(INITIAL_STATE)
 }
 
 export default useOrder

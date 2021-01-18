@@ -5,12 +5,11 @@ import Checkbox from '~/components/atoms/Checkbox'
 import Paragraph from '~/components/atoms/Paragraph'
 import Radio from '~/components/atoms/Radio'
 import List from '~/components/molecules/List'
+import { InputType } from '~/modules/products/types'
 import formatMoney from '~/utils/formatters/formatMoney'
 
-export type InputItemType = 'check' | 'radio' | 'amount'
-
 interface InputItemProps {
-  type: InputItemType
+  type: InputType
   label: string
   valueKey: string
   optionValue?: string

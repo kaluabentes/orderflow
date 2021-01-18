@@ -7,7 +7,7 @@ export const Content = styled.div<{ isLoading: boolean | undefined }>`
   height: 100vh;
   width: 100%;
   transform: translateY(100%);
-  transition: 0.3s;
+  transition: 0.8s;
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -50,10 +50,10 @@ export const Container = styled.div<{ isOpen: boolean }>`
   height: 100vh;
   width: 100%;
   top: 0;
-  transition: 0.3s;
+  transition: 0.8s;
   opacity: 0;
   visibility: hidden;
-  overflow: auto;
+  overflow: hidden;
   display: flex;
   justify-content: center;
 
@@ -114,6 +114,6 @@ export const CloseButton = styled(IconButton)`
 
   & i {
     font-size: 24px;
-    color: ${props => props.theme.colors.text};
+    color: ${props => props.theme.colors.textMuted};
   }
 `

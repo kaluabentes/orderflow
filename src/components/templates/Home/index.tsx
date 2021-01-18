@@ -6,11 +6,11 @@ import Footer from '~/components/organisms/Footer'
 
 import Header from '~/components/organisms/Header'
 import OrderSummary from '~/components/organisms/OrderSummary'
+import OrderWizard, { Option } from '~/components/organisms/OrderWizard'
 import ProductGrid from '~/components/organisms/ProductGrid'
 import { navItems } from '~/config/navigation'
 import getString from '~/i18n/getString'
 import { Order } from '~/modules/orders/types'
-import { useForceUpdateContext } from '~/utils/hooks/useForceUpdate'
 import useIsMobile from '~/utils/hooks/useIsMobile'
 
 import { MainGrid } from './styles'
@@ -32,6 +32,11 @@ interface Category {
 }
 
 interface HomeProps {
+  options: Option[]
+  isOrderWizardOpen?: boolean
+  orderWizardValue: any
+  orderWizardQuantity?: number
+  orderWizardProduct: Product
   isLoading?: boolean
   order: Order
   categories: Category[]
@@ -42,6 +47,14 @@ interface HomeProps {
   currentPath: string
   cartCount: number
   searchValue?: string
+  onOrderSummaryQuantityChange?: (productId: string | number) => void
+  onOrderSummaryRemove?: (productId: string | number) => void
+  onOrderSummaryEdit?: (productId: string | number) => void
+  onOrderSummaryConfirm?: () => void
+  onOrderWizardQuantityChange?: (value) => void
+  onOrderWizardConfirm?: () => void
+  onOrderWizardClose?: () => void
+  onOrderWizardChange?: (optionId: any, optionValue: any) => void
   onNavClick: (path) => void
   onCartClick: () => void
   onAddressClick: () => void
@@ -51,6 +64,11 @@ interface HomeProps {
 }
 
 function Home({
+  options,
+  isOrderWizardOpen,
+  orderWizardValue,
+  orderWizardQuantity,
+  orderWizardProduct,
   isLoading,
   order,
   categories,
@@ -60,6 +78,14 @@ function Home({
   currentPath,
   cartCount,
   searchValue,
+  onOrderSummaryQuantityChange,
+  onOrderSummaryRemove,
+  onOrderSummaryConfirm,
+  onOrderSummaryEdit,
+  onOrderWizardQuantityChange,
+  onOrderWizardConfirm,
+  onOrderWizardClose,
+  onOrderWizardChange,
   onAddressClick,
   onNavClick,
   onCartClick,
@@ -70,7 +96,6 @@ function Home({
   const isMobile = useIsMobile()
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isOrderFixed, setIsOrderFixed] = useState(false)
-  const [status] = useForceUpdateContext()
 
   useEffect(() => {
     function handleScroll() {
@@ -107,12 +132,10 @@ function Home({
         subtotal={order.subtotal}
         deliveryTax={order.deliveryTax}
         total={order.total}
-        onAdvance={() => alert('onAdvance')}
-        onEdit={() => alert('onEdit')}
-        onRemove={() => alert('onRemove')}
-        onQuantityChange={(productId, value) =>
-          alert(`onQuantityChange - ${productId} - ${value}`)
-        }
+        onConfirm={onOrderSummaryConfirm}
+        onEdit={onOrderSummaryEdit}
+        onRemove={onOrderSummaryRemove}
+        onQuantityChange={onOrderSummaryQuantityChange}
         {...props}
       />
     )
@@ -171,6 +194,17 @@ function Home({
         )}
       </MainGrid>
       <Footer />
+      <OrderWizard
+        quantity={orderWizardQuantity}
+        onQuantityChange={onOrderWizardQuantityChange}
+        isOpen={isOrderWizardOpen}
+        onClose={onOrderWizardClose}
+        value={orderWizardValue}
+        product={orderWizardProduct}
+        options={options}
+        onConfirm={onOrderWizardConfirm}
+        onChange={onOrderWizardChange}
+      />
     </>
   )
 }

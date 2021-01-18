@@ -3,8 +3,9 @@ import Amount from '~/components/atoms/Amount'
 import Button from '~/components/atoms/Button'
 import Box from '~/components/atoms/Box'
 import formatMoney from '~/utils/formatters/formatMoney'
+import getString from '~/i18n/getString'
 
-function Footer({ totalPrice, quantity, onQuantityChange }) {
+function Footer({ totalPrice, quantity, onQuantityChange, onConfirm }) {
   function handleQuantityChange(value) {
     onQuantityChange(value < 2 ? 1 : value)
   }
@@ -29,8 +30,8 @@ function Footer({ totalPrice, quantity, onQuantityChange }) {
           value={quantity}
         />
       </Box>
-      <Button margin="0 0 0 10px" variant="primary">
-        Adicionar {totalPrice ? formatMoney(totalPrice) : ''}
+      <Button onClick={onConfirm} margin="0 0 0 10px" variant="primary">
+        {getString('add')} {totalPrice ? formatMoney(totalPrice) : ''}
       </Button>
     </Box>
   )

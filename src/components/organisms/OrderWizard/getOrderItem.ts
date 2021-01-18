@@ -1,46 +1,45 @@
 import getTotalPrice from './getTotalPrice'
 
-function getOrderItem(product, option, value, quantity) {
-  function getInput(id) {
-    return option.inputs.find(input => input.id === id)
-  }
-
+function getOrderItem(product, options, value, quantity) {
   // optionValue = [inputId, inputId, ...]
-  function getInputDescription(optionValue) {
+  function getInputDescription(optionId, optionValue) {
+    const option = options.find(opt => opt.id === optionId)
+
+    function getInput(id) {
+      return option.inputs.find(input => input.id === id)
+    }
+
     if (option.type === 'check') {
-      return option.inputs.reduce(
-        (prev, input) =>
-          optionValue.includes(input.id) ? `${prev}, 1x ${input.title}` : prev,
-        ''
-      )
+      return option.inputs
+        .filter(input => optionValue.includes(input.id))
+        .map(input => `1x ${getInput(input.id).label}`)
+        .join(', ')
     }
 
     // optionValue = { '[inputId]': '[quantity]'... }
     if (option.type === 'amount') {
       return Object.keys(optionValue)
-        .filter(optionId => optionValue[optionId] > 0)
-        .reduce(
-          (prev, inputId) =>
-            `${prev}, ${optionValue[inputId]}x ${getInput(inputId).title}`,
-          ''
-        )
+        .filter(inputId => optionValue[inputId] > 0)
+        .map(inputId => `${optionValue[inputId]}x ${getInput(inputId).label}`)
+        .join(', ')
     }
 
     // optionValue = inputId
     if (option.type === 'radio') {
-      return `1x ${getInput(optionValue)}`
+      return `1x ${getInput(optionValue).label}`
     }
   }
 
-  return Object.keys(value).reduce(
-    (prev, optionId) => ({
-      id: option.id,
-      title: option.title,
-      options: `${prev}, ${getInputDescription(value[optionId])}`,
-      price: getTotalPrice(product.price, value, option, quantity)
-    }),
-    {}
-  )
+  return {
+    id: product.id,
+    title: `${quantity}x ${product.title}`,
+    options: Object.keys(value)
+      .map(optionId => getInputDescription(optionId, value[optionId]))
+      .filter(value => value)
+      .join(', '),
+    price: getTotalPrice(product.price, value, options, quantity),
+    quantity
+  }
 }
 
 export default getOrderItem

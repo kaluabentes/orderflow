@@ -13,10 +13,12 @@ interface OptionHeaderProps extends CommonProps {
   limit?: number
   amount?: number
   isDisabled: boolean
+  isRequired: boolean
 }
 
 function OptionHeader({
   isDisabled,
+  isRequired,
   title,
   subtitle,
   limit,
@@ -41,7 +43,9 @@ function OptionHeader({
         )}
       </Box>
       <Box flexDirection="row">
-        <Badge isDisabled={isDisabled}>{getString('required')}</Badge>
+        {isRequired && (
+          <Badge isDisabled={isDisabled}>{getString('required')}</Badge>
+        )}
         {limit && (
           <Badge margin="0 0 0 5px" isDisabled={isDisabled}>
             {limit}/{amount}

@@ -44,5 +44,7 @@
   "app.total": "Total",
   "app.advance": "Avançar",
   "orderWizard.title": "Monte seu pedido",
-  "required": "Obrigatório"
+  "required": "Obrigatório",
+  "add": "Adicionar",
+  "fillRequiredFields": "Preecha os campos obrigatórios"
 }

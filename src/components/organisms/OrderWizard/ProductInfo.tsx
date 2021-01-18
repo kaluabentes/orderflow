@@ -3,11 +3,11 @@ import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import Logo from '~/components/atoms/Logo'
 import Paragraph from '~/components/atoms/Paragraph'
-import Product from '~/modules/products/Product'
+import { Product } from '~/modules/products/types'
 import formatMoney from '~/utils/formatters/formatMoney'
 
 interface ProductInfoProps {
-  product: Product
+  product: Product | any
 }
 
 function ProductInfo({ product }: ProductInfoProps) {

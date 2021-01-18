@@ -1,21 +1,13 @@
-import React from 'react'
-import { get } from 'lodash'
-import Badge from '~/components/atoms/Badge'
-import Box from '~/components/atoms/Box'
-import Heading from '~/components/atoms/Heading'
-import Logo from '~/components/atoms/Logo'
-import Paragraph from '~/components/atoms/Paragraph'
-import List from '~/components/molecules/List'
+import React, { useEffect, useState } from 'react'
 
 import Modal from '~/components/organisms/Modal'
 import getString from '~/i18n/getString'
-import Product from '~/modules/products/Product'
+import { Option, Product } from '~/modules/products/types'
 import Footer from './Footer'
-import InputItem, { InputItemType } from './InputItem'
 import OptionGroup from './OptionGroup'
-import OptionHeader from './OptionHeader'
 import ProductInfo from './ProductInfo'
-import getTotalPrice, { Filter, FilterMessage } from './getTotalPrice'
+import getTotalPrice, { FilterMessage } from './getTotalPrice'
+import { Alert } from './styles'
 
 export interface Input {
   id: string
@@ -23,46 +15,57 @@ export interface Input {
   value?: string
   price?: number
   isChecked?: boolean
-}
-
-export interface Option {
-  id: string
-  title: string
-  type: InputItemType
-  limit: number
-  priceCalcFilter: Filter
-  inputs: Input[]
+  hasRequiredEmpty?: boolean
 }
 
 interface OrderWizardProps {
   isOpen: boolean
+  hasRequiredEmpty: boolean
   product: Product
   options: Option[]
   value: any
   quantity: number
+  onConfirm?: () => void
+  onClose?: () => void
   onChange: (optionId, value) => void
   onQuantityChange: (value) => void
 }
 
 function OrderWizard({
   isOpen,
+  hasRequiredEmpty,
   product,
   quantity,
-  onQuantityChange,
   options,
   value,
+  onConfirm,
+  onClose,
+  onQuantityChange,
   onChange
 }: OrderWizardProps) {
+  const [lazyIsOpen, setLazyIsOpen] = useState(false)
+
+  useEffect(() => {
+    if (isOpen && product) {
+      setLazyIsOpen(true)
+    } else if (!isOpen) {
+      setLazyIsOpen(false)
+    }
+  }, [isOpen])
+
   return (
     <Modal
       maxWidth={400}
       title={getString('orderWizard.title')}
-      isOpen={isOpen}
+      isOpen={lazyIsOpen}
+      onClose={onClose}
     >
-      <ProductInfo product={product} />
+      <ProductInfo product={product || {}} />
       {value &&
         options.map(option => (
           <OptionGroup
+            isRequired={option.required}
+            key={option.id}
             id={option.id}
             type={option.type}
             title={option.title}
@@ -74,10 +77,17 @@ function OrderWizard({
           />
         ))}
       <Footer
+        onConfirm={onConfirm}
         quantity={quantity}
         onQuantityChange={onQuantityChange}
-        totalPrice={getTotalPrice(product.price, value, options, quantity)}
+        totalPrice={getTotalPrice(
+          product ? product.price : 0,
+          value,
+          options,
+          quantity
+        )}
       />
+      {hasRequiredEmpty && <Alert>{getString('fillRequiredFields')}</Alert>}
     </Modal>
   )
 }

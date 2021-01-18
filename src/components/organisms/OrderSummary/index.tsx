@@ -32,7 +32,7 @@ interface OrderSummaryProps {
   deliveryTax: number
   total: number
   isFixed?: boolean
-  onAdvance: () => void
+  onConfirm: () => void
   onEdit: (productId: Id) => void
   onRemove: (productId: Id) => void
   onQuantityChange?: (productId: Id, value: number) => void
@@ -65,7 +65,7 @@ function OrderSummary({
   deliveryTax,
   total,
   isFixed = false,
-  onAdvance,
+  onConfirm,
   onEdit,
   onRemove,
   onQuantityChange
@@ -105,7 +105,7 @@ function OrderSummary({
               <TotalLabel>{formatMoney(total)}</TotalLabel>
             </Box>
           </Summary>
-          <Button onClick={onAdvance} variant="primary">
+          <Button onClick={onConfirm} variant="primary">
             {getString('app.advance')}
           </Button>
         </>

@@ -34,7 +34,7 @@ function OrderItem({
     <Container>
       <ContentGrid alignItems="flex-start">
         <Box>
-          <Heading margin="0 0 5px 0" as="h4">
+          <Heading margin="0 0 5px 0" fontWeight="500" as="h4">
             {title}
           </Heading>
           <Paragraph fontSize="1rem" variant="muted">
