@@ -1,4 +1,4 @@
-import { Option } from '.'
+import { Option } from '~/modules/products/types'
 
 function getInitialState(options: Option[]) {
   function getInitialValue(type, inputs) {

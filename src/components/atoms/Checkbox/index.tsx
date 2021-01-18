@@ -5,7 +5,7 @@ import { Container } from './styles'
 
 interface CheckboxProps {
   isChecked: boolean
-  isDisabled: boolean
+  isDisabled?: boolean
   onChange: () => void
 }
 

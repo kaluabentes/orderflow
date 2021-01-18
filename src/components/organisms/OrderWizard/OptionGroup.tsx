@@ -2,13 +2,14 @@ import React from 'react'
 
 import Box from '~/components/atoms/Box'
 import List from '~/components/molecules/List'
-import InputItem, { InputItemType } from './InputItem'
+import InputItem from './InputItem'
 import OptionHeader from './OptionHeader'
 import { Input } from '.'
+import { InputType } from '~/modules/products/types'
 
 interface OptionGroupProps {
   id: string
-  type: InputItemType
+  type: InputType
   title: string
   subtitle: string
   limit?: number

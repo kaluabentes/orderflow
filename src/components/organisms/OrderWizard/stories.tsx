@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { productProps } from '~/components/molecules/ProductCard/mock'
 import { OPTIONS } from '~/modules/products/mocks'
 
-import OrderWizard, { Option } from '.'
+import OrderWizard from '.'
 import getInitialState from './getInitialState'
 
 export default {

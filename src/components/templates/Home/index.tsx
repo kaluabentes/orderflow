@@ -6,11 +6,12 @@ import Footer from '~/components/organisms/Footer'
 
 import Header from '~/components/organisms/Header'
 import OrderSummary from '~/components/organisms/OrderSummary'
-import OrderWizard, { Option } from '~/components/organisms/OrderWizard'
+import OrderWizard from '~/components/organisms/OrderWizard'
 import ProductGrid from '~/components/organisms/ProductGrid'
 import { navItems } from '~/config/navigation'
 import getString from '~/i18n/getString'
 import { Order } from '~/modules/orders/types'
+import { Option } from '~/modules/products/types'
 import useIsMobile from '~/utils/hooks/useIsMobile'
 
 import { MainGrid } from './styles'
@@ -32,13 +33,13 @@ interface Category {
 }
 
 interface HomeProps {
-  options: Option[]
+  options?: Option[]
   isOrderWizardOpen?: boolean
-  orderWizardValue: any
+  orderWizardValue?: any
   orderWizardQuantity?: number
-  orderWizardProduct: Product
+  orderWizardProduct?: Product
   isLoading?: boolean
-  order: Order
+  order?: Order
   categories: Category[]
   logoSrc: string
   coverSrc?: string
@@ -60,7 +61,7 @@ interface HomeProps {
   onAddressClick: () => void
   onSearchClose?: () => void
   onSearchChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  onProductClick: (product: Product) => void
+  onProductClick?: (product: Product) => void
 }
 
 function Home({

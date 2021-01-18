@@ -20,7 +20,7 @@ interface ProductCardProps {
   title: string
   description: string
   price: number
-  onClick: () => void
+  onClick?: () => void
 }
 
 function Loader() {

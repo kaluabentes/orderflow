@@ -21,7 +21,7 @@ export interface Input {
 
 interface OrderWizardProps {
   isOpen: boolean
-  hasRequiredEmpty: boolean
+  hasRequiredEmpty?: boolean
   product: Product
   options: Option[]
   value: any

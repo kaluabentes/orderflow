@@ -15,7 +15,7 @@ export const Default = () => (
     subtotal={12.9}
     deliveryTax={12.49}
     total={25.39}
-    onAdvance={action('onAdvance')}
+    onConfirm={action('onConfirm')}
     onEdit={action('onEdit')}
     onRemove={action('onRemove')}
   />

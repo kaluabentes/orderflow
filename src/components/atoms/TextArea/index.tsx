@@ -2,10 +2,14 @@ import React from 'react'
 
 import { Container } from './styles'
 
-function TextArea({ value }) {
+interface TextAreaProps {
+  children: React.ReactNode
+}
+
+function TextArea({ children }: TextAreaProps) {
   return (
     <Container rows={5} cols={5}>
-      {value}
+      {children}
     </Container>
   )
 }
