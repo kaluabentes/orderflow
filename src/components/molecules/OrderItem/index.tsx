@@ -32,17 +32,19 @@ function OrderItem({
 }: OrderItemProps) {
   return (
     <Container>
-      <ContentGrid alignItems="flex-start">
+      <Box flexDirection="row" alignItems="flex-start">
         <Box>
           <Heading margin="0 0 5px 0" fontWeight="500" as="h4">
             {title}
           </Heading>
-          <Paragraph fontSize="1rem" variant="muted">
-            {options}
-          </Paragraph>
         </Box>
-        <Price>{formatMoney(price)}</Price>
-      </ContentGrid>
+        <Box flex="1 auto">
+          <Price>{formatMoney(price)}</Price>
+        </Box>
+      </Box>
+      <Paragraph margin="0 0 20px 0" fontSize="1rem" variant="muted">
+        {options}
+      </Paragraph>
       <ContentGrid alignItems="center">
         <div>
           <ActionButton margin="0 20px 0 0" onClick={onEdit}>

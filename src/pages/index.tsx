@@ -17,10 +17,11 @@ function HomePage() {
   const [searchValue, setSearchValue] = useState('')
   const [order, setOrder] = useOrder()
   const [orderWizardProduct, setOrderWizardProduct] = useState(undefined)
+  const [orderWizardValue, setOrderWizardValue] = React.useState<any>(undefined)
   const [options, setOptions] = useState([])
-  const [orderValue, setOrderValue] = React.useState<any>(undefined)
   const [orderQuantity, setOrderQuantity] = React.useState(1)
   const [isOrderWizardOpen, setIsOrderWizardOpen] = useState(false)
+  const [showRequiredError, setShowRequiredError] = useState(false)
 
   // useProtectedPage()
 
@@ -35,7 +36,7 @@ function HomePage() {
   useEffect(() => {
     if (orderWizardProduct) {
       setOptions(OPTIONS)
-      setOrderValue(getInitialState(OPTIONS))
+      setOrderWizardValue(getInitialState(OPTIONS))
     }
   }, [orderWizardProduct])
 
@@ -44,18 +45,76 @@ function HomePage() {
     return auth.user.name.split(' ')[0]
   }
 
-  function addOrder() {
+  function hasRequiredEmpty() {
+    return Object.keys(orderWizardValue).reduce((prev, key) => {
+      const option = options.find(opt => opt.id === key)
+
+      function hasAnyEmpty() {
+        if (option.type === 'check') {
+          const totalChoices = orderWizardValue[key].length
+          return !totalChoices && totalChoices < option.limit
+        }
+        if (option.type === 'radio') {
+          return !orderWizardValue[key]
+        }
+        if (option.type === 'amount') {
+          const totalChoices = Object.keys(orderWizardValue[key]).reduce(
+            (prev, inputKey) => prev + orderWizardValue[key][inputKey],
+            0
+          )
+          return Object.keys(orderWizardValue[key]).reduce((prev, inputKey) => {
+            if (
+              !orderWizardValue[key][inputKey] &&
+              totalChoices < option.limit
+            ) {
+              return true
+            }
+
+            if (prev) {
+              return prev
+            }
+
+            return false
+          }, false)
+        }
+      }
+
+      if (option.required) {
+        return hasAnyEmpty()
+      }
+
+      if (prev) {
+        return prev
+      }
+
+      return false
+    }, false)
+  }
+
+  function confirmOrderWizard() {
+    if (hasRequiredEmpty()) {
+      setShowRequiredError(true)
+      return
+    }
+
+    setShowRequiredError(false)
     setOrder({
       ...order,
       items: [
         ...order.items,
-        getOrderItem(orderWizardProduct, options, orderValue, orderQuantity)
+        getOrderItem(
+          orderWizardProduct,
+          options,
+          orderWizardValue,
+          orderQuantity
+        )
       ]
     })
     closeOrderWizard()
   }
 
   function closeOrderWizard() {
+    setOrderWizardValue(undefined)
     setIsOrderWizardOpen(false)
   }
 
@@ -70,9 +129,10 @@ function HomePage() {
 
   return (
     <Home
+      hasRequiredEmpty={showRequiredError}
       options={options}
       isOrderWizardOpen={isOrderWizardOpen}
-      orderWizardValue={orderValue}
+      orderWizardValue={orderWizardValue}
       orderWizardQuantity={orderQuantity}
       orderWizardProduct={orderWizardProduct}
       order={order}
@@ -88,10 +148,10 @@ function HomePage() {
       onNavClick={path => router.push(path)}
       searchValue={searchValue}
       onOrderWizardQuantityChange={value => setOrderQuantity(value)}
-      onOrderWizardConfirm={addOrder}
+      onOrderWizardConfirm={confirmOrderWizard}
       onOrderWizardClose={() => closeOrderWizard()}
       onOrderWizardChange={(optionId, optionValue) =>
-        setOrderValue(prevValue => ({
+        setOrderWizardValue(prevValue => ({
           ...prevValue,
           [optionId]: optionValue
         }))

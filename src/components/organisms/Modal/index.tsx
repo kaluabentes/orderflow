@@ -5,6 +5,7 @@ import CircleLoader from '~/components/atoms/CircleLoader'
 import useIsMounted from '~/utils/hooks/useIsMounted'
 
 import {
+  GlobalStyle,
   Container,
   Header,
   Content,
@@ -97,6 +98,7 @@ export default function Modal({
 
   return (
     <Portal>
+      <GlobalStyle bodyOverflow={isOpen ? 'hidden' : 'auto'} />
       <Container
         isOpen={isOpen}
         role="dialog"

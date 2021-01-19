@@ -33,6 +33,7 @@ interface Category {
 }
 
 interface HomeProps {
+  hasRequiredEmpty?: boolean
   options?: Option[]
   isOrderWizardOpen?: boolean
   orderWizardValue?: any
@@ -65,6 +66,7 @@ interface HomeProps {
 }
 
 function Home({
+  hasRequiredEmpty,
   options,
   isOrderWizardOpen,
   orderWizardValue,
@@ -196,7 +198,7 @@ function Home({
       </MainGrid>
       <Footer />
       <OrderWizard
-        hasRequiredEmpty
+        hasRequiredEmpty={hasRequiredEmpty}
         quantity={orderWizardQuantity}
         onQuantityChange={onOrderWizardQuantityChange}
         isOpen={isOrderWizardOpen}

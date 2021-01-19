@@ -1,6 +1,12 @@
-import styled, { css } from 'styled-components'
+import styled, { css, createGlobalStyle } from 'styled-components'
 
 import IconButton from '~/components/atoms/IconButton'
+
+export const GlobalStyle = createGlobalStyle`
+  body {
+    overflow: ${props => props.bodyOverflow};
+  }
+`
 
 export const Content = styled.div<{ isLoading: boolean | undefined }>`
   background: white;
