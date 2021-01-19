@@ -93,7 +93,7 @@ function OrderSummary({
               ))}
             </List>
           </Scroller>
-          <Summary>
+          <Summary isFixed={isFixed}>
             <Box align="left">
               <SubtotalLabel>{getString('app.subtotal')}</SubtotalLabel>
               <SubtotalLabel>{getString('app.deliveryTax')}</SubtotalLabel>

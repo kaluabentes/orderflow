@@ -48,8 +48,13 @@ export const Summary = styled('div')(css`
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  padding-top: 20px;
+
+  ${props =>
+    !props.isFixed &&
+    css`
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding-top: 20px;
+    `}
 `)
 
 export const SubtotalLabel = styled('p')(css`
