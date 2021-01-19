@@ -46,7 +46,7 @@ function ProfileForm({ districts, onSubmit, isLoading }: ProfileFormProps) {
       validationSchema={ProfileSchema}
       onSubmit={values => onSubmit(values)}
     >
-      {({ values, errors, setFieldValue, handleSubmit }) => (
+      {({ values, errors, touched, setFieldValue, handleSubmit }) => (
         <>
           <Input
             label={getString('app.register.nameLabel')}
@@ -54,7 +54,7 @@ function ProfileForm({ districts, onSubmit, isLoading }: ProfileFormProps) {
             onChange={event => setFieldValue('name', event.target.value)}
             value={values.name}
             margin="0 0 20px 0"
-            error={errors.name}
+            error={errors.name && touched.name && errors.name}
           />
           <Select
             label={getString('app.register.districtLabel')}
@@ -62,7 +62,7 @@ function ProfileForm({ districts, onSubmit, isLoading }: ProfileFormProps) {
             onChange={event => setFieldValue('district', event.target.value)}
             value={values.district}
             margin="0 0 20px 0"
-            error={errors.district}
+            error={errors.district && touched.district && errors.district}
           >
             <option value="">
               {getString('app.global.selectBlankOption')}
@@ -80,7 +80,7 @@ function ProfileForm({ districts, onSubmit, isLoading }: ProfileFormProps) {
               onChange={event => setFieldValue('street', event.target.value)}
               value={values.street}
               margin="0 0 20px 0"
-              error={errors.street}
+              error={errors.street && touched.street && errors.street}
             />
             <Input
               label={getString('app.register.numberLabel')}
@@ -89,7 +89,7 @@ function ProfileForm({ districts, onSubmit, isLoading }: ProfileFormProps) {
               onChange={event => setFieldValue('number', event.target.value)}
               value={values.number}
               margin="0 0 20px 0"
-              error={errors.number}
+              error={errors.number && touched.number && errors.number}
             />
           </AddressGrid>
           <Input

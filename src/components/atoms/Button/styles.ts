@@ -17,10 +17,6 @@ export const Container = styled('button')(css`
   font-size: 0.875rem;
   transition: 0.2s;
 
-  &:active {
-    transform: scale(0.95);
-  }
-
   &:focus {
     outline: none;
     box-shadow: 0px 0px 0px 1px inset ${props => props.theme.colors.info};

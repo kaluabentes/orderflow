@@ -10,10 +10,6 @@
   "app.login.phoneError": "Número inválido",
   "app.login.submitLabel": "Avançar",
   "app.login.phoneLabel": "Celular",
-  "app.verify.text": "Informe o código de verificação enviado para",
-  "app.verify.submitLabel": "Avançar",
-  "app.verify.codeLabel": "Código de verificação",
-  "app.verify.codeError": "Código inválido",
   "app.register.nameLabel": "Nome",
   "app.register.districtLabel": "Bairro",
   "app.register.streetLabel": "Rua",
@@ -47,5 +43,10 @@
   "required": "Obrigatório",
   "add": "Adicionar",
   "fillRequiredFields": "Preencha os campos obrigatórios",
-  "observations": "Observações"
+  "observations": "Observações",
+  "verifyPage.title": "Verificar",
+  "verifyPage.text": "Informe o código de verificação enviado para",
+  "verifyPage.submitLabel": "Avançar",
+  "verifyPage.codeLabel": "Código de verificação",
+  "verifyPage.codeError": "Código inválido"
 }

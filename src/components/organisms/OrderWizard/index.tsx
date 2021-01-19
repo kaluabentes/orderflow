@@ -50,8 +50,6 @@ function OrderWizard({
   const [lazyIsOpen, setLazyIsOpen] = useState(false)
   const [obs, setObs] = useState('')
 
-  console.log('> Order Wizard Rendered')
-
   useEffect(() => {
     if (isOpen && product) {
       setLazyIsOpen(true)

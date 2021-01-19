@@ -17,7 +17,7 @@ export async function checkCode(setState, phone, code) {
 }
 
 export async function registerUser(setState, token, data) {
-  const response = await register(token, data)
+  await register(token, data)
 
-  setState(response.data)
+  setState({ user: data })
 }

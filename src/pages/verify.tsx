@@ -17,7 +17,7 @@ function VerifyPage() {
 
   async function handleSubmit(code) {
     if (code.length < 4) {
-      setError(getString('app.verify.codeError'))
+      setError(getString('verifyPage.codeError'))
       return
     }
 
@@ -34,7 +34,7 @@ function VerifyPage() {
 
       router.push('/')
     } catch (error) {
-      setError(getString('app.verify.codeError'))
+      setError(getString('verifyPage.codeError'))
     } finally {
       setIsLoading(false)
     }
