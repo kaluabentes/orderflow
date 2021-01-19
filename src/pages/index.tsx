@@ -22,8 +22,9 @@ function HomePage() {
   const [orderQuantity, setOrderQuantity] = React.useState(1)
   const [isOrderWizardOpen, setIsOrderWizardOpen] = useState(false)
   const [showRequiredError, setShowRequiredError] = useState(false)
-
   // useProtectedPage()
+
+  console.log('> Index Page Rendered')
 
   useEffect(() => {
     if (!orderWizardProduct) {
@@ -34,11 +35,11 @@ function HomePage() {
   }, [orderWizardProduct])
 
   useEffect(() => {
-    if (orderWizardProduct) {
+    if (isOrderWizardOpen) {
       setOptions(OPTIONS)
       setOrderWizardValue(getInitialState(OPTIONS))
     }
-  }, [orderWizardProduct])
+  }, [isOrderWizardOpen])
 
   function getUserName() {
     return 'Kaluã'
@@ -91,7 +92,7 @@ function HomePage() {
     }, false)
   }
 
-  function confirmOrderWizard() {
+  function confirmOrderWizard(data) {
     if (hasRequiredEmpty()) {
       setShowRequiredError(true)
       return
@@ -106,7 +107,8 @@ function HomePage() {
           orderWizardProduct,
           options,
           orderWizardValue,
-          orderQuantity
+          orderQuantity,
+          data.observation
         )
       ]
     })
@@ -114,8 +116,8 @@ function HomePage() {
   }
 
   function closeOrderWizard() {
-    setOrderWizardValue(undefined)
     setIsOrderWizardOpen(false)
+    setOrderWizardValue(undefined)
   }
 
   function openOrderWizard(product) {
@@ -147,6 +149,7 @@ function HomePage() {
       onCartClick={() => {}}
       onNavClick={path => router.push(path)}
       searchValue={searchValue}
+      onObsChange={value => setObs(value)}
       onOrderWizardQuantityChange={value => setOrderQuantity(value)}
       onOrderWizardConfirm={confirmOrderWizard}
       onOrderWizardClose={() => closeOrderWizard()}

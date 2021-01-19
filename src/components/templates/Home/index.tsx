@@ -54,7 +54,7 @@ interface HomeProps {
   onOrderSummaryEdit?: (productId: string | number) => void
   onOrderSummaryConfirm?: () => void
   onOrderWizardQuantityChange?: (value) => void
-  onOrderWizardConfirm?: () => void
+  onOrderWizardConfirm?: (data: any) => void
   onOrderWizardClose?: () => void
   onOrderWizardChange?: (optionId: any, optionValue: any) => void
   onNavClick: (path) => void

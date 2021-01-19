@@ -1,6 +1,6 @@
 import getTotalPrice from './getTotalPrice'
 
-function getOrderItem(product, options, value, quantity) {
+function getOrderItem(product, options, value, quantity, observation) {
   // optionValue = [inputId, inputId, ...]
   function getInputDescription(optionId, optionValue) {
     const option = options.find(opt => opt.id === optionId)
@@ -38,7 +38,8 @@ function getOrderItem(product, options, value, quantity) {
       .filter(value => value)
       .join(', '),
     price: getTotalPrice(product.price, value, options, quantity),
-    quantity
+    quantity,
+    observation
   }
 }
 

@@ -22,15 +22,13 @@ export interface Input {
 
 interface OrderWizardProps {
   isLoading?: boolean
-  obs: string
   isOpen: boolean
   hasRequiredEmpty?: boolean
   product: Product
   options: Option[]
   value: any
   quantity: number
-  onObsChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
-  onConfirm?: () => void
+  onConfirm?: (data: any) => void
   onClose?: () => void
   onChange: (optionId, value) => void
   onQuantityChange: (value) => void
@@ -38,20 +36,21 @@ interface OrderWizardProps {
 
 function OrderWizard({
   isLoading,
-  obs,
   isOpen,
   hasRequiredEmpty,
   product,
   quantity,
   options,
   value,
-  onObsChange,
   onConfirm,
   onClose,
   onQuantityChange,
   onChange
 }: OrderWizardProps) {
   const [lazyIsOpen, setLazyIsOpen] = useState(false)
+  const [obs, setObs] = useState('')
+
+  console.log('> Order Wizard Rendered')
 
   useEffect(() => {
     if (isOpen && product) {
@@ -89,13 +88,13 @@ function OrderWizard({
         <TextArea
           margin="0 0 60px 0"
           label={getString('observations')}
-          onChange={onObsChange}
+          onChange={event => setObs(event.target.value)}
         >
           {obs}
         </TextArea>
       </Box>
       <Footer
-        onConfirm={onConfirm}
+        onConfirm={() => onConfirm({ obs })}
         quantity={quantity}
         onQuantityChange={onQuantityChange}
         totalPrice={getTotalPrice(
