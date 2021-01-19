@@ -6,7 +6,7 @@ import { Integrations } from '@sentry/tracing'
 
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
-import '../styles/fonts.css'
+import '~/styles/fonts.css'
 
 Sentry.init({
   dsn:
