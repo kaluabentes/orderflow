@@ -16,7 +16,6 @@ class Storage {
   }
 
   static storeItem(key, data) {
-    console.log(data)
     const storedData = Storage.getItem(key)
     const newData = merge(storedData, data)
 

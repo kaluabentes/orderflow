@@ -16,7 +16,7 @@ interface LoginFormProps {
 const LoginSchema = Yup.object().shape({
   phone: Yup.string().required(
     getString('validation.required', {
-      field: getString('app.login.phoneLabel').toLowerCase()
+      field: getString('loginPage.phoneLabel').toLowerCase()
     })
   )
 })
@@ -32,7 +32,7 @@ function LoginForm({ onSubmit, error, isLoading }: LoginFormProps) {
       validationSchema={LoginSchema}
       onSubmit={values => onSubmit(values)}
     >
-      {({ values, errors, setFieldValue, handleSubmit }) => (
+      {({ values, errors, touched, setFieldValue, handleSubmit }) => (
         <>
           <Input
             id="phone"
@@ -41,17 +41,19 @@ function LoginForm({ onSubmit, error, isLoading }: LoginFormProps) {
               setFieldValue('phone', formatPhone(event.target.value))
             }
             margin="0 0 20px 0"
-            label={getString('app.login.phoneLabel')}
+            label={getString('loginPage.phoneLabel')}
             maxLength="15"
             placeholder="(00) 00000-0000"
-            error={(errors.phone as string) || error}
+            error={
+              errors.phone && touched.phone ? errors.phone : error && error
+            }
           />
           <Button
             onClick={handleSubmit}
             variant="primary"
             isLoading={isLoading}
           >
-            {getString('app.login.submitLabel')}
+            {getString('loginPage.submitLabel')}
           </Button>
         </>
       )}

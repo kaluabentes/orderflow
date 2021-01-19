@@ -87,9 +87,8 @@ function OrderWizard({
           margin="0 0 60px 0"
           label={getString('observations')}
           onChange={event => setObs(event.target.value)}
-        >
-          {obs}
-        </TextArea>
+          value={obs}
+        />
       </Box>
       <Footer
         onConfirm={() => onConfirm({ obs })}

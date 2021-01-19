@@ -15,9 +15,9 @@ interface LoginProps {
 
 function Login({ error, isLoading, onSubmit, onBack }: LoginProps) {
   return (
-    <InnerPage onBack={onBack} title={getString('app.login.title')}>
+    <InnerPage onBack={onBack} title={getString('loginPage.title')}>
       <Paragraph margin="0 0 20px 0" variant="muted">
-        {getString('app.login.text')}
+        {getString('loginPage.text')}
       </Paragraph>
       <LoginForm error={error} isLoading={isLoading} onSubmit={onSubmit} />
     </InnerPage>

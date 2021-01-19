@@ -62,7 +62,6 @@ function Input({
         name={name}
         maxLength={maxLength}
         onChange={onChange}
-        onKeyPress={evt => console.log(evt)}
         onPaste={onPaste}
         value={value}
         type={type}

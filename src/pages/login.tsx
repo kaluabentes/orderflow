@@ -14,7 +14,7 @@ export default function LoginPage() {
 
   async function handleSubmit({ phone }) {
     if (phone.length < 11) {
-      setError(getString('app.login.phoneError'))
+      setError(getString('loginPage.phoneError'))
       return
     }
 
@@ -28,7 +28,7 @@ export default function LoginPage() {
       const { code } = error.response.data.error
 
       if (code === 60200) {
-        setError(getString('app.login.phoneError'))
+        setError(getString('loginPage.phoneError'))
       }
     } finally {
       setIsLoading(false)
