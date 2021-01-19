@@ -31,7 +31,7 @@ export const OPTIONS: Option[] = [
     type: 'radio',
     limit: 1,
     title: 'Tipo de pão',
-    priceCalcFilter: 'max',
+    priceCalcFilter: 'all',
     required: true,
     inputs: [
       {
