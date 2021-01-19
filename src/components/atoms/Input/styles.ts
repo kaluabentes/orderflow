@@ -14,7 +14,7 @@ export const inputStyles = css`
   border-radius: 6px;
   width: 100%;
   display: block;
-  font-weight: 500;
+  font-weight: 400;
 
   &:focus {
     outline: none;

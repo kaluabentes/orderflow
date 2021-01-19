@@ -6,7 +6,7 @@ import { Integrations } from '@sentry/tracing'
 
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
-import { ForceUpdateProvider } from '~/utils/hooks/useForceUpdate'
+import '../styles/fonts.css'
 
 Sentry.init({
   dsn:
@@ -17,12 +17,10 @@ Sentry.init({
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <ForceUpdateProvider>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </ForceUpdateProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Component {...pageProps} />
+    </ThemeProvider>
   )
 }
 

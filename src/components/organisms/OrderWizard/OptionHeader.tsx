@@ -5,7 +5,6 @@ import Heading from '~/components/atoms/Heading'
 import Paragraph from '~/components/atoms/Paragraph'
 import { CommonProps } from '~/components/CommonProps'
 import getString from '~/i18n/getString'
-import theme from '~/styles/theme'
 
 interface OptionHeaderProps extends CommonProps {
   title: string
