@@ -24,7 +24,7 @@ function HomePage() {
   const [isOrderWizardOpen, setIsOrderWizardOpen] = useState(false)
   const [showRequiredError, setShowRequiredError] = useState(false)
 
-  // useProtectedPage()
+  useProtectedPage()
 
   useEffect(() => {
     if (!orderWizardProduct) {
@@ -42,7 +42,6 @@ function HomePage() {
   }, [isOrderWizardOpen])
 
   function getUserName() {
-    return 'Kaluã'
     return auth.user.name.split(' ')[0]
   }
 
@@ -79,9 +78,9 @@ function HomePage() {
     setIsOrderWizardOpen(true)
   }
 
-  // if (!auth.token) {
-  //   return null
-  // }
+  if (!auth.token) {
+    return null
+  }
 
   return (
     <Home
