@@ -9,6 +9,7 @@ import useOrder from '~/modules/orders/useOrder'
 import getInitialState from '~/components/organisms/OrderWizard/getInitialState'
 import getOrderItem from '~/components/organisms/OrderWizard/getOrderItem'
 import { OPTIONS } from '~/modules/products/mocks'
+import hasRequiredEmpty from '~/modules/orders/hasRequiredEmpty'
 
 function HomePage() {
   const router = useRouter()
@@ -22,9 +23,8 @@ function HomePage() {
   const [orderQuantity, setOrderQuantity] = React.useState(1)
   const [isOrderWizardOpen, setIsOrderWizardOpen] = useState(false)
   const [showRequiredError, setShowRequiredError] = useState(false)
-  // useProtectedPage()
 
-  console.log('> Index Page Rendered')
+  // useProtectedPage()
 
   useEffect(() => {
     if (!orderWizardProduct) {
@@ -46,54 +46,8 @@ function HomePage() {
     return auth.user.name.split(' ')[0]
   }
 
-  function hasRequiredEmpty() {
-    return Object.keys(orderWizardValue).reduce((prev, key) => {
-      const option = options.find(opt => opt.id === key)
-
-      function hasAnyEmpty() {
-        if (option.type === 'check') {
-          const totalChoices = orderWizardValue[key].length
-          return !totalChoices && totalChoices < option.limit
-        }
-        if (option.type === 'radio') {
-          return !orderWizardValue[key]
-        }
-        if (option.type === 'amount') {
-          const totalChoices = Object.keys(orderWizardValue[key]).reduce(
-            (prev, inputKey) => prev + orderWizardValue[key][inputKey],
-            0
-          )
-          return Object.keys(orderWizardValue[key]).reduce((prev, inputKey) => {
-            if (
-              !orderWizardValue[key][inputKey] &&
-              totalChoices < option.limit
-            ) {
-              return true
-            }
-
-            if (prev) {
-              return prev
-            }
-
-            return false
-          }, false)
-        }
-      }
-
-      if (option.required) {
-        return hasAnyEmpty()
-      }
-
-      if (prev) {
-        return prev
-      }
-
-      return false
-    }, false)
-  }
-
   function confirmOrderWizard(data) {
-    if (hasRequiredEmpty()) {
+    if (hasRequiredEmpty(orderWizardValue, options)) {
       setShowRequiredError(true)
       return
     }
