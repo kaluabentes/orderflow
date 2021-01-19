@@ -149,7 +149,6 @@ function HomePage() {
       onCartClick={() => {}}
       onNavClick={path => router.push(path)}
       searchValue={searchValue}
-      onObsChange={value => setObs(value)}
       onOrderWizardQuantityChange={value => setOrderQuantity(value)}
       onOrderWizardConfirm={confirmOrderWizard}
       onOrderWizardClose={() => closeOrderWizard()}

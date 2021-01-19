@@ -7,7 +7,7 @@ import { Container } from './styles'
 
 interface TextAreaProps extends CommonProps {
   label?: string
-  onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
+  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
   children: React.ReactNode
 }
 
