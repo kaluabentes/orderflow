@@ -24,6 +24,16 @@ const UserSchema = new mongoose.Schema({
   complement: {
     type: String,
     required: false
+  },
+  coords: {
+    latitude: {
+      type: String,
+      required: false
+    },
+    longitude: {
+      type: String,
+      required: false
+    }
   }
 })
 

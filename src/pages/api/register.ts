@@ -8,7 +8,7 @@ export default async (request: NowRequest, response: NowResponse) => {
     method,
     headers: { authorization }
   } = request
-  const { name, district, street, number, complement } = request.body
+  const { name, district, street, number, complement, coords } = request.body
 
   if (method !== 'POST') {
     response.setHeader('Allow', ['POST'])
@@ -50,7 +50,8 @@ export default async (request: NowRequest, response: NowResponse) => {
     district,
     street,
     number,
-    complement
+    complement,
+    coords
   })
 
   response.status(200).send(result)

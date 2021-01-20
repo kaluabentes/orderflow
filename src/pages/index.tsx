@@ -41,6 +41,11 @@ function HomePage() {
     }
   }, [isOrderWizardOpen])
 
+  function getAddress() {
+    const { street, number } = auth.user
+    return `${street}, ${number}`
+  }
+
   function getUserName() {
     return auth.user.name.split(' ')[0]
   }
@@ -94,7 +99,7 @@ function HomePage() {
       isLoading={isLoading}
       categories={categories}
       logoSrc="./orderflow.svg"
-      address="Servidão Vitórias, 40"
+      address={getAddress()}
       userName={getUserName()}
       cartCount={order.items.length}
       currentPath="/"
