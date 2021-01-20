@@ -17,7 +17,7 @@
   "validation.required": "O campo :field é obrigatório :field",
   "app.availability.title": "Disponibilidade",
   "app.availability.subTitle": "Lista de bairros suportados",
-  "app.availability.text": "Verifique na lista abaixo os bairros onde entragamos",
+  "app.availability.text": "Verifique na lista abaixo os bairros onde fazemos entregas",
   "app.hero.addressTitle": "Entregar em",
   "app.hero.searchPlaceholder": "O que você deseja?",
   "app.home.title": "Home",
