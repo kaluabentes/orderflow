@@ -2,16 +2,15 @@ import React from 'react'
 import { Portal } from 'react-portal'
 
 import CircleLoader from '~/components/atoms/CircleLoader'
+import useIsMounted from '~/utils/hooks/useIsMounted'
 
 import { Container } from './styles'
 
 function PageLoader() {
   return (
-    <Portal>
-      <Container>
-        <CircleLoader />
-      </Container>
-    </Portal>
+    <Container>
+      <CircleLoader />
+    </Container>
   )
 }
 

@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/dist/client/router'
 
-import { logoSrc } from '~/components/atoms/Logo'
 import Welcome, { coverSrc } from '~/components/templates/Welcome'
+import usePageLoader from '~/components/organisms/PageLoader/usePageLoader'
+import PageLoader from '~/components/organisms/PageLoader'
 
 function WelcomePage() {
   const router = useRouter()
+  const isLoading = usePageLoader()
 
   return (
-    <Welcome
-      title={process.env.STORE_NAME}
-      coverSrc={coverSrc}
-      logoSrc="/orderflow.svg"
-      onEnter={() => router.push('/login')}
-      onVerify={() => router.push('/availability')}
-    />
+    <>
+      {isLoading && <PageLoader />}
+      <Welcome
+        title={process.env.STORE_NAME}
+        coverSrc={coverSrc}
+        logoSrc="/orderflow.svg"
+        onEnter={() => router.push('/login')}
+        onVerify={() => router.push('/availability')}
+      />
+    </>
   )
 }
 

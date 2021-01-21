@@ -98,7 +98,7 @@ function HomePage() {
       order={order}
       isLoading={isLoading}
       categories={categories}
-      logoSrc="./orderflow.svg"
+      logoSrc="/orderflow.svg"
       address={getAddress()}
       userName={getUserName()}
       cartCount={order.items.length}
