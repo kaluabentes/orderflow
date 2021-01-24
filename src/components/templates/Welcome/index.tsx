@@ -32,7 +32,7 @@ function Welcome({
   return (
     <Base>
       <Cover src={coverSrc} />
-      <Overlay />
+      <Overlay bottom="0px" />
       <Content>
         <Logo src={logoSrc} margin="50px 0 40px 0" />
         <FadeInUp delay="0s">
