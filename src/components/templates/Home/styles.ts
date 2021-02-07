@@ -8,10 +8,8 @@ export const MainGrid = styled('div')(css`
   width: 1265px;
   align-items: flex-start;
   padding: 30px 20px;
-  margin-top: 74px;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     width: 100%;
-    margin-top: 142px;
   }
 `)

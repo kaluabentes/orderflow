@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import theme from '~/styles/theme'
 
-function useIsMobile() {
+function useIsMobile(breakpoint = theme.breakpoints.mobile) {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     function verify() {
-      if (window.innerWidth <= theme.breakpoints.mobile) {
+      if (window.innerWidth <= breakpoint) {
         setIsMobile(true)
         return
       }

@@ -24,6 +24,9 @@ import {
 import getString from '~/i18n/getString'
 import Icon from '~/components/atoms/Icon'
 import useIsMounted from '~/utils/hooks/useIsMounted'
+import Button from '~/components/atoms/Button'
+import Box from '~/components/atoms/Box'
+import { MOBILE_BREAKPOINT } from './constants'
 
 interface NavItem {
   path: string
@@ -33,12 +36,12 @@ interface NavItem {
 interface HeaderProps {
   title: string
   logoSrc: string
-  profileText: string
-  currentPath: string
+  userName: string
+  pathname: string
   navItems: NavItem[]
   cartCount: string | number
   address: string
-  searchValue: string
+  search: string
   isSearchOpen: boolean
   onSearchOpen: () => void
   onSearchClose: () => void
@@ -46,28 +49,30 @@ interface HeaderProps {
   onCartClick: () => void
   onAddressClick: () => void
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void
+  onLogin: () => void
 }
 
 function Header({
   title,
   navItems,
-  profileText,
-  currentPath,
+  userName,
+  pathname,
   cartCount,
   logoSrc,
   address,
-  searchValue,
+  search,
   isSearchOpen,
   onSearchOpen,
   onSearchClose,
   onAddressClick,
   onSearchChange,
   onNavClick,
-  onCartClick
+  onCartClick,
+  onLogin
 }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile(MOBILE_BREAKPOINT)
   const isMounted = useIsMounted()
 
   useEffect(() => {
@@ -94,7 +99,7 @@ function Header({
   function renderSearchInput(hasCloseButton) {
     return (
       <SearchInput
-        value={searchValue}
+        value={search}
         onChange={onSearchChange}
         onClose={handleOnSearchClose}
         hasCloseButton={hasCloseButton}
@@ -110,10 +115,15 @@ function Header({
         isScrolled={isScrolled}
         isMobile={isMobile}
         isSearchOpen={isSearchOpen}
+        variant="primary"
+        outlined
       >
-        <AddressTitle>{getString('app.hero.addressTitle')}</AddressTitle>
+        {address && (
+          <AddressTitle>{getString('app.hero.addressTitle')}</AddressTitle>
+        )}
         <EditAddressContent onClick={onAddressClick}>
-          {address} <Icon name="edit" />
+          {!address && <Icon margin="0 5px 0 -3px" name="room" />}
+          {address || 'Selecionar endereço'} {address && <Icon name="edit" />}
         </EditAddressContent>
       </EditAddressButton>
     )
@@ -133,7 +143,11 @@ function Header({
           <Nav isOpen={isOpen}>
             <NavHeader>
               <Heading fontSize="medium" as="h2">
-                {profileText}
+                {userName ? (
+                  `${getString('app.home.greeting')}, ${userName}`
+                ) : (
+                  <Button onClick={onLogin}>{getString('login')}</Button>
+                )}
               </Heading>
               <IconButton onClick={() => setIsOpen(false)} name="close" />
             </NavHeader>
@@ -141,7 +155,7 @@ function Header({
               <NavItem
                 key={item.label}
                 type="button"
-                isActive={currentPath === item.path}
+                isActive={pathname === item.path}
                 onClick={() => onNavClick(item.path)}
               >
                 {item.label}
@@ -149,16 +163,25 @@ function Header({
             ))}
           </Nav>
         )}
-        {!isMobile && renderSearchInput(searchValue)}
+        {!isMobile && renderSearchInput(search)}
         {isMobile && isSearchOpen && renderSearchInput(true)}
         {renderAddressSection()}
         {isMobile && !isSearchOpen && (
           <>
             <IconButton name="sort" onClick={() => setIsOpen(true)} />
-            <Heading margin="0 -45px 0 0">{title}</Heading>
+            <Heading textTransform="uppercase" margin="0 -45px 0 0">{title}</Heading>
           </>
         )}
-        {!isMobile && <ProfileText>{profileText}</ProfileText>}
+        {!isMobile &&
+          (userName ? (
+            <ProfileText>{userName}</ProfileText>
+          ) : (
+            <Box width="100px" margin="0 15px">
+              <Button outlined variant="primary" onClick={onLogin}>
+                {getString('login')}
+              </Button>
+            </Box>
+          ))}
         <ActionsContainer>
           {isMobile && !isSearchOpen && (
             <IconButton

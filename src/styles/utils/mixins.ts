@@ -76,6 +76,10 @@ function mixins(props) {
     {
       name: 'z-index',
       value: props['zIndex']
+    },
+    {
+      name: 'text-transform',
+      value: props['textTransform']
     }
   ]
 }

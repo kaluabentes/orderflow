@@ -7,6 +7,7 @@ import { Integrations } from '@sentry/tracing'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 import '~/styles/fonts.css'
+import ContainersProvider from '~/containers'
 
 Sentry.init({
   dsn:
@@ -17,10 +18,12 @@ Sentry.init({
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <ContainersProvider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </ContainersProvider>
   )
 }
 

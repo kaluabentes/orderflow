@@ -17,11 +17,10 @@ export const Container = styled('section')(css`
     props.isFixed &&
     css`
       position: fixed;
-      top: 70px;
+      top: 75px;
       z-index: 10;
       transform: translateX(825px);
-      border-radius: 0;
-      max-height: calc(100% - 74px);
+      height: calc(100% - 75px);
     `}
 `)
 

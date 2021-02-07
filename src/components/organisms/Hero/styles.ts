@@ -1,69 +1,23 @@
-import { css } from 'styled-components'
-import fadeInUp from '~/styles/animations/fadeInUp'
+import { css, keyframes } from 'styled-components'
+import styled from '../../../styles/utils/styled'
 
-import styled from '~/styles/utils/styled'
-
-const headerHeight = 70
-const addressHeight = 73
-
-export const OuterContainer = styled('div')(css`
+export const Cover = styled('img')(css`
+  object-fit: cover;
   width: 100%;
-  margin-bottom: 30px;
-  background-size: cover;
-  background-position: center center;
-  position: relative;
-  margin-top: ${headerHeight}px;
-  overflow: hidden;
-
-  ${props =>
-    props.isSearchOpen &&
-    css`
-      margin-top: 163px;
-    `}
-
-  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
-    margin-top: ${headerHeight + addressHeight}px;
-  }
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
 `)
 
-export const Container = styled('div')(css`
-  width: 100%;
-  max-width: ${props => props.theme.layout.maxWidth};
-  margin: 0 auto;
+export const Content = styled('div')(css`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
+  width: 100%;
   z-index: 2;
   position: relative;
-  padding: 40px 20px;
-
-  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
-  }
-`)
-
-export const Overlay = styled('div')(css`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9));
-  top: 0;
-  left: 0;
-  z-index: 1;
-`)
-
-export const Image = styled('img')(css`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-`)
-
-export const Heading = styled('h2')(css`
-  font-size: 30px;
   color: white;
-  text-align: center;
-  margin: 0;
+  padding: 30px;
 `)

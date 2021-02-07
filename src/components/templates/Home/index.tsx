@@ -13,10 +13,14 @@ import getString from '~/i18n/getString'
 import { Order } from '~/modules/orders/types'
 import { Option } from '~/modules/products/types'
 import useIsMobile from '~/utils/hooks/useIsMobile'
+import Hero from '~/components/organisms/Hero'
+import store from '~/data/store.json'
 
 import { MainGrid } from './styles'
+import App from '../App'
+import Store from '~/containers/Store'
 
-const ORDER_FIXED_OFFSET = 20
+const ORDER_FIXED_OFFSET = 416
 
 interface Product {
   id: string | number
@@ -99,10 +103,11 @@ function Home({
   const isMobile = useIsMobile()
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isOrderFixed, setIsOrderFixed] = useState(false)
+  const store = Store.useContainer()
 
   useEffect(() => {
     function handleScroll() {
-      if (window.pageYOffset > ORDER_FIXED_OFFSET) {
+      if (window.pageYOffset > ORDER_FIXED_OFFSET - 75) {
         setIsOrderFixed(true)
         return
       }
@@ -145,23 +150,13 @@ function Home({
   }
 
   return (
-    <>
-      <Header
-        logoSrc={logoSrc}
-        title={getString('app.home.title')}
-        profileText={`${getString('app.home.greeting')}, ${userName}`}
-        currentPath={currentPath}
-        navItems={navItems}
-        isSearchOpen={isSearchOpen}
-        searchValue={searchValue}
-        cartCount={cartCount}
-        address={address}
-        onAddressClick={onAddressClick}
-        onNavClick={onNavClick}
-        onCartClick={onCartClick}
-        onSearchOpen={() => setIsSearchOpen(true)}
-        onSearchClose={handleSearchClose}
-        onSearchChange={onSearchChange}
+    <App title="Home">
+      <Hero
+        title={store.data.name}
+        coverSrc={store.data.cover}
+        logoSrc={store.data.logo}
+        onEnter={() => console.log('onEnter')}
+        onVerify={() => console.log('onVerify')}
       />
 
       <MainGrid>
@@ -209,7 +204,7 @@ function Home({
         onConfirm={onOrderWizardConfirm}
         onChange={onOrderWizardChange}
       />
-    </>
+    </App>
   )
 }
 

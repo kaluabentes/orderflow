@@ -29,4 +29,5 @@ export interface CommonProps {
   height?: string
   background?: string
   zIndex?: string
+  textTransform?: string
 }

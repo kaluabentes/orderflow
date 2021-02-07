@@ -10,6 +10,7 @@ import getInitialState from '~/components/organisms/OrderWizard/getInitialState'
 import getOrderItem from '~/components/organisms/OrderWizard/getOrderItem'
 import { OPTIONS } from '~/modules/products/mocks'
 import hasRequiredEmpty from '~/modules/orders/hasRequiredEmpty'
+import { Button } from '~/components/atoms/Amount/styles'
 
 function HomePage() {
   const router = useRouter()
@@ -23,8 +24,6 @@ function HomePage() {
   const [orderQuantity, setOrderQuantity] = React.useState(1)
   const [isOrderWizardOpen, setIsOrderWizardOpen] = useState(false)
   const [showRequiredError, setShowRequiredError] = useState(false)
-
-  useProtectedPage()
 
   useEffect(() => {
     if (!orderWizardProduct) {
@@ -42,11 +41,19 @@ function HomePage() {
   }, [isOrderWizardOpen])
 
   function getAddress() {
+    if (!auth.user) {
+      return null
+    }
+
     const { street, number } = auth.user
     return `${street}, ${number}`
   }
 
   function getUserName() {
+    if (!auth.user) {
+      return null
+    }
+
     return auth.user.name.split(' ')[0]
   }
 
@@ -83,10 +90,6 @@ function HomePage() {
     setIsOrderWizardOpen(true)
   }
 
-  if (!auth.token) {
-    return null
-  }
-
   return (
     <Home
       hasRequiredEmpty={showRequiredError}
@@ -98,7 +101,6 @@ function HomePage() {
       order={order}
       isLoading={isLoading}
       categories={categories}
-      logoSrc="/orderflow.svg"
       address={getAddress()}
       userName={getUserName()}
       cartCount={order.items.length}

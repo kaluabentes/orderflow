@@ -1,28 +1,57 @@
-import FadeInUp from '~/components/atoms/FadeInUp'
-import Icon from '~/components/atoms/Icon'
-import Logo from '~/components/atoms/Logo'
-import getString from '~/i18n/getString'
-import { OuterContainer, Container, Overlay, Heading, Image } from './styles'
+import React from 'react'
 
-interface HeroProps {
-  logoSrc: string
-  isSearchOpen?: boolean
-  coverSrc: string
+import Button from '../../atoms/Button'
+import Heading from '../../atoms/Heading'
+import Logo from '../../atoms/Logo'
+import Paragraph from '../../atoms/Paragraph'
+import FadeInUp from '../../atoms/FadeInUp'
+
+import { Cover, Content } from './styles'
+import getString from '~/i18n/getString'
+import Overlay from '~/components/atoms/Overlay'
+import Box from '~/components/atoms/Box'
+
+export const coverSrc =
+  'https://images.pexels.com/photos/33162/food-restaurant-menu-asia.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500'
+
+interface WelcomeProps {
+  coverSrc?: string
+  logoSrc?: string
+  title?: string
+  onEnter: () => void
+  onVerify: () => void
 }
 
-function Hero({ logoSrc, isSearchOpen = false, coverSrc }: HeroProps) {
+function Welcome({
+  coverSrc,
+  logoSrc,
+  title,
+  onEnter,
+  onVerify
+}: WelcomeProps) {
   return (
-    <OuterContainer isSearchOpen={isSearchOpen} coverSrc={coverSrc}>
-      <Container>
-        <Logo margin="0 0 30px 0" src={logoSrc} />
-        <FadeInUp>
-          <Heading>{process.env.STORE_NAME}</Heading>
+    <Box position="relative">
+      <Cover src={coverSrc} />
+      <Overlay bottom="0px" />
+      <Content>
+        <Logo src={logoSrc} margin="0 0 20px 0" />
+        <FadeInUp delay="0s">
+          <Heading fontSize="xlarge" align="center" margin="0 0 5px 0">
+            {title}
+          </Heading>
         </FadeInUp>
-      </Container>
-      <Image src={coverSrc} alt="" />
-      <Overlay />
-    </OuterContainer>
+        <FadeInUp delay="0.2s">
+          <Paragraph
+            color="white"
+            align="center"
+            variant="muted"
+          >
+            {getString('app.welcome.text')}
+          </Paragraph>
+        </FadeInUp>
+      </Content>
+    </Box>
   )
 }
 
-export default Hero
+export default Welcome

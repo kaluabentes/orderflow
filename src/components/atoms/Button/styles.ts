@@ -66,6 +66,15 @@ export const Container = styled('button')(css`
           background: white;
         }
       }
+
+      ${props => props.outlined && css`
+        border: 1px solid rgba(255, 255, 255, 0.4);
+
+        &:hover {
+          background: transparent;
+          border-color: white;
+        }
+      `}
     `}
 
   ${props =>

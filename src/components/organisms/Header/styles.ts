@@ -1,7 +1,9 @@
 import { css } from 'styled-components'
+import Button from '~/components/atoms/Button'
 import Heading from '~/components/atoms/Heading'
 
 import styled from '~/styles/utils/styled'
+import { DESKTOP_BREAKPOINT, MOBILE_BREAKPOINT } from './constants'
 
 export const OuterContainer = styled('div')(css`
   background: ${props => props.theme.colors.primary};
@@ -16,7 +18,7 @@ export const Container = styled('header')(css`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 15px 20px;
   color: white;
   width: 100%;
   margin: 0 auto;
@@ -31,7 +33,7 @@ export const Container = styled('header')(css`
       padding: 5px;
     `}
 
-  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
     padding: 20px;
 
     ${props =>
@@ -63,7 +65,7 @@ export const Nav = styled('nav')(css`
       transform: translateX(0);
     `}
 
-  @media (min-width: ${props => props.theme.breakpoints.desktop}px) {
+  @media (min-width: ${DESKTOP_BREAKPOINT}px) {
     position: static;
     flex-direction: row;
     height: auto;
@@ -85,7 +87,7 @@ export const NavHeader = styled('header')(css`
     color: ${props => props.theme.colors.textMuted} !important;
   }
 
-  @media (min-width: ${props => props.theme.breakpoints.desktop}px) {
+  @media (min-width: ${DESKTOP_BREAKPOINT}px) {
     display: none;
   }
 `)
@@ -119,7 +121,7 @@ export const NavItem = styled(`button`)(css`
       font-weight: 500;
     `}
 
-  @media (min-width: ${props => props.theme.breakpoints.desktop}px) {
+  @media (min-width: ${DESKTOP_BREAKPOINT}px) {
     padding: 0;
     color: white;
     opacity: 0.7;
@@ -158,12 +160,10 @@ export const BrandLogo = styled('img')(css`
 export const EditAddressContent = styled('div')(css`
   display: flex;
   align-items: center;
+  border-radius: 6px;
+  font-size: 0.875rem;
 
-  & i {
-    margin-left: 10px;
-  }
-
-  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
     color: ${props => props.theme.colors.text};
     padding: 0;
     margin: 0;
@@ -180,7 +180,7 @@ export const AddressTitle = styled('span')(css`
   opacity: 0.7;
   font-weight: 400;
 
-  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
     color: ${props => props.theme.colors.textMuted};
     margin-bottom: 10px;
   }
@@ -190,14 +190,13 @@ export const ActionsContainer = styled('div')(css`
   display: flex;
 `)
 
-export const EditAddressButton = styled('button')(css`
-  width: 100%;
-  margin-left: 40px;
-  background: transparent;
-  border: 0;
+export const EditAddressButton = styled(Button)(css`
+  margin-left: 20px;
   color: white;
+  width: auto !important;
+  white-space: nowrap;
   cursor: pointer;
-  padding: 0;
+  padding: 9px !important;
   text-align: left;
   transition: 0.3s;
   font-weight: 500;
@@ -206,16 +205,17 @@ export const EditAddressButton = styled('button')(css`
     outline: 0;
   }
 
-  @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
+  @media (max-width: ${MOBILE_BREAKPOINT}px) {
     position: fixed;
     left: 0;
     top: 70px;
-    width: 100%;
+    width: 100% !important;
     color: ${props => props.theme.colors.text};
     margin-left: 0 !important;
-    background: white;
-    padding: 15px 20px;
+    background: white !important;
+    padding: 15px 5px !important;
     z-index: 3;
     box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.05);
+    border-radius: 0;
   }
 `)

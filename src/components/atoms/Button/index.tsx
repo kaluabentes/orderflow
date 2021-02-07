@@ -8,6 +8,7 @@ interface ButtonProps extends CommonProps {
   isLoading?: boolean
   variant?: 'default' | 'primary' | 'info' | 'warning' | 'defaultDark'
   type?: string
+  outlined?: boolean
 }
 
 function Button({
@@ -15,6 +16,7 @@ function Button({
   variant = 'default',
   isLoading = false,
   children,
+  outlined,
   type = 'button',
   ...props
 }: ButtonProps) {
@@ -25,6 +27,7 @@ function Button({
       variant={variant}
       type={type}
       disabled={isLoading}
+      outlined={outlined}
     >
       {isLoading ? <Loader /> : children}
     </Container>
