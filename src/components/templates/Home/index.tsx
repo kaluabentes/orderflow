@@ -1,20 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import Box from '~/components/atoms/Box'
-import Heading from '~/components/atoms/Heading'
 import ProductCard from '~/components/molecules/ProductCard'
 import Footer from '~/components/organisms/Footer'
 
-import Header from '~/components/organisms/Header'
 import OrderSummary from '~/components/organisms/OrderSummary'
 import OrderWizard from '~/components/organisms/OrderWizard'
 import ProductGrid from '~/components/organisms/ProductGrid'
-import { navItems } from '~/config/navigation'
-import getString from '~/i18n/getString'
 import { Order } from '~/modules/orders/types'
 import { Option } from '~/modules/products/types'
 import useIsMobile from '~/utils/hooks/useIsMobile'
 import Hero from '~/components/organisms/Hero'
-import store from '~/data/store.json'
 
 import { MainGrid } from './styles'
 import App from '../App'
@@ -46,13 +41,6 @@ interface HomeProps {
   isLoading?: boolean
   order?: Order
   categories: Category[]
-  logoSrc: string
-  coverSrc?: string
-  address: string
-  userName: string
-  currentPath: string
-  cartCount: number
-  searchValue?: string
   onOrderSummaryQuantityChange?: (productId: string | number) => void
   onOrderSummaryRemove?: (productId: string | number) => void
   onOrderSummaryEdit?: (productId: string | number) => void
@@ -61,11 +49,7 @@ interface HomeProps {
   onOrderWizardConfirm?: (data: any) => void
   onOrderWizardClose?: () => void
   onOrderWizardChange?: (optionId: any, optionValue: any) => void
-  onNavClick: (path) => void
-  onCartClick: () => void
-  onAddressClick: () => void
   onSearchClose?: () => void
-  onSearchChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   onProductClick?: (product: Product) => void
 }
 
@@ -79,12 +63,6 @@ function Home({
   isLoading,
   order,
   categories,
-  logoSrc,
-  address,
-  userName,
-  currentPath,
-  cartCount,
-  searchValue,
   onOrderSummaryQuantityChange,
   onOrderSummaryRemove,
   onOrderSummaryConfirm,
@@ -93,11 +71,7 @@ function Home({
   onOrderWizardConfirm,
   onOrderWizardClose,
   onOrderWizardChange,
-  onAddressClick,
-  onNavClick,
-  onCartClick,
   onSearchClose,
-  onSearchChange,
   onProductClick
 }: HomeProps) {
   const isMobile = useIsMobile()

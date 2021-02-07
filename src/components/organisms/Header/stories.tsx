@@ -18,14 +18,14 @@ export const Default = () => {
   return (
     <Header
       title="Menu"
-      profileText="Olá, Kaluã"
-      currentPath="/menu"
+      userName="Kaluã"
+      pathname="/menu"
       navItems={navItems}
       onNavClick={action('onNavClick')}
       onCartClick={action('onCartClick')}
       onAddressClick={action('onAddressClick')}
       onSearchChange={event => setValue(event.target.value)}
-      searchValue={value}
+      search={value}
       cartCount={10}
       logoSrc={logoSrc}
       address="Servidão Vitórias, 40"
@@ -35,6 +35,7 @@ export const Default = () => {
         setValue('')
         setIsSearchOpen(false)
       }}
+      onLogin={() => action('onLogin')}
     />
   )
 }

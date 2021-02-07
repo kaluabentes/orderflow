@@ -101,14 +101,6 @@ function HomePage() {
       order={order}
       isLoading={isLoading}
       categories={categories}
-      address={getAddress()}
-      userName={getUserName()}
-      cartCount={order.items.length}
-      currentPath="/"
-      onAddressClick={() => {}}
-      onCartClick={() => {}}
-      onNavClick={path => router.push(path)}
-      searchValue={searchValue}
       onOrderWizardQuantityChange={value => setOrderQuantity(value)}
       onOrderWizardConfirm={confirmOrderWizard}
       onOrderWizardClose={() => closeOrderWizard()}
@@ -118,7 +110,6 @@ function HomePage() {
           [optionId]: optionValue
         }))
       }
-      onSearchChange={event => setSearchValue(event.target.value)}
       onSearchClose={() => setSearchValue('')}
       onProductClick={openOrderWizard}
     />
