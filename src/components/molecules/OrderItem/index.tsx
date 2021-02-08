@@ -42,7 +42,7 @@ function OrderItem({
           <Price>{formatMoney(price)}</Price>
         </Box>
       </Box>
-      <Paragraph margin="0 0 20px 0" fontSize="1rem" variant="muted">
+      <Paragraph margin="0 0 10px 0" fontSize="1rem" variant="muted">
         {options}
       </Paragraph>
       <ContentGrid alignItems="center">

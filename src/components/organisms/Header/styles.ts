@@ -34,7 +34,7 @@ export const Container = styled('header')(css`
     `}
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
-    padding: 20px;
+    padding: 20px 15px;
 
     ${props =>
       props.isSearchOpen &&
@@ -216,6 +216,6 @@ export const EditAddressButton = styled(Button)(css`
     padding: 15px 5px !important;
     z-index: 3;
     box-shadow: 0 2px 1px 1px rgba(0, 0, 0, 0.05);
-    border-radius: 0;
+    border-radius: 0 !important;
   }
 `)

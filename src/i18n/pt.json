@@ -29,7 +29,7 @@
   "app.header.logout": "Sair",
   "app.edit": "Editar",
   "app.remove": "Remover",
-  "app.orderSummary.title": "Resumo do Pedido",
+  "app.orderSummary.title": "Pedido",
   "app.subtotal": "Subtotal",
   "app.deliveryTax": "Taxa de entrega",
   "app.total": "Total",

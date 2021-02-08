@@ -74,7 +74,7 @@ function OrderSummary({
     <Container isFixed={isFixed}>
       {items.length > 0 ? (
         <>
-          <Heading as="h3" margin="0 0 10px 0" fontSize="large">
+          <Heading as="h3" fontSize="xlarge">
             {getString('app.orderSummary.title')}
           </Heading>
           <Scroller isFixed={isFixed}>
