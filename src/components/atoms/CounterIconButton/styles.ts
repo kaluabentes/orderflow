@@ -26,8 +26,8 @@ export const Counter = styled('span')(css`
   justify-content: center;
   border-radius: 50%;
   position: absolute;
-  right: -2px;
-  top: -4px;
+  right: -4px;
+  top: -8px;
   color: ${props => props.textColor} !important;
   z-index: 1;
 `)

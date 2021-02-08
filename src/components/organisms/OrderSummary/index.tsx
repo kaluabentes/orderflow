@@ -19,7 +19,6 @@ import {
   TotalLabel,
   Scroller
 } from './styles'
-import { OrderItem } from '~/modules/orders/types'
 import Icon from '~/components/atoms/Icon'
 import theme from '~/styles/theme'
 import Heading from '~/components/atoms/Heading'
@@ -27,7 +26,7 @@ import Heading from '~/components/atoms/Heading'
 type Id = string | number
 
 interface OrderSummaryProps {
-  items: OrderItem[]
+  items: any[]
   subtotal: number
   deliveryTax: number
   total: number
@@ -110,9 +109,9 @@ function OrderSummary({
           </Button>
         </>
       ) : (
-        <Box padding="20px 20px 0 20px" alignItems="center">
+        <Box padding="20px" alignItems="center">
           <Icon
-            margin="0 0 20px 0"
+            margin="0 0 30px 0"
             fontSize="150px"
             color={theme.colors.background}
             name="remove_shopping_cart"
@@ -124,7 +123,7 @@ function OrderSummary({
             fontWeight="500"
             color={theme.colors.textMuted}
           >
-            Ops, nada por aqui ainda
+            {getString('cartEmptyMessage')}
           </Heading>
         </Box>
       )}

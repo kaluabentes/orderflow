@@ -14,6 +14,7 @@ import Hero from '~/components/organisms/Hero'
 import { MainGrid } from './styles'
 import App from '../App'
 import Store from '~/containers/Store'
+import User from '~/containers/User'
 
 const ORDER_FIXED_OFFSET = 416
 
@@ -39,7 +40,7 @@ interface HomeProps {
   orderWizardQuantity?: number
   orderWizardProduct?: Product
   isLoading?: boolean
-  order?: Order
+  order?: any
   categories: Category[]
   onOrderSummaryQuantityChange?: (productId: string | number) => void
   onOrderSummaryRemove?: (productId: string | number) => void
@@ -78,6 +79,8 @@ function Home({
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isOrderFixed, setIsOrderFixed] = useState(false)
   const store = Store.useContainer()
+  const user = User.useContainer()
+  const { deliveryTax } = user.data.currentAddress
 
   useEffect(() => {
     function handleScroll() {
@@ -102,18 +105,13 @@ function Home({
     }
   }, [isMobile])
 
-  function handleSearchClose() {
-    onSearchClose()
-    setIsSearchOpen(false)
-  }
-
   function renderOrderSummary(props = {}) {
     return (
       <OrderSummary
-        items={order.items}
-        subtotal={order.subtotal}
-        deliveryTax={order.deliveryTax}
-        total={order.total}
+        items={order}
+        subtotal={0.0}
+        deliveryTax={deliveryTax}
+        total={0.0}
         onConfirm={onOrderSummaryConfirm}
         onEdit={onOrderSummaryEdit}
         onRemove={onOrderSummaryRemove}

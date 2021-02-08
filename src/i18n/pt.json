@@ -49,5 +49,6 @@
   "loginPage.phoneError": "Número inválido",
   "loginPage.submitLabel": "Avançar",
   "loginPage.phoneLabel": "Celular",
-  "login": "Entrar"
+  "login": "Entrar",
+  "cartEmptyMessage": "Opa. Nada por aqui ainda :)"
 }

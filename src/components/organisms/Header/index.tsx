@@ -118,12 +118,9 @@ function Header({
         variant="primary"
         outlined
       >
-        {address && (
-          <AddressTitle>{getString('app.hero.addressTitle')}</AddressTitle>
-        )}
         <EditAddressContent onClick={onAddressClick}>
-          {!address && <Icon margin="0 5px 0 -3px" name="room" />}
-          {address || 'Selecionar endereço'} {address && <Icon name="edit" />}
+          <Icon margin="0 5px 0 -3px" name="room" />
+          {address || 'Selecionar endereço'}
         </EditAddressContent>
       </EditAddressButton>
     )
@@ -169,7 +166,9 @@ function Header({
         {isMobile && !isSearchOpen && (
           <>
             <IconButton name="sort" onClick={() => setIsOpen(true)} />
-            <Heading textTransform="uppercase" margin="0 -45px 0 0">{title}</Heading>
+            <Heading textTransform="uppercase" margin="0 -45px 0 0">
+              {title}
+            </Heading>
           </>
         )}
         {!isMobile &&

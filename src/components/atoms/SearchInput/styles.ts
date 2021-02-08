@@ -9,7 +9,7 @@ export const Container = styled('div')(css`
   border-radius: 6px;
   padding: 0 15px;
   width: 100%;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 1);
   position: relative;
 `)
 

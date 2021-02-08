@@ -12,7 +12,7 @@ interface ProductInfoProps {
 
 function ProductInfo({ product }: ProductInfoProps) {
   return (
-    <Box margin="0 0 40px 0">
+    <Box margin="0 0 20px 0">
       <Box alignItems="center" margin="0 0 30px 0">
         <Logo src={product.image} />
       </Box>

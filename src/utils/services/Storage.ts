@@ -2,25 +2,25 @@ import { merge } from 'lodash'
 
 class Storage {
   static getItem(key) {
-    const rawData = localStorage.getItem(key)
+    const stringData = localStorage.getItem(key)
 
-    if (rawData) {
-      return JSON.parse(rawData)
+    if (!stringData) {
+      return null
     }
 
-    return rawData
+    return JSON.parse(stringData)
   }
 
   static setItem(key, data) {
     localStorage.setItem(key, JSON.stringify(data))
   }
 
-  static storeItem(key, data) {
-    const storedData = Storage.getItem(key)
-    const newData = merge(storedData, data)
+  static removeItem(key) {
+    localStorage.removeItem(key)
+  }
 
-    Storage.setItem(key, newData)
-    return newData
+  static serialize(obj) {
+    return JSON.stringify(obj)
   }
 }
 

@@ -12,12 +12,14 @@ import { MOBILE_BREAKPOINT } from '~/components/organisms/Header/constants'
 
 function App({ children, title }) {
   const store = Store.useContainer()
-  const { cart } = Cart.useContainer()
-  const { user } = User.useContainer()
+  const cart = Cart.useContainer()
+  const user = User.useContainer()
   const router = useRouter()
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [search, setSearch] = useState('')
   const isMobile = useIsMobile(MOBILE_BREAKPOINT)
+  const { street, number } = user.data.currentAddress
+  const address = street && number ? `${street}, ${number}` : undefined
 
   return (
     <>
@@ -25,19 +27,19 @@ function App({ children, title }) {
       <Header
         logoSrc={store.data.logo}
         title={title}
-        userName={user.name}
+        userName={user.data.name}
         pathname={router.pathname}
         navItems={navItems}
         isSearchOpen={isSearchOpen}
         search={search}
-        cartCount={cart.length}
-        address={user.address}
+        cartCount={cart.data.length}
+        address={address}
         onAddressClick={() => alert('onAddressClick')}
         onNavClick={path => router.push(path)}
         onCartClick={() => alert('onCartClick')}
         onSearchOpen={() => setIsSearchOpen(true)}
         onSearchClose={() => setIsSearchOpen(false)}
-        onSearchChange={(event) => setSearch(event.target.name)}
+        onSearchChange={event => setSearch(event.target.name)}
         onLogin={() => alert('onLogin')}
       />
       <Box margin={`${isMobile ? 126 : 75}px 0 0 0`}>{children}</Box>

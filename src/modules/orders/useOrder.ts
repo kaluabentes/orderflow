@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import useStorageState from '~/utils/hooks/useStorageState'
+import useStorageState from '~/utils/hooks/useLocalStorageState'
 import { Order } from './types'
 
 const INITIAL_STATE: Order = {

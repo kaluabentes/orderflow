@@ -1,17 +1,20 @@
-import { useEffect, useState } from "react"
-import { createContainer } from "unstated-next"
+import { useEffect, useState } from 'react'
+import { createContainer } from 'unstated-next'
 
-import useStorageState from "~/utils/hooks/useStorageState"
+import useStorageState from '~/utils/hooks/useLocalStorageState'
 import storeData from '~/data/store.json'
 
 const INITIAL_STATE = {
   cover: undefined,
   logo: undefined,
-  name: '',
+  name: ''
 }
 
 function useStore() {
-  const [store, setStore] = useStorageState(`${process.env.ID}.store`, INITIAL_STATE)
+  const [store, setStore] = useStorageState(
+    `${process.env.ID}.store`,
+    INITIAL_STATE
+  )
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {

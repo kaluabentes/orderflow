@@ -11,12 +11,11 @@ import getOrderItem from '~/components/organisms/OrderWizard/getOrderItem'
 import { OPTIONS } from '~/modules/products/mocks'
 import hasRequiredEmpty from '~/modules/orders/hasRequiredEmpty'
 import { Button } from '~/components/atoms/Amount/styles'
+import Cart from '~/containers/Cart'
 
 function HomePage() {
-  const router = useRouter()
   const [auth] = useAuth()
   const [categories, isLoading] = useCategories()
-  const [searchValue, setSearchValue] = useState('')
   const [order, setOrder] = useOrder()
   const [orderWizardProduct, setOrderWizardProduct] = useState(undefined)
   const [orderWizardValue, setOrderWizardValue] = React.useState<any>(undefined)
@@ -24,6 +23,7 @@ function HomePage() {
   const [orderQuantity, setOrderQuantity] = React.useState(1)
   const [isOrderWizardOpen, setIsOrderWizardOpen] = useState(false)
   const [showRequiredError, setShowRequiredError] = useState(false)
+  const cart = Cart.useContainer()
 
   useEffect(() => {
     if (!orderWizardProduct) {
@@ -64,19 +64,15 @@ function HomePage() {
     }
 
     setShowRequiredError(false)
-    setOrder({
-      ...order,
-      items: [
-        ...order.items,
-        getOrderItem(
-          orderWizardProduct,
-          options,
-          orderWizardValue,
-          orderQuantity,
-          data.observation
-        )
-      ]
-    })
+    cart.addItem(
+      getOrderItem(
+        orderWizardProduct,
+        options,
+        orderWizardValue,
+        orderQuantity,
+        data.observation
+      )
+    )
     closeOrderWizard()
   }
 
@@ -98,7 +94,7 @@ function HomePage() {
       orderWizardValue={orderWizardValue}
       orderWizardQuantity={orderQuantity}
       orderWizardProduct={orderWizardProduct}
-      order={order}
+      order={cart.data}
       isLoading={isLoading}
       categories={categories}
       onOrderWizardQuantityChange={value => setOrderQuantity(value)}
@@ -110,7 +106,6 @@ function HomePage() {
           [optionId]: optionValue
         }))
       }
-      onSearchClose={() => setSearchValue('')}
       onProductClick={openOrderWizard}
     />
   )

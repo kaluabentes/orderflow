@@ -1,12 +1,15 @@
-import { createContainer } from "unstated-next"
-import useStorageState from "~/utils/hooks/useStorageState"
+import { createContainer } from 'unstated-next'
+import useStorageState from '~/utils/hooks/useLocalStorageState'
 
 const INITIAL_STATE = {
-  search: '',
+  search: ''
 }
 
 function useCart() {
-  const [cart, setCart] = useStorageState(`${process.env.ID}.cart`, INITIAL_STATE)
+  const [cart, setCart] = useStorageState(
+    `${process.env.ID}.cart`,
+    INITIAL_STATE
+  )
 
   return { cart, setCart }
 }
