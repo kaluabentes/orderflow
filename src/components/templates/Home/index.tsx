@@ -54,6 +54,16 @@ interface HomeProps {
   onProductClick?: (product: Product) => void
 }
 
+function getOrderTotalPrice(cart, deliveryTax = undefined) {
+  const total = cart.reduce((prev, curr) => prev + curr.price, 0)
+
+  if (deliveryTax) {
+    return total + deliveryTax
+  }
+
+  return total
+}
+
 function Home({
   hasRequiredEmpty,
   options,
@@ -64,6 +74,7 @@ function Home({
   isLoading,
   order,
   categories,
+  onSearchClose,
   onOrderSummaryQuantityChange,
   onOrderSummaryRemove,
   onOrderSummaryConfirm,
@@ -72,7 +83,6 @@ function Home({
   onOrderWizardConfirm,
   onOrderWizardClose,
   onOrderWizardChange,
-  onSearchClose,
   onProductClick
 }: HomeProps) {
   const isMobile = useIsMobile()
@@ -109,9 +119,9 @@ function Home({
     return (
       <OrderSummary
         items={order}
-        subtotal={0.0}
+        subtotal={getOrderTotalPrice(order)}
         deliveryTax={deliveryTax}
-        total={0.0}
+        total={getOrderTotalPrice(order, deliveryTax)}
         onConfirm={onOrderSummaryConfirm}
         onEdit={onOrderSummaryEdit}
         onRemove={onOrderSummaryRemove}

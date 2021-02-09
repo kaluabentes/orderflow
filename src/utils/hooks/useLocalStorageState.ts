@@ -1,11 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import Storage from '~/utils/services/Storage'
 
-let prevKey
-
 function useLocalStorageState(key, initialState?) {
   const [state, setState] = useState(initialState)
+  const keyRef = useRef()
+
+  useEffect(() => {
+    const storedState = Storage.getItem(key)
+
+    if (storedState) {
+      setState(storedState)
+    }
+  }, [])
 
   useEffect(() => {
     const storedState = Storage.getItem(key)
@@ -14,11 +21,11 @@ function useLocalStorageState(key, initialState?) {
       Storage.setItem(key, state)
     }
 
-    if (key !== prevKey) {
-      Storage.removeItem(prevKey)
+    if (key !== keyRef.current) {
+      Storage.removeItem(keyRef.current)
     }
 
-    prevKey = key
+    keyRef.current = key
   }, [state, key])
 
   return [state, setState]

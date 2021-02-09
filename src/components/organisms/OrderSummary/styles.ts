@@ -58,6 +58,7 @@ export const Summary = styled('div')(css`
 
 export const SubtotalLabel = styled('p')(css`
   margin: 0 0 10px 0;
+  font-weight: 500;
 `)
 
 export const TotalLabel = styled('p')(css`

@@ -45,6 +45,7 @@ function Welcome({
             color="white"
             align="center"
             variant="muted"
+            fontWeight="500"
           >
             {getString('app.welcome.text')}
           </Paragraph>

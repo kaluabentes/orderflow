@@ -1,15 +1,16 @@
 import React from 'react'
+import getString from '~/i18n/getString'
 import useIsMounted from '~/utils/hooks/useIsMounted'
 
 import { Container, PoweredBy, PoweredByLink } from './styles'
 
 function Footer() {
-  const isMounted = useIsMounted();
+  const isMounted = useIsMounted()
 
   return (
     <Container>
       <PoweredBy>
-        Powered by{' '}
+        {getString('poweredBy')}{' '}
         {isMounted && (
           <PoweredByLink
             href={process.env.PROVIDER_URL}

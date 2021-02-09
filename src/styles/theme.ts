@@ -6,7 +6,8 @@ const theme = {
     text: '#333',
     textMuted: 'rgba(0, 0, 0, 0.4)',
     background: '#f4f4f4',
-    radioBackground: '#e6e6e6'
+    radioBackground: '#e6e6e6',
+    yellow: '#00ff00'
   },
   typography: {
     fontFamily: "'Poppins', sans-serif",

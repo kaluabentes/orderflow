@@ -18,10 +18,6 @@ function useUser() {
     INITIAL_STATE
   )
 
-  useEffect(() => {
-    localStorage.clear()
-  }, [])
-
   return { data: user }
 }
 

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { CommonProps } from '~/components/CommonProps'
+import theme from '~/styles/theme'
 import Icon from '../Icon'
 
 import { Container, Counter } from './styles'
@@ -17,7 +18,7 @@ function CounterIconButton({
   name,
   onClick,
   count,
-  counterBackgroundColor = '#00ff00',
+  counterBackgroundColor = theme.colors.yellow,
   counterTextColor = '#000',
   ...props
 }: CounterIconButtonProps) {

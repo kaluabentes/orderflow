@@ -35,6 +35,7 @@ export const Container = styled('header')(css`
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     padding: 20px 15px;
+    width: auto;
 
     ${props =>
       props.isSearchOpen &&
@@ -100,7 +101,7 @@ export const NavItem = styled(`button`)(css`
   background: transparent;
   border: 0;
   padding: 20px;
-  font-weight: 400;
+  font-weight: 500;
   cursor: pointer;
   font-size: 1.1rem;
   transition: 0.3s;
@@ -196,7 +197,7 @@ export const EditAddressButton = styled(Button)(css`
   width: auto !important;
   white-space: nowrap;
   cursor: pointer;
-  padding: 9px !important;
+  padding: 9px 20px !important;
   text-align: left;
   transition: 0.3s;
   font-weight: 500;

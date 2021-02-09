@@ -50,5 +50,8 @@
   "loginPage.submitLabel": "Avançar",
   "loginPage.phoneLabel": "Celular",
   "login": "Entrar",
-  "cartEmptyMessage": "Opa. Nada por aqui ainda :)"
+  "cartEmptyMessage": "Opa. Nada por aqui ainda :)",
+  "nav.home": "Home",
+  "nav.about": "About",
+  "poweredBy": "Desenvolvido com"
 }

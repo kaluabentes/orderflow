@@ -18,7 +18,7 @@ export const Container = styled('button')(css`
 export const Counter = styled('span')(css`
   background: ${props => props.backgroundColor};
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 700;
   height: 18px;
   width: 18px;
   display: flex;
@@ -27,7 +27,7 @@ export const Counter = styled('span')(css`
   border-radius: 50%;
   position: absolute;
   right: -4px;
-  top: -8px;
+  top: -6px;
   color: ${props => props.textColor} !important;
   z-index: 1;
 `)
