@@ -18,13 +18,7 @@ interface AppProps extends CommonProps {
   isHomePage?: boolean
 }
 
-function App({
-  children,
-  title,
-  onBack,
-  isInnerPage = false,
-  isHomePage = false
-}: AppProps) {
+function App({ children, title }: AppProps) {
   const store = Store.useContainer()
   const cart = Cart.useContainer()
   const user = User.useContainer()
