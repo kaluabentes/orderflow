@@ -9,6 +9,7 @@ export const Container = styled('button')(css`
   border: 0;
   padding: 0;
   outline: 0;
+  cursor: pointer;
 
   & i {
     font-size: 30px;

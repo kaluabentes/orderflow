@@ -26,6 +26,6 @@ export const Description = styled('p')(css`
 export const Price = styled('p')(css`
   margin: 0;
   font-weight: 500;
-  width: 100px;
+  width: 79px;
   text-align: right;
 `)

@@ -9,8 +9,22 @@ import { navItems } from '~/config/navigation'
 import PageLoader from '~/components/organisms/PageLoader'
 import useIsMobile from '~/utils/hooks/useIsMobile'
 import { MOBILE_BREAKPOINT } from '~/components/organisms/Header/constants'
+import { CommonProps } from '~/components/CommonProps'
 
-function App({ children, title }) {
+interface AppProps extends CommonProps {
+  title: string
+  onBack?: () => void
+  isInnerPage?: boolean
+  isHomePage?: boolean
+}
+
+function App({
+  children,
+  title,
+  onBack,
+  isInnerPage = false,
+  isHomePage = false
+}: AppProps) {
   const store = Store.useContainer()
   const cart = Cart.useContainer()
   const user = User.useContainer()
@@ -36,7 +50,7 @@ function App({ children, title }) {
         address={address}
         onAddressClick={() => alert('onAddressClick')}
         onNavClick={path => router.push(path)}
-        onCartClick={() => alert('onCartClick')}
+        onCartClick={() => router.push('/cart')}
         onSearchOpen={() => setIsSearchOpen(true)}
         onSearchClose={() => setIsSearchOpen(false)}
         onSearchChange={event => setSearch(event.target.name)}

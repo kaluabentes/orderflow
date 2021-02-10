@@ -5,7 +5,7 @@ import styled from '~/styles/utils/styled'
 
 export const Container = styled('section')(css`
   background: white;
-  padding: 40px;
+  padding: 20px;
   border-radius: 10px;
   max-width: 400px;
   flex: 1;
@@ -22,6 +22,10 @@ export const Container = styled('section')(css`
       transform: translateX(825px);
       max-height: calc(100% - 75px);
     `}
+
+  @media(min-width: 1024px) {
+    padding: 30px;
+  }
 `)
 
 export const Scroller = styled('div')(css`
