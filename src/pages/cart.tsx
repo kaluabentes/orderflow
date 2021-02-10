@@ -8,7 +8,7 @@ function CartPage() {
 
   return (
     <CartTemplate
-      onBack={() => router.back()}
+      onKeepBuying={() => router.push('/')}
       onConfirm={() => alert('onConfirm')}
       onEdit={() => alert('onEdit')}
       onRemove={() => alert('onRemove')}

@@ -73,8 +73,13 @@ function OrderSummary({
     <Container isFixed={isFixed}>
       {items.length > 0 ? (
         <>
-          <Heading as="h3" fontSize="xlarge">
-            {getString('app.orderSummary.title')}
+          <Heading
+            as="h3"
+            fontWeight="bold"
+            fontSize="22px"
+            textTransform="uppercase"
+          >
+            # {getString('app.orderSummary.title')}
           </Heading>
           <Scroller isFixed={isFixed}>
             <List>
@@ -105,7 +110,7 @@ function OrderSummary({
             </Box>
           </Summary>
           <Button onClick={onConfirm} variant="primary">
-            {getString('app.advance')}
+            {getString('confirm')}
           </Button>
         </>
       ) : (

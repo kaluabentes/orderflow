@@ -11,5 +11,6 @@ export const MainGrid = styled('div')(css`
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {
     width: 100%;
+    padding: 30px 10px;
   }
 `)

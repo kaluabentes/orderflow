@@ -20,9 +20,9 @@
   "app.availability.text": "Verifique na lista abaixo os bairros onde fazemos entregas",
   "app.hero.addressTitle": "Entregar em",
   "app.hero.searchPlaceholder": "O que você deseja?",
-  "app.home.title": "Home",
+  "app.home.title": "Início",
   "app.home.greeting": "Olá",
-  "app.header.home": "Home",
+  "app.header.home": "Início",
   "app.header.about": "Sobre",
   "app.header.orders": "Pedido",
   "app.header.profile": "Perfil",
@@ -51,7 +51,9 @@
   "loginPage.phoneLabel": "Celular",
   "login": "Entrar",
   "cartEmptyMessage": "Opa. Nada por aqui ainda :)",
-  "nav.home": "Home",
-  "nav.about": "About",
-  "poweredBy": "Desenvolvido com"
+  "nav.home": "Início",
+  "nav.about": "Sobre",
+  "poweredBy": "Desenvolvido com",
+  "payment": "Pagamento",
+  "confirm": "Confirmar"
 }

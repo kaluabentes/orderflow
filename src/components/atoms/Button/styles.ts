@@ -35,6 +35,7 @@ export const Container = styled('button')(css`
     css`
       border-color: rgba(0, 0, 0, 0.2);
       background: white;
+      color: ${props => props.theme.colors.text};
 
       &:hover {
         background: rgba(160, 160, 160, 0.1);
@@ -67,14 +68,16 @@ export const Container = styled('button')(css`
         }
       }
 
-      ${props => props.outlined && css`
-        border: 1px solid rgba(255, 255, 255, 0.4);
+      ${props =>
+        props.outlined &&
+        css`
+          border: 1px solid rgba(255, 255, 255, 0.4);
 
-        &:hover {
-          background: transparent;
-          border-color: white;
-        }
-      `}
+          &:hover {
+            background: transparent;
+            border-color: white;
+          }
+        `}
     `}
 
   ${props =>

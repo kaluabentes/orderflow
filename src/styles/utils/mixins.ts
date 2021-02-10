@@ -80,6 +80,22 @@ function mixins(props) {
     {
       name: 'text-transform',
       value: props['textTransform']
+    },
+    {
+      name: 'max-width',
+      value: props['maxWidth']
+    },
+    {
+      name: 'min-width',
+      value: props['minWidth']
+    },
+    {
+      name: 'min-height',
+      value: props['minHeight']
+    },
+    {
+      name: 'max-height',
+      value: props['maxHeight']
     }
   ]
 }

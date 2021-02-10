@@ -50,6 +50,7 @@ interface HeaderProps {
   onAddressClick: () => void
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   onLogin: () => void
+  onBack?: () => void
 }
 
 function Header({
@@ -68,7 +69,8 @@ function Header({
   onSearchChange,
   onNavClick,
   onCartClick,
-  onLogin
+  onLogin,
+  onBack
 }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -94,6 +96,15 @@ function Header({
 
   function handleOnSearchClose() {
     onSearchClose()
+  }
+
+  function handleLeftIconClick() {
+    if (pathname === '/') {
+      setIsOpen(true)
+      return
+    }
+
+    onBack()
   }
 
   function renderSearchInput(hasCloseButton) {
@@ -165,7 +176,10 @@ function Header({
         {renderAddressSection()}
         {isMobile && !isSearchOpen && (
           <>
-            <IconButton name="sort" onClick={() => setIsOpen(true)} />
+            <IconButton
+              name={pathname === '/' ? 'sort' : 'arrow_back'}
+              onClick={handleLeftIconClick}
+            />
             <Heading textTransform="uppercase" margin="0 -45px 0 0">
               {title}
             </Heading>

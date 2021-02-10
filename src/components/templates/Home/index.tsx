@@ -13,8 +13,9 @@ import Hero from '~/components/organisms/Hero'
 
 import { MainGrid } from './styles'
 import App from '../App'
-import Store from '~/containers/Store'
-import User from '~/containers/User'
+import Store from '~/state/Store'
+import User from '~/state/User'
+import OrderSummaryContainer from '~/containers/OrderSummary'
 
 const ORDER_FIXED_OFFSET = 416
 
@@ -115,20 +116,8 @@ function Home({
     }
   }, [isMobile])
 
-  function renderOrderSummary(props = {}) {
-    return (
-      <OrderSummary
-        items={order}
-        subtotal={getOrderTotalPrice(order)}
-        deliveryTax={deliveryTax}
-        total={getOrderTotalPrice(order, deliveryTax)}
-        onConfirm={onOrderSummaryConfirm}
-        onEdit={onOrderSummaryEdit}
-        onRemove={onOrderSummaryRemove}
-        onQuantityChange={onOrderSummaryQuantityChange}
-        {...props}
-      />
-    )
+  function renderOrderSummary(isFixed = false) {
+    return <OrderSummaryContainer isFixed={isFixed} />
   }
 
   return (
@@ -167,7 +156,7 @@ function Home({
             {!isMobile && (
               <>
                 {renderOrderSummary()}
-                {isOrderFixed && renderOrderSummary({ isFixed: true })}
+                {isOrderFixed && renderOrderSummary(true)}
               </>
             )}
           </>

@@ -30,4 +30,8 @@ export interface CommonProps {
   background?: string
   zIndex?: string
   textTransform?: string
+  maxWidth?: string
+  minWidth?: string
+  minHeight?: string
+  maxHeight?: string
 }

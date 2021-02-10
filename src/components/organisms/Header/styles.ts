@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
+import Color from 'color'
 import Button from '~/components/atoms/Button'
-import Heading from '~/components/atoms/Heading'
 
 import styled from '~/styles/utils/styled'
 import { DESKTOP_BREAKPOINT, MOBILE_BREAKPOINT } from './constants'

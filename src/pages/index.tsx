@@ -11,7 +11,7 @@ import getOrderItem from '~/components/organisms/OrderWizard/getOrderItem'
 import { OPTIONS } from '~/modules/products/mocks'
 import hasRequiredEmpty from '~/modules/orders/hasRequiredEmpty'
 import { Button } from '~/components/atoms/Amount/styles'
-import Cart from '~/containers/Cart'
+import Cart from '~/state/Cart'
 
 function HomePage() {
   const [auth] = useAuth()

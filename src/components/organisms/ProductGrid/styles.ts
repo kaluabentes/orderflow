@@ -15,11 +15,12 @@ export const Container = styled('section')(css`
 export const Title = styled('h3')(css`
   margin: 0 0 20px 0;
   font-size: ${props => props.theme.typography.size.medium};
+  font-weight: bold;
 `)
 
 export const Grid = styled('div')(css`
   display: grid;
-  grid-gap: 20px;
+  grid-gap: 10px;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);

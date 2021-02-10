@@ -12,7 +12,7 @@ export const Container = styled('button')(css`
   text-align: left;
   background: white;
   border: 0;
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   width: 100%;
   cursor: pointer;
@@ -37,7 +37,7 @@ export const Image = styled('img')(css`
   height: ${imageHeight};
   object-fit: cover;
   border-radius: ${imageRadius};
-  margin-right: 20px;
+  margin-right: 15px;
 `)
 
 export const Content = styled(`div`)(css`
@@ -49,6 +49,7 @@ export const Title = styled(`h4`)(css`
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.4em;
+  color: ${props => props.theme.colors.text};
 `)
 
 export const Description = styled(`p`)(css`
@@ -64,6 +65,7 @@ export const Price = styled('p')(css`
   margin: 0;
   font-weight: 500;
   font-size: 1rem;
+  color: ${props => props.theme.colors.text};
 `)
 
 export const LoaderImage = styled('div')(css`
