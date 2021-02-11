@@ -22,6 +22,7 @@ import {
 import Icon from '~/components/atoms/Icon'
 import theme from '~/styles/theme'
 import Heading from '~/components/atoms/Heading'
+import useIsMobile from '~/utils/hooks/useIsMobile'
 
 type Id = string | number
 
@@ -69,18 +70,22 @@ function OrderSummary({
   onRemove,
   onQuantityChange
 }: OrderSummaryProps) {
+  const isMobile = useIsMobile()
+
   return (
     <Container isFixed={isFixed}>
       {items.length > 0 ? (
         <>
-          <Heading
-            as="h3"
-            fontWeight="bold"
-            fontSize="22px"
-            textTransform="uppercase"
-          >
-            {getString('app.orderSummary.title')}
-          </Heading>
+          {!isMobile && (
+            <Heading
+              as="h3"
+              fontWeight="bold"
+              fontSize="1.375rem"
+              margin="0 0 20px 0"
+            >
+              {getString('app.orderSummary.title')}
+            </Heading>
+          )}
           <Scroller isFixed={isFixed}>
             <List>
               {items.map(item => (

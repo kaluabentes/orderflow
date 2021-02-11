@@ -47,23 +47,14 @@ function OrderWizard({
   onQuantityChange,
   onChange
 }: OrderWizardProps) {
-  const [lazyIsOpen, setLazyIsOpen] = useState(false)
   const [obs, setObs] = useState('')
-
-  useEffect(() => {
-    if (isOpen && product) {
-      setLazyIsOpen(true)
-    } else if (!isOpen) {
-      setLazyIsOpen(false)
-    }
-  }, [isOpen])
 
   return (
     <Modal
       isLoading={isLoading}
       maxWidth={400}
       title={getString('orderWizard.title')}
-      isOpen={lazyIsOpen}
+      isOpen={isOpen}
       onClose={onClose}
     >
       <Box padding={hasRequiredEmpty && '0 0 92px 0'}>

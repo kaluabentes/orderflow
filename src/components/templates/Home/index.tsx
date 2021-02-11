@@ -10,10 +10,9 @@ import Hero from '~/components/organisms/Hero'
 import { MainGrid } from './styles'
 import App from '../App'
 import OrderSummaryContainer from '~/containers/OrderSummaryContainer'
-import OrderWizardContainer from '~/containers/OrderWizardContainer'
 import { StoreState } from '~/state/Store'
 
-const ORDER_FIXED_OFFSET = 416
+const ORDER_FIXED_OFFSET = 496
 
 interface Product {
   id: string | number
@@ -23,26 +22,26 @@ interface Product {
   price: number
 }
 
-interface Category {
+export interface ProductGroup {
   id: string | number
-  name: string
+  category: string
   products: Product[]
 }
 
 interface HomeProps {
   store: StoreState
   isLoading?: boolean
-  categories: Category[]
+  products: ProductGroup[]
   onProductClick?: (product: Product) => void
 }
 
-function Home({ store, isLoading, categories, onProductClick }: HomeProps) {
+function Home({ store, isLoading, products, onProductClick }: HomeProps) {
   const isMobile = useIsMobile()
   const [isOrderFixed, setIsOrderFixed] = useState(false)
 
   useEffect(() => {
     function handleScroll() {
-      if (window.pageYOffset > ORDER_FIXED_OFFSET - 75) {
+      if (window.pageYOffset > ORDER_FIXED_OFFSET - 75 + 30) {
         setIsOrderFixed(true)
         return
       }
@@ -82,9 +81,12 @@ function Home({ store, isLoading, categories, onProductClick }: HomeProps) {
         ) : (
           <>
             <Box flex="1" margin={!isMobile ? '0 30px 0 0' : null}>
-              {categories.map(category => (
-                <ProductGrid key={category.id} title={category.name}>
-                  {category.products.map(product => (
+              {products.map(productGroup => (
+                <ProductGrid
+                  key={productGroup.id}
+                  title={productGroup.category}
+                >
+                  {productGroup.products.map(product => (
                     <ProductCard
                       onClick={() => onProductClick(product)}
                       key={product.id}
@@ -104,7 +106,6 @@ function Home({ store, isLoading, categories, onProductClick }: HomeProps) {
         )}
       </MainGrid>
       <Footer />
-      <OrderWizardContainer />
     </App>
   )
 }

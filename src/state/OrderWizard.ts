@@ -3,7 +3,9 @@ import { useState } from 'react'
 
 const INITIAL_STATE = {
   isOpen: false,
-  product: undefined
+  product: undefined,
+  mode: 'add',
+  itemId: undefined
 }
 
 function useOrderWizard() {
@@ -14,14 +16,22 @@ function useOrderWizard() {
   }
 
   function close() {
-    setState(prev => ({ ...prev, isOpen: false }))
+    setState(prev => ({
+      ...prev,
+      isOpen: false,
+      itemId: undefined
+    }))
   }
 
   function selectProduct(product) {
-    setState(prev => ({ ...prev, isOpen: true, product }))
+    setState(prev => ({ ...prev, product }))
   }
 
-  return { data: state, open, close, selectProduct }
+  function selectMode(mode, itemId?) {
+    setState(prev => ({ ...prev, mode, itemId }))
+  }
+
+  return { data: state, open, close, selectProduct, selectMode }
 }
 
 export default createContainer(useOrderWizard)

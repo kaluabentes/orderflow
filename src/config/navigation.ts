@@ -4,5 +4,9 @@ export const navItems = [
   {
     label: getString('nav.home'),
     path: '/'
+  },
+  {
+    label: getString('nav.about'),
+    path: '/about'
   }
 ]

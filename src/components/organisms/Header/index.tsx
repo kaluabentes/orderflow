@@ -182,9 +182,10 @@ function Header({
               onClick={handleLeftIconClick}
             />
             <Heading
-              fontSize={theme.typography.size.medium}
-              textTransform="uppercase"
-              margin="0 -45px 0 0"
+              fontWeight="500"
+              fontSize="20px"
+              margin="0 0 0 20px"
+              flex="1"
             >
               {title}
             </Heading>

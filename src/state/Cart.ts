@@ -1,23 +1,17 @@
 import { createContainer } from 'unstated-next'
+import * as ObjectID from 'bson-objectid'
 
 import useLocalStorageState from '~/utils/hooks/useLocalStorageState'
 
-export interface CartItem {
-  id: string | number
-  title: string
-  options: string
-  price: number
-  quantity: number
-}
-
 export interface CartState {
   data: any
-  addItem: (item: CartItem) => void
+  addItem: (item: any) => void
   changeQuantity: (itemId, value) => void
   removeItem: (itemId) => void
+  editItem: (item: any) => void
 }
 
-const INITIAL_STATE: CartItem[] = []
+const INITIAL_STATE = []
 
 function useCartState(): CartState {
   const [cart, setCart] = useLocalStorageState(
@@ -26,33 +20,41 @@ function useCartState(): CartState {
   )
 
   function addItem(item) {
-    setCart(prevState => [...prevState, item])
+    setCart(prevCart => [
+      ...prevCart,
+      {
+        id: ObjectID.generate(),
+        ...item
+      }
+    ])
+  }
+
+  function editItem(item) {
+    setCart(prevCart =>
+      prevCart.map(orderItem => ({
+        ...orderItem,
+        ...item
+      }))
+    )
   }
 
   function changeQuantity(itemId, value) {
-    setCart(prevCart => {
-      return prevCart.map(item => {
+    setCart(prevCart =>
+      prevCart.map(item => {
         if (item.id === itemId) {
-          item.quantity = Number(value)
+          item.quantity = value
         }
 
         return item
       })
-    })
-  }
-
-  function removeItem(itemId) {
-    setCart(prevCart =>
-      prevCart.filter(item => {
-        console.log(prevCart)
-        console.log(item.id, itemId)
-        console.log(String(item.id) !== String(itemId))
-        return String(item.id) !== String(itemId)
-      })
     )
   }
 
-  return { data: cart, addItem, changeQuantity, removeItem }
+  function removeItem(itemId) {
+    setCart(prevCart => prevCart.filter(item => item.id !== itemId))
+  }
+
+  return { data: cart, addItem, changeQuantity, removeItem, editItem }
 }
 
 export default createContainer(useCartState)

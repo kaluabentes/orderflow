@@ -1,0 +1,998 @@
+[
+  {
+    "id": 1,
+    "category": "Hamburguers",
+    "products": [
+      {
+        "id": 1,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "category": "Hamburguers",
+    "products": [
+      {
+        "id": 7,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "image": "https://mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg",
+        "title": "Frango a milanesa com delicioso e cocrante...",
+        "description": "Um delicioso frango frito empanado com molho...",
+        "price": 15.5,
+        "options": [
+          {
+            "id": "1",
+            "type": "check",
+            "limit": 2,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "average",
+            "required": true,
+            "inputs": [
+              {
+                "id": "1",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "2",
+                "label": "Pão Australiano",
+                "price": 20.5
+              },
+              {
+                "id": "3",
+                "label": "Pão Australiano",
+                "price": 30.5
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "type": "radio",
+            "limit": 1,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "all",
+            "required": true,
+            "inputs": [
+              {
+                "id": "4",
+                "label": "Pão Australiano",
+                "price": 50.5
+              },
+              {
+                "id": "5",
+                "label": "Pão Australiano"
+              },
+              {
+                "id": "6",
+                "label": "Pão Australiano"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "type": "amount",
+            "limit": 6,
+            "title": "Tipo de pão",
+            "priceCalcFilter": "min",
+            "required": true,
+            "inputs": [
+              {
+                "id": "7",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "8",
+                "label": "Pão Australiano",
+                "price": 12.5
+              },
+              {
+                "id": "9",
+                "label": "Pão Australiano",
+                "price": 15.2
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

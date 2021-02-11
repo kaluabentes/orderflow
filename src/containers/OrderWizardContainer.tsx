@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
+import useSWR from 'swr'
+import { getOptions } from '~/api/options'
+import { getProductsGroupedByCategories } from '~/api/products'
 
 import OrderWizard from '~/components/organisms/OrderWizard'
 import getInitialState from '~/components/organisms/OrderWizard/getInitialState'
-import getOrderItem from '~/components/organisms/OrderWizard/getOrderItem'
-import OPTIONS from '~/data/options.json'
 import hasRequiredEmpty from '~/modules/orders/hasRequiredEmpty'
 import { Option } from '~/modules/products/types'
 import Cart from '~/state/Cart'
@@ -13,17 +14,38 @@ function OrderWizardContainer() {
   const [showRequiredError, setShowRequiredError] = useState(false)
   const [orderWizardValue, setOrderWizardValue] = React.useState<any>(undefined)
   const cart = Cart.useContainer()
-  const [options, setOptions] = useState([])
   const [orderQuantity, setOrderQuantity] = React.useState(1)
   const orderWizard = OrderWizardState.useContainer()
-  const { isOpen, product } = orderWizard.data
+  const { isOpen, product, itemId, mode } = orderWizard.data
+  const [options, setOptions] = useState([])
+  const products = useSWR('/api/products', getProductsGroupedByCategories)
 
   useEffect(() => {
-    if (isOpen) {
-      setOptions(OPTIONS)
-      setOrderWizardValue(getInitialState(OPTIONS as Option[]))
+    if (itemId && mode === 'edit') {
+      const orderItem = cart.data.find(item => item.id === itemId)
+
+      if (orderItem) {
+        setOptions(orderItem.options)
+        setOrderWizardValue(orderItem.value)
+        setOrderQuantity(orderItem.quantity)
+        orderWizard.selectProduct(orderItem.product)
+      }
     }
-  }, [isOpen])
+  }, [itemId, mode])
+
+  useEffect(() => {
+    if (isOpen && product && mode === 'add') {
+      setOptions(product.options)
+      setOrderWizardValue(getInitialState(product.options))
+    }
+  }, [isOpen, product, mode])
+
+  function cleanup() {
+    setOrderWizardValue(undefined)
+    orderWizard.selectProduct(undefined)
+    setOrderQuantity(1)
+    setOptions([])
+  }
 
   function confirmOrderWizard(data) {
     if (hasRequiredEmpty(orderWizardValue, options)) {
@@ -32,26 +54,40 @@ function OrderWizardContainer() {
     }
 
     setShowRequiredError(false)
-    cart.addItem(
-      getOrderItem(
+    if (orderWizard.data.mode === 'add') {
+      cart.addItem({
         product,
         options,
-        orderWizardValue,
-        orderQuantity,
-        data.observation
-      )
-    )
+        value: orderWizardValue,
+        quantity: orderQuantity,
+        observation: data.observation
+      })
+    } else if (orderWizard.data.mode === 'edit') {
+      cart.editItem({
+        id: orderWizard.data.itemId,
+        product,
+        options,
+        value: orderWizardValue,
+        quantity: orderQuantity,
+        observation: data.observation
+      })
+    }
 
+    cleanup()
     orderWizard.close()
   }
 
   return (
     <OrderWizard
+      isLoading={!options.length}
       hasRequiredEmpty={showRequiredError}
       quantity={orderQuantity}
       onQuantityChange={value => setOrderQuantity(value)}
       isOpen={isOpen}
-      onClose={() => orderWizard.close()}
+      onClose={() => {
+        setTimeout(cleanup, 500)
+        orderWizard.close()
+      }}
       value={orderWizardValue}
       product={product}
       options={options}

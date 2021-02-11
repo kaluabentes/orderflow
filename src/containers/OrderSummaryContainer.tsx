@@ -1,55 +1,45 @@
 import React, { useState } from 'react'
+import useSWR from 'swr'
+import { getProducts } from '~/api/products'
 
 import OrderSummary from '~/components/organisms/OrderSummary'
+import getOrderItem from '~/components/organisms/OrderWizard/getOrderItem'
 import Cart from '~/state/Cart'
+import OrderWizard from '~/state/OrderWizard'
 import User from '~/state/User'
-
-function getOrderTotalPrice(cart, deliveryTax = undefined) {
-  const total = cart.reduce(
-    (prev, curr) => prev + curr.price * curr.quantity,
-    0
-  )
-
-  if (deliveryTax) {
-    return total + deliveryTax
-  }
-
-  return total
-}
+import getOrderTotalPrice from '~/utils/getters/getOrderTotalPrice'
 
 function OrderSummaryContainer({ isFixed = false }) {
   const cart = Cart.useContainer()
   const user = User.useContainer()
-  const [orderQuantity, setOrderQuantity] = useState(1)
+  const orderItems = cart.data.map(item => getOrderItem(item))
+  const orderWizard = OrderWizard.useContainer()
 
   function handleOrderItemRemove(itemId) {
     cart.removeItem(itemId)
   }
 
   function handleOrderItemEdit(itemId) {
-    alert(itemId)
+    orderWizard.selectMode('edit', itemId)
+    orderWizard.open()
   }
 
   function handleConfirmOrder() {}
 
-  function handleQuantityChange(itemId, value) {
-    cart.changeQuantity(itemId, value)
-  }
-
   return (
     <OrderSummary
       isFixed={isFixed}
-      items={cart.data}
-      subtotal={getOrderTotalPrice(cart.data)}
+      items={orderItems}
+      subtotal={getOrderTotalPrice(orderItems)}
       deliveryTax={user.data.currentAddress.deliveryTax}
       total={getOrderTotalPrice(
-        cart.data,
+        orderItems,
         user.data.currentAddress.deliveryTax
       )}
       onConfirm={handleConfirmOrder}
       onEdit={itemId => handleOrderItemEdit(itemId)}
       onRemove={itemId => handleOrderItemRemove(itemId)}
-      onQuantityChange={handleQuantityChange}
+      onQuantityChange={cart.changeQuantity}
     />
   )
 }

@@ -73,6 +73,7 @@ export const Nav = styled('nav')(css`
     transform: translateX(0);
     background: transparent;
     margin-left: 75px;
+    width: auto;
   }
 `)
 

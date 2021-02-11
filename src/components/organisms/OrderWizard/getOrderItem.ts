@@ -1,7 +1,7 @@
 import * as ObjectID from 'bson-objectid'
 import getTotalPrice from './getTotalPrice'
 
-function getOrderItem(product, options, value, quantity, observation) {
+function getOrderItem({ id, product, options, value, quantity, observation }) {
   // optionValue = [inputId, inputId, ...]
   function getInputDescription(optionId, optionValue) {
     const option = options.find(opt => opt.id === optionId)
@@ -32,7 +32,7 @@ function getOrderItem(product, options, value, quantity, observation) {
   }
 
   return {
-    id: ObjectID.generate(),
+    id,
     title: product.title,
     options: Object.keys(value)
       .map(optionId => getInputDescription(optionId, value[optionId]))

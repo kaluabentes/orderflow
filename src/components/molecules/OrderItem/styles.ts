@@ -5,6 +5,10 @@ import List from '../List'
 
 export const Container = styled(List.Item)(css`
   padding: 20px 0;
+
+  &:first-of-type {
+    padding-top: 0;
+  }
 `)
 
 export const ContentGrid = styled('div')(css`
