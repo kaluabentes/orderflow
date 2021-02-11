@@ -29,7 +29,7 @@ export interface ProductGroup {
 }
 
 interface HomeProps {
-  store: StoreState
+  store?: StoreState
   isLoading?: boolean
   products: ProductGroup[]
   onProductClick?: (product: Product) => void

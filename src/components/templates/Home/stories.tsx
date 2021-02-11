@@ -1,25 +1,13 @@
-import { action } from '@storybook/addon-actions'
 import React from 'react'
 
-import { logoSrc } from '~/components/atoms/Logo'
-
 import Home from '.'
-import { categories } from './mock'
+import products from '~/data/productsByCategories.json'
 
 export default {
   title: 'Templates/Home',
   component: Home
 }
 
-export const Default = () => (
-  <Home
-    categories={categories}
-  />
-)
+export const Default = () => <Home products={products} />
 
-export const Loading = () => (
-  <Home
-    isLoading
-    categories={categories}
-  />
-)
+export const Loading = () => <Home isLoading products={products} />
