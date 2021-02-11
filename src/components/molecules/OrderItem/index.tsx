@@ -35,11 +35,11 @@ function OrderItem({
       <Box flexDirection="row" alignItems="flex-start">
         <Box>
           <Heading margin="0 0 5px 0" fontWeight="600" as="h4">
-            {title}
+            {quantity}x {title}
           </Heading>
         </Box>
         <Box flex="1 auto">
-          <Price>{formatMoney(price)}</Price>
+          <Price>{formatMoney(price * quantity)}</Price>
         </Box>
       </Box>
       <Paragraph margin="0 0 10px 0" fontSize="0.875rem" variant="muted">
@@ -54,7 +54,11 @@ function OrderItem({
             {getString('app.remove')}
           </ActionButton>
         </div>
-        <Amount value={quantity} onChange={onQuantityChange} />
+        <Amount
+          isLeftDisabled={quantity === 1}
+          value={quantity}
+          onChange={onQuantityChange}
+        />
       </ContentGrid>
     </Container>
   )

@@ -3,14 +3,17 @@ import React from 'react'
 import Store from './Store'
 import Cart from './Cart'
 import User from './User'
+import OrderWizard from './OrderWizard'
 
 function ContainersProvider({ children }) {
   return (
-    <Store.Provider>
-      <Cart.Provider>
-        <User.Provider>{children}</User.Provider>
-      </Cart.Provider>
-    </Store.Provider>
+    <OrderWizard.Provider>
+      <Store.Provider>
+        <Cart.Provider>
+          <User.Provider>{children}</User.Provider>
+        </Cart.Provider>
+      </Store.Provider>
+    </OrderWizard.Provider>
   )
 }
 

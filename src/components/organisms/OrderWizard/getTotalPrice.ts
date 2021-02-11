@@ -7,7 +7,7 @@ export const FilterMessage = {
   average: 'O preço será a média dos ítems selecionados'
 }
 
-function getTotalPrice(price, value, options, quantity = 0) {
+function getTotalPrice(price, value, options) {
   function getInputPrice(option) {
     const filter = {
       all: () => getAllInput(option, value, price),
@@ -25,7 +25,7 @@ function getTotalPrice(price, value, options, quantity = 0) {
     }, 0)
   }
 
-  return (price + getOptionsSum()) * quantity
+  return price + getOptionsSum()
 }
 
 function filterInputsWithPrice(inputs) {

@@ -27,6 +27,7 @@ import useIsMounted from '~/utils/hooks/useIsMounted'
 import Button from '~/components/atoms/Button'
 import Box from '~/components/atoms/Box'
 import { MOBILE_BREAKPOINT } from './constants'
+import theme from '~/styles/theme'
 
 interface NavItem {
   path: string
@@ -180,7 +181,11 @@ function Header({
               name={pathname === '/' ? 'sort' : 'arrow_back'}
               onClick={handleLeftIconClick}
             />
-            <Heading textTransform="uppercase" margin="0 -45px 0 0">
+            <Heading
+              fontSize={theme.typography.size.medium}
+              textTransform="uppercase"
+              margin="0 -45px 0 0"
+            >
               {title}
             </Heading>
           </>

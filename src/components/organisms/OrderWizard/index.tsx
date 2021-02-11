@@ -94,12 +94,9 @@ function OrderWizard({
         onConfirm={() => onConfirm({ obs })}
         quantity={quantity}
         onQuantityChange={onQuantityChange}
-        totalPrice={getTotalPrice(
-          product ? product.price : 0,
-          value,
-          options,
-          quantity
-        )}
+        totalPrice={
+          getTotalPrice(product ? product.price : 0, value, options) * quantity
+        }
       />
       {hasRequiredEmpty && <Alert>{getString('fillRequiredFields')}</Alert>}
     </Modal>

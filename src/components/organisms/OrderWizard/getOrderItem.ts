@@ -1,3 +1,4 @@
+import * as ObjectID from 'bson-objectid'
 import getTotalPrice from './getTotalPrice'
 
 function getOrderItem(product, options, value, quantity, observation) {
@@ -31,13 +32,13 @@ function getOrderItem(product, options, value, quantity, observation) {
   }
 
   return {
-    id: product.id,
-    title: `${quantity}x ${product.title}`,
+    id: ObjectID.generate(),
+    title: product.title,
     options: Object.keys(value)
       .map(optionId => getInputDescription(optionId, value[optionId]))
       .filter(value => value)
       .join(', '),
-    price: getTotalPrice(product.price, value, options, quantity),
+    price: getTotalPrice(product.price, value, options),
     quantity,
     observation
   }

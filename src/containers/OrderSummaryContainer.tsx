@@ -5,7 +5,10 @@ import Cart from '~/state/Cart'
 import User from '~/state/User'
 
 function getOrderTotalPrice(cart, deliveryTax = undefined) {
-  const total = cart.reduce((prev, curr) => prev + curr.price, 0)
+  const total = cart.reduce(
+    (prev, curr) => prev + curr.price * curr.quantity,
+    0
+  )
 
   if (deliveryTax) {
     return total + deliveryTax
@@ -15,12 +18,12 @@ function getOrderTotalPrice(cart, deliveryTax = undefined) {
 }
 
 function OrderSummaryContainer({ isFixed = false }) {
-  const { data: cart } = Cart.useContainer()
-  const { data: user } = User.useContainer()
+  const cart = Cart.useContainer()
+  const user = User.useContainer()
   const [orderQuantity, setOrderQuantity] = useState(1)
 
   function handleOrderItemRemove(itemId) {
-    alert(itemId)
+    cart.removeItem(itemId)
   }
 
   function handleOrderItemEdit(itemId) {
@@ -29,17 +32,24 @@ function OrderSummaryContainer({ isFixed = false }) {
 
   function handleConfirmOrder() {}
 
+  function handleQuantityChange(itemId, value) {
+    cart.changeQuantity(itemId, value)
+  }
+
   return (
     <OrderSummary
       isFixed={isFixed}
-      items={cart}
-      subtotal={getOrderTotalPrice(cart)}
-      deliveryTax={user.currentAddress.deliveryTax}
-      total={getOrderTotalPrice(cart, user.currentAddress.deliveryTax)}
+      items={cart.data}
+      subtotal={getOrderTotalPrice(cart.data)}
+      deliveryTax={user.data.currentAddress.deliveryTax}
+      total={getOrderTotalPrice(
+        cart.data,
+        user.data.currentAddress.deliveryTax
+      )}
       onConfirm={handleConfirmOrder}
       onEdit={itemId => handleOrderItemEdit(itemId)}
       onRemove={itemId => handleOrderItemRemove(itemId)}
-      onQuantityChange={value => setOrderQuantity(Number(value))}
+      onQuantityChange={handleQuantityChange}
     />
   )
 }

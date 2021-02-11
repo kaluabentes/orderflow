@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import Button from '~/components/atoms/Button'
 import Box from '~/components/atoms/Box'
@@ -25,18 +25,6 @@ import Heading from '~/components/atoms/Heading'
 
 type Id = string | number
 
-interface OrderSummaryProps {
-  items: any[]
-  subtotal: number
-  deliveryTax: number
-  total: number
-  isFixed?: boolean
-  onConfirm: () => void
-  onEdit: (productId: Id) => void
-  onRemove: (productId: Id) => void
-  onQuantityChange?: (productId: Id, value: number) => void
-}
-
 function Loader() {
   return (
     <Container>
@@ -56,6 +44,18 @@ function Loader() {
       <LoaderTitle />
     </Container>
   )
+}
+
+interface OrderSummaryProps {
+  items: any[]
+  subtotal: number
+  deliveryTax: number
+  total: number
+  isFixed?: boolean
+  onConfirm: () => void
+  onEdit: (itemId: Id) => void
+  onRemove: (itemId: Id) => void
+  onQuantityChange?: (itemId: Id, value: number) => void
 }
 
 function OrderSummary({
@@ -79,7 +79,7 @@ function OrderSummary({
             fontSize="22px"
             textTransform="uppercase"
           >
-            # {getString('app.orderSummary.title')}
+            {getString('app.orderSummary.title')}
           </Heading>
           <Scroller isFixed={isFixed}>
             <List>

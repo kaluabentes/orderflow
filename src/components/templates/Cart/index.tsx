@@ -5,7 +5,7 @@ import Box from '~/components/atoms/Box'
 import Button from '~/components/atoms/Button'
 import InnerHeader from '~/components/organisms/InnerHeader'
 import OrderSummary from '~/components/organisms/OrderSummary'
-import OrderSummaryContainer from '~/containers/OrderSummary'
+import OrderSummaryContainer from '~/containers/OrderSummaryContainer'
 import Cart from '~/state/Cart'
 import App from '../App'
 
@@ -19,9 +19,6 @@ function CartTemplate({ onConfirm, onEdit, onRemove, onKeepBuying }) {
         alignItems="center"
         padding="20px 0"
       >
-        <Box width="100%" padding="0 20px 20px 20px">
-          <Button onClick={onKeepBuying}>Continuar comprando</Button>
-        </Box>
         <OrderSummaryContainer />
       </Box>
     </App>

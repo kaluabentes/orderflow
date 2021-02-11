@@ -10,7 +10,12 @@ const INITIAL_STATE = {
   name: ''
 }
 
-function useStore() {
+export interface StoreState {
+  data: any
+  isLoading: boolean
+}
+
+function useStore(): StoreState {
   const [store, setStore] = useStorageState(
     `${process.env.ID}.store`,
     INITIAL_STATE
