@@ -55,7 +55,7 @@ export const Title = styled(`h4`)(css`
 export const Description = styled(`p`)(css`
   margin: 0 0 15px 0;
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: 500;
   color: ${props => props.theme.colors.textMuted};
   opacity: 0.8;
   line-height: 1.4em;

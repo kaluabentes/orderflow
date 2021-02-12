@@ -74,18 +74,18 @@ function OrderSummary({
 
   return (
     <Container isFixed={isFixed}>
+      {!isMobile && (
+        <Heading
+          as="h3"
+          fontWeight="bold"
+          fontSize="1.375rem"
+          margin="0 0 20px 0"
+        >
+          {getString('app.orderSummary.title')}
+        </Heading>
+      )}
       {items.length > 0 ? (
         <>
-          {!isMobile && (
-            <Heading
-              as="h3"
-              fontWeight="bold"
-              fontSize="1.375rem"
-              margin="0 0 20px 0"
-            >
-              {getString('app.orderSummary.title')}
-            </Heading>
-          )}
           <Scroller isFixed={isFixed}>
             <List>
               {items.map(item => (

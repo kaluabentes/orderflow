@@ -32,7 +32,7 @@ function OrderItem({
 }: OrderItemProps) {
   return (
     <Container>
-      <Box flexDirection="row" alignItems="flex-start">
+      <Box margin="0 0 5px 0" flexDirection="row" alignItems="flex-start">
         <Box>
           <Heading margin="0 0 5px 0" fontWeight="600" as="h4">
             {quantity}x {title}
@@ -42,7 +42,12 @@ function OrderItem({
           <Price>{formatMoney(price * quantity)}</Price>
         </Box>
       </Box>
-      <Paragraph margin="0 0 10px 0" fontSize="0.875rem" variant="muted">
+      <Paragraph
+        margin="0 0 5px 0"
+        fontWeight="500"
+        fontSize="0.875rem"
+        variant="muted"
+      >
         {options}
       </Paragraph>
       <ContentGrid alignItems="center">

@@ -12,7 +12,7 @@ import App from '../App'
 import OrderSummaryContainer from '~/containers/OrderSummaryContainer'
 import { StoreState } from '~/state/Store'
 
-const ORDER_FIXED_OFFSET = 496
+const ORDER_FIXED_OFFSET = 350.5
 
 interface Product {
   id: string | number
@@ -41,7 +41,7 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
 
   useEffect(() => {
     function handleScroll() {
-      if (window.pageYOffset > ORDER_FIXED_OFFSET - 75 + 30) {
+      if (window.pageYOffset > ORDER_FIXED_OFFSET) {
         setIsOrderFixed(true)
         return
       }
@@ -80,7 +80,7 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
           </>
         ) : (
           <>
-            <Box flex="1" margin={!isMobile ? '0 30px 0 0' : null}>
+            <Box margin={!isMobile ? '0 30px 0 0' : null}>
               {products.map(productGroup => (
                 <ProductGrid
                   key={productGroup.id}

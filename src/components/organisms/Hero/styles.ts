@@ -19,5 +19,5 @@ export const Content = styled('div')(css`
   z-index: 2;
   position: relative;
   color: white;
-  padding: 80px 20px;
+  padding: 30px 20px;
 `)

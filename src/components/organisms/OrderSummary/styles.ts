@@ -12,6 +12,7 @@ export const Container = styled('section')(css`
   display: flex;
   flex-direction: column;
   width: 100%;
+  flex: 1 auto;
 
   ${props =>
     props.isFixed &&
