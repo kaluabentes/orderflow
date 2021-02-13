@@ -7,8 +7,9 @@ export const Container = styled('button')(css`
   padding: 0;
   border: 0;
   outline: 0;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
+  font-size: 0.875rem;
 
   ${props =>
     props.variant === 'default' &&

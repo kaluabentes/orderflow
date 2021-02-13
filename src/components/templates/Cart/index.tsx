@@ -7,17 +7,20 @@ import InnerHeader from '~/components/organisms/InnerHeader'
 import OrderSummary from '~/components/organisms/OrderSummary'
 import OrderSummaryContainer from '~/containers/OrderSummaryContainer'
 import Cart from '~/state/Cart'
+import useIsMobile from '~/utils/hooks/useIsMobile'
 import App from '../App'
 
 function CartTemplate({ onConfirm, onEdit, onRemove, onKeepBuying }) {
+  const isMobile = useIsMobile()
+
   return (
     <App title="Pedido">
       <Box
         width="100%"
-        maxWidth="400px"
+        maxWidth={isMobile ? null : '400px'}
         margin="0 auto"
         alignItems="center"
-        padding="20px 0"
+        padding="15px 0"
       >
         <OrderSummaryContainer />
       </Box>
