@@ -4,15 +4,15 @@ import styled from '~/styles/utils/styled'
 
 export const Container = styled('div')(css`
   display: inline-flex;
-  width: 80px;
+  width: 83px;
   position: relative;
   justify-content: center;
   align-items: center;
 `)
 
 export const Button = styled('button')(css`
-  height: 24px;
-  width: 24px;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
   display: flex;
   justify-content: center;

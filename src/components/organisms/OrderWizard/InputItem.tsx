@@ -45,7 +45,11 @@ function InputItem({
 
   return (
     <List.Item>
-      <Box flexDirection="row" justifyContent="space-between">
+      <Box
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+      >
         <Box>
           <Paragraph>{label}</Paragraph>
           {price && (
