@@ -20,7 +20,6 @@ export const Container = styled('section')(css`
       position: fixed;
       top: 75px;
       z-index: 10;
-      transform: translateX(825px);
       max-height: calc(100% - 75px);
     `}
 

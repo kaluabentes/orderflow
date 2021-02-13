@@ -98,7 +98,7 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
                 </ProductGrid>
               ))}
             </Box>
-            <Responsive maxWidth={1024}>
+            <Responsive width="100%" maxWidth="400px" hideMaxWidth={1024}>
               {renderOrderSummary()}
               {isOrderFixed && renderOrderSummary(true)}
             </Responsive>

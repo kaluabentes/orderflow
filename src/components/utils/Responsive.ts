@@ -4,16 +4,16 @@ import styled from '~/styles/utils/styled'
 
 const Responsive = styled('div')(css`
   ${props => css`
-    ${props.maxWidth &&
+    ${props.hideMaxWidth &&
     css`
-      @media (max-width: ${props.maxWidth}px) {
+      @media (max-width: ${props.hideMaxWidth}px) {
         display: none;
       }
     `}
 
-    ${props.minWidth &&
+    ${props.hideMinWidth &&
     css`
-      @media (min-width: ${props.minWidth}px) {
+      @media (min-width: ${props.hideMinWidth}px) {
         display: none;
       }
     `}
