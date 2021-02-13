@@ -13,6 +13,7 @@ import OrderSummaryContainer from '~/containers/OrderSummaryContainer'
 import { StoreState } from '~/state/Store'
 import { MOBILE_BREAKPOINT } from '~/components/organisms/Header/constants'
 import Responsive from '~/components/utils/Responsive'
+import getString from '~/i18n/getString'
 
 const ORDER_FIXED_OFFSET = 350.5
 
@@ -63,7 +64,7 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
   }
 
   return (
-    <App title="Home">
+    <App title={getString('nav.home')}>
       <Hero
         title={store.data.name}
         coverSrc={store.data.cover}
