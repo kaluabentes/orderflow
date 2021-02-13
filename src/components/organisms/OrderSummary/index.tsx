@@ -77,7 +77,7 @@ function OrderSummary({
       {!isMobile && (
         <Heading
           as="h3"
-          fontWeight="bold"
+          fontWeight="500"
           fontSize="1.375rem"
           margin="0 0 20px 0"
         >

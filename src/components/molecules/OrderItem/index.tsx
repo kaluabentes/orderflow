@@ -34,7 +34,7 @@ function OrderItem({
     <Container>
       <Box margin="0 0 5px 0" flexDirection="row" alignItems="flex-start">
         <Box>
-          <Heading fontWeight="600" as="h4">
+          <Heading fontWeight="500" as="h4">
             {quantity}x {title}
           </Heading>
         </Box>
