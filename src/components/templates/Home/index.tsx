@@ -11,6 +11,8 @@ import { MainGrid } from './styles'
 import App from '../App'
 import OrderSummaryContainer from '~/containers/OrderSummaryContainer'
 import { StoreState } from '~/state/Store'
+import { MOBILE_BREAKPOINT } from '~/components/organisms/Header/constants'
+import Responsive from '~/components/utils/Responsive'
 
 const ORDER_FIXED_OFFSET = 350.5
 
@@ -36,7 +38,7 @@ interface HomeProps {
 }
 
 function Home({ store, isLoading, products, onProductClick }: HomeProps) {
-  const isMobile = useIsMobile()
+  const isMobile = useIsMobile(MOBILE_BREAKPOINT)
   const [isOrderFixed, setIsOrderFixed] = useState(false)
 
   useEffect(() => {
@@ -80,7 +82,7 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
           </>
         ) : (
           <>
-            <Box margin={!isMobile ? '0 30px 0 0' : null}>
+            <Box width="100%" margin={!isMobile ? '0 30px 0 0' : null}>
               {products.map(productGroup => (
                 <ProductGrid
                   key={productGroup.id}
@@ -96,12 +98,10 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
                 </ProductGrid>
               ))}
             </Box>
-            {!isMobile && (
-              <>
-                {renderOrderSummary()}
-                {isOrderFixed && renderOrderSummary(true)}
-              </>
-            )}
+            <Responsive maxWidth={1024}>
+              {renderOrderSummary()}
+              {isOrderFixed && renderOrderSummary(true)}
+            </Responsive>
           </>
         )}
       </MainGrid>

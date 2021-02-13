@@ -45,7 +45,7 @@ export const Content = styled(`div`)(css`
 `)
 
 export const Title = styled(`h4`)(css`
-  margin: 0 0 6px 0;
+  margin: 0 0 5px 0;
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.4em;
@@ -53,7 +53,7 @@ export const Title = styled(`h4`)(css`
 `)
 
 export const Description = styled(`p`)(css`
-  margin: 0 0 15px 0;
+  margin: 0 0 10px 0;
   font-size: 0.875rem;
   font-weight: 500;
   color: ${props => props.theme.colors.textMuted};

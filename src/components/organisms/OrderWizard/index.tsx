@@ -57,7 +57,7 @@ function OrderWizard({
       isOpen={isOpen}
       onClose={onClose}
     >
-      <Box padding={hasRequiredEmpty && '0 0 92px 0'}>
+      <Box>
         <ProductInfo product={product || {}} />
         {value &&
           options.map(option => (

@@ -98,7 +98,7 @@ export default function Modal({
 
   return (
     <Portal>
-      <GlobalStyle bodyOverflow={isOpen ? 'hidden' : 'auto'} />
+      {/* <GlobalStyle bodyOverflow={isOpen ? 'hidden' : 'auto'} /> */}
       <Container
         isOpen={isOpen}
         role="dialog"

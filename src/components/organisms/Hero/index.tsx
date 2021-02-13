@@ -36,7 +36,12 @@ function Welcome({
       <Content>
         <Logo src={logoSrc} margin="0 0 20px 0" />
         <FadeInUp delay="0s">
-          <Heading fontSize="xxlarge" align="center" margin="0 0 5px 0">
+          <Heading
+            fontSize="xxlarge"
+            fontWeight="700"
+            align="center"
+            margin="0 0 5px 0"
+          >
             {title}
           </Heading>
         </FadeInUp>

@@ -80,7 +80,8 @@ export const Header = styled.div`
   align-items: center;
   justify-content: space-between;
   color: ${props => props.theme.colors.text};
-  padding: 20px 20px 10px 20px;
+  padding: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
   & span {
     font-weight: 600;
