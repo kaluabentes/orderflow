@@ -26,7 +26,7 @@ function ProductGrid({ isLoading, title, children }: ProductGridProps) {
           <Heading
             color={theme.colors.text}
             fontSize="large"
-            fontWeight="bold"
+            fontWeight="500"
             margin="0 0 20px 0"
             as="h3"
           >

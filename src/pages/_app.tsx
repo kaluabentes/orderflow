@@ -9,6 +9,7 @@ import theme from '../styles/theme'
 import '~/styles/fonts.css'
 import ContainersProvider from '~/state'
 import OrderWizardContainer from '~/containers/OrderWizardContainer'
+import AddressWizardContainer from '~/containers/AddressWizardContainer'
 
 Sentry.init({
   dsn:
@@ -24,6 +25,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
         <GlobalStyle />
         <Component {...pageProps} />
         <OrderWizardContainer />
+        {/* <AddressWizardContainer /> */}
       </ThemeProvider>
     </ContainersProvider>
   )

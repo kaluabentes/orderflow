@@ -86,10 +86,6 @@ export const Header = styled.div`
   & span {
     font-weight: 600;
   }
-
-  @media (min-width: 600px) {
-    padding: 30px 30px 15px 30px;
-  }
 `
 
 export const Body = styled.div`
@@ -101,7 +97,6 @@ export const Body = styled.div`
 
   @media (min-width: 600px) {
     height: 444px;
-    padding: 30px;
   }
 `
 

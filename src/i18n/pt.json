@@ -55,5 +55,6 @@
   "nav.about": "Informações",
   "poweredBy": "Desenvolvido com",
   "payment": "Pagamento",
-  "confirm": "Confirmar"
+  "confirm": "Confirmar",
+  "selectAddress": "Selecione um endereço"
 }
