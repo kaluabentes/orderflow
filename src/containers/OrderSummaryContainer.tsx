@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
-import useSWR from 'swr'
-import { getProducts } from '~/api/products'
 
 import OrderSummary from '~/components/organisms/OrderSummary'
-import getOrderItem from '~/components/organisms/OrderWizard/getOrderItem'
+import getOrderItem from '~/components/organisms/OrderModal/getOrderItem'
 import Cart from '~/state/Cart'
-import OrderWizard from '~/state/OrderWizard'
+import Modals from '~/state/Modals'
 import User from '~/state/User'
 import getOrderTotalPrice from '~/utils/getters/getOrderTotalPrice'
 
 function OrderSummaryContainer({ isFixed = false }) {
+  const modals = Modals.useContainer()
   const cart = Cart.useContainer()
   const user = User.useContainer()
   const orderItems = cart.data.map(item => getOrderItem(item))
-  const orderWizard = OrderWizard.useContainer()
   const currentAddress = user.getCurrentAddress()
   const deliveryTax = currentAddress ? currentAddress.deliveryTax : 0.0
 
@@ -22,8 +20,8 @@ function OrderSummaryContainer({ isFixed = false }) {
   }
 
   function handleOrderItemEdit(itemId) {
-    orderWizard.selectMode('edit', itemId)
-    orderWizard.open()
+    modals.updateOptions('OrderModal', { mode: 'edit', itemId })
+    modals.open('OrderModal')
   }
 
   function handleConfirmOrder() {}

@@ -2,12 +2,12 @@ import React, { useEffect } from 'react'
 import { productProps } from '~/components/molecules/ProductCard/mock'
 import { OPTIONS } from '~/modules/products/mocks'
 
-import OrderWizard from '.'
+import OrderModal from '.'
 import getInitialState from './getInitialState'
 
 export default {
-  title: 'Organisms/OrderWizard',
-  component: OrderWizard
+  title: 'Organisms/OrderModal',
+  component: OrderModal
 }
 
 export const Default = () => {
@@ -24,7 +24,7 @@ export const Default = () => {
   }, [])
 
   return (
-    <OrderWizard
+    <OrderModal
       quantity={quantity}
       onQuantityChange={value => setQuantity(value)}
       isOpen

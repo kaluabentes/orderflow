@@ -20,7 +20,7 @@ interface AddressResult {
   icon: string
 }
 
-interface AddressWizardProps {
+interface AddressModalProps {
   isLoading: boolean
   isSearching: boolean
   isOpen: boolean
@@ -36,7 +36,7 @@ interface AddressWizardProps {
   onLogin: () => void
 }
 
-function AddressWizard({
+function AddressModal({
   isLoading,
   isSearching,
   isOpen,
@@ -50,7 +50,7 @@ function AddressWizard({
   onConfirm,
   onClose,
   onLogin
-}: AddressWizardProps) {
+}: AddressModalProps) {
   function renderSearchView() {
     return (
       <>
@@ -151,4 +151,4 @@ function AddressWizard({
   )
 }
 
-export default AddressWizard
+export default AddressModal

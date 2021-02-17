@@ -6,25 +6,24 @@ import {
 } from '~/api/products'
 
 import Home, { ProductGroup } from '~/components/templates/Home'
-import OrderWizard from '~/state/OrderWizard'
+import Modals from '~/state/Modals'
 import Store from '~/state/Store'
 
 function HomePage() {
   const products = useSWR(API_PRODUCTS_GROUPED, getProductsGroupedByCategories)
+  const modals = Modals.useContainer()
   const store = Store.useContainer()
-  const orderWizard = OrderWizard.useContainer()
 
-  function openOrderWizard(product) {
-    orderWizard.selectMode('add')
-    orderWizard.selectProduct(product)
-    orderWizard.open()
+  function openOrderModal(product) {
+    modals.updateOptions('OrderModal', { mode: 'add', product })
+    modals.open('OrderModal')
   }
 
   return (
     <Home
       isLoading={!products.data}
       products={(products.data as Array<ProductGroup>) || []}
-      onProductClick={openOrderWizard}
+      onProductClick={openOrderModal}
       store={store}
     />
   )

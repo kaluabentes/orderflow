@@ -10,7 +10,7 @@ import PageLoader from '~/components/organisms/PageLoader'
 import useIsMobile from '~/utils/hooks/useIsMobile'
 import { MOBILE_BREAKPOINT } from '~/components/organisms/Header/constants'
 import { CommonProps } from '~/components/CommonProps'
-import AddressWizard from '~/state/AddressWizard'
+import Modals from '~/state/Modals'
 
 interface AppProps extends CommonProps {
   title: string
@@ -20,7 +20,7 @@ interface AppProps extends CommonProps {
 }
 
 function App({ children, title }: AppProps) {
-  const addressWizard = AddressWizard.useContainer()
+  const modals = Modals.useContainer()
   const store = Store.useContainer()
   const cart = Cart.useContainer()
   const user = User.useContainer()
@@ -50,7 +50,7 @@ function App({ children, title }: AppProps) {
         search={search}
         cartCount={cart.data.length}
         address={addressText}
-        onAddressClick={addressWizard.open}
+        onAddressClick={() => modals.open('AddressModal')}
         onNavClick={path => router.push(path)}
         onCartClick={() => router.push('/cart')}
         onSearchOpen={() => setIsSearchOpen(true)}

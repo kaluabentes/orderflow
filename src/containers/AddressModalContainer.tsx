@@ -1,23 +1,20 @@
-import AddressWizard from '~/components/organisms/AddressWizard'
-import AddressWizardState from '~/state/AddressWizard'
-import addresses from '~/data/addresses.json'
-import useGooglePlaces from '~/utils/hooks/useGooglePlaces'
-import { useEffect, useState } from 'react'
+import AddressModal from '~/components/organisms/AddressModal'
+import { useState } from 'react'
 import usePlacesAutocomplete, {
   getDetails,
   getLatLng,
   getGeocode
 } from 'use-places-autocomplete'
-import axios from 'axios'
 import User from '~/state/User'
+import Modals from '~/state/Modals'
 
 function getAddressComponent(type, addrComponents) {
   return addrComponents.find(addrComp => addrComp.types.includes(type))
     .long_name
 }
 
-function AddressWizardContainer() {
-  const addressWizard = AddressWizardState.useContainer()
+function AddressModalContainer() {
+  const modals = Modals.useContainer()
   const user = User.useContainer()
   const [address, setAddress] = useState(undefined)
   const [isLoading, setIsLoading] = useState(false)
@@ -71,20 +68,20 @@ function AddressWizardContainer() {
     setAddress(undefined)
     user.addAddress(address)
     user.setCurrentAddress(address.id)
-    addressWizard.close()
+    modals.close('AddressModal')
   }
 
   return (
-    <AddressWizard
+    <AddressModal
       isLoading={isLoading}
-      isOpen={addressWizard.state.isOpen}
+      isOpen={modals.isOpen('AddressModal')}
       isSearching={loading}
       address={address}
       search={value}
       results={results}
       onLogin={() => alert('onLogin')}
       onConfirm={saveAddress}
-      onClose={addressWizard.close}
+      onClose={() => modals.close('AddressModal')}
       onAddressClick={selectAddress}
       onSearch={event => setValue(event.target.value)}
       onAddressChange={event =>
@@ -98,4 +95,4 @@ function AddressWizardContainer() {
   )
 }
 
-export default AddressWizardContainer
+export default AddressModalContainer
