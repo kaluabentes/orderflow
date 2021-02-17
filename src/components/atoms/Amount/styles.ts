@@ -11,8 +11,8 @@ export const Container = styled('div')(css`
 `)
 
 export const Button = styled('button')(css`
-  height: 30px;
-  width: 30px;
+  height: 28px;
+  width: 28px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
