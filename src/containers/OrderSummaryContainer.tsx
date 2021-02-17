@@ -14,6 +14,8 @@ function OrderSummaryContainer({ isFixed = false }) {
   const user = User.useContainer()
   const orderItems = cart.data.map(item => getOrderItem(item))
   const orderWizard = OrderWizard.useContainer()
+  const currentAddress = user.getCurrentAddress()
+  const deliveryTax = currentAddress ? currentAddress.deliveryTax : 0.0
 
   function handleOrderItemRemove(itemId) {
     cart.removeItem(itemId)
@@ -31,11 +33,8 @@ function OrderSummaryContainer({ isFixed = false }) {
       isFixed={isFixed}
       items={orderItems}
       subtotal={getOrderTotalPrice(orderItems)}
-      deliveryTax={user.data.currentAddress.deliveryTax}
-      total={getOrderTotalPrice(
-        orderItems,
-        user.data.currentAddress.deliveryTax
-      )}
+      deliveryTax={deliveryTax}
+      total={getOrderTotalPrice(orderItems, deliveryTax)}
       onConfirm={handleConfirmOrder}
       onEdit={itemId => handleOrderItemEdit(itemId)}
       onRemove={itemId => handleOrderItemRemove(itemId)}

@@ -10,6 +10,7 @@ import PageLoader from '~/components/organisms/PageLoader'
 import useIsMobile from '~/utils/hooks/useIsMobile'
 import { MOBILE_BREAKPOINT } from '~/components/organisms/Header/constants'
 import { CommonProps } from '~/components/CommonProps'
+import AddressWizard from '~/state/AddressWizard'
 
 interface AppProps extends CommonProps {
   title: string
@@ -19,6 +20,7 @@ interface AppProps extends CommonProps {
 }
 
 function App({ children, title }: AppProps) {
+  const addressWizard = AddressWizard.useContainer()
   const store = Store.useContainer()
   const cart = Cart.useContainer()
   const user = User.useContainer()
@@ -26,8 +28,13 @@ function App({ children, title }: AppProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [search, setSearch] = useState('')
   const isMobile = useIsMobile(MOBILE_BREAKPOINT)
-  const { street, number } = user.data.currentAddress
-  const address = street && number ? `${street}, ${number}` : undefined
+  const { currentAddress, addresses: userAddresses } = user.state
+  const address = currentAddress
+    ? userAddresses.find(addr => addr.id === currentAddress)
+    : undefined
+  const addressText = address
+    ? `${address.street}, ${address.number}`
+    : undefined
 
   return (
     <>
@@ -36,14 +43,14 @@ function App({ children, title }: AppProps) {
         onBack={() => router.back()}
         logoSrc={store.data.logo}
         title={title}
-        userName={user.data.name}
+        userName={user.state.name}
         pathname={router.pathname}
         navItems={navItems}
         isSearchOpen={isSearchOpen}
         search={search}
         cartCount={cart.data.length}
-        address={address}
-        onAddressClick={() => alert('onAddressClick')}
+        address={addressText}
+        onAddressClick={addressWizard.open}
         onNavClick={path => router.push(path)}
         onCartClick={() => router.push('/cart')}
         onSearchOpen={() => setIsSearchOpen(true)}

@@ -1,6 +1,9 @@
 import { useState, useRef } from 'react'
 import { CommonProps } from '~/components/CommonProps'
+import theme from '~/styles/theme'
 import useIsMobile from '~/utils/hooks/useIsMobile'
+import CircleLoader from '../CircleLoader'
+import DotLoader from '../DotLoader'
 import Icon from '../Icon'
 import IconButton from '../IconButton'
 import { Container, Input, Placeholder } from './styles'
@@ -11,9 +14,13 @@ interface SearchInputProps extends CommonProps {
   hasCloseButton?: boolean
   value?: string
   placeholder?: string
+  variant?: 'dark' | 'light'
+  isLoading?: boolean
 }
 
 function SearchInput({
+  isLoading,
+  variant = 'dark',
   onChange,
   onClose,
   hasCloseButton,
@@ -39,13 +46,23 @@ function SearchInput({
       return null
     }
 
-    return <Placeholder onClick={handleFocus}>{placeholder}</Placeholder>
+    return (
+      <Placeholder variant={variant} onClick={handleFocus}>
+        {placeholder}
+      </Placeholder>
+    )
   }
   return (
-    <Container {...commonProps}>
-      <Icon color="rgba(255, 255, 255, 0.5)" name="search" />
+    <Container {...commonProps} variant={variant}>
+      <Icon
+        color={
+          variant === 'dark' ? 'rgba(255, 255, 255, 0.5)' : theme.colors.text
+        }
+        name="search"
+      />
       {renderPlaceholder()}
       <Input
+        variant={variant}
         ref={inputRef}
         onFocus={handleFocus}
         onBlur={() => setIsFocused(false)}
@@ -53,6 +70,9 @@ function SearchInput({
         value={value}
       />
       {hasCloseButton && <IconButton onClick={onClose} name="close" />}
+      {isLoading && (
+        <DotLoader color={variant === 'dark' ? '#fff' : theme.colors.primary} />
+      )}
     </Container>
   )
 }

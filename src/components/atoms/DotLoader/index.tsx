@@ -4,12 +4,16 @@ import { CommonProps } from '../../CommonProps'
 
 import { Container, Dot } from './styles'
 
-function DotLoader(props: CommonProps) {
+interface DotLoaderProps extends CommonProps {
+  color?: string
+}
+
+function DotLoader({ color, ...props }: DotLoaderProps) {
   return (
     <Container {...props}>
-      <Dot />
-      <Dot />
-      <Dot />
+      <Dot color={color} />
+      <Dot color={color} />
+      <Dot color={color} />
     </Container>
   )
 }

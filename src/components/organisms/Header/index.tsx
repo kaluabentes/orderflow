@@ -185,6 +185,7 @@ function Header({
               fontWeight="500"
               fontSize="20px"
               margin="0 0 0 20px"
+              color="white"
               flex="1"
             >
               {title}

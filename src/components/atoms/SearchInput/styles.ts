@@ -11,6 +11,13 @@ export const Container = styled('div')(css`
   width: 100%;
   color: rgba(255, 255, 255, 1);
   position: relative;
+
+  ${props =>
+    props.variant === 'light' &&
+    css`
+      background: rgba(0, 0, 0, 0.05);
+      color: ${props => props.theme.colors.text};
+    `}
 `)
 
 export const Input = styled('input')(css`
@@ -21,6 +28,12 @@ export const Input = styled('input')(css`
   margin-left: 10px;
   height: 45px;
   color: white;
+
+  ${props =>
+    props.variant === 'light' &&
+    css`
+      color: ${props => props.theme.colors.text};
+    `}
 `)
 
 export const Placeholder = styled('p')(css`
@@ -28,4 +41,11 @@ export const Placeholder = styled('p')(css`
   position: absolute;
   left: 50px;
   font-weight: 400;
+  width: ${props => props.width};
+
+  ${props =>
+    props.variant === 'light' &&
+    css`
+      color: ${props => props.theme.colors.textMuted};
+    `};
 `)

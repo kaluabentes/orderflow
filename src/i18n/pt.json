@@ -56,5 +56,6 @@
   "poweredBy": "Desenvolvido com",
   "payment": "Pagamento",
   "confirm": "Confirmar",
-  "selectAddress": "Selecione um endereço"
+  "selectAddress": "Selecione um endereço",
+  "addressSearchPlaceholder": "Buscar por rua e número"
 }

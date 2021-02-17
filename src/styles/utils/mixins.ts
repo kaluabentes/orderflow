@@ -13,6 +13,10 @@ function mixins(props) {
       value: props['align']
     },
     {
+      name: 'text-align',
+      value: props['textAlign']
+    },
+    {
       name: 'color',
       value: props['color']
     },

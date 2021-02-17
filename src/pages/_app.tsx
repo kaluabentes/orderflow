@@ -25,7 +25,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
         <GlobalStyle />
         <Component {...pageProps} />
         <OrderWizardContainer />
-        {/* <AddressWizardContainer /> */}
+        <AddressWizardContainer />
       </ThemeProvider>
     </ContainersProvider>
   )

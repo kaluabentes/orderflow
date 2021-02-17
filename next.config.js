@@ -5,6 +5,7 @@ module.exports = {
     LOCALE: process.env.LOCALE,
     ID: process.env.ID,
     PROVIDER_NAME: process.env.PROVIDER_NAME,
-    PROIVDER_URL: process.env.PROIVDER_URL
+    PROIVDER_URL: process.env.PROIVDER_URL,
+    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY
   }
 }

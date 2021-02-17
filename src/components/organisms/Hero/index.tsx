@@ -37,6 +37,7 @@ function Welcome({
         <Logo src={logoSrc} margin="0 0 20px 0" />
         <FadeInUp delay="0s">
           <Heading
+            color="#fff"
             fontSize="xxlarge"
             fontWeight="700"
             align="center"

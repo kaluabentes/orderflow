@@ -25,7 +25,7 @@ export const Dot = styled.div`
   margin: 0 5px;
   border-radius: 50%;
   animation: ${growDot} 1.5s linear infinite;
-  background: ${props => props.theme.colors.text};
+  background: ${props => props.color || props.theme.colors.text};
 
   &:nth-child(1) {
     animation-delay: -0.32s;
