@@ -82,6 +82,7 @@ function AddressWizardContainer() {
       address={address}
       search={value}
       results={results}
+      onLogin={() => alert('onLogin')}
       onConfirm={saveAddress}
       onClose={addressWizard.close}
       onAddressClick={selectAddress}

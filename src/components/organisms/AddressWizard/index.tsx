@@ -5,6 +5,7 @@ import Heading from '~/components/atoms/Heading'
 import Icon from '~/components/atoms/Icon'
 import IconButton from '~/components/atoms/IconButton'
 import Input from '~/components/atoms/Input'
+import Paragraph from '~/components/atoms/Paragraph'
 import SearchInput from '~/components/atoms/SearchInput'
 import AddressCard from '~/components/molecules/AddressCard'
 import List from '~/components/molecules/List'
@@ -32,6 +33,7 @@ interface AddressWizardProps {
   onBack: () => void
   onConfirm: () => void
   onClose: () => void
+  onLogin: () => void
 }
 
 function AddressWizard({
@@ -46,7 +48,8 @@ function AddressWizard({
   onAddressChange,
   onBack,
   onConfirm,
-  onClose
+  onClose,
+  onLogin
 }: AddressWizardProps) {
   function renderSearchView() {
     return (
@@ -58,17 +61,28 @@ function AddressWizard({
           value={search}
           onChange={onSearch}
         />
-        <List>
-          {results.map(address => (
-            <AddressCard
-              key={address.id}
-              title={address.title}
-              subtitle={address.subtitle}
-              icon={address.icon}
-              onClick={() => onAddressClick(address)}
-            />
-          ))}
-        </List>
+        {results.length > 0 ? (
+          <List>
+            {results.map(address => (
+              <AddressCard
+                key={address.id}
+                title={address.title}
+                subtitle={address.subtitle}
+                icon={address.icon}
+                onClick={() => onAddressClick(address)}
+              />
+            ))}
+          </List>
+        ) : (
+          <Box alignItems="center" margin="10px 0 0 0" padding="20px 0">
+            <Paragraph margin="0 0 10px 0" fontWeight="600">
+              {getString('addressWizardLoginText')}
+            </Paragraph>
+            <Button onClick={onLogin}>
+              {getString('addressWizardLoginButton')}
+            </Button>
+          </Box>
+        )}
       </>
     )
   }
@@ -80,7 +94,7 @@ function AddressWizard({
           <IconButton onClick={onBack} name="arrow_back" margin="0 10px 0 0" />
         </Box>
         <Heading margin="0 0 15px 0" fontSize="22px">
-          Adicionar endereço
+          {getString('addAddress')}
         </Heading>
         <Box flexDirection="row">
           <Input
@@ -118,7 +132,7 @@ function AddressWizard({
           label="Complemento"
         />
         <Button onClick={onConfirm} variant="primary">
-          Adicionar
+          {getString('add')}
         </Button>
       </>
     )

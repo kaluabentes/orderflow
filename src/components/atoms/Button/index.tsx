@@ -4,6 +4,7 @@ import { CommonProps } from '../../CommonProps'
 import { Container, Loader } from './styles'
 
 interface ButtonProps extends CommonProps {
+  isInline?: boolean
   onClick?: () => void
   isLoading?: boolean
   variant?: 'default' | 'primary' | 'info' | 'warning' | 'defaultDark'
@@ -15,6 +16,7 @@ function Button({
   onClick,
   variant = 'default',
   isLoading = false,
+  isInline = false,
   children,
   outlined,
   type = 'button',
@@ -28,6 +30,7 @@ function Button({
       type={type}
       disabled={isLoading}
       outlined={outlined}
+      isInline={isInline}
     >
       {isLoading ? <Loader /> : children}
     </Container>

@@ -24,6 +24,13 @@ export const Container = styled('button')(css`
   }
 
   ${props =>
+    props.isInline &&
+    css`
+      display: inline-block;
+      width: auto;
+    `}
+
+  ${props =>
     props.disabled &&
     css`
       opacity: 0.8;

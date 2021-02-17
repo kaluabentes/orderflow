@@ -57,5 +57,8 @@
   "payment": "Pagamento",
   "confirm": "Confirmar",
   "selectAddress": "Selecione um endereço",
-  "addressSearchPlaceholder": "Buscar por rua e número"
+  "addressSearchPlaceholder": "Buscar por rua e número",
+  "addressWizardLoginText": "Já possui um endereço cadastrado?",
+  "addressWizardLoginButton": "Entrar ou Cadastrar",
+  "addAddress": "Adicionar endereço"
 }
