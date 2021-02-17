@@ -59,10 +59,6 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
     }
   }, [])
 
-  function renderOrderSummary(isFixed = false) {
-    return <OrderSummaryContainer isFixed={isFixed} />
-  }
-
   return (
     <App title={getString('nav.home')}>
       <Hero
@@ -100,8 +96,7 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
               ))}
             </Box>
             <Responsive width="100%" maxWidth="400px" hideMaxWidth={1024}>
-              {renderOrderSummary()}
-              {isOrderFixed && renderOrderSummary(true)}
+              <OrderSummaryContainer isFixed={isOrderFixed} />
             </Responsive>
           </>
         )}
