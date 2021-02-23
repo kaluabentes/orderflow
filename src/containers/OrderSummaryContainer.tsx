@@ -25,11 +25,6 @@ function OrderSummaryContainer({ isFixed = false }) {
   }
 
   function handleConfirmOrder() {
-    if (!currentAddress) {
-      modals.open('AddressModal')
-      return
-    }
-
     if (!user.state.token) {
       modals.open('LoginModal')
       return
