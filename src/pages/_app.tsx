@@ -10,6 +10,7 @@ import '~/styles/fonts.css'
 import ContainersProvider from '~/state'
 import OrderModalContainer from '~/containers/OrderModalContainer'
 import AddressModalContainer from '~/containers/AddressModalContainer'
+import LoginModalContainer from '~/containers/LoginModalContainer'
 
 Sentry.init({
   dsn:
@@ -26,6 +27,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
         <Component {...pageProps} />
         <OrderModalContainer />
         <AddressModalContainer />
+        <LoginModalContainer />
       </ThemeProvider>
     </ContainersProvider>
   )

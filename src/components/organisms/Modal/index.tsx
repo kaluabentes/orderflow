@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { Portal } from 'react-portal'
+import Box from '~/components/atoms/Box'
 
 import CircleLoader from '~/components/atoms/CircleLoader'
 import useIsMounted from '~/utils/hooks/useIsMounted'
@@ -108,15 +109,17 @@ export default function Modal({
       >
         <Content maxWidth={maxWidth} isLoading={isLoading}>
           {isLoading ? (
-            <CircleLoader />
+            <Box padding="40px">
+              <CircleLoader />
+            </Box>
           ) : (
-            <>
+            <Box overflow="auto">
               <Header>
                 <Title>{title}</Title>
                 <CloseButton name="close" onClick={onClose} />
               </Header>
               <Body>{children}</Body>
-            </>
+            </Box>
           )}
         </Content>
         <Overlay onClick={onClose} />

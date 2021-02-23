@@ -23,7 +23,7 @@ function AddressCard({ title, subtitle, icon, onClick }: AddressCardProps) {
           justifyContent="flex-start"
           padding="0 8px 0 0"
         >
-          <Icon color={theme.colors.text} fontSize="32px" name={icon} />
+          <Icon color={theme.colors.primary} fontSize="32px" name={icon} />
         </Box>
         <Box flex="1" alignItems="flex-start">
           <Heading textAlign="left" fontSize="16px" fontWeight="500" as="h3">

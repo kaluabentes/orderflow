@@ -1,11 +1,20 @@
-import { css } from 'styled-components'
+import React from 'react'
 
-import styled from '../../../styles/utils/styled'
+import { CommonProps } from '~/components/CommonProps'
+import { Container } from './styles'
 
-const Label = styled('label')(css`
-  font-weight: 500;
-  display: block;
-  font-size: 0.875rem;
-`)
+interface LabelProps extends CommonProps {
+  htmlFor: string
+}
+
+function Label({ children, htmlFor, ...props }: LabelProps) {
+  return (
+    <Container
+      htmlFor={htmlFor}
+      dangerouslySetInnerHTML={{ __html: children }}
+      {...props}
+    />
+  )
+}
 
 export default Label

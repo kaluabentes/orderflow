@@ -1,4 +1,3 @@
-import * as ObjectID from 'bson-objectid'
 import getTotalPrice from './getTotalPrice'
 
 function getOrderItem({ id, product, options, value, quantity, observation }) {

@@ -1,11 +1,15 @@
 import { useEffect } from 'react'
 import { createContainer } from 'unstated-next'
+import { create } from '~/api/addresses'
 import useStorageState from '~/utils/hooks/useLocalStorageState'
 
 const INITIAL_STATE = {
-  name: '',
+  id: undefined,
+  name: undefined,
+  phone: undefined,
   currentAddress: undefined,
-  addresses: []
+  addresses: [],
+  token: undefined
 }
 
 function useUser() {
@@ -15,7 +19,7 @@ function useUser() {
   )
 
   function getCurrentAddress() {
-    return state.currentAddress
+    return state.currentAddress && state.addresses
       ? state.addresses.find(addr => addr.id === state.currentAddress)
       : undefined
   }
@@ -24,11 +28,25 @@ function useUser() {
     setState(prev => ({ ...prev, currentAddress: addressId }))
   }
 
-  function addAddress(address) {
-    setState(prev => ({ ...prev, addresses: [...prev.addresses, address] }))
+  async function addAddress(address) {
+    setState(prev => {
+      const prevAddress = prev.addresses.find(addr => addr.id === address.id)
+
+      if (prevAddress) {
+        return prev
+      }
+
+      return { ...prev, addresses: [...prev.addresses, address] }
+    })
   }
 
-  return { state, setCurrentAddress, getCurrentAddress, addAddress }
+  function login(data) {
+    setState(data)
+  }
+
+  function saveAddress() {}
+
+  return { state, setCurrentAddress, getCurrentAddress, addAddress, login }
 }
 
 export default createContainer(useUser)

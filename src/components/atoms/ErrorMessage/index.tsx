@@ -1,13 +1,16 @@
-import { css } from 'styled-components'
+import React from 'react'
+import { CommonProps } from '~/components/CommonProps'
 
-import styled from '../../../styles/utils/styled'
+import Icon from '../Icon'
+import { Container } from './styles'
 
-const ErrorMessage = styled('p')(css`
-  margin: 0;
-  color: ${props => props.theme.colors.primary};
-  padding-top: 7px;
-  font-size: 0.75rem;
-  font-weight: 500;
-`)
+function ErrorMessage({ children, ...props }: CommonProps) {
+  return (
+    <Container {...props}>
+      <Icon name="error" />
+      {children}
+    </Container>
+  )
+}
 
 export default ErrorMessage

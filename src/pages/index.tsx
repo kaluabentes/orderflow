@@ -15,8 +15,7 @@ function HomePage() {
   const store = Store.useContainer()
 
   function openOrderModal(product) {
-    modals.updateOptions('OrderModal', { mode: 'add', product })
-    modals.open('OrderModal')
+    modals.open('OrderModal', { mode: 'add', product })
   }
 
   return (

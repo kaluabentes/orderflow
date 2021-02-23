@@ -14,7 +14,9 @@ function OrderModalContainer() {
   const cart = Cart.useContainer()
   const [orderQuantity, setOrderQuantity] = React.useState(1)
   const [options, setOptions] = useState([])
+  const isOpen = modals.isOpen('OrderModal')
 
+  // Open in edit mode
   useEffect(() => {
     if (modalOptions.itemId && modalOptions.mode === 'edit') {
       const orderItem = cart.data.find(item => item.id === modalOptions.itemId)
@@ -28,16 +30,13 @@ function OrderModalContainer() {
     }
   }, [modalOptions.itemId, modalOptions.mode])
 
+  // Open in add mode
   useEffect(() => {
-    if (
-      modals.isOpen('OrderModal') &&
-      modalOptions.product &&
-      modalOptions.mode === 'add'
-    ) {
+    if (isOpen && modalOptions.product && modalOptions.mode === 'add') {
       setOptions(modalOptions.product.options)
       setOrderModalValue(getInitialState(modalOptions.product.options))
     }
-  }, [modals.isOpen('OrderModal'), modalOptions.product, modalOptions.mode])
+  }, [isOpen, modalOptions.product, modalOptions.mode])
 
   function cleanup() {
     setOrderModalValue(undefined)

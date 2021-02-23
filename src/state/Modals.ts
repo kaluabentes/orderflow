@@ -14,16 +14,6 @@ const INITIAL_STATE = MODALS.reduce(
 
 function useModals() {
   const [state, setState] = useState(INITIAL_STATE)
-  const user = User.useContainer()
-  const { currentAddress } = user.state
-
-  useEffect(() => {
-    if (!currentAddress) {
-      open('AddressModal')
-    } else {
-      close('AddressModal')
-    }
-  }, [currentAddress])
 
   function open(modal, options = {}) {
     setState(prev => ({ ...prev, [modal]: { isOpen: true, options } }))

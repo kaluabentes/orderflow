@@ -1,6 +1,7 @@
 import Actionable from '~/components/atoms/Actionable'
 import Box from '~/components/atoms/Box'
 import Button from '~/components/atoms/Button'
+import ErrorMessage from '~/components/atoms/ErrorMessage'
 import Heading from '~/components/atoms/Heading'
 import Icon from '~/components/atoms/Icon'
 import IconButton from '~/components/atoms/IconButton'
@@ -12,6 +13,7 @@ import List from '~/components/molecules/List'
 import getString from '~/i18n/getString'
 import Address from '~/types/Address'
 import Modal from '../Modal'
+import { Scroller } from '../OrderSummary/styles'
 
 interface AddressResult {
   id: string | number
@@ -21,6 +23,9 @@ interface AddressResult {
 }
 
 interface AddressModalProps {
+  error?: string
+  isUsingUserAddresses: boolean
+  isLoggedIn: boolean
   isLoading: boolean
   isSearching: boolean
   isOpen: boolean
@@ -28,7 +33,8 @@ interface AddressModalProps {
   onSearch: (event: any) => void
   results: AddressResult[]
   address: Address
-  onAddressClick: (address: any) => void
+  userAddresses: Address[]
+  onAddressClick: (address: any, isSavedAddress: boolean) => void
   onAddressChange: (event: any) => void
   onBack: () => void
   onConfirm: () => void
@@ -37,12 +43,16 @@ interface AddressModalProps {
 }
 
 function AddressModal({
+  isUsingUserAddresses,
+  isLoggedIn,
   isLoading,
   isSearching,
   isOpen,
   search,
+  error,
   onSearch,
   results,
+  userAddresses,
   address,
   onAddressClick,
   onAddressChange,
@@ -52,29 +62,39 @@ function AddressModal({
   onLogin
 }: AddressModalProps) {
   function renderSearchView() {
+    const addresses = results.length > 0 ? results : userAddresses
+
     return (
       <>
-        <SearchInput
-          isLoading={isSearching}
-          variant="light"
-          placeholder={getString('addressSearchPlaceholder')}
-          value={search}
-          onChange={onSearch}
-        />
-        {results.length > 0 ? (
-          <List>
-            {results.map(address => (
-              <AddressCard
-                key={address.id}
-                title={address.title}
-                subtitle={address.subtitle}
-                icon={address.icon}
-                onClick={() => onAddressClick(address)}
-              />
-            ))}
-          </List>
-        ) : (
-          <Box alignItems="center" margin="10px 0 0 0" padding="20px 0">
+        {isLoggedIn && (
+          <>
+            <SearchInput
+              isLoading={isSearching}
+              variant="light"
+              placeholder={getString('addressSearchPlaceholder')}
+              value={search}
+              onChange={onSearch}
+              margin="0 0 10px 0"
+            />
+            <Box overflow="auto">
+              <List>
+                {addresses.map(address => (
+                  <AddressCard
+                    key={address.id}
+                    title={address.title}
+                    subtitle={address.subtitle}
+                    icon={address.icon}
+                    onClick={() =>
+                      onAddressClick(address, isUsingUserAddresses)
+                    }
+                  />
+                ))}
+              </List>
+            </Box>
+          </>
+        )}
+        {!isLoggedIn && (
+          <Box alignItems="center" margin="0 0 0 0" padding=" 0">
             <Paragraph margin="0 0 10px 0" fontWeight="600">
               {getString('addressWizardLoginText')}
             </Paragraph>
@@ -90,9 +110,6 @@ function AddressModal({
   function renderAddressForm() {
     return (
       <>
-        <Box margin="0 0 15px 0" alignItems="flex-start">
-          <IconButton onClick={onBack} name="arrow_back" margin="0 10px 0 0" />
-        </Box>
         <Heading margin="0 0 15px 0" fontSize="22px">
           {getString('addAddress')}
         </Heading>
@@ -131,9 +148,12 @@ function AddressModal({
           margin="0 0 15px 0"
           label="Complemento"
         />
-        <Button onClick={onConfirm} variant="primary">
+        {error && <ErrorMessage margin="0 0 15px 0">{error}</ErrorMessage>}
+        <Button onClick={onConfirm} variant="primary" margin="0 0 10px 0">
           {getString('add')}
         </Button>
+
+        <Button onClick={onBack}>{getString('cancel')}</Button>
       </>
     )
   }

@@ -35,4 +35,5 @@ export interface CommonProps {
   minWidth?: string
   minHeight?: string
   maxHeight?: string
+  overflow?: string
 }

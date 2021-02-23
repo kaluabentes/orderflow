@@ -19,13 +19,14 @@ export const Content = styled.div<{ isLoading: boolean | undefined }>`
   flex-direction: column;
   left: 0;
   top: 0;
-  overflow: auto;
+  overflow-y: auto;
 
   @media (min-width: 600px) {
-    height: 580px;
+    max-height: 580px;
+    height: auto;
     border-radius: 10px;
     margin-top: 40px;
-    max-width: ${props => props.maxWidth || 600}px;
+    max-width: ${props => props.maxWidth || 400}px;
   }
 
   ${props =>
@@ -43,7 +44,7 @@ export const Content = styled.div<{ isLoading: boolean | undefined }>`
 export const Overlay = styled.button`
   position: absolute;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   background: rgba(0, 0, 0, 0.5);
   z-index: 5;
   border: 0;
@@ -54,7 +55,7 @@ export const Container = styled.div<{ isOpen: boolean }>`
   position: fixed;
   z-index: 999;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   top: 0;
   transition: 0.8s;
   opacity: 0;
@@ -62,6 +63,7 @@ export const Container = styled.div<{ isOpen: boolean }>`
   overflow: hidden;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 
   ${props =>
     props.isOpen &&
@@ -94,10 +96,6 @@ export const Body = styled.div`
   padding: 20px;
   flex-grow: 1;
   overflow-y: auto;
-
-  @media (min-width: 600px) {
-    height: 444px;
-  }
 `
 
 export const PadObj = styled.div`

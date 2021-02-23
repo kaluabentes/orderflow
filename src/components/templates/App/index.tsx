@@ -29,12 +29,8 @@ function App({ children, title }: AppProps) {
   const [search, setSearch] = useState('')
   const isMobile = useIsMobile(MOBILE_BREAKPOINT)
   const { currentAddress, addresses: userAddresses } = user.state
-  const address = currentAddress
-    ? userAddresses.find(addr => addr.id === currentAddress)
-    : undefined
-  const addressText = address
-    ? `${address.street}, ${address.number}`
-    : undefined
+  const address = user.getCurrentAddress()
+  const addressText = address && address.title
 
   return (
     <>
@@ -56,7 +52,7 @@ function App({ children, title }: AppProps) {
         onSearchOpen={() => setIsSearchOpen(true)}
         onSearchClose={() => setIsSearchOpen(false)}
         onSearchChange={event => setSearch(event.target.name)}
-        onLogin={() => alert('onLogin')}
+        onLogin={() => modals.open('LoginModal')}
       />
       <Box margin={`${isMobile ? 126 : 75}px 0 0 0`}>{children}</Box>
     </>

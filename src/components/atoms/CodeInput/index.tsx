@@ -87,7 +87,7 @@ function CodeInput({ label, id, onChange, error, ...props }: CodeInputProps) {
           maxLength={1}
         />
       </Grid>
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      {error && <ErrorMessage margin="10px 0 0 0">{error}</ErrorMessage>}
     </Container>
   )
 }

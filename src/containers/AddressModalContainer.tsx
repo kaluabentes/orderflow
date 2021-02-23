@@ -7,10 +7,13 @@ import usePlacesAutocomplete, {
 } from 'use-places-autocomplete'
 import User from '~/state/User'
 import Modals from '~/state/Modals'
+import { create } from '~/api/addresses'
 
 function getAddressComponent(type, addrComponents) {
-  return addrComponents.find(addrComp => addrComp.types.includes(type))
-    .long_name
+  const component = addrComponents.find(addrComp =>
+    addrComp.types.includes(type)
+  )
+  return component ? component.long_name : ''
 }
 
 function AddressModalContainer() {
@@ -18,6 +21,7 @@ function AddressModalContainer() {
   const user = User.useContainer()
   const [address, setAddress] = useState(undefined)
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(undefined)
 
   const {
     value,
@@ -37,9 +41,32 @@ function AddressModalContainer() {
     icon: 'room'
   }))
 
-  async function selectAddress(address) {
-    setIsLoading(true)
+  async function saveAddress() {
+    if (!address.number) {
+      setError('Preencha o campo número')
+      return
+    }
 
+    setError(undefined)
+    const addressItem = results.find(place => address.id === place.id)
+    addressItem.title = `${address.street}, ${address.number}`
+    const { data: responseAddress } = await create(user.state.id, address)
+    setValue('')
+    clearSuggestions()
+    setAddress(undefined)
+    user.addAddress({ ...addressItem, id: responseAddress.id })
+    user.setCurrentAddress(responseAddress.id)
+    modals.close('AddressModal')
+  }
+
+  async function selectAddress(address, isSavedAddress) {
+    if (isSavedAddress) {
+      user.setCurrentAddress(address.id)
+      modals.close('AddressModal')
+      return
+    }
+
+    setIsLoading(true)
     const params = {
       placeId: address.id
     }
@@ -63,25 +90,25 @@ function AddressModalContainer() {
     setIsLoading(false)
   }
 
-  async function saveAddress() {
-    clearSuggestions()
-    setAddress(undefined)
-    user.addAddress(address)
-    user.setCurrentAddress(address.id)
-    modals.close('AddressModal')
-  }
-
   return (
     <AddressModal
+      error={error}
+      isLoggedIn={Boolean(user.state.token)}
       isLoading={isLoading}
       isOpen={modals.isOpen('AddressModal')}
       isSearching={loading}
       address={address}
       search={value}
+      isUsingUserAddresses={results.length === 0}
+      userAddresses={user.state.addresses}
       results={results}
-      onLogin={() => alert('onLogin')}
+      onLogin={() => modals.open('LoginModal')}
       onConfirm={saveAddress}
-      onClose={() => modals.close('AddressModal')}
+      onClose={() => {
+        setValue('')
+        clearSuggestions()
+        modals.close('AddressModal')
+      }}
       onAddressClick={selectAddress}
       onSearch={event => setValue(event.target.value)}
       onAddressChange={event =>

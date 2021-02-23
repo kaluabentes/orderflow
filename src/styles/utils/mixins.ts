@@ -100,6 +100,10 @@ function mixins(props) {
     {
       name: 'max-height',
       value: props['maxHeight']
+    },
+    {
+      name: 'overflow',
+      value: props['overflow']
     }
   ]
 }

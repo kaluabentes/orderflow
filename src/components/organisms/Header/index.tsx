@@ -129,8 +129,9 @@ function Header({
         isSearchOpen={isSearchOpen}
         variant="primary"
         outlined
+        onClick={onAddressClick}
       >
-        <EditAddressContent onClick={onAddressClick}>
+        <EditAddressContent>
           <Icon margin="0 5px 0 -3px" name="room" />
           {address || 'Selecionar endereço'}
         </EditAddressContent>
@@ -194,7 +195,7 @@ function Header({
         )}
         {!isMobile &&
           (userName ? (
-            <ProfileText>{userName}</ProfileText>
+            <IconButton margin="0 15px 0 20px" name="person" />
           ) : (
             <Box width="100px" margin="0 15px">
               <Button outlined variant="primary" onClick={onLogin}>

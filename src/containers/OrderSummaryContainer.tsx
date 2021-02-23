@@ -13,7 +13,7 @@ function OrderSummaryContainer({ isFixed = false }) {
   const user = User.useContainer()
   const orderItems = cart.data.map(item => getOrderItem(item))
   const currentAddress = user.getCurrentAddress()
-  const deliveryTax = currentAddress ? currentAddress.deliveryTax : 0.0
+  const deliveryTax = 0.0
 
   function handleOrderItemRemove(itemId) {
     cart.removeItem(itemId)
@@ -24,7 +24,17 @@ function OrderSummaryContainer({ isFixed = false }) {
     modals.open('OrderModal')
   }
 
-  function handleConfirmOrder() {}
+  function handleConfirmOrder() {
+    if (!currentAddress) {
+      modals.open('AddressModal')
+      return
+    }
+
+    if (!user.state.token) {
+      modals.open('LoginModal')
+      return
+    }
+  }
 
   return (
     <OrderSummary
