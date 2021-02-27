@@ -7,7 +7,6 @@ export const Container = styled('section')(css`
   background: white;
   padding: 20px;
   border-radius: 10px;
-  max-width: 400px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -25,6 +24,7 @@ export const Container = styled('section')(css`
 
   @media(min-width: 1024px) {
     padding: 30px;
+    max-width: 400px;
   }
 `)
 

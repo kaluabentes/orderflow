@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { CommonProps } from '../../CommonProps'
+import { CommonProps } from '../../../styles/utils/CommonProps'
 import ErrorMessage from '../ErrorMessage'
 
 import Label from '../Label'

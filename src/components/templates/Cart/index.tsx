@@ -7,7 +7,7 @@ import InnerHeader from '~/components/organisms/InnerHeader'
 import OrderSummary from '~/components/organisms/OrderSummary'
 import OrderSummaryContainer from '~/containers/OrderSummaryContainer'
 import Cart from '~/state/Cart'
-import useIsMobile from '~/utils/hooks/useIsMobile'
+import useIsMobile from '~/utils/useIsMobile'
 import App from '../App'
 
 function CartTemplate({ onConfirm, onEdit, onRemove, onKeepBuying }) {

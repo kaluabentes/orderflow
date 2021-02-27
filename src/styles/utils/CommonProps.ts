@@ -36,4 +36,8 @@ export interface CommonProps {
   minHeight?: string
   maxHeight?: string
   overflow?: string
+  display?: string
+  gridTemplateColumns?: string
+  gridGap?: string
+  borderRadius?: string
 }

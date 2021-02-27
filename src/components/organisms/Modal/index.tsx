@@ -3,7 +3,7 @@ import { Portal } from 'react-portal'
 import Box from '~/components/atoms/Box'
 
 import CircleLoader from '~/components/atoms/CircleLoader'
-import useIsMounted from '~/utils/hooks/useIsMounted'
+import useIsMounted from '~/utils/useIsMounted'
 
 import {
   GlobalStyle,
@@ -20,12 +20,14 @@ interface Props {
   children: React.ReactNode
   title: string
   isOpen: boolean
+  sheetMode?: boolean
   isLoading?: boolean
   onClose?: (event?: React.MouseEvent) => void
   maxWidth?: number
 }
 
 export default function Modal({
+  sheetMode,
   isOpen,
   isLoading,
   children,
@@ -99,15 +101,19 @@ export default function Modal({
 
   return (
     <Portal>
-      {/* <GlobalStyle bodyOverflow={isOpen ? 'hidden' : 'auto'} /> */}
+      <GlobalStyle bodyOverflow={isOpen ? 'hidden' : 'auto'} />
       <Container
         isOpen={isOpen}
+        sheetMode={sheetMode}
         role="dialog"
         aria-modal="true"
         ref={containerRef}
-        maxWi
       >
-        <Content maxWidth={maxWidth} isLoading={isLoading}>
+        <Content
+          sheetMode={sheetMode}
+          maxWidth={maxWidth}
+          isLoading={isLoading}
+        >
           {isLoading ? (
             <Box padding="40px">
               <CircleLoader />

@@ -7,10 +7,10 @@ import Store from '~/state/Store'
 import User from '~/state/User'
 import { navItems } from '~/config/navigation'
 import PageLoader from '~/components/organisms/PageLoader'
-import useIsMobile from '~/utils/hooks/useIsMobile'
+import useIsMobile from '~/utils/useIsMobile'
 import { MOBILE_BREAKPOINT } from '~/components/organisms/Header/constants'
-import { CommonProps } from '~/components/CommonProps'
-import Modals from '~/state/Modals'
+import { CommonProps } from '~/styles/utils/CommonProps'
+import Modals from '~/state/Modal'
 
 interface AppProps extends CommonProps {
   title: string

@@ -6,7 +6,7 @@ import {
 } from '~/api/products'
 
 import Home, { ProductGroup } from '~/components/templates/Home'
-import Modals from '~/state/Modals'
+import Modals from '~/state/Modal'
 import Store from '~/state/Store'
 
 function HomePage() {

@@ -6,7 +6,7 @@ import Paragraph from '~/components/atoms/Paragraph'
 import Radio from '~/components/atoms/Radio'
 import List from '~/components/molecules/List'
 import { InputType } from '~/modules/products/types'
-import formatMoney from '~/utils/formatters/formatMoney'
+import formatMoney from '~/utils/formatMoney'
 
 interface InputItemProps {
   type: InputType

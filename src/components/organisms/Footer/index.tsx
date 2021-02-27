@@ -1,6 +1,6 @@
 import React from 'react'
 import getString from '~/i18n/getString'
-import useIsMounted from '~/utils/hooks/useIsMounted'
+import useIsMounted from '~/utils/useIsMounted'
 
 import { Container, PoweredBy, PoweredByLink } from './styles'
 

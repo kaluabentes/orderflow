@@ -11,6 +11,8 @@ import ContainersProvider from '~/state'
 import OrderModalContainer from '~/containers/OrderModalContainer'
 import AddressModalContainer from '~/containers/AddressModalContainer'
 import LoginModalContainer from '~/containers/LoginModalContainer'
+import ConfirmContainer from '~/containers/ConfirmContainer'
+import PromptContainer from '~/containers/PromptContainer'
 
 Sentry.init({
   dsn:
@@ -28,6 +30,8 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
         <OrderModalContainer />
         <AddressModalContainer />
         <LoginModalContainer />
+        <ConfirmContainer />
+        <PromptContainer />
       </ThemeProvider>
     </ContainersProvider>
   )

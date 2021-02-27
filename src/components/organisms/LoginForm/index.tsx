@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 import Button from '~/components/atoms/Button'
 import Input from '~/components/atoms/Input'
 import getString from '~/i18n/getString'
-import formatPhone from '~/utils/formatters/formatPhone'
+import formatPhone from '~/utils/formatPhone'
 import Paragraph from '~/components/atoms/Paragraph'
 
 interface LoginFormProps {

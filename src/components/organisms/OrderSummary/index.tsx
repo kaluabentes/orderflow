@@ -9,7 +9,7 @@ import {
   LoaderTitle
 } from '~/components/molecules/ProductCard/styles'
 import getString from '~/i18n/getString'
-import formatMoney from '~/utils/formatters/formatMoney'
+import formatMoney from '~/utils/formatMoney'
 
 import {
   Container,
@@ -22,7 +22,7 @@ import {
 import Icon from '~/components/atoms/Icon'
 import theme from '~/styles/theme'
 import Heading from '~/components/atoms/Heading'
-import useIsMobile from '~/utils/hooks/useIsMobile'
+import useIsMobile from '~/utils/useIsMobile'
 
 type Id = string | number
 
@@ -52,6 +52,7 @@ interface OrderSummaryProps {
   subtotal: number
   deliveryTax: number
   total: number
+  showConfirmButton?: boolean
   isFixed?: boolean
   onConfirm: () => void
   onEdit: (itemId: Id) => void
@@ -60,6 +61,8 @@ interface OrderSummaryProps {
 }
 
 function OrderSummary({
+  margin,
+  showConfirmButton = true,
   items,
   subtotal,
   deliveryTax,
@@ -73,17 +76,10 @@ function OrderSummary({
   const isMobile = useIsMobile()
 
   return (
-    <Container isFixed={isFixed}>
-      {!isMobile && (
-        <Heading
-          as="h3"
-          fontWeight="500"
-          fontSize="1.375rem"
-          margin="0 0 20px 0"
-        >
-          {getString('app.orderSummary.title')}
-        </Heading>
-      )}
+    <Container margin={margin} isFixed={isFixed}>
+      <Heading as="h3" fontWeight="500" fontSize="1.375rem" margin="0 0 20px 0">
+        {getString('app.orderSummary.title')}
+      </Heading>
       {items.length > 0 ? (
         <>
           <Scroller isFixed={isFixed}>
@@ -114,9 +110,11 @@ function OrderSummary({
               <TotalLabel>{formatMoney(total)}</TotalLabel>
             </Box>
           </Summary>
-          <Button onClick={onConfirm} variant="primary">
-            {getString('confirm')}
-          </Button>
+          {showConfirmButton && (
+            <Button onClick={onConfirm} variant="primary">
+              {getString('confirm')}
+            </Button>
+          )}
         </>
       ) : (
         <Box padding="20px" alignItems="center">

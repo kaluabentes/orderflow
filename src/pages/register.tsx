@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Register from '~/components/templates/Register'
 import { registerUser } from '~/modules/auth/actions'
 import useAuth from '~/modules/auth/useAuth'
-import Location from '~/utils/services/Location'
+import Location from '~/utils/Location'
 
 function RegisterPage() {
   const router = useRouter()

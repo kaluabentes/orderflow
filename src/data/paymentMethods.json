@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "name": "Dinheiro",
+    "isMoney": true
+  },
+  {
+    "id": "2",
+    "name": "Mastercard - Débito",
+    "isMoney": false
+  },
+  {
+    "id": "3",
+    "name": "Visa - Débito",
+    "isMoney": false
+  },
+  {
+    "id": "4",
+    "name": "Elo - Débito",
+    "isMoney": false
+  },
+  {
+    "id": "5",
+    "name": "Banricompras - Débito",
+    "isMoney": false
+  },
+  {
+    "id": "6",
+    "name": "Visa - Crédito",
+    "isMoney": false
+  },
+  {
+    "id": "7",
+    "name": "Mastercard - Crédito",
+    "isMoney": false
+  },
+  {
+    "id": "8",
+    "name": "Elo - Crédito",
+    "isMoney": false
+  },
+  {
+    "id": "9",
+    "name": "Amex - Crédito",
+    "isMoney": false
+  },
+  {
+    "id": "10",
+    "name": "Alelo refeição - Vale-refeição",
+    "isMoney": false
+  },
+  {
+    "id": "11",
+    "name": "Sodexo refeição - Vale-refeição",
+    "isMoney": false
+  },
+  {
+    "id": "12",
+    "name": "Ticket refeição - Vale-refeição",
+    "isMoney": false
+  }
+]

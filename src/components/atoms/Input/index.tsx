@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CommonProps } from '../../CommonProps'
+import { CommonProps } from '../../../styles/utils/CommonProps'
 import Label from '../Label'
 import ErrorMessage from '../ErrorMessage'
 

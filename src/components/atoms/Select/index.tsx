@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CommonProps } from '~/components/CommonProps'
+import { CommonProps } from '~/styles/utils/CommonProps'
 import Label from '~/components/atoms/Label'
 
 import { Container, Field } from './styles'

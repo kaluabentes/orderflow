@@ -6,7 +6,7 @@ import usePlacesAutocomplete, {
   getGeocode
 } from 'use-places-autocomplete'
 import User from '~/state/User'
-import Modals from '~/state/Modals'
+import Modals from '~/state/Modal'
 import { create } from '~/api/addresses'
 
 function getAddressComponent(type, addrComponents) {

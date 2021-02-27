@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import Storage from '~/utils/services/Storage'
+import Storage from '~/utils/Storage'
 
 function useLocalStorageState(key, initialState?) {
   const [state, setState] = useState(initialState)

@@ -5,9 +5,9 @@ import Amount from '~/components/atoms/Amount'
 import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import Paragraph from '~/components/atoms/Paragraph'
-import { CommonProps } from '~/components/CommonProps'
+import { CommonProps } from '~/styles/utils/CommonProps'
 import getString from '~/i18n/getString'
-import formatMoney from '~/utils/formatters/formatMoney'
+import formatMoney from '~/utils/formatMoney'
 
 import { Container, ContentGrid, Description, Price } from './styles'
 

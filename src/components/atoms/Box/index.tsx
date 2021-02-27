@@ -2,7 +2,7 @@ import { css } from 'styled-components'
 import React from 'react'
 
 import styled from '~/styles/utils/styled'
-import { CommonProps } from '../../CommonProps'
+import { CommonProps } from '../../../styles/utils/CommonProps'
 
 const Div = styled('div')(css`
   display: flex;

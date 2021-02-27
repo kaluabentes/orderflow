@@ -1,5 +1,5 @@
 import React from 'react'
-import { CommonProps } from '~/components/CommonProps'
+import { CommonProps } from '~/styles/utils/CommonProps'
 
 import { Container, Item } from './styles'
 

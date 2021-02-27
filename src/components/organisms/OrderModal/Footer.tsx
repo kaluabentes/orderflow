@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Amount from '~/components/atoms/Amount'
 import Button from '~/components/atoms/Button'
 import Box from '~/components/atoms/Box'
-import formatMoney from '~/utils/formatters/formatMoney'
+import formatMoney from '~/utils/formatMoney'
 import getString from '~/i18n/getString'
-import useIsMobile from '~/utils/hooks/useIsMobile'
+import useIsMobile from '~/utils/useIsMobile'
 
 function Footer({ totalPrice, quantity, onQuantityChange, onConfirm }) {
   const isMobile = useIsMobile()

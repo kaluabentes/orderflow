@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CommonProps } from '~/components/CommonProps'
+import { CommonProps } from '~/styles/utils/CommonProps'
 import { Container } from './styles'
 
 interface LabelProps extends CommonProps {

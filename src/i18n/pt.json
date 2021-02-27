@@ -67,5 +67,7 @@
   "submit": "Enviar",
   "save": "Salvar",
   "enter": "Entrar",
-  "verificationCode": "Código de verificação"
+  "verificationCode": "Código de verificação",
+  "yes": "Sim",
+  "no": "Não"
 }

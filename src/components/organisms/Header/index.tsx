@@ -4,7 +4,7 @@ import { Portal } from 'react-portal'
 import CounterIconButton from '~/components/atoms/CounterIconButton'
 import Heading from '~/components/atoms/Heading'
 import IconButton from '~/components/atoms/IconButton'
-import useIsMobile from '~/utils/hooks/useIsMobile'
+import useIsMobile from '~/utils/useIsMobile'
 import SearchInput from '~/components/atoms/SearchInput'
 
 import {
@@ -23,7 +23,7 @@ import {
 } from './styles'
 import getString from '~/i18n/getString'
 import Icon from '~/components/atoms/Icon'
-import useIsMounted from '~/utils/hooks/useIsMounted'
+import useIsMounted from '~/utils/useIsMounted'
 import Button from '~/components/atoms/Button'
 import Box from '~/components/atoms/Box'
 import { MOBILE_BREAKPOINT } from './constants'

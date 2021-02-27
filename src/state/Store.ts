@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { createContainer } from 'unstated-next'
 
-import useStorageState from '~/utils/hooks/useLocalStorageState'
+import useStorageState from '~/utils/useLocalStorageState'
 import storeData from '~/data/store.json'
 
 const INITIAL_STATE = {

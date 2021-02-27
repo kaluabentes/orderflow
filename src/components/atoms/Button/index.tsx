@@ -1,5 +1,5 @@
 import React from 'react'
-import { CommonProps } from '../../CommonProps'
+import { CommonProps } from '../../../styles/utils/CommonProps'
 
 import { Container, Loader } from './styles'
 
@@ -10,9 +10,11 @@ interface ButtonProps extends CommonProps {
   variant?: 'default' | 'primary' | 'info' | 'warning' | 'defaultDark'
   type?: string
   outlined?: boolean
+  isActive?: boolean
 }
 
 function Button({
+  isActive = false,
   onClick,
   variant = 'default',
   isLoading = false,
@@ -31,6 +33,7 @@ function Button({
       disabled={isLoading}
       outlined={outlined}
       isInline={isInline}
+      isActive={isActive}
     >
       {isLoading ? <Loader /> : children}
     </Container>

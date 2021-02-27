@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CommonProps } from '../../CommonProps'
+import { CommonProps } from '../../../styles/utils/CommonProps'
 import IconButton from '../../atoms/IconButton'
 import Base from '../Base'
 import { Header, BlankBrick } from './styles'

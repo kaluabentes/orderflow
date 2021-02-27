@@ -4,7 +4,7 @@ import Heading from '~/components/atoms/Heading'
 import Logo from '~/components/atoms/Logo'
 import Paragraph from '~/components/atoms/Paragraph'
 import { Product } from '~/modules/products/types'
-import formatMoney from '~/utils/formatters/formatMoney'
+import formatMoney from '~/utils/formatMoney'
 
 interface ProductInfoProps {
   product: Product | any

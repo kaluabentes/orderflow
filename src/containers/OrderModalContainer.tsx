@@ -4,7 +4,7 @@ import OrderModal from '~/components/organisms/OrderModal'
 import getInitialState from '~/components/organisms/OrderModal/getInitialState'
 import hasRequiredEmpty from '~/modules/orders/hasRequiredEmpty'
 import Cart from '~/state/Cart'
-import Modals from '~/state/Modals'
+import Modals from '~/state/Modal'
 
 function OrderModalContainer() {
   const modals = Modals.useContainer()

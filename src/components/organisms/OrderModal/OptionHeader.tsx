@@ -3,7 +3,7 @@ import Badge from '~/components/atoms/Badge'
 import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import Paragraph from '~/components/atoms/Paragraph'
-import { CommonProps } from '~/components/CommonProps'
+import { CommonProps } from '~/styles/utils/CommonProps'
 import getString from '~/i18n/getString'
 
 interface OptionHeaderProps extends CommonProps {

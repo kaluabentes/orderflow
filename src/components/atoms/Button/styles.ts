@@ -19,9 +19,15 @@ export const Container = styled('button')(css`
 
   &:focus {
     outline: none;
-    box-shadow: 0px 0px 0px 1px inset ${props => props.theme.colors.info};
-    border-color: ${props => props.theme.colors.info};
+    box-shadow: none;
+    border-color: transparent;
   }
+
+  ${props =>
+    props.isActive &&
+    css`
+      border: 3px solid ${props => props.theme.colors.primary} !important;
+    `}
 
   ${props =>
     props.isInline &&

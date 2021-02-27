@@ -3,7 +3,7 @@ import React from 'react'
 import Store from './Store'
 import Cart from './Cart'
 import User from './User'
-import Modals from './Modals'
+import Modals from './Modal'
 
 function ContainersProvider({ children }) {
   return (

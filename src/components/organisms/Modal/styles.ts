@@ -13,13 +13,23 @@ export const Content = styled.div<{ isLoading: boolean | undefined }>`
   height: 100vh;
   width: 100%;
   transform: translateY(100%);
-  transition: 0.8s;
+  transition: 0.3s;
   z-index: 10;
   display: flex;
   flex-direction: column;
   left: 0;
   top: 0;
   overflow-y: auto;
+
+  
+    ${props =>
+      props.sheetMode &&
+      css`
+        @media (max-width: 600px) {
+          height: auto;
+          bottom: 0;
+        }
+      `}
 
   @media (min-width: 600px) {
     max-height: 580px;
@@ -57,13 +67,21 @@ export const Container = styled.div<{ isOpen: boolean }>`
   height: 100vh;
   width: 100vw;
   top: 0;
-  transition: 0.8s;
+  transition: 0.3s;
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: flex-start;
+
+  ${props =>
+    props.sheetMode &&
+    css`
+      @media (max-width: 600px) {
+        align-items: flex-end;
+      }
+    `}
 
   ${props =>
     props.isOpen &&

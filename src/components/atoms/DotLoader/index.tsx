@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { CommonProps } from '../../CommonProps'
+import { CommonProps } from '../../../styles/utils/CommonProps'
 
 import { Container, Dot } from './styles'
 

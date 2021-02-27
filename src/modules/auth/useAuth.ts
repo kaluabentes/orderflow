@@ -1,4 +1,4 @@
-import useStorageState from '~/utils/hooks/useLocalStorageState'
+import useStorageState from '~/utils/useLocalStorageState'
 
 interface Coords {
   latitude: string

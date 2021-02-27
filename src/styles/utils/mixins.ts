@@ -104,6 +104,22 @@ function mixins(props) {
     {
       name: 'overflow',
       value: props['overflow']
+    },
+    {
+      name: 'display',
+      value: props['display']
+    },
+    {
+      name: 'grid-template-columns',
+      value: props['gridTemplateColumns']
+    },
+    {
+      name: 'grid-gap',
+      value: props['gridGap']
+    },
+    {
+      name: 'border-radius',
+      value: props['borderRadius']
     }
   ]
 }

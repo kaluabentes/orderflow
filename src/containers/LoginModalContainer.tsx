@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import LoginModal, { Step } from '~/components/organisms/LoginModal'
-import Modals from '~/state/Modals'
+import Modals from '~/state/Modal'
 import { login, verify, register } from '~/api/users'
 import User from '~/state/User'
 

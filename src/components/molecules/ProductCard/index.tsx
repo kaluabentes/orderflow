@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import formatMoney from '~/utils/formatters/formatMoney'
+import formatMoney from '~/utils/formatMoney'
 
 import {
   Container,
