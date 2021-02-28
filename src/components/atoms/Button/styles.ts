@@ -26,7 +26,7 @@ export const Container = styled('button')(css`
   ${props =>
     props.isActive &&
     css`
-      border: 3px solid ${props => props.theme.colors.primary} !important;
+      border: 2px solid ${props => props.theme.colors.primary} !important;
     `}
 
   ${props =>
