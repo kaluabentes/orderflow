@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { createContainer } from 'unstated-next'
-import User from './User'
 
 const MODALS = ['AddressModal', 'OrderModal', 'LoginModal', 'Confirm', 'Prompt']
 
@@ -15,16 +14,36 @@ const INITIAL_STATE = MODALS.reduce(
 function useModal() {
   const [state, setState] = useState(INITIAL_STATE)
 
-  function open(modal, options = {}) {
-    setState(prev => ({ ...prev, [modal]: { isOpen: true, options } }))
+  function open(modal, options = undefined) {
+    if (options) {
+      setState(prev => ({
+        ...prev,
+        [modal]: { ...prev[modal], isOpen: true, options }
+      }))
+      return
+    }
+
+    setState(prev => ({ ...prev, [modal]: { ...prev[modal], isOpen: true } }))
   }
 
   function close(modal, options = {}) {
+    if (options) {
+      setState(prev => ({
+        ...prev,
+        [modal]: {
+          ...prev[modal],
+          isOpen: false,
+          options: { ...prev[modal].options, ...options }
+        }
+      }))
+      return
+    }
+
     setState(prev => ({
       ...prev,
       [modal]: {
-        isOpen: false,
-        options: { ...prev[modal].options, ...options }
+        ...prev[modal],
+        isOpen: false
       }
     }))
   }
@@ -38,7 +57,6 @@ function useModal() {
   }
 
   function getOption(modal, option) {
-    console.log(state[modal].options)
     return state[modal].options[option]
   }
 
@@ -52,7 +70,7 @@ function useModal() {
           options: { ...prev[modal].options, ...options }
         }
       }
-      console.log(next)
+
       return next
     })
   }

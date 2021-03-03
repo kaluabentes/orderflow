@@ -11,7 +11,7 @@ const INITIAL_STATE = {
 
 export function usePrompt() {
   const modal = Modal.useContainer()
-  console.log('last', modal.getOptions('Prompt'))
+
   function prompt(options) {
     modal.updateOptions('Prompt', { isOpen: true, ...options })
   }
@@ -21,7 +21,6 @@ export function usePrompt() {
   }
 
   function getValue() {
-    console.log('getValue', modal.getOptions('Prompt'))
     return 0
   }
 

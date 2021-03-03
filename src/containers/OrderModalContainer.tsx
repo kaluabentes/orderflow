@@ -84,7 +84,7 @@ function OrderModalContainer() {
       isOpen={modals.isOpen('OrderModal')}
       onClose={() => {
         setTimeout(cleanup, 500)
-        modals.close('OrderModal')
+        modals.close('OrderModal', { mode: undefined })
       }}
       value={orderWizardValue}
       product={modalOptions.product}

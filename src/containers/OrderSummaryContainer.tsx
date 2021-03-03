@@ -26,8 +26,7 @@ function OrderSummaryContainer({
   }
 
   function handleOrderItemEdit(itemId) {
-    modals.updateOptions('OrderModal', { mode: 'edit', itemId })
-    modals.open('OrderModal')
+    modals.updateOptions('OrderModal', { isOpen: true, mode: 'edit', itemId })
   }
 
   function handleConfirmOrder() {
