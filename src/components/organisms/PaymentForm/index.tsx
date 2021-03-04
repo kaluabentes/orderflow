@@ -22,12 +22,7 @@ function PaymentForm({ selectedMethodId, change, methods, onMethodClick }) {
       <Paragraph margin="0 0 20px 0" variant="muted">
         Selecione um dos métodos abaixo para finalizar seu pedido
       </Paragraph>
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(1, 1fr)"
-        gridGap="15px"
-        margin="0 0 20px 0"
-      >
+      <Box display="grid" gridTemplateColumns="repeat(1, 1fr)" gridGap="15px">
         {methods.map(m => (
           <Button
             isActive={selectedMethodId === m.id}

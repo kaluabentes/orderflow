@@ -53,6 +53,8 @@ interface OrderSummaryProps {
   deliveryTax: number
   total: number
   showConfirmButton?: boolean
+  confirmText?: string
+  margin?: string
   isFixed?: boolean
   onConfirm: () => void
   onEdit: (itemId: Id) => void
@@ -61,6 +63,7 @@ interface OrderSummaryProps {
 }
 
 function OrderSummary({
+  confirmText = getString('confirm'),
   margin,
   showConfirmButton = true,
   items,
@@ -112,7 +115,7 @@ function OrderSummary({
           </Summary>
           {showConfirmButton && (
             <Button onClick={onConfirm} variant="primary">
-              {getString('confirm')}
+              {confirmText}
             </Button>
           )}
         </>

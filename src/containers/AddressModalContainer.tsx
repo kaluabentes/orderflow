@@ -7,7 +7,7 @@ import usePlacesAutocomplete, {
 } from 'use-places-autocomplete'
 import User from '~/state/User'
 import Modals from '~/state/Modal'
-import { create } from '~/api/addresses'
+import { post } from '~/api/addresses'
 
 function getAddressComponent(type, addrComponents) {
   const component = addrComponents.find(addrComp =>
@@ -50,10 +50,13 @@ function AddressModalContainer() {
     setError(undefined)
     const addressItem = results.find(place => address.id === place.id)
     addressItem.title = `${address.street}, ${address.number}`
-    const { data: responseAddress } = await create(user.state.id, address)
+
+    const { data: responseAddress } = await post(user.state.id, address)
+
     setValue('')
     clearSuggestions()
     setAddress(undefined)
+
     user.addAddress({ ...addressItem, id: responseAddress.id })
     user.setCurrentAddress(responseAddress.id)
     modals.close('AddressModal')
@@ -83,8 +86,7 @@ function AddressModalContainer() {
       district: getAddressComponent('sublocality', address_components),
       complement: '',
       latitude: coords.lat,
-      longitude: coords.lng,
-      deliveryTax: 0.0
+      longitude: coords.lng
     })
 
     setIsLoading(false)

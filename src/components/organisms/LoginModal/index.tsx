@@ -34,7 +34,13 @@ function LoginModal({
   onClose
 }: LoginModalProps) {
   return (
-    <Modal maxWidth={400} title="Fazer login" isOpen={isOpen} onClose={onClose}>
+    <Modal
+      sheetMode
+      maxWidth={400}
+      title="Fazer login"
+      isOpen={isOpen}
+      onClose={onClose}
+    >
       {step === 'login' && (
         <LoginForm
           onSubmit={onPhoneSubmit}

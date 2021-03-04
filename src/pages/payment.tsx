@@ -5,14 +5,21 @@ import Payment from '~/components/templates/Payment'
 import { useConfirm } from '~/containers/ConfirmContainer'
 import { usePrompt } from '~/containers/PromptContainer'
 import methods from '~/data/paymentMethods.json'
+import useProtectedPage from '~/modules/auth/useProtectedPage'
+import User from '~/state/User'
 import maskMoney from '~/utils/maskMoney'
+
+export function parseChange(changeVal) {
+  return Number(maskMoney(changeVal).replace(',', '.'))
+}
 
 function PaymentPage() {
   const [isPromptOpen, setIsPromptOpen] = useState(false)
-  const [change, setChange] = useState('')
-  const [selectedMethodId, setSelectedMethodId] = useState('')
   const confirm = useConfirm()
   const prompt = usePrompt()
+  const user = User.useContainer()
+
+  useProtectedPage()
 
   function handleMethodClick(method) {
     if (method.isMoney) {
@@ -20,23 +27,23 @@ function PaymentPage() {
         title: 'Dinheiro',
         message: 'Você precisa de troco?',
         onDecline: () => {
-          setChange('')
+          user.setChange('')
         },
         onClose: () => {
-          setChange('')
+          user.setChange('')
         },
         onConfirm: () => setIsPromptOpen(true)
       })
     }
 
-    setSelectedMethodId(method.id)
+    user.setPaymentMethodId(method.id)
   }
 
   return (
     <>
       <Payment
-        selectedMethodId={selectedMethodId}
-        change={Number(maskMoney(change).replace(',', '.'))}
+        selectedMethodId={user.state.paymentMethodId}
+        change={parseChange(user.state.change)}
         onMethodClick={handleMethodClick}
         methods={methods}
       />
@@ -45,8 +52,8 @@ function PaymentPage() {
         title="Troco para quanto?"
         message="Digite o valor para o troco"
         placeholder="50,00"
-        value={maskMoney(change)}
-        onChange={event => setChange(event.target.value)}
+        value={maskMoney(user.state.change)}
+        onChange={event => user.setChange(event.target.value)}
         onClose={() => setIsPromptOpen(false)}
         onConfirm={() => setIsPromptOpen(false)}
         maxLength={6}

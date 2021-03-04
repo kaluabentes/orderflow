@@ -6,6 +6,7 @@ import Button from '~/components/atoms/Button'
 import InnerHeader from '~/components/organisms/InnerHeader'
 import OrderSummary from '~/components/organisms/OrderSummary'
 import OrderSummaryContainer from '~/containers/OrderSummaryContainer'
+import getString from '~/i18n/getString'
 import Cart from '~/state/Cart'
 import useIsMobile from '~/utils/useIsMobile'
 import App from '../App'
@@ -22,7 +23,7 @@ function CartTemplate({ onConfirm, onEdit, onRemove, onKeepBuying }) {
         alignItems="center"
         padding="15px 0"
       >
-        <OrderSummaryContainer />
+        <OrderSummaryContainer confirmText={getString('payment')} />
       </Box>
     </App>
   )

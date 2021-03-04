@@ -1,17 +1,14 @@
 import React from 'react'
-import Box from '~/components/atoms/Box'
 
+import Box from '~/components/atoms/Box'
 import Button from '~/components/atoms/Button'
-import Paragraph from '~/components/atoms/Paragraph'
 import getString from '~/i18n/getString'
 import Modal from '../Modal'
 
 function Confirm({ isOpen, title, message, onClose, onConfirm, onDecline }) {
   return (
     <Modal sheetMode title={title} isOpen={isOpen} onClose={onClose}>
-      <Paragraph margin="0 0 20px 0" fontWeight="400">
-        {message}
-      </Paragraph>
+      <Box margin="0 0 20px 0">{message}</Box>
       <Box flexDirection="row">
         <Button onClick={onConfirm} variant="primary" margin="0 5px 0 0">
           {getString('yes')}

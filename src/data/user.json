@@ -8,73 +8,57 @@
       "id": 1,
       "title": "Rua Maoel Filho, 34",
       "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
+      "icon": "room",
+      "deliveryTax": 1.0
     },
     {
       "id": 2,
       "title": "Rua Maoel Filho, 34",
       "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
+      "icon": "room",
+      "deliveryTax": 10.5
     },
     {
       "id": 3,
       "title": "Rua Maoel Filho, 34",
       "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
+      "icon": "room",
+      "deliveryTax": 20.5
     },
     {
       "id": 4,
       "title": "Rua Maoel Filho, 34",
       "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
+      "icon": "room",
+      "deliveryTax": 30.4
     },
     {
       "id": 5,
       "title": "Rua Maoel Filho, 34",
       "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
+      "icon": "room",
+      "deliveryTax": 20.1
     },
     {
       "id": 6,
       "title": "Rua Maoel Filho, 34",
       "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
+      "icon": "room",
+      "deliveryTax": 15
     },
     {
       "id": 7,
       "title": "Rua Maoel Filho, 34",
       "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
+      "icon": "room",
+      "deliveryTax": 21
     },
     {
       "id": 8,
       "title": "Rua Maoel Filho, 34",
       "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
-    },
-    {
-      "id": 9,
-      "title": "Rua Maoel Filho, 34",
-      "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
-    },
-    {
-      "id": 10,
-      "title": "Rua Maoel Filho, 34",
-      "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
-    },
-    {
-      "id": 11,
-      "title": "Rua Maoel Filho, 34",
-      "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
-    },
-    {
-      "id": 12,
-      "title": "Rua Maoel Filho, 34",
-      "subtitle": "Alagoas, Florianopolis / SC, Brasil",
-      "icon": "room"
+      "icon": "room",
+      "deliveryTax": 13
     }
   ],
   "token": "13123121d12d1"

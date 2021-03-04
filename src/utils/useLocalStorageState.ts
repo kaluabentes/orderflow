@@ -6,6 +6,7 @@ function useLocalStorageState(key, initialState?) {
   const [state, setState] = useState(initialState)
   const keyRef = useRef()
 
+  // Retrive stored data on start
   useEffect(() => {
     const storedState = Storage.getItem(key)
 
@@ -14,6 +15,7 @@ function useLocalStorageState(key, initialState?) {
     }
   }, [])
 
+  // Keep in sync
   useEffect(() => {
     const storedState = Storage.getItem(key)
 

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 
 import Box from '~/components/atoms/Box'
 import ProductCard from '~/components/molecules/ProductCard'
-import Footer from '~/components/organisms/Footer'
 import OrderSummary from '~/components/organisms/OrderSummary'
 import ProductGrid from '~/components/organisms/ProductGrid'
 import useIsMobile from '~/utils/useIsMobile'
@@ -96,12 +95,14 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
               ))}
             </Box>
             <Responsive width="100%" maxWidth="400px" hideMaxWidth={1024}>
-              <OrderSummaryContainer isFixed={isOrderFixed} />
+              <OrderSummaryContainer
+                confirmText={getString('payment')}
+                isFixed={isOrderFixed}
+              />
             </Responsive>
           </>
         )}
       </MainGrid>
-      <Footer />
     </App>
   )
 }

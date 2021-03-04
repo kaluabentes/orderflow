@@ -27,6 +27,7 @@ interface OrderModalProps {
   product: Product
   options: Option[]
   value: any
+  mode: string
   quantity: number
   onConfirm?: (data: any) => void
   onClose?: () => void
@@ -37,6 +38,7 @@ interface OrderModalProps {
 function OrderModal({
   isLoading,
   isOpen,
+  mode,
   hasRequiredEmpty,
   product,
   quantity,
@@ -82,6 +84,7 @@ function OrderModal({
         />
       </Box>
       <Footer
+        mode={mode}
         onConfirm={() => onConfirm({ obs })}
         quantity={quantity}
         onQuantityChange={onQuantityChange}

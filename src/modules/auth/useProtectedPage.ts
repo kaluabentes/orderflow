@@ -1,16 +1,16 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import useAuth from './useAuth'
+import User from '~/state/User'
 
 function useProtectedPage() {
   const router = useRouter()
-  const [auth] = useAuth()
+  const user = User.useContainer()
 
   useEffect(() => {
-    if (!auth.token && auth.isReady) {
-      router.push('/welcome')
+    if (!user.state.token) {
+      router.push('/')
     }
-  }, [auth])
+  }, [user.state.token])
 }
 
 export default useProtectedPage

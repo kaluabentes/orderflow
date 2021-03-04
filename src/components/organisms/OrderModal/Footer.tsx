@@ -6,7 +6,7 @@ import formatMoney from '~/utils/formatMoney'
 import getString from '~/i18n/getString'
 import useIsMobile from '~/utils/useIsMobile'
 
-function Footer({ totalPrice, quantity, onQuantityChange, onConfirm }) {
+function Footer({ mode, totalPrice, quantity, onQuantityChange, onConfirm }) {
   const isMobile = useIsMobile()
 
   useEffect(() => {}, [])
@@ -36,7 +36,8 @@ function Footer({ totalPrice, quantity, onQuantityChange, onConfirm }) {
         />
       </Box>
       <Button onClick={onConfirm} margin="0 0 0 10px" variant="primary">
-        {getString('add')} {totalPrice ? formatMoney(totalPrice) : ''}
+        {mode === 'add' ? getString('add') : getString('confirm')}{' '}
+        {totalPrice ? formatMoney(totalPrice) : ''}
       </Button>
     </Box>
   )

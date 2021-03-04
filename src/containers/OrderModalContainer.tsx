@@ -78,6 +78,7 @@ function OrderModalContainer() {
   return (
     <OrderModal
       isLoading={!options.length}
+      mode={modalOptions.mode}
       hasRequiredEmpty={showRequiredError}
       quantity={orderQuantity}
       onQuantityChange={value => setOrderQuantity(value)}
