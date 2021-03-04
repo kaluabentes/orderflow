@@ -31,9 +31,9 @@ interface AddressModalProps {
   isOpen: boolean
   search: string
   onSearch: (event: any) => void
-  results: AddressResult[]
+  results: any[]
   address: Address
-  userAddresses: Address[]
+  userAddresses: any[]
   onAddressClick: (address: any, isSavedAddress: boolean) => void
   onAddressChange: (event: any) => void
   onBack: () => void

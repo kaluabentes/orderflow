@@ -1,6 +1,4 @@
-import { useEffect } from 'react'
 import { createContainer } from 'unstated-next'
-import { create } from '~/api/addresses'
 import useStorageState from '~/utils/useLocalStorageState'
 
 const INITIAL_STATE = {

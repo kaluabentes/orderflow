@@ -7,7 +7,7 @@ import { Container } from './styles'
 
 interface IconButtonProps extends CommonProps {
   name: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 function IconButton({ name, onClick, ...props }: IconButtonProps) {

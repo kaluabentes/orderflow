@@ -27,7 +27,7 @@ interface OrderModalProps {
   product: Product
   options: Option[]
   value: any
-  mode: string
+  mode?: string
   quantity: number
   onConfirm?: (data: any) => void
   onClose?: () => void

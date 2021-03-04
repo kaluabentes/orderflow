@@ -4,7 +4,7 @@ import { CommonProps } from '~/styles/utils/CommonProps'
 import { Container } from './styles'
 
 interface LabelProps extends CommonProps {
-  htmlFor: string
+  htmlFor?: string
 }
 
 function Label({ children, htmlFor, ...props }: LabelProps) {

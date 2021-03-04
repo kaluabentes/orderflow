@@ -6,7 +6,7 @@ import Button from '~/components/atoms/Button'
 import Input from '~/components/atoms/Input'
 import getString from '~/i18n/getString'
 import Select from '~/components/atoms/Select'
-import getRequiredError from '~/utils/getters/getRequiredError'
+import getRequiredError from '~/utils/getRequiredError'
 
 import { AddressGrid } from './styles'
 
