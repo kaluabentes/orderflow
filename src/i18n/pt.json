@@ -70,5 +70,11 @@
   "verificationCode": "Código de verificação",
   "yes": "Sim",
   "no": "Não",
-  "advance": "Avançar"
+  "advance": "Avançar",
+  "order.status.sent": "O pedido foi enviado",
+  "order.status.confirmed": "Seu pedido está sendo preparado",
+  "order.status.rejected": "O pedido foi rejeitado",
+  "order.status.ready": "Seu pedido está a caminho",
+  "order.status.finished": "O pedido foi entregue",
+  "estimatedTime": "Tempo estimado"
 }

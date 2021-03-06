@@ -1,7 +1,11 @@
 import React from 'react'
+import TrackOrder from '~/components/templates/TrackOrder'
+import Order from '~/state/Order'
 
-function TrackOrder() {
-  return <h1>TrackOrder</h1>
+function TrackOrderPage() {
+  const [order] = Order.useContainer()
+
+  return <TrackOrder order={order} />
 }
 
-export default TrackOrder
+export default TrackOrderPage

@@ -1,6 +1,14 @@
 function mixins(props) {
   return [
     {
+      name: 'border-left',
+      value: props['borderLeft']
+    },
+    {
+      name: 'border',
+      value: props['border']
+    },
+    {
       name: 'margin',
       value: props['margin']
     },

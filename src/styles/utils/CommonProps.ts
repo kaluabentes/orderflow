@@ -1,4 +1,3 @@
-import { StringifyOptions } from 'querystring'
 import React from 'react'
 
 interface Dimension {
@@ -7,6 +6,7 @@ interface Dimension {
 }
 
 export interface CommonProps {
+  as?: string
   margin?: string
   padding?: string
   children?: React.ReactNode
@@ -40,4 +40,6 @@ export interface CommonProps {
   gridTemplateColumns?: string
   gridGap?: string
   borderRadius?: string
+  border?: string
+  borderLeft?: string
 }
