@@ -5,6 +5,8 @@ import Order from '~/state/Order'
 function TrackOrderPage() {
   const [order] = Order.useContainer()
 
+  console.log('ORDER', order)
+
   return <TrackOrder order={order} />
 }
 

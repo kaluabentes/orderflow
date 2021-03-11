@@ -20,7 +20,6 @@ export const Container = styled('button')(css`
   &:focus {
     outline: none;
     box-shadow: none;
-    border-color: transparent;
   }
 
   ${props =>

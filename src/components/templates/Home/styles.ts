@@ -7,7 +7,7 @@ export const MainGrid = styled('div')(css`
   margin: 0 auto;
   max-width: 1265px;
   align-items: flex-start;
-  padding: 30px 20px;
+  padding: 30px 40px;
   width: 100%;
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}px) {

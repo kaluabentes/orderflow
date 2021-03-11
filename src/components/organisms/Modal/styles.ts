@@ -52,7 +52,7 @@ export const Content = styled.div<{ isLoading: boolean | undefined }>`
 `
 
 export const Overlay = styled.button`
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100vw;
   background: rgba(0, 0, 0, 0.5);

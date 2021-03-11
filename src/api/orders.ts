@@ -10,20 +10,20 @@ const activities = [
   {
     id: 2,
     status: 'confirmed',
-    createdAt: new Date(),
-    isActive: true
+    createdAt: null,
+    isActive: false
   },
   {
     id: 3,
     status: 'ready',
-    createdAt: new Date(),
-    isActive: true
+    createdAt: null,
+    isActive: false
   },
   {
     id: 4,
     status: 'finished',
-    createdAt: new Date(),
-    isActive: true
+    createdAt: null,
+    isActive: false
   }
 ]
 

@@ -67,6 +67,11 @@ function OrderSummaryContainer({
     }
 
     if (router.asPath === '/payment') {
+      if (!address.title) {
+        modals.open('AddressModal')
+        return
+      }
+
       confirm({
         title: 'Entregar em',
         message: address.title,
