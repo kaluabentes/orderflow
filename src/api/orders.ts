@@ -10,8 +10,8 @@ const activities = [
   {
     id: 2,
     status: 'confirmed',
-    createdAt: null,
-    isActive: false
+    createdAt: new Date(),
+    isActive: true
   },
   {
     id: 3,

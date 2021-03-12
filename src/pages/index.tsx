@@ -28,7 +28,7 @@ function HomePage() {
   function openOrderModal(product) {
     modals.open('OrderModal', { mode: 'add', product })
   }
-  console.log(products)
+
   return (
     <Home
       isLoading={products.isLoading}

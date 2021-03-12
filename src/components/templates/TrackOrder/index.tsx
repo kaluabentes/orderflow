@@ -7,15 +7,18 @@ import Paper from '~/components/atoms/Paper'
 import Paragraph from '~/components/atoms/Paragraph'
 import PageLoader from '~/components/organisms/PageLoader'
 import getString from '~/i18n/getString'
+import useIsMobile from '~/utils/useIsMobile'
 import App from '../App'
 import TimelineItem from './TimelineItem'
 
 function TrackOrder({ order, isLoading }) {
+  const isMobile = useIsMobile()
+
   return (
     <>
       {isLoading && <PageLoader />}
       <App title="Acompanhe">
-        <Box alignItems="center" padding="15px 0">
+        <Box alignItems="center" padding={isMobile ? '15px 0' : '60px 0'}>
           <Paper maxWidth="400px">
             <Box
               as="header"
@@ -24,21 +27,27 @@ function TrackOrder({ order, isLoading }) {
               justifyContent="space-between"
               margin="0 0 40px 0"
             >
-              <Heading fontSize="1.125rem">Rastrear pedido</Heading>
-              <Paragraph fontWeight="600" fontSize="1.125rem">
+              <Heading as="h3" fontWeight="500" fontSize="1.375rem">
+                Rastrear pedido
+              </Heading>
+              <Paragraph
+                textTransform="uppercase"
+                fontWeight="600"
+                fontSize="1.125rem"
+              >
                 #{order.id.slice(0, 6)}
               </Paragraph>
             </Box>
             <Box margin="0 0 40px 0">
               <Box
                 color="rgba(0, 0, 0, 0.3)"
-                alignItems="center"
+                alignItems="left"
                 margin="0 0 10px 0"
               >
                 {getString('estimatedTime')}
               </Box>
               <Box
-                justifyContent="center"
+                justifyContent="flex-start"
                 flexDirection="row"
                 alignItems="center"
               >

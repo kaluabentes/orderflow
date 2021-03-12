@@ -71,10 +71,10 @@
   "yes": "Sim",
   "no": "Não",
   "advance": "Avançar",
-  "order.status.sent": "O pedido foi enviado",
-  "order.status.confirmed": "Seu pedido está sendo preparado",
+  "order.status.sent": "O pedido foi enviado.",
+  "order.status.confirmed": "Pedido confirmado! Preparando.",
   "order.status.rejected": "O pedido foi rejeitado",
-  "order.status.ready": "Seu pedido está a caminho",
-  "order.status.finished": "O pedido foi entregue",
+  "order.status.ready": "O entregador está a caminho.",
+  "order.status.finished": "O pedido foi entregue.",
   "estimatedTime": "Tempo estimado"
 }

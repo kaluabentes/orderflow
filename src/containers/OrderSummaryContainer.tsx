@@ -54,6 +54,7 @@ function OrderSummaryContainer({
 
     setIsSendingOrder(true)
     const response: any = await post(order)
+    cart.clear()
     router.push(`/track-order/${response.data.id}`)
   }
 
