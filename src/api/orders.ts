@@ -27,6 +27,20 @@ const activities = [
   }
 ]
 
+export function getOne(id) {
+  return new Promise(resolve =>
+    setTimeout(
+      () =>
+        resolve({
+          data: { id, activities, estimatedTime: '17:40' }
+        }),
+      1000
+    )
+  )
+}
+
+export function getAll() {}
+
 export function post(order) {
   return new Promise(resolve =>
     setTimeout(

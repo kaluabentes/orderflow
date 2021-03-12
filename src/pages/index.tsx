@@ -1,18 +1,29 @@
-import React from 'react'
-import useSWR from 'swr'
-import {
-  API_PRODUCTS_GROUPED,
-  getProductsGroupedByCategories
-} from '~/api/products'
+import React, { useEffect, useState } from 'react'
+import { getProductsGroupedByCategories } from '~/api/products'
 
 import Home, { ProductGroup } from '~/components/templates/Home'
 import Modals from '~/state/Modal'
 import Store from '~/state/Store'
 
+const INITIAL_STATE = {
+  data: [],
+  isLoading: false
+}
+
 function HomePage() {
-  const products = useSWR(API_PRODUCTS_GROUPED, getProductsGroupedByCategories)
+  const [products, setProducts] = useState(INITIAL_STATE)
   const modals = Modals.useContainer()
   const store = Store.useContainer()
+
+  useEffect(() => {
+    setProducts(prev => ({ ...prev, isLoading: true }))
+    getProductsGroupedByCategories().then((response: any) => {
+      setProducts({
+        data: response.data,
+        isLoading: false
+      })
+    })
+  }, [])
 
   function openOrderModal(product) {
     modals.open('OrderModal', { mode: 'add', product })
@@ -20,7 +31,7 @@ function HomePage() {
 
   return (
     <Home
-      isLoading={!products.data}
+      isLoading={products.isLoading}
       products={(products.data as Array<ProductGroup>) || []}
       onProductClick={openOrderModal}
       store={store}
