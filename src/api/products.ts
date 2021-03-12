@@ -12,6 +12,6 @@ export function getProducts() {
 
 export function getProductsGroupedByCategories() {
   return new Promise(resolve => {
-    setTimeout(() => resolve(productsByCategories), 1000)
+    setTimeout(() => resolve({ data: productsByCategories }), 1000)
   })
 }

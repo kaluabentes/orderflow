@@ -11,7 +11,6 @@ import { useConfirm } from './ConfirmContainer'
 import { parseChange } from '~/pages/payment'
 import { post } from '~/api/orders'
 import PageLoader from '~/components/organisms/PageLoader'
-import Order from '~/state/Order'
 
 function OrderSummaryContainer({
   isFixed = false,
@@ -28,7 +27,6 @@ function OrderSummaryContainer({
   const confirm = useConfirm()
   const address = user.getCurrentAddress()
   const [isSendingOrder, setIsSendingOrder] = useState(false)
-  const [, setOrder] = Order.useContainer()
 
   function handleOrderItemRemove(itemId) {
     cart.removeItem(itemId)

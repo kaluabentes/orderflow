@@ -28,11 +28,11 @@ function HomePage() {
   function openOrderModal(product) {
     modals.open('OrderModal', { mode: 'add', product })
   }
-
+  console.log(products)
   return (
     <Home
       isLoading={products.isLoading}
-      products={(products.data as Array<ProductGroup>) || []}
+      products={products.data}
       onProductClick={openOrderModal}
       store={store}
     />
