@@ -9,7 +9,8 @@ const INITIAL_STATE = {
   addresses: [],
   token: undefined,
   paymentMethodId: '',
-  change: ''
+  change: '',
+  order: undefined
 }
 
 function useUser() {
@@ -48,6 +49,20 @@ function useUser() {
     })
   }
 
+  function addOrder(order) {
+    setState(prev => ({
+      ...prev,
+      order
+    }))
+  }
+
+  function editOrder(order) {
+    setState(prev => ({
+      ...prev,
+      order: { ...prev.order, ...order }
+    }))
+  }
+
   function login(data) {
     setState(prev => ({
       ...prev,
@@ -66,6 +81,8 @@ function useUser() {
     setChange,
     getCurrentAddress,
     addAddress,
+    addOrder,
+    editOrder,
     login
   }
 }

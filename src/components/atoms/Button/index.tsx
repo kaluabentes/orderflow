@@ -11,9 +11,13 @@ interface ButtonProps extends CommonProps {
   type?: string
   outlined?: boolean
   isActive?: boolean
+  href?: string
+  target?: string
 }
 
 function Button({
+  href = undefined,
+  target = undefined,
   isActive = false,
   onClick,
   variant = 'default',
@@ -34,6 +38,10 @@ function Button({
       outlined={outlined}
       isInline={isInline}
       isActive={isActive}
+      as={href ? 'a' : 'button'}
+      target={target}
+      href={href}
+      rel={target === '_blank' ? 'noopener noreferrer' : null}
     >
       {isLoading ? <Loader /> : children}
     </Container>

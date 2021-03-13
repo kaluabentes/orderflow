@@ -173,7 +173,7 @@ function Header({
             ))}
           </Nav>
         )}
-        {!isMobile && renderSearchInput(search)}
+        {!isMobile && renderSearchInput(search.length > 0)}
         {isMobile && isSearchOpen && renderSearchInput(true)}
         {renderAddressSection()}
         {isMobile && !isSearchOpen && (

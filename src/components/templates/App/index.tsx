@@ -19,7 +19,7 @@ interface AppProps extends CommonProps {
   isHomePage?: boolean
 }
 
-function App({ children, title }: AppProps) {
+function App({ children, title, onBack = undefined }: AppProps) {
   const modals = Modals.useContainer()
   const store = Store.useContainer()
   const cart = Cart.useContainer()
@@ -28,7 +28,6 @@ function App({ children, title }: AppProps) {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [search, setSearch] = useState('')
   const isMobile = useIsMobile(MOBILE_BREAKPOINT)
-  const { currentAddress, addresses: userAddresses } = user.state
   const address = user.getCurrentAddress()
   const addressText = address && address.title
 
@@ -36,7 +35,7 @@ function App({ children, title }: AppProps) {
     <>
       {store.isLoading && <PageLoader />}
       <Header
-        onBack={() => router.back()}
+        onBack={onBack || (() => router.back())}
         logoSrc={store.data.logo}
         title={title}
         userName={user.state.name}

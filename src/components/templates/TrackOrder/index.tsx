@@ -11,13 +11,13 @@ import useIsMobile from '~/utils/useIsMobile'
 import App from '../App'
 import TimelineItem from './TimelineItem'
 
-function TrackOrder({ order, isLoading }) {
+function TrackOrder({ order, isLoading, onBack }) {
   const isMobile = useIsMobile()
 
   return (
     <>
       {isLoading && <PageLoader />}
-      <App title="Acompanhe">
+      <App title="Acompanhe" onBack={onBack}>
         <Box alignItems="center" padding={isMobile ? '15px 0' : '60px 0'}>
           <Paper maxWidth="400px">
             <Box
@@ -79,7 +79,13 @@ function TrackOrder({ order, isLoading }) {
               />
             </Box>
             <Button margin="0 0 10px 0">Ver pedido</Button>
-            <Button variant="primary">Enviar mensagem</Button>
+            <Button
+              variant="primary"
+              href="https://api.whatsapp.com/send?phone=5548996288801&text=Em%20que%20podemos%20ajudar%3F"
+              target="_blank"
+            >
+              Enviar mensagem
+            </Button>
           </Paper>
         </Box>
       </App>

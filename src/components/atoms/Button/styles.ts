@@ -16,6 +16,8 @@ export const Container = styled('button')(css`
   font-weight: 500;
   font-size: 0.875rem;
   transition: 0.2s;
+  text-align: center;
+  text-decoration: none;
 
   &:focus {
     outline: none;

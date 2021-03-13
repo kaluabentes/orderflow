@@ -13,6 +13,10 @@ import AddressModalContainer from '~/containers/AddressModalContainer'
 import LoginModalContainer from '~/containers/LoginModalContainer'
 import ConfirmContainer from '~/containers/ConfirmContainer'
 import PromptContainer from '~/containers/PromptContainer'
+import OrderAlert from '~/components/organisms/OrderAlert'
+import User from '~/state/User'
+import { useRouter } from 'next/router'
+import OrderAlertContainer from '~/containers/OrderAlertContainer'
 
 Sentry.init({
   dsn:
@@ -32,6 +36,7 @@ function App({ Component, pageProps }: AppProps): JSX.Element {
         <LoginModalContainer />
         <ConfirmContainer />
         <PromptContainer />
+        <OrderAlertContainer />
       </ThemeProvider>
     </ContainersProvider>
   )

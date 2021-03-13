@@ -46,7 +46,7 @@ export function post(order) {
     setTimeout(
       () =>
         resolve({
-          data: { id: ObjectID.generate(), activities, estimatedTime: '17:40' }
+          data: { id: 234, activities, estimatedTime: '17:40' }
         }),
       1000
     )

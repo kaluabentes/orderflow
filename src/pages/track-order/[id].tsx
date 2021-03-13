@@ -29,7 +29,13 @@ function TrackOrderPage() {
     }
   }, [id])
 
-  return <TrackOrder isLoading={order.isLoading} order={order.data} />
+  return (
+    <TrackOrder
+      onBack={() => router.push('/')}
+      isLoading={order.isLoading}
+      order={order.data}
+    />
+  )
 }
 
 export default TrackOrderPage
