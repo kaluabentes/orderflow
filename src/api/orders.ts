@@ -27,12 +27,42 @@ const activities = [
   }
 ]
 
-export function getOne(id) {
+const order = id => ({
+  id,
+  activities,
+  estimatedTime: '17:40',
+  deliveryTax: 13.4,
+  totalPrice: 200.4,
+  address: 'Servidão Vitórias, 40',
+  paymentMethod: 'Mastercard ***0756',
+  items: [
+    {
+      id: '604c0495961b29343d910f85',
+      title: 'Frango a milanesa com delicioso e cocrante...',
+      options:
+        '1x Pão Australiano, 1x Pão Australiano, 1x Pão Australiano, 6x Pão Australiano',
+      price: 95,
+      quantity: 1,
+      totalPrice: 95
+    },
+    {
+      id: '604c04a2961b29343d910f86',
+      title: 'Frango a milanesa com delicioso e cocrante...',
+      options:
+        '1x Pão Australiano, 1x Pão Australiano, 1x Pão Australiano, 6x Pão Australiano',
+      price: 95,
+      quantity: 1,
+      totalPrice: 95
+    }
+  ]
+})
+
+export function getOne(id): Promise<any> {
   return new Promise(resolve =>
     setTimeout(
       () =>
         resolve({
-          data: { id, activities, estimatedTime: '17:40' }
+          data: order(id)
         }),
       1000
     )

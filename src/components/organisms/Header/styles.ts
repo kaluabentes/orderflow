@@ -127,7 +127,7 @@ export const NavItem = styled(`button`)(css`
     padding: 0;
     color: white;
     opacity: 0.7;
-    margin-right: 30px;
+    margin-right: 20px;
     font-size: ${props => props.theme.typography.size.small};
 
     ${props =>

@@ -25,7 +25,7 @@ function OrderAlert({ onClick, order }) {
     >
       <Box width="100%" flexDirection="row" justifyContent="space-between">
         <Box flexDirection="row" alignItems="center" fontWeight="500">
-          <Flasher margin="0 10px 0 0" /> Acompanhar pedido
+          <Flasher margin="0 7px 0 0" /> Acompanhar pedido
         </Box>
         <Box fontWeight="bold">#{order.id}</Box>
       </Box>

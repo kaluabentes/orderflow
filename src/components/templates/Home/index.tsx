@@ -59,7 +59,7 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
   }, [])
 
   return (
-    <App title={getString('nav.home')}>
+    <App title={getString('nav.home')} showAddress>
       <Hero
         title={store.data.name}
         coverSrc={store.data.cover}

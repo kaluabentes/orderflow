@@ -43,6 +43,7 @@ interface HeaderProps {
   cartCount: string | number
   address: string
   search: string
+  showAddress?: boolean
   isSearchOpen: boolean
   onSearchOpen: () => void
   onSearchClose: () => void
@@ -55,6 +56,7 @@ interface HeaderProps {
 }
 
 function Header({
+  showAddress,
   title,
   navItems,
   userName,
@@ -175,7 +177,8 @@ function Header({
         )}
         {!isMobile && renderSearchInput(search.length > 0)}
         {isMobile && isSearchOpen && renderSearchInput(true)}
-        {renderAddressSection()}
+        {!isMobile && renderAddressSection()}
+        {isMobile && showAddress && renderAddressSection()}
         {isMobile && !isSearchOpen && (
           <>
             <IconButton

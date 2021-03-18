@@ -17,9 +17,15 @@ interface AppProps extends CommonProps {
   onBack?: () => void
   isInnerPage?: boolean
   isHomePage?: boolean
+  showAddress?: boolean
 }
 
-function App({ children, title, onBack = undefined }: AppProps) {
+function App({
+  children,
+  title,
+  onBack = undefined,
+  showAddress = false
+}: AppProps) {
   const modals = Modals.useContainer()
   const store = Store.useContainer()
   const cart = Cart.useContainer()
@@ -52,8 +58,11 @@ function App({ children, title, onBack = undefined }: AppProps) {
         onSearchClose={() => setIsSearchOpen(false)}
         onSearchChange={event => setSearch(event.target.name)}
         onLogin={() => modals.open('LoginModal')}
+        showAddress={showAddress}
       />
-      <Box margin={`${isMobile ? 126 : 75}px 0 0 0`}>{children}</Box>
+      <Box margin={`${showAddress && isMobile ? 126 : 75}px 0 0 0`}>
+        {children}
+      </Box>
     </>
   )
 }

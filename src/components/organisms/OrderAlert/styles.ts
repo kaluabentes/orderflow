@@ -13,7 +13,7 @@ const blink = keyframes`
 
 export const Flasher = styled('span')(css`
   display: inline-block;
-  height: 8px;
+  height: 10px;
   width: 8px;
   border-radius: 3px;
   animation: ${blink} 1.5s linear infinite;

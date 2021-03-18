@@ -4,12 +4,7 @@ import { getOne } from '~/api/orders'
 import TrackOrder from '~/components/templates/TrackOrder'
 
 const INITIAL_STATE = {
-  data: {
-    id: '',
-    activities: [],
-    estimatedTime: undefined
-  },
-  isLoading: false
+  data: undefined
 }
 
 function TrackOrderPage() {
@@ -19,11 +14,9 @@ function TrackOrderPage() {
 
   useEffect(() => {
     if (id) {
-      setOrder(prev => ({ ...prev, isLoading: true }))
       getOne(id).then((response: any) => {
         setOrder({
-          data: response.data,
-          isLoading: false
+          data: response.data
         })
       })
     }
@@ -31,8 +24,9 @@ function TrackOrderPage() {
 
   return (
     <TrackOrder
+      onOrderClick={() => router.push(`/order/${order.data.id}`)}
       onBack={() => router.push('/')}
-      isLoading={order.isLoading}
+      isLoading={!order.data}
       order={order.data}
     />
   )
