@@ -5,6 +5,10 @@ function mixins(props) {
       value: props['borderLeft']
     },
     {
+      name: 'border-left',
+      value: props['borderLeft']
+    },
+    {
       name: 'border',
       value: props['border']
     },

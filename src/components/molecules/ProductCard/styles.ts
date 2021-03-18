@@ -63,7 +63,7 @@ export const Description = styled(`p`)(css`
 
 export const Price = styled('p')(css`
   margin: 0;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
   color: ${props => props.theme.colors.text};
 `)

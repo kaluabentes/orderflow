@@ -35,6 +35,7 @@ const order = id => ({
   totalPrice: 200.4,
   address: 'Servidão Vitórias, 40',
   paymentMethod: 'Mastercard ***0756',
+  observation: 'Retirar maionese',
   items: [
     {
       id: '604c0495961b29343d910f85',

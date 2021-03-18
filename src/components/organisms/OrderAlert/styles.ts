@@ -1,4 +1,4 @@
-import { css, keyframes } from 'styled-components'
+import { css, keyframes, createGlobalStyle } from 'styled-components'
 import styled from '~/styles/utils/styled'
 
 const blink = keyframes`
@@ -8,6 +8,12 @@ const blink = keyframes`
   }
   50% {
     background: orange;
+  }
+`
+
+export const GlobalStyle = createGlobalStyle`
+  body {
+    padding-bottom: 58px !important;
   }
 `
 

@@ -16,8 +16,9 @@ interface OrderItemProps extends CommonProps {
   options: string
   price: number
   quantity?: number
-  onEdit: () => void
-  onRemove: () => void
+  hideControls?: boolean
+  onEdit?: () => void
+  onRemove?: () => void
   onQuantityChange?: (value: number) => void
 }
 
@@ -26,6 +27,7 @@ function OrderItem({
   options,
   price,
   quantity,
+  hideControls = false,
   onEdit,
   onRemove,
   onQuantityChange
@@ -50,21 +52,23 @@ function OrderItem({
       >
         {options}
       </Paragraph>
-      <ContentGrid alignItems="center">
-        <div>
-          <ActionButton margin="0 20px 0 0" onClick={onEdit}>
-            {getString('app.edit')}
-          </ActionButton>
-          <ActionButton variant="primary" onClick={onRemove}>
-            {getString('app.remove')}
-          </ActionButton>
-        </div>
-        <Amount
-          isLeftDisabled={quantity === 1}
-          value={quantity}
-          onChange={onQuantityChange}
-        />
-      </ContentGrid>
+      {!hideControls && (
+        <ContentGrid alignItems="center">
+          <div>
+            <ActionButton margin="0 20px 0 0" onClick={onEdit}>
+              {getString('app.edit')}
+            </ActionButton>
+            <ActionButton variant="primary" onClick={onRemove}>
+              {getString('app.remove')}
+            </ActionButton>
+          </div>
+          <Amount
+            isLeftDisabled={quantity === 1}
+            value={quantity}
+            onChange={onQuantityChange}
+          />
+        </ContentGrid>
+      )}
     </Container>
   )
 }

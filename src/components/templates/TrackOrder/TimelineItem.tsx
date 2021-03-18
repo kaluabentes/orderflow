@@ -8,7 +8,7 @@ import getTime from '~/utils/getTime'
 
 function TimelineItem({ isActive, status, createdAt }) {
   return (
-    <Box margin="0 0 35px 0" flexDirection="row" zIndex="10">
+    <Box margin="0 0 30px 0" flexDirection="row" zIndex="10">
       <Box
         alignItems="center"
         justifyContent="center"

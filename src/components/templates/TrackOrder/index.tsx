@@ -28,7 +28,7 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
                 flexDirection="row"
                 alignItems="center"
                 justifyContent="space-between"
-                margin="0 0 20px 0"
+                margin="0 0 40px 0"
               >
                 <Heading
                   display="flex"
@@ -38,7 +38,8 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
                   fontWeight="500"
                   fontSize="1.375rem"
                 >
-                  <Flasher height="10px" margin="0 7px 0 0" /> Rastrear pedido
+                  <Flasher height="10px" margin="0 7px 0 0" />{' '}
+                  {getString('trackOrder')}
                 </Heading>
                 <Paragraph
                   textTransform="uppercase"
@@ -67,6 +68,9 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
                   </Box>
                 </Box>
               </Box>
+              <Heading as="h3" fontSize="1rem" margin="0 0 20px 0">
+                Status
+              </Heading>
               <Box position="relative">
                 {order.activities.length &&
                   order.activities.map(activity => (
@@ -88,7 +92,7 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
                   borderLeft={`2px dashed rgba(0, 0, 0, 0.05)`}
                 />
               </Box>
-              <Button onClick={onOrderClick} margin="0 0 10px 0">
+              <Button onClick={onOrderClick} margin="0 0 15px 0">
                 Ver pedido
               </Button>
               <Button

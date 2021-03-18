@@ -1,15 +1,21 @@
 import React from 'react'
+
 import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import Paper from '~/components/atoms/Paper'
 import Paragraph from '~/components/atoms/Paragraph'
 import PageLoader from '~/components/organisms/PageLoader'
 import useIsMobile from '~/utils/useIsMobile'
+import OrderItem from '~/components/molecules/OrderItem'
 import App from '../App'
+import List from '~/components/molecules/List'
+import formatMoney from '~/utils/formatMoney'
+import Button from '~/components/atoms/Button'
+import getString from '~/i18n/getString'
 
-function Order({ isLoading, order }) {
+function Order({ isLoading, order, onTrackOrder }) {
   const isMobile = useIsMobile()
-
+  console.log(order)
   return isLoading ? (
     <PageLoader />
   ) : (
@@ -20,19 +26,59 @@ function Order({ isLoading, order }) {
             flexDirection="row"
             justifyContent="space-between"
             alignItems="center"
+            margin="0 0 30px 0"
           >
-            <Box margin="0" as="h3" fontWeight="500" fontSize="1.375rem">
+            <Heading margin="0" as="h2" fontWeight="500" fontSize="1.375rem">
               Pedido
-            </Box>
+            </Heading>
             <Paragraph fontWeight="600" fontSize="1.375rem">
               #{order.id}
             </Paragraph>
           </Box>
-          <Box>
-            <Heading as="h4" fontSize="12px">
-              Produtos
-            </Heading>
-          </Box>
+          <Heading margin="0 0 10px 0" as="h3" fontSize="1rem">
+            Items
+          </Heading>
+          <List margin="0 0 10px 0">
+            {order.items.map(item => (
+              <OrderItem
+                key={item.id}
+                title={item.title}
+                options={item.options}
+                price={item.price}
+                quantity={item.quantity}
+                hideControls
+              />
+            ))}
+          </List>
+          <Heading margin="0 0 10px 0" as="h3" fontSize="1rem">
+            Observação
+          </Heading>
+          <Paragraph margin="0 0 20px 0">
+            {order.observation ? order.observation : '----'}
+          </Paragraph>
+          <Heading margin="0 0 10px 0" as="h3" fontSize="1rem">
+            Endereço
+          </Heading>
+          <Paragraph margin="0 0 20px 0">{order.address}</Paragraph>
+          <Heading margin="0 0 10px 0" as="h3" fontSize="1rem">
+            Taxa de delivery
+          </Heading>
+          <Paragraph margin="0 0 20px 0">
+            {formatMoney(order.deliveryTax)}
+          </Paragraph>
+          <Heading margin="0 0 10px 0" as="h3" fontSize="1rem">
+            Método de pagamento
+          </Heading>
+          <Paragraph margin="0 0 30px 0">{order.paymentMethod}</Paragraph>
+          <Heading margin="0 0 10px 0" as="h3" fontSize="1rem">
+            Preço total
+          </Heading>
+          <Paragraph margin="0 0 20px 0" fontSize="1.5rem" fontWeight="700">
+            {formatMoney(order.totalPrice)}
+          </Paragraph>
+          <Button onClick={() => onTrackOrder(order.id)}>
+            {getString('trackOrder')}
+          </Button>
         </Paper>
       </Box>
     </App>

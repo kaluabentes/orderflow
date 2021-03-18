@@ -12,5 +12,5 @@ export const Container = styled('div')(css`
   z-index: 1000;
   top: 0;
   left: 0;
-  background: white;
+  background: ${props => props.theme.colors.background};
 `)

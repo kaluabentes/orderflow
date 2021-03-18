@@ -22,7 +22,13 @@ function OrderPage() {
     }
   }, [id])
 
-  return <Order isLoading={!order.data} order={order.data} />
+  return (
+    <Order
+      onTrackOrder={id => router.push(`/track-order/${id}`)}
+      isLoading={!order.data}
+      order={order.data}
+    />
+  )
 }
 
 export default OrderPage
