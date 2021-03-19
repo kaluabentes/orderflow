@@ -46,11 +46,12 @@ function InputItem({
   return (
     <List.Item>
       <Box
+        display="flex"
         flexDirection="row"
         alignItems="center"
         justifyContent="space-between"
       >
-        <Box>
+        <Box display="flex">
           <Paragraph>{label}</Paragraph>
           {price && (
             <Paragraph weight="600" fontSize="0.8rem">

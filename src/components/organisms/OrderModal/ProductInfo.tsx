@@ -12,8 +12,8 @@ interface ProductInfoProps {
 
 function ProductInfo({ product }: ProductInfoProps) {
   return (
-    <Box margin="0 0 20px 0">
-      <Box alignItems="center" margin="0 0 15px 0">
+    <Box display="flex" margin="0 0 20px 0">
+      <Box display="flex" alignItems="center" margin="0 0 15px 0">
         <Logo src={product.image} />
       </Box>
       <Heading fontSize="1.375rem" as="h3" margin="0 0 10px 0">

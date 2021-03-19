@@ -4,6 +4,7 @@ import Button from '~/components/atoms/Button'
 import PaymentForm from '~/components/organisms/PaymentForm'
 import OrderSummaryContainer from '~/containers/OrderSummaryContainer'
 import getString from '~/i18n/getString'
+import theme from '~/styles/theme'
 import useIsMobile from '~/utils/useIsMobile'
 
 import App from '../App'
@@ -19,9 +20,12 @@ function Payment({ selectedMethodId, change, methods, onMethodClick }) {
   return (
     <App title="Pagamento">
       <Box
+        display="flex"
         margin={`${size} auto 0 auto`}
         flexDirection={isMobile ? 'column' : 'row'}
         alignItems="flex-start"
+        maxWidth={theme.layout.maxWidth}
+        width="100%"
       >
         <PaymentForm
           selectedMethodId={selectedMethodId}
@@ -29,8 +33,12 @@ function Payment({ selectedMethodId, change, methods, onMethodClick }) {
           onMethodClick={onMethodClick}
           methods={methods}
         />
-        <Box height={size} width="50px" />
-        <Box width="100%" maxWidth={!isMobile ? '400px' : undefined}>
+        <Box display="flex" height={size} width="50px" />
+        <Box
+          display="flex"
+          width="100%"
+          maxWidth={!isMobile ? '400px' : undefined}
+        >
           <OrderSummaryContainer confirmText={getString('confirm')} />
         </Box>
       </Box>

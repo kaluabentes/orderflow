@@ -72,14 +72,22 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
       <MainGrid>
         {isLoading ? (
           <>
-            <Box flex="1" margin={!isMobile ? '0 30px 0 0' : null}>
+            <Box
+              display="flex"
+              flex="1"
+              margin={!isMobile ? '0 30px 0 0' : null}
+            >
               <ProductGrid isLoading />
             </Box>
             {!isMobile && <OrderSummary.Loader />}
           </>
         ) : (
           <>
-            <Box width="100%" margin={!isMobile ? '0 30px 0 0' : null}>
+            <Box
+              display="flex"
+              width="100%"
+              margin={!isMobile ? '0 30px 0 0' : null}
+            >
               {products.map(productGroup => (
                 <ProductGrid
                   key={productGroup.id}

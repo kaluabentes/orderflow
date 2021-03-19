@@ -21,7 +21,7 @@ interface HeroProps {
 
 function Hero({ coverSrc, logoSrc, title, subtitle }: HeroProps) {
   return (
-    <Box position="relative">
+    <Box display="flex" position="relative">
       <Cover src={coverSrc} />
       <Overlay bottom="0px" />
       <Content>

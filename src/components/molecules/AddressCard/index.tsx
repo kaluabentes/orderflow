@@ -17,15 +17,16 @@ interface AddressCardProps {
 function AddressCard({ title, subtitle, icon, onClick }: AddressCardProps) {
   return (
     <Actionable width="100%" onClick={onClick} padding="12px 0">
-      <Box flexDirection="row" justifyContent="center">
+      <Box display="flex" flexDirection="row" justifyContent="center">
         <Box
+          display="flex"
           alignItems="center"
           justifyContent="flex-start"
           padding="0 8px 0 0"
         >
           <Icon color={theme.colors.primary} fontSize="32px" name={icon} />
         </Box>
-        <Box flex="1" alignItems="flex-start">
+        <Box display="flex" flex="1" alignItems="flex-start">
           <Heading textAlign="left" fontSize="16px" fontWeight="500" as="h3">
             {title}
           </Heading>

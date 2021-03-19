@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { getAll } from '~/api/orders'
 
@@ -10,6 +11,7 @@ const INITIAL_STATE = {
 
 function OrdersPage() {
   const [state, setState] = useState(INITIAL_STATE)
+  const router = useRouter()
 
   useEffect(() => {
     setState(prev => ({ ...prev, isLoading: true }))
@@ -21,7 +23,13 @@ function OrdersPage() {
     })
   }, [])
 
-  return <Orders isLoading={state.isLoading} orders={state.data} />
+  return (
+    <Orders
+      onOrderClick={id => router.push(`/order/${id}`)}
+      isLoading={state.isLoading}
+      orders={state.data}
+    />
+  )
 }
 
 export default OrdersPage

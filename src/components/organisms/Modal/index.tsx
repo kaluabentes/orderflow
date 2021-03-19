@@ -115,11 +115,11 @@ export default function Modal({
           isLoading={isLoading}
         >
           {isLoading ? (
-            <Box padding="40px">
+            <Box display="flex" padding="40px">
               <CircleLoader />
             </Box>
           ) : (
-            <Box overflow="auto">
+            <Box display="flex" overflow="auto">
               <Header>
                 <Title>{title}</Title>
                 <CloseButton name="close" onClick={onClose} />

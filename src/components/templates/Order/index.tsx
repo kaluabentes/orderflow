@@ -12,6 +12,8 @@ import List from '~/components/molecules/List'
 import formatMoney from '~/utils/formatMoney'
 import Button from '~/components/atoms/Button'
 import getString from '~/i18n/getString'
+import getDate from '~/utils/getDate'
+import getTime from '~/utils/getTime'
 
 function Order({ isLoading, order, onTrackOrder }) {
   const isMobile = useIsMobile()
@@ -20,13 +22,14 @@ function Order({ isLoading, order, onTrackOrder }) {
     <PageLoader />
   ) : (
     <App title="Pedido">
-      <Box alignItems="center">
+      <Box display="flex" alignItems="center">
         <Paper maxWidth="400px" margin={`${isMobile ? '15px' : '60px'} 0`}>
           <Box
+            display="flex"
             flexDirection="row"
             justifyContent="space-between"
             alignItems="center"
-            margin="0 0 30px 0"
+            margin="0 0 10px 0"
           >
             <Heading margin="0" as="h2" fontWeight="500" fontSize="1.375rem">
               Pedido
@@ -35,6 +38,10 @@ function Order({ isLoading, order, onTrackOrder }) {
               #{order.id}
             </Paragraph>
           </Box>
+          <Paragraph variant="muted" margin="0 0 30px 0" fontSize="0.875rem">
+            Em {getDate(order.createdAt)} ás{' '}
+            {getTime(order.createdAt).padStart(5, '0')}
+          </Paragraph>
           <Heading margin="0 0 10px 0" as="h3" fontSize="1rem">
             Items
           </Heading>

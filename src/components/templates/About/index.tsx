@@ -8,6 +8,8 @@ import Box from '~/components/atoms/Box'
 import Icon from '~/components/atoms/Icon'
 import Paragraph from '~/components/atoms/Paragraph'
 import Heading from '~/components/atoms/Heading'
+import useIsMobile from '~/utils/useIsMobile'
+import theme from '~/styles/theme'
 
 interface AboutProps {
   store?: {
@@ -23,9 +25,11 @@ interface AboutProps {
 
 function DataItem({ icon, content, ...props }) {
   return (
-    <Box flexDirection="row" {...props}>
+    <Box display="flex" flexDirection="row" {...props}>
       <Icon margin="0px 15px 0 0" name={icon} />
-      <Box padding="0px 0 0 0">{content}</Box>
+      <Box display="flex" padding="0px 0 0 0">
+        {content}
+      </Box>
     </Box>
   )
 }
@@ -35,6 +39,7 @@ function About({ store }: AboutProps) {
   const mapContact = sch => <Paragraph margin="0 0 10px 0">{sch}</Paragraph>
   const schedule = store.schedule ? store.schedule.map(mapSchedule) : ''
   const contact = store.contact ? store.contact.map(mapContact) : ''
+  const isMobile = useIsMobile()
 
   useEffect(() => {}, [])
 
@@ -46,24 +51,35 @@ function About({ store }: AboutProps) {
         coverSrc={store.cover}
         logoSrc={store.logo}
       />
-      <Box padding="20px 0" alignItems="center">
-        <Paper maxWidth="400px">
+      <Box
+        display="flex"
+        padding={`${isMobile ? '20px' : '30px'} 15px`}
+        alignItems="center"
+      >
+        <Box maxWidth={theme.layout.maxWidth}>
           <Heading
             as="h3"
             fontWeight="500"
             fontSize="1.375rem"
-            margin="0 0 30px 0"
+            margin="0 0 20px 0"
           >
             Sobre
           </Heading>
-          <DataItem margin="0 0 30px 0" icon="schedule" content={schedule} />
-          <DataItem
-            margin="0 0 30px 0"
-            icon="room"
-            content={<Paragraph>{store.address}</Paragraph>}
-          />
-          <DataItem icon="call" content={contact} />
-        </Paper>
+          <Paper>
+            <Box
+              display="grid"
+              gridTemplateColumns={`repeat(${isMobile ? '1' : '3'}, 1fr)`}
+              gridGap={isMobile ? '30px' : '60px'}
+            >
+              <DataItem icon="schedule" content={schedule} />
+              <DataItem
+                icon="room"
+                content={<Paragraph>{store.address}</Paragraph>}
+              />
+              <DataItem icon="call" content={contact} />
+            </Box>
+          </Paper>
+        </Box>
       </Box>
     </App>
   )

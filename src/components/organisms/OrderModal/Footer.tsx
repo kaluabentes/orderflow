@@ -17,6 +17,7 @@ function Footer({ mode, totalPrice, quantity, onQuantityChange, onConfirm }) {
 
   return (
     <Box
+      display="flex"
       position="fixed"
       bottom="0px"
       left="0px"
@@ -28,7 +29,7 @@ function Footer({ mode, totalPrice, quantity, onQuantityChange, onConfirm }) {
       padding="10px"
       zIndex="10"
     >
-      <Box flex="1 auto">
+      <Box display="flex" flex="1 auto">
         <Amount
           isLeftDisabled={quantity === 1}
           onChange={handleQuantityChange}

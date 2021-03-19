@@ -200,7 +200,7 @@ function Header({
           (userName ? (
             <IconButton margin="0 15px 0 20px" name="person" />
           ) : (
-            <Box width="100px" margin="0 15px">
+            <Box display="flex" width="100px" margin="0 15px">
               <Button outlined variant="primary" onClick={onLogin}>
                 {getString('login')}
               </Button>

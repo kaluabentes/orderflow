@@ -82,7 +82,7 @@ function OptionGroup({
   }
 
   return (
-    <Box margin="0 0 20px 0">
+    <Box display="flex" margin="0 0 20px 0">
       <OptionHeader
         margin="0 0 10px 0"
         title={title}

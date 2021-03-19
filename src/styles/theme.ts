@@ -1,8 +1,10 @@
 const theme = {
   colors: {
     primary: '#ff5555',
-    info: '#3858cd',
-    warning: '#FFB20F',
+    info: '#3698F9',
+    warning: '#FFB938',
+    success: '#3BDB85',
+    danger: '#F94D95',
     text: '#444',
     textMuted: 'rgba(0, 0, 0, 0.4)',
     background: '#f4f4f4',
@@ -22,7 +24,7 @@ const theme = {
     }
   },
   layout: {
-    maxWidth: '900px'
+    maxWidth: '1265px'
   },
   breakpoints: {
     mobile: 823,

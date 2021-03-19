@@ -59,7 +59,7 @@ function OrderModal({
       isOpen={isOpen}
       onClose={onClose}
     >
-      <Box>
+      <Box display="flex">
         <ProductInfo product={product || {}} />
         {value &&
           options.map(option => (

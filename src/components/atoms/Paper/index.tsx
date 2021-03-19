@@ -9,6 +9,7 @@ function Paper({ children, ...props }: CommonProps) {
 
   return (
     <Box
+      display="flex"
       padding={isMobile ? '20px' : '30px'}
       background="white"
       width="100%"

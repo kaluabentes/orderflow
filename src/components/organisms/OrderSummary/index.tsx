@@ -102,12 +102,12 @@ function OrderSummary({
             </List>
           </Scroller>
           <Summary isFixed={isFixed}>
-            <Box align="left">
+            <Box display="flex" align="left">
               <SubtotalLabel>{getString('app.subtotal')}</SubtotalLabel>
               <SubtotalLabel>{getString('app.deliveryTax')}</SubtotalLabel>
               <TotalLabel>{getString('app.total')}</TotalLabel>
             </Box>
-            <Box align="right">
+            <Box display="flex" align="right">
               <SubtotalLabel>{formatMoney(subtotal)}</SubtotalLabel>
               <SubtotalLabel>{formatMoney(deliveryTax)}</SubtotalLabel>
               <TotalLabel>{formatMoney(total)}</TotalLabel>
@@ -120,7 +120,7 @@ function OrderSummary({
           )}
         </>
       ) : (
-        <Box padding="20px" alignItems="center">
+        <Box display="flex" padding="20px" alignItems="center">
           <Icon
             margin="0 0 30px 0"
             fontSize="150px"

@@ -21,9 +21,14 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
         <PageLoader />
       ) : (
         <App title="Acompanhe" onBack={onBack}>
-          <Box alignItems="center" padding={isMobile ? '15px 0' : '60px 0'}>
+          <Box
+            display="flex"
+            alignItems="center"
+            padding={isMobile ? '15px 0' : '60px 0'}
+          >
             <Paper maxWidth="400px">
               <Box
+                display="flex"
                 as="header"
                 flexDirection="row"
                 alignItems="center"
@@ -49,8 +54,9 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
                   #{order.id.slice(0, 6)}
                 </Paragraph>
               </Box>
-              <Box margin="0 0 40px 0">
+              <Box display="flex" margin="0 0 40px 0">
                 <Box
+                  display="flex"
                   color="rgba(0, 0, 0, 0.3)"
                   alignItems="left"
                   margin="0 0 10px 0"
@@ -58,12 +64,13 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
                   {getString('estimatedTime')}
                 </Box>
                 <Box
+                  display="flex"
                   justifyContent="flex-start"
                   flexDirection="row"
                   alignItems="center"
                 >
-                  <Icon margin="0 5px 0 0" fontWeight="bold" name="schedule" />
-                  <Box fontSize="20px" fontWeight="600">
+                  <Icon margin="0 5px 0 0" name="schedule" />
+                  <Box display="flex" fontSize="20px" fontWeight="600">
                     {order.estimatedTime}
                   </Box>
                 </Box>
@@ -71,7 +78,7 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
               <Heading as="h3" fontSize="1rem" margin="0 0 20px 0">
                 Status
               </Heading>
-              <Box position="relative">
+              <Box display="flex" position="relative">
                 {order.activities.length &&
                   order.activities.map(activity => (
                     <TimelineItem
@@ -82,6 +89,7 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
                     />
                   ))}
                 <Box
+                  display="flex"
                   position="absolute"
                   height="80%"
                   width="2px"

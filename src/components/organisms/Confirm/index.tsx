@@ -8,8 +8,10 @@ import Modal from '../Modal'
 function Confirm({ isOpen, title, message, onClose, onConfirm, onDecline }) {
   return (
     <Modal sheetMode title={title} isOpen={isOpen} onClose={onClose}>
-      <Box margin="0 0 20px 0">{message}</Box>
-      <Box flexDirection="row">
+      <Box display="flex" margin="0 0 20px 0">
+        {message}
+      </Box>
+      <Box display="flex" flexDirection="row">
         <Button onClick={onConfirm} variant="primary" margin="0 5px 0 0">
           {getString('yes')}
         </Button>

@@ -26,12 +26,13 @@ function OptionHeader({
 }: OptionHeaderProps) {
   return (
     <Box
+      display="flex"
       flexDirection="row"
       justifyContent="space-between"
       alignItems={subtitle ? 'flex-start' : 'center'}
       {...props}
     >
-      <Box>
+      <Box display="flex">
         <Heading margin={subtitle && '0 0 5px 0'} fontSize="medium">
           {title}
         </Heading>
@@ -41,7 +42,7 @@ function OptionHeader({
           </Paragraph>
         )}
       </Box>
-      <Box flexDirection="row">
+      <Box display="flex" flexDirection="row">
         {isRequired && (
           <Badge isDisabled={isDisabled}>{getString('required')}</Badge>
         )}

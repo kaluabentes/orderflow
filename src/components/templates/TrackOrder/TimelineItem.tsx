@@ -8,8 +8,9 @@ import getTime from '~/utils/getTime'
 
 function TimelineItem({ isActive, status, createdAt }) {
   return (
-    <Box margin="0 0 30px 0" flexDirection="row" zIndex="10">
+    <Box display="flex" margin="0 0 30px 0" flexDirection="row" zIndex="10">
       <Box
+        display="flex"
         alignItems="center"
         justifyContent="center"
         minHeight="20px"
@@ -24,7 +25,7 @@ function TimelineItem({ isActive, status, createdAt }) {
       >
         <Icon fontWeight="bold" fontSize="12px" name="check" />
       </Box>
-      <Box>
+      <Box display="flex">
         <Heading
           color={isActive ? theme.colors.text : theme.colors.radioBackground}
           fontSize="1rem"
@@ -35,6 +36,7 @@ function TimelineItem({ isActive, status, createdAt }) {
         </Heading>
         {createdAt && (
           <Box
+            display="flex"
             fontSize="12px"
             flexDirection="row"
             color="rgba(0, 0, 0, 0.2)"

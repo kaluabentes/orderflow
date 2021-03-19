@@ -4,13 +4,16 @@ import React from 'react'
 import styled from '~/styles/utils/styled'
 import { CommonProps } from '../../../styles/utils/CommonProps'
 
-const Div = styled('div')(css`
-  display: flex;
-`)
+const Div = styled('div')(css``)
 
-function Box({ children, flexDirection = 'column', ...props }: CommonProps) {
+function Box({
+  children,
+  flexDirection = 'column',
+  display = '',
+  ...props
+}: CommonProps) {
   return (
-    <Div {...props} flexDirection={flexDirection}>
+    <Div {...props} flexDirection={flexDirection} display={display}>
       {children}
     </Div>
   )

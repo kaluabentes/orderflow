@@ -76,7 +76,7 @@ function AddressModal({
               onChange={onSearch}
               margin="0 0 10px 0"
             />
-            <Box overflow="auto">
+            <Box display="flex" overflow="auto">
               <List>
                 {addresses.map(address => (
                   <AddressCard
@@ -94,7 +94,7 @@ function AddressModal({
           </>
         )}
         {!isLoggedIn && (
-          <Box alignItems="center" margin="0 0 0 0" padding=" 0">
+          <Box display="flex" alignItems="center" margin="0 0 0 0" padding=" 0">
             <Paragraph margin="0 0 10px 0" fontWeight="600">
               {getString('addressWizardLoginText')}
             </Paragraph>
@@ -113,7 +113,7 @@ function AddressModal({
         <Heading margin="0 0 15px 0" fontSize="22px">
           {getString('addAddress')}
         </Heading>
-        <Box flexDirection="row">
+        <Box display="flex" flexDirection="row">
           <Input
             id="street"
             name="street"

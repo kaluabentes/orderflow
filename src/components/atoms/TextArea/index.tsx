@@ -13,7 +13,7 @@ interface TextAreaProps extends CommonProps {
 
 function TextArea({ label, value, onChange, ...commonProps }: TextAreaProps) {
   return (
-    <Box {...commonProps}>
+    <Box display="flex" {...commonProps}>
       <Label margin="0 0 10px 0">{label}</Label>
       <Container rows={5} cols={5} onChange={onChange} value={value} />
     </Box>

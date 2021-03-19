@@ -17,6 +17,7 @@ function CartTemplate({ onConfirm, onEdit, onRemove, onKeepBuying }) {
   return (
     <App title="Pedido">
       <Box
+        display="flex"
         width="100%"
         maxWidth={isMobile ? null : '400px'}
         margin="0 auto"

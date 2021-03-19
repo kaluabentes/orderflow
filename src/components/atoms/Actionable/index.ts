@@ -10,6 +10,7 @@ const Actionable = styled('button')(css`
   border: none;
   background: transparent;
   cursor: pointer;
+  text-align: left;
 `)
 
 export default Actionable

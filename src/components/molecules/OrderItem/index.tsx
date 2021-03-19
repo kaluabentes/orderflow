@@ -34,13 +34,18 @@ function OrderItem({
 }: OrderItemProps) {
   return (
     <Container>
-      <Box margin="0 0 5px 0" flexDirection="row" alignItems="flex-start">
-        <Box>
+      <Box
+        display="flex"
+        margin="0 0 5px 0"
+        flexDirection="row"
+        alignItems="flex-start"
+      >
+        <Box display="flex">
           <Heading fontWeight="500" as="h4">
             {quantity}x {title}
           </Heading>
         </Box>
-        <Box flex="1 auto">
+        <Box display="flex" flex="1 auto">
           <Price>{formatMoney(price * quantity)}</Price>
         </Box>
       </Box>

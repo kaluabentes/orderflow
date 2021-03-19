@@ -60,7 +60,10 @@ function App({
         onLogin={() => modals.open('LoginModal')}
         showAddress={showAddress}
       />
-      <Box margin={`${showAddress && isMobile ? 126 : 75}px 0 0 0`}>
+      <Box
+        display="flex"
+        margin={`${showAddress && isMobile ? 126 : 75}px 0 0 0`}
+      >
         {children}
       </Box>
     </>
