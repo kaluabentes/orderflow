@@ -29,6 +29,7 @@ const activities = [
 
 const order = id => ({
   id,
+  createdAt: new Date(),
   activities,
   estimatedTime: '17:40',
   deliveryTax: 13.4,
@@ -58,6 +59,10 @@ const order = id => ({
   ]
 })
 
+const ordersResponse = new Array(4).fill(null).map((_, index) => {
+  return order(index)
+})
+
 export function getOne(id): Promise<any> {
   return new Promise(resolve =>
     setTimeout(
@@ -70,7 +75,11 @@ export function getOne(id): Promise<any> {
   )
 }
 
-export function getAll() {}
+export function getAll(): Promise<any> {
+  return new Promise(resolve =>
+    setTimeout(() => resolve({ data: ordersResponse }), 1000)
+  )
+}
 
 export function post(order) {
   return new Promise(resolve =>
