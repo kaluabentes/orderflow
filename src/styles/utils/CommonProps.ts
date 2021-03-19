@@ -42,4 +42,5 @@ export interface CommonProps {
   borderRadius?: string
   border?: string
   borderLeft?: string
+  boxShadow?: string
 }

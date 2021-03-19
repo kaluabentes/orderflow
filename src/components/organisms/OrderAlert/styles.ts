@@ -1,4 +1,5 @@
 import { css, keyframes, createGlobalStyle } from 'styled-components'
+import Actionable from '~/components/atoms/Actionable'
 import styled from '~/styles/utils/styled'
 
 const blink = keyframes`

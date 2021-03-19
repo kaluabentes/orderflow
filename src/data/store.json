@@ -1,5 +1,13 @@
 {
   "name": "Mi Cabana Restaurante",
+  "subtitle": "De segunda a sexta das 16h ás 23h. Ficamos abertos até 00h aos domingos",
   "cover": "https://images.pexels.com/photos/33162/food-restaurant-menu-asia.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-  "logo": "https://media-cdn.tripadvisor.com/media/photo-s/0d/e7/85/e0/mi-cabana-mexican-restaurant.jpg"
+  "logo": "https://media-cdn.tripadvisor.com/media/photo-s/0d/e7/85/e0/mi-cabana-mexican-restaurant.jpg",
+  "schedule": [
+    "Segunda: 12h ás 17h",
+    "Terça: 12h ás 17h",
+    "Quarta: 12h ás 17h"
+  ],
+  "address": "Rua Abel Botelho, 273, Flores, Manaus/AM",
+  "contact": ["(92) 99628-8801", "(92) 3361-4151"]
 }

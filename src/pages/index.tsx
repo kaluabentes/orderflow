@@ -34,7 +34,7 @@ function HomePage() {
       isLoading={products.isLoading}
       products={products.data}
       onProductClick={openOrderModal}
-      store={store}
+      store={store.data}
     />
   )
 }

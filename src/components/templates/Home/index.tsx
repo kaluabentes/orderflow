@@ -31,7 +31,7 @@ export interface ProductGroup {
 }
 
 interface HomeProps {
-  store?: StoreState
+  store?: any
   isLoading?: boolean
   products: ProductGroup[]
   onProductClick?: (product: Product) => void
@@ -61,9 +61,10 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
   return (
     <App title={getString('nav.home')} showAddress>
       <Hero
-        title={store.data.name}
-        coverSrc={store.data.cover}
-        logoSrc={store.data.logo}
+        title={store.name}
+        subtitle={store.subtitle}
+        coverSrc={store.cover}
+        logoSrc={store.logo}
         onEnter={() => console.log('onEnter')}
         onVerify={() => console.log('onVerify')}
       />

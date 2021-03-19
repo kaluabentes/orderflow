@@ -6,6 +6,7 @@ import { useConfirm } from '~/containers/ConfirmContainer'
 import { usePrompt } from '~/containers/PromptContainer'
 import methods from '~/data/paymentMethods.json'
 import useProtectedPage from '~/modules/auth/useProtectedPage'
+import Modal from '~/state/Modal'
 import User from '~/state/User'
 import maskMoney from '~/utils/maskMoney'
 
@@ -18,6 +19,7 @@ function PaymentPage() {
   const confirm = useConfirm()
   const prompt = usePrompt()
   const user = User.useContainer()
+  const modal = Modal.useContainer()
 
   useProtectedPage()
 
@@ -32,7 +34,9 @@ function PaymentPage() {
         onClose: () => {
           user.setChange('')
         },
-        onConfirm: () => setIsPromptOpen(true)
+        onConfirm: () => {
+          setIsPromptOpen(true)
+        }
       })
     }
 

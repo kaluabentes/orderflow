@@ -52,8 +52,6 @@
   "loginPage.codeLabel": "código",
   "login": "Entrar",
   "cartEmptyMessage": "Opa. Nada por aqui ainda :)",
-  "nav.home": "Início",
-  "nav.about": "Informações",
   "poweredBy": "Desenvolvido com",
   "payment": "Pagamento",
   "confirm": "Confirmar",
@@ -77,5 +75,9 @@
   "order.status.ready": "O entregador está a caminho",
   "order.status.finished": "O pedido foi entregue",
   "estimatedTime": "Tempo estimado",
-  "trackOrder": "Acompanhar pedido"
+  "trackOrder": "Acompanhar pedido",
+  "close": "Fechar",
+  "nav.home": "Início",
+  "nav.about": "Sobre",
+  "nav.orders": "Pedidos"
 }

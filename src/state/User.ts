@@ -74,6 +74,14 @@ function useUser() {
     }))
   }
 
+  function clear() {
+    setState(prev => ({
+      ...prev,
+      paymentMethodId: '',
+      change: ''
+    }))
+  }
+
   return {
     state,
     setCurrentAddress,
@@ -83,7 +91,8 @@ function useUser() {
     addAddress,
     addOrder,
     editOrder,
-    login
+    login,
+    clear
   }
 }
 

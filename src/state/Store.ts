@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react'
 import { createContainer } from 'unstated-next'
+import { getOne } from '~/api/stores'
 import useStorageState from '~/utils/useLocalStorageState'
 
-import storeData from '~/data/store.json'
-
 const INITIAL_STATE = {
-  cover: undefined,
-  logo: undefined,
-  name: ''
+  data: {
+    cover: undefined,
+    logo: undefined,
+    name: '',
+    subtitle: '',
+    schedule: [],
+    address: '',
+    contact: ''
+  },
+  isLoading: false
 }
 
 export interface StoreState {
@@ -16,20 +22,22 @@ export interface StoreState {
 }
 
 function useStore(): StoreState {
-  const [store, setStore] = useStorageState(
+  const [state, setState] = useStorageState(
     `${process.env.ID}.store`,
     INITIAL_STATE
   )
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-      setStore(storeData)
-    }, 1000)
+    setState(prev => ({ ...prev, isLoading: true }))
+    getOne(process.env.ID).then(response => {
+      setState({
+        data: response.data,
+        isLoading: false
+      })
+    })
   }, [])
 
-  return { data: store, isLoading }
+  return { data: state.data, isLoading: state.isLoading }
 }
 
 export default createContainer(useStore)

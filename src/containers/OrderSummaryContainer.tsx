@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import OrderSummary from '~/components/organisms/OrderSummary'
 import getOrderItem from '~/components/organisms/OrderModal/getOrderItem'
 import Cart from '~/state/Cart'
-import Modals from '~/state/Modal'
+import Modal from '~/state/Modal'
 import User from '~/state/User'
 import getOrderTotalPrice from '~/utils/getOrderTotalPrice'
 import { useConfirm } from './ConfirmContainer'
@@ -18,7 +18,7 @@ function OrderSummaryContainer({
   margin = undefined,
   confirmText = undefined
 }) {
-  const modals = Modals.useContainer()
+  const modal = Modal.useContainer()
   const cart = Cart.useContainer()
   const user = User.useContainer()
   const orderItems = cart.data.map(item => getOrderItem(item))
@@ -33,7 +33,7 @@ function OrderSummaryContainer({
   }
 
   function handleOrderItemEdit(itemId) {
-    modals.updateOptions('OrderModal', { isOpen: true, mode: 'edit', itemId })
+    modal.updateOptions('OrderModal', { isOpen: true, mode: 'edit', itemId })
   }
 
   async function sendOrder() {
@@ -55,26 +55,35 @@ function OrderSummaryContainer({
     setIsSendingOrder(true)
     const response: any = await post(order)
     cart.clear()
+    user.clear()
     user.addOrder(response.data)
     router.push(`/track-order/${response.data.id}`)
   }
 
   function handleConfirmOrder() {
     if (!user.state.token) {
-      modals.open('LoginModal')
+      modal.open('LoginModal')
       return
     }
 
     if (router.asPath === '/payment') {
+      if (!user.state.paymentMethodId) {
+        modal.open('Alert', {
+          title: 'Atenção',
+          message: 'Escolha uma forma de pagamento'
+        })
+        return
+      }
+
       if (!address.title) {
-        modals.open('AddressModal')
+        modal.open('AddressModal')
         return
       }
 
       confirm({
         title: 'Entregar em',
         message: address.title,
-        onDecline: () => modals.open('AddressModal'),
+        onDecline: () => modal.open('AddressModal'),
         onConfirm: () => {
           sendOrder()
         }

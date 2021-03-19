@@ -16,10 +16,11 @@ function OrderAlert({ onClick, order }) {
       <Actionable
         position="fixed"
         bottom={isMobile ? '0px' : '10px'}
-        left={isMobile ? '0px' : '10px'}
+        right={isMobile ? '0px' : '10px'}
         width={isMobile ? '100%' : '350px'}
-        background={theme.colors.text}
-        color="white"
+        background="white"
+        color={theme.colors.text}
+        boxShadow="0 0 5px 2px rgba(0, 0, 0, 0.05)"
         padding="20px 15px"
         as="button"
         display="block"

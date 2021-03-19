@@ -1,7 +1,14 @@
 import { useState } from 'react'
 import { createContainer } from 'unstated-next'
 
-const MODALS = ['AddressModal', 'OrderModal', 'LoginModal', 'Confirm', 'Prompt']
+const MODALS = [
+  'AddressModal',
+  'OrderModal',
+  'LoginModal',
+  'Confirm',
+  'Prompt',
+  'Alert'
+]
 
 const INITIAL_STATE = MODALS.reduce(
   (prev, curr) => ({
@@ -26,26 +33,16 @@ function useModal() {
     setState(prev => ({ ...prev, [modal]: { ...prev[modal], isOpen: true } }))
   }
 
-  function close(modal, options = {}) {
+  function close(modal, options = undefined) {
     if (options) {
       setState(prev => ({
         ...prev,
-        [modal]: {
-          ...prev[modal],
-          isOpen: false,
-          options: { ...prev[modal].options, ...options }
-        }
+        [modal]: { ...prev[modal], isOpen: false, options }
       }))
       return
     }
 
-    setState(prev => ({
-      ...prev,
-      [modal]: {
-        ...prev[modal],
-        isOpen: false
-      }
-    }))
+    setState(prev => ({ ...prev, [modal]: { ...prev[modal], isOpen: false } }))
   }
 
   function isOpen(modal) {

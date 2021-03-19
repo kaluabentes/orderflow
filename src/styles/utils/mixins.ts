@@ -1,6 +1,10 @@
 function mixins(props) {
   return [
     {
+      name: 'box-shadow',
+      value: props['boxShadow']
+    },
+    {
       name: 'border-left',
       value: props['borderLeft']
     },
