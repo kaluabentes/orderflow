@@ -46,6 +46,9 @@ function Workflow({ isLoading, orders, onTabChange }) {
             alignItems="center"
             flexDirection="row"
             padding="10px 20px"
+            textTransform="uppercase"
+            fontSize="0.75rem"
+            fontWeight="500"
             borderBottom={
               activeItem === item.key && `4px solid ${theme.colors.primary}`
             }

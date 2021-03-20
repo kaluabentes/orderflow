@@ -14,7 +14,7 @@ function AdminApp({ children, title }) {
 
   return (
     <>
-      <Header variant={state.isOn ? 'primary' : 'text'}>
+      <Header variant="primary">
         <IconButton color="white" height="60px" width="60px" name="sort" />
         <Heading color="white" as="h1" fontSize="1.2rem">
           {title}
