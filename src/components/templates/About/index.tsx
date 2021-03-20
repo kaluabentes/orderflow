@@ -53,7 +53,7 @@ function About({ store }: AboutProps) {
       />
       <Box
         display="flex"
-        padding={`${isMobile ? '20px' : '30px'} 15px`}
+        padding={`${isMobile ? '20px' : '40px'} 15px`}
         alignItems="center"
       >
         <Box maxWidth={theme.layout.maxWidth}>

@@ -11,6 +11,8 @@ import useIsMobile from '~/utils/useIsMobile'
 import { MOBILE_BREAKPOINT } from '~/components/organisms/Header/constants'
 import { CommonProps } from '~/styles/utils/CommonProps'
 import Modals from '~/state/Modal'
+import theme from '~/styles/theme'
+import Icon from '~/components/atoms/Icon'
 
 interface AppProps extends CommonProps {
   title: string
@@ -65,6 +67,23 @@ function App({
         margin={`${showAddress && isMobile ? 126 : 75}px 0 0 0`}
       >
         {children}
+      </Box>
+      <Box textAlign="center" fontSize="0.875rem" as="footer">
+        <Box as="span" color="rgba(0, 0, 0, 0.5)">
+          Feito com{' '}
+        </Box>{' '}
+        <a
+          style={{
+            color: theme.colors.primary,
+            textDecoration: 'none',
+            fontWeight: '600'
+          }}
+          href="https://orderflow.io"
+          target="_blank"
+        >
+          Orderflow
+        </a>
+        .
       </Box>
     </>
   )

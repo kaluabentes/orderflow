@@ -24,7 +24,7 @@ const StatusMap = {
 
 function Orders({ isLoading, orders, onOrderClick }) {
   const isMobile = useIsMobile()
-  const paddingTop = isMobile ? '15px' : '30px'
+  const paddingTop = isMobile ? '15px' : '40px'
 
   return isLoading ? (
     <PageLoader />
@@ -66,7 +66,7 @@ function Orders({ isLoading, orders, onOrderClick }) {
                   display="inline-block"
                   background="white"
                   padding="15px"
-                  borderRadius="5px"
+                  borderRadius="10px"
                   onClick={() => onOrderClick(order.id)}
                 >
                   <Box

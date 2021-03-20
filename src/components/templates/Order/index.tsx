@@ -23,7 +23,7 @@ function Order({ isLoading, order, onTrackOrder }) {
   ) : (
     <App title="Pedido">
       <Box display="flex" alignItems="center">
-        <Paper maxWidth="400px" margin={`${isMobile ? '15px' : '60px'} 0`}>
+        <Paper maxWidth="500px" margin={isMobile ? '15px 0' : '40px 0 20px 0'}>
           <Box
             display="flex"
             flexDirection="row"

@@ -24,9 +24,9 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
           <Box
             display="flex"
             alignItems="center"
-            padding={isMobile ? '15px 0' : '60px 0'}
+            padding={isMobile ? '15px 0' : '40px 0 20px 0'}
           >
-            <Paper maxWidth="400px">
+            <Paper maxWidth="500px">
               <Box
                 display="flex"
                 as="header"
@@ -43,7 +43,6 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
                   fontWeight="500"
                   fontSize="1.375rem"
                 >
-                  <Flasher height="10px" margin="0 7px 0 0" />{' '}
                   {getString('trackOrder')}
                 </Heading>
                 <Paragraph
@@ -75,9 +74,6 @@ function TrackOrder({ order, isLoading, onBack, onOrderClick }) {
                   </Box>
                 </Box>
               </Box>
-              <Heading as="h3" fontSize="1rem" margin="0 0 20px 0">
-                Status
-              </Heading>
               <Box display="flex" position="relative">
                 {order.activities.length &&
                   order.activities.map(activity => (

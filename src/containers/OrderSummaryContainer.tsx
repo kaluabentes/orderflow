@@ -16,7 +16,8 @@ function OrderSummaryContainer({
   isFixed = false,
   showConfirmButton = true,
   margin = undefined,
-  confirmText = undefined
+  confirmText = undefined,
+  maxWidth = undefined
 }) {
   const modal = Modal.useContainer()
   const cart = Cart.useContainer()
@@ -98,6 +99,7 @@ function OrderSummaryContainer({
     <>
       {isSendingOrder && <PageLoader />}
       <OrderSummary
+        maxWidth={maxWidth}
         confirmText={confirmText}
         margin={margin}
         showConfirmButton={showConfirmButton}

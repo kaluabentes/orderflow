@@ -17,11 +17,11 @@ function PaymentForm({ selectedMethodId, change, methods, onMethodClick }) {
       width="100%"
       borderRadius="10px"
     >
-      <Heading as="h3" fontWeight="500" fontSize="1.375rem" margin="0 0 20px 0">
+      <Heading as="h3" fontWeight="500" fontSize="1.375rem" margin="0 0 15px 0">
         Forma de pagamento
       </Heading>
       <Paragraph margin="0 0 30px 0" variant="muted">
-        Selecione um dos métodos abaixo para finalizar seu pedido
+        Selecione um dos métodos abaixo para finalizar seu pedido.
       </Paragraph>
       <Box
         display="grid"

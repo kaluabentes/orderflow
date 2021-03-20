@@ -19,12 +19,15 @@ function CartTemplate({ onConfirm, onEdit, onRemove, onKeepBuying }) {
       <Box
         display="flex"
         width="100%"
-        maxWidth={isMobile ? null : '400px'}
+        maxWidth={isMobile ? null : '500px'}
         margin="0 auto"
         alignItems="center"
         padding="15px 0"
       >
-        <OrderSummaryContainer confirmText={getString('payment')} />
+        <OrderSummaryContainer
+          maxWidth="500px"
+          confirmText={getString('payment')}
+        />
       </Box>
     </App>
   )

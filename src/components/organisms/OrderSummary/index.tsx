@@ -56,6 +56,7 @@ interface OrderSummaryProps {
   confirmText?: string
   margin?: string
   isFixed?: boolean
+  maxWidth?: string
   onConfirm: () => void
   onEdit: (itemId: Id) => void
   onRemove: (itemId: Id) => void
@@ -74,12 +75,13 @@ function OrderSummary({
   onConfirm,
   onEdit,
   onRemove,
-  onQuantityChange
+  onQuantityChange,
+  maxWidth
 }: OrderSummaryProps) {
   const isMobile = useIsMobile()
 
   return (
-    <Container margin={margin} isFixed={isFixed}>
+    <Container margin={margin} isFixed={isFixed} maxWidth={maxWidth}>
       <Heading as="h3" fontWeight="500" fontSize="1.375rem" margin="0 0 20px 0">
         {getString('app.orderSummary.title')}
       </Heading>

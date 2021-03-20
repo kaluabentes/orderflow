@@ -24,7 +24,7 @@ export const Container = styled('section')(css`
 
   @media(min-width: 1024px) {
     padding: 30px;
-    max-width: 400px;
+    max-width: ${props => props.maxWidth || '400px'};
   }
 `)
 

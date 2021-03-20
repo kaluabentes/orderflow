@@ -39,7 +39,7 @@ function OrderAlert({ onClick, order }) {
             alignItems="center"
             fontWeight="500"
           >
-            <Flasher margin="0 7px 0 0" /> {getString('trackOrder')}
+            <Flasher margin="0 10px 0 0" /> {getString('trackOrder')}
           </Box>
           <Box display="flex" fontWeight="bold">
             #{order.id}

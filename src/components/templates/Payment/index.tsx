@@ -11,7 +11,7 @@ import App from '../App'
 
 function Payment({ selectedMethodId, change, methods, onMethodClick }) {
   const isMobile = useIsMobile()
-  const size = isMobile ? '15px' : '30px'
+  const size = isMobile ? '15px' : '40px'
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -21,7 +21,7 @@ function Payment({ selectedMethodId, change, methods, onMethodClick }) {
     <App title="Pagamento">
       <Box
         display="flex"
-        margin={`${size} auto 0 auto`}
+        margin={`${size} auto 20px auto`}
         flexDirection={isMobile ? 'column' : 'row'}
         alignItems="flex-start"
         maxWidth={theme.layout.maxWidth}
