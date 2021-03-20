@@ -23,7 +23,7 @@ const tabItems = [
   { key: 'finished', label: 'Entregues' }
 ]
 
-function OrderBoard({ orders, onTabChange }) {
+function Workflow({ isLoading, orders, onTabChange }) {
   const isMobile = useIsMobile()
   const [activeItem, setActiveItem] = useState('sent')
 
@@ -102,4 +102,4 @@ function OrderBoard({ orders, onTabChange }) {
   )
 }
 
-export default OrderBoard
+export default Workflow

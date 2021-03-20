@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { getAll } from '~/api/orders'
 
-import OrderBoard from '~/components/admin-templates/OrderBoard'
+import Workflow from '~/components/admin-templates/Workflow'
 
-function AdminIndex() {
+function Index() {
   const [state, setState] = useState({
     data: [],
     isLoading: false
@@ -24,7 +24,7 @@ function AdminIndex() {
   }
 
   return (
-    <OrderBoard
+    <Workflow
       isLoading={state.isLoading}
       orders={state.data}
       onTabChange={handleTabChange}
@@ -32,4 +32,4 @@ function AdminIndex() {
   )
 }
 
-export default AdminIndex
+export default Index

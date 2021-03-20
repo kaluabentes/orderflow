@@ -75,7 +75,7 @@ export function getOne(id): Promise<any> {
   )
 }
 
-export function getAll(status): Promise<any> {
+export function getAll(status = undefined): Promise<any> {
   return new Promise(resolve =>
     setTimeout(() => resolve({ data: ordersResponse }), 1000)
   )
