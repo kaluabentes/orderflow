@@ -50,7 +50,7 @@ interface HeaderProps {
   onNavClick: (path) => void
   onCartClick: () => void
   onAddressClick: () => void
-  onProfileClick: () => void
+  onProfileClick?: () => void
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   onLogin: () => void
   onBack?: () => void

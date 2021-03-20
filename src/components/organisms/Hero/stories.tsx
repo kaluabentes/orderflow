@@ -14,7 +14,5 @@ export const Default = () => (
     title="Dona Rosa Bar e Restaurante"
     coverSrc={coverSrc}
     logoSrc={logoSrc}
-    onEnter={action('onEnter')}
-    onVerify={action('onVerify')}
   />
 )

@@ -9,7 +9,11 @@ function OrderAlertContainer() {
   const router = useRouter()
   const { order } = user.state
 
-  if (!order || router.asPath === `/track-order/${order.id}`) {
+  if (
+    !order ||
+    router.asPath === `/track-order/${order.id}` ||
+    router.asPath.match(/\/admin/)
+  ) {
     return null
   }
 

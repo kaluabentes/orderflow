@@ -37,7 +37,6 @@ export const Container = styled('header')(css`
 
   @media (max-width: ${MOBILE_BREAKPOINT}px) {
     padding: 20px 15px;
-    width: auto;
 
     ${props =>
       props.isSearchOpen &&
