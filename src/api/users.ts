@@ -13,3 +13,7 @@ export function register(id, body) {
     setTimeout(() => resolve({ data: { ...user, name: body.name } }), 1000)
   )
 }
+
+export function patch(id, body): Promise<any> {
+  return new Promise(resolve => setTimeout(() => resolve({ data: body }), 1000))
+}

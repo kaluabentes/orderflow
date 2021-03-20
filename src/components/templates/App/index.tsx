@@ -13,6 +13,7 @@ import { CommonProps } from '~/styles/utils/CommonProps'
 import Modals from '~/state/Modal'
 import theme from '~/styles/theme'
 import Icon from '~/components/atoms/Icon'
+import Paragraph from '~/components/atoms/Paragraph'
 
 interface AppProps extends CommonProps {
   title: string
@@ -59,6 +60,7 @@ function App({
         onSearchOpen={() => setIsSearchOpen(true)}
         onSearchClose={() => setIsSearchOpen(false)}
         onSearchChange={event => setSearch(event.target.name)}
+        onProfileClick={() => router.push('/profile')}
         onLogin={() => modals.open('LoginModal')}
         showAddress={showAddress}
       />
@@ -68,15 +70,15 @@ function App({
       >
         {children}
       </Box>
-      <Box textAlign="center" fontSize="0.875rem" as="footer">
-        <Box as="span" color="rgba(0, 0, 0, 0.5)">
+      <Paragraph textAlign="center" fontSize="0.875rem">
+        <Box as="span" width="auto" color="rgba(0, 0, 0, 0.5)">
           Feito com{' '}
         </Box>{' '}
         <a
           style={{
             color: theme.colors.primary,
             textDecoration: 'none',
-            fontWeight: '600'
+            fontWeight: 600
           }}
           href="https://orderflow.io"
           target="_blank"
@@ -84,7 +86,7 @@ function App({
           Orderflow
         </a>
         .
-      </Box>
+      </Paragraph>
     </>
   )
 }

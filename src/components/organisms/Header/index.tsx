@@ -50,6 +50,7 @@ interface HeaderProps {
   onNavClick: (path) => void
   onCartClick: () => void
   onAddressClick: () => void
+  onProfileClick: () => void
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void
   onLogin: () => void
   onBack?: () => void
@@ -69,6 +70,7 @@ function Header({
   onSearchOpen,
   onSearchClose,
   onAddressClick,
+  onProfileClick,
   onSearchChange,
   onNavClick,
   onCartClick,
@@ -198,7 +200,11 @@ function Header({
         )}
         {!isMobile &&
           (userName ? (
-            <IconButton margin="0 15px 0 20px" name="person" />
+            <IconButton
+              onClick={onProfileClick}
+              margin="0 15px 0 20px"
+              name="person"
+            />
           ) : (
             <Box display="flex" width="100px" margin="0 15px">
               <Button outlined variant="primary" onClick={onLogin}>

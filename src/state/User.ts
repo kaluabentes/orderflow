@@ -66,11 +66,7 @@ function useUser() {
   function login(data) {
     setState(prev => ({
       ...prev,
-      id: data.id,
-      name: data.name,
-      phone: data.phone,
-      token: data.token,
-      addresses: data.addresses
+      ...data
     }))
   }
 
