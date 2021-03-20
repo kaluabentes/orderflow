@@ -118,6 +118,23 @@ function mixins(props) {
       value: props['maxHeight']
     },
     {
+      name: 'border-bottom',
+      value: props['borderBottom']
+    },
+    {
+      name: 'overflow-x',
+      value: props['overflowX']
+    },
+    {
+      name: 'overflow-y',
+      value: props['overflowY']
+    },
+
+    {
+      name: 'overflow',
+      value: props['overflow']
+    },
+    {
       name: 'overflow',
       value: props['overflow']
     },

@@ -43,4 +43,8 @@ export interface CommonProps {
   border?: string
   borderLeft?: string
   boxShadow?: string
+  borderBottom?: string
+  overflowX?: string
+  overflowY?: string
+  overflow?: string
 }

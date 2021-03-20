@@ -9,12 +9,9 @@ import Status from '~/components/atoms/Status'
 import PageLoader from '~/components/organisms/PageLoader'
 import months from '~/config/months'
 import theme from '~/styles/theme'
+import getDateShort from '~/utils/getDateShort'
 import useIsMobile from '~/utils/useIsMobile'
 import App from '../App'
-
-function getDate(date) {
-  return `${date.getDate()} ${months[date.getMonth()]}`
-}
 
 function Orders({ isLoading, orders, onOrderClick }) {
   const isMobile = useIsMobile()
@@ -74,7 +71,7 @@ function Orders({ isLoading, orders, onOrderClick }) {
                     <Heading fontWeight="600" fontSize="1.2rem">
                       #{order.id}
                     </Heading>
-                    <Paragraph>{getDate(order.createdAt)}</Paragraph>
+                    <Paragraph>{getDateShort(order.createdAt)}</Paragraph>
                   </Box>
                   <Paragraph
                     margin="0 0 10px 0"
