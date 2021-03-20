@@ -65,8 +65,6 @@ function Home({ store, isLoading, products, onProductClick }: HomeProps) {
         subtitle={store.subtitle}
         coverSrc={store.cover}
         logoSrc={store.logo}
-        onEnter={() => console.log('onEnter')}
-        onVerify={() => console.log('onVerify')}
       />
 
       <MainGrid>

@@ -5,6 +5,7 @@ import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import Paper from '~/components/atoms/Paper'
 import Paragraph from '~/components/atoms/Paragraph'
+import Status from '~/components/atoms/Status'
 import PageLoader from '~/components/organisms/PageLoader'
 import months from '~/config/months'
 import theme from '~/styles/theme'
@@ -15,16 +16,9 @@ function getDate(date) {
   return `${date.getDate()} ${months[date.getMonth()]}`
 }
 
-const StatusMap = {
-  confirmed: 'Confirmado',
-  sent: 'Aguardando confirmação',
-  ready: 'A caminho',
-  finished: 'Entregue'
-}
-
 function Orders({ isLoading, orders, onOrderClick }) {
   const isMobile = useIsMobile()
-  const paddingTop = isMobile ? '15px' : '40px'
+  const paddingTop = isMobile ? '15px 15px 0 15px' : '40px 20px 0 20px'
 
   return isLoading ? (
     <PageLoader />
@@ -35,7 +29,8 @@ function Orders({ isLoading, orders, onOrderClick }) {
           display="flex"
           width="100%"
           maxWidth={theme.layout.maxWidth}
-          padding={`${paddingTop} 15px`}
+          padding={`${paddingTop}`}
+          margin="0 0 30px 0"
         >
           <Heading
             as="h3"
@@ -85,23 +80,7 @@ function Orders({ isLoading, orders, onOrderClick }) {
                     margin="0 0 10px 0"
                     color="rgba(0, 0, 0, 0.5)"
                   >{`${order.items[0].quantity}x ${order.items[0].title}`}</Paragraph>
-                  <Box
-                    display="inline-block"
-                    padding="5px 10px"
-                    borderRadius="20px"
-                    color={status !== 'finished' ? 'white' : theme.colors.text}
-                    fontSize="0.875rem"
-                    textTransform="uppercase"
-                    fontWeight="600"
-                    background={
-                      status === 'finished' ? 'white' : theme.colors.primary
-                    }
-                    border={
-                      status === 'finished' && '1px solid rgba(0, 0, 0, 0.5)'
-                    }
-                  >
-                    {StatusMap[status]}
-                  </Box>
+                  <Status>{status}</Status>
                 </Actionable>
               )
             })}

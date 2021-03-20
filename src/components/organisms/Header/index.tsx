@@ -151,7 +151,7 @@ function Header({
 
   return (
     <OuterContainer>
-      <Container isSearchOpen={isSearchOpen}>
+      <Container maxWidth={theme.layout.maxWidth} isSearchOpen={isSearchOpen}>
         {!isMobile && <BrandLogo src={logoSrc} alt="" />}
         {isMounted && (
           <Nav isOpen={isOpen}>

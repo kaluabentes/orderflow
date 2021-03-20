@@ -22,6 +22,7 @@ function Payment({ selectedMethodId, change, methods, onMethodClick }) {
       <Box
         display="flex"
         margin={`${size} auto 20px auto`}
+        padding={!isMobile && '0 20px'}
         flexDirection={isMobile ? 'column' : 'row'}
         alignItems="flex-start"
         maxWidth={theme.layout.maxWidth}

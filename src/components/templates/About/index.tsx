@@ -51,17 +51,17 @@ function About({ store }: AboutProps) {
         coverSrc={store.cover}
         logoSrc={store.logo}
       />
-      <Box
-        display="flex"
-        padding={`${isMobile ? '20px' : '40px'} 15px`}
-        alignItems="center"
-      >
-        <Box maxWidth={theme.layout.maxWidth}>
+      <Box display="flex" alignItems="center">
+        <Box
+          padding={isMobile ? '15px 15px 30px 15px' : '40px 20px 30px 20px'}
+          width="100%"
+          maxWidth={theme.layout.maxWidth}
+        >
           <Heading
             as="h3"
             fontWeight="500"
             fontSize="1.375rem"
-            margin="0 0 20px 0"
+            margin="0 0 10px 0"
           >
             Sobre
           </Heading>
@@ -69,7 +69,6 @@ function About({ store }: AboutProps) {
             <Box
               display="grid"
               gridTemplateColumns={`repeat(${isMobile ? '1' : '3'}, 1fr)`}
-              gridGap={isMobile ? '30px' : '60px'}
             >
               <DataItem icon="schedule" content={schedule} />
               <DataItem

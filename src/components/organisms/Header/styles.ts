@@ -12,6 +12,8 @@ export const OuterContainer = styled('div')(css`
   left: 0;
   width: 100%;
   z-index: 10;
+  display: flex;
+  justify-content: center;
 `)
 
 export const Container = styled('header')(css`
@@ -21,7 +23,7 @@ export const Container = styled('header')(css`
   padding: 15px 20px;
   color: white;
   width: 100%;
-  margin: 0 auto;
+  position: relative;
 
   & i {
     color: white;
@@ -107,10 +109,6 @@ export const NavItem = styled(`button`)(css`
   font-size: 1.1rem;
   transition: 0.3s;
 
-  &:active {
-    transform: scale(0.9);
-  }
-
   &:hover {
     opacity: 1;
   }
@@ -126,7 +124,7 @@ export const NavItem = styled(`button`)(css`
   @media (min-width: ${DESKTOP_BREAKPOINT}px) {
     padding: 0;
     color: white;
-    opacity: 0.7;
+    opacity: 0.6;
     margin-right: 20px;
     font-size: ${props => props.theme.typography.size.small};
 

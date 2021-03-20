@@ -14,6 +14,7 @@ import Button from '~/components/atoms/Button'
 import getString from '~/i18n/getString'
 import getDate from '~/utils/getDate'
 import getTime from '~/utils/getTime'
+import Status from '~/components/atoms/Status'
 
 function Order({ isLoading, order, onTrackOrder }) {
   const isMobile = useIsMobile()
@@ -38,10 +39,20 @@ function Order({ isLoading, order, onTrackOrder }) {
               #{order.id}
             </Paragraph>
           </Box>
-          <Paragraph variant="muted" margin="0 0 30px 0" fontSize="0.875rem">
-            Em {getDate(order.createdAt)} ás{' '}
-            {getTime(order.createdAt).padStart(5, '0')}
-          </Paragraph>
+
+          <Box
+            margin="0 0 30px 0"
+            display="flex"
+            flexDirection="row"
+            alignItems="flex-start"
+            justifyContent="space-between"
+          >
+            <Paragraph variant="muted" fontSize="0.875rem">
+              Em {getDate(order.createdAt)} ás{' '}
+              {getTime(order.createdAt).padStart(5, '0')}
+            </Paragraph>
+            <Status>confirmed</Status>
+          </Box>
           <Heading margin="0 0 10px 0" as="h3" fontSize="1rem">
             Items
           </Heading>
