@@ -18,9 +18,9 @@ const tabItems = [
     key: 'sent',
     label: 'Novos'
   },
-  { key: 'confirmed', label: 'Confirmados' },
-  { key: 'ready', label: 'Prontos' },
-  { key: 'finished', label: 'Entregues' }
+  { key: 'confirmed', label: 'Preparando' },
+  { key: 'ready', label: 'Entrega' },
+  { key: 'finished', label: 'Finalizados' }
 ]
 
 function Workflow({ isLoading, orders, onTabChange }) {
@@ -35,6 +35,7 @@ function Workflow({ isLoading, orders, onTabChange }) {
         background="white"
         overflowX={isMobile && 'auto'}
         margin="0 0 15px 0"
+        borderRadius={!isMobile && '10px'}
       >
         {tabItems.map(item => (
           <Actionable
@@ -94,10 +95,7 @@ function Workflow({ isLoading, orders, onTabChange }) {
               </Heading>
               <Paragraph>{getDateShort(order.createdAt)}</Paragraph>
             </Box>
-            <Paragraph
-              margin="0 0 10px 0"
-              color="rgba(0, 0, 0, 0.5)"
-            >{`${order.items[0].quantity}x ${order.items[0].title}`}</Paragraph>
+            <Paragraph color="rgba(0, 0, 0, 0.5)">{`${order.items[0].quantity}x ${order.items[0].title}`}</Paragraph>
           </Actionable>
         ))}
       </Box>
