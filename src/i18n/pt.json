@@ -79,5 +79,15 @@
   "close": "Fechar",
   "nav.home": "Início",
   "nav.about": "Sobre",
-  "nav.orders": "Pedidos"
+  "nav.orders": "Pedidos",
+  "id": "id",
+  "user": "Usuário",
+  "createdAt": "Criado em",
+  "deliveryTax": "Taxa de delivery",
+  "totalPrice": "Preço total",
+  "address": "Endereço",
+  "paymentMethod": "Método de pagamento",
+  "observation": "Observação",
+  "items": "Ítems",
+  "activities": "Status"
 }

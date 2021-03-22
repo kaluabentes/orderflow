@@ -29,6 +29,10 @@ const activities = [
 
 const order = id => ({
   id,
+  user: {
+    id: 1,
+    name: 'Kaluã Bentes'
+  },
   createdAt: new Date(),
   activities,
   estimatedTime: '17:40',
