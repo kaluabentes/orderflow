@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getAll } from '~/api/orders'
 
 import Workflow from '~/components/admin-templates/Workflow'
@@ -8,6 +8,10 @@ function Index() {
     data: [],
     isLoading: false
   })
+
+  useEffect(() => {
+    fetchOrders()
+  }, [])
 
   function fetchOrders(status = 'sent') {
     setState(prev => ({ ...prev, isLoading: true }))

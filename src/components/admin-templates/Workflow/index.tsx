@@ -6,6 +6,7 @@ import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import Paragraph from '~/components/atoms/Paragraph'
 import Status from '~/components/atoms/Status'
+import WorkflowLoader from '~/components/organisms/WorkflowLoader'
 import theme from '~/styles/theme'
 import formatMoney from '~/utils/formatMoney'
 import getCurrentStatus from '~/utils/getCurrentStatus'
@@ -28,7 +29,7 @@ const tabItems = [
 function Workflow({ isLoading, orders, onTabChange }) {
   const isMobile = useIsMobile()
   const [activeItem, setActiveItem] = useState('sent')
-  const theme = useContext(ThemeContext)
+  const theme: any = useContext(ThemeContext)
 
   return (
     <AdminApp title="Workflow">
@@ -36,10 +37,9 @@ function Workflow({ isLoading, orders, onTabChange }) {
         display="flex"
         flexDirection="row"
         background="white"
-        margin="0 0 15px 0"
-        borderRadius={!isMobile && '10px'}
         overflow={!isMobile && 'hidden'}
         overflowX={isMobile && 'auto'}
+        borderBottom="1px solid rgba(0, 0, 0, 0.07)"
       >
         {tabItems.map(item => (
           <Actionable
@@ -78,43 +78,47 @@ function Workflow({ isLoading, orders, onTabChange }) {
           </Actionable>
         ))}
       </Box>
-      <Box display="grid" gridGap="15px">
-        {orders.map(order => (
-          <Actionable
-            display="inline-block"
-            background="white"
-            padding="15px"
-            borderRadius="10px"
-            onClick={() => alert(order.id)}
-          >
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="space-between"
-              alignItems="center"
-              margin="0 0 20px 0"
+      <Box display="grid">
+        {isLoading ? (
+          <WorkflowLoader />
+        ) : (
+          orders.map(order => (
+            <Actionable
+              display="inline-block"
+              background="white"
+              padding="20px"
+              onClick={() => alert(order.id)}
+              borderBottom="1px solid rgba(0, 0, 0, 0.07)"
             >
-              <Heading fontWeight="600" fontSize="1.2rem">
-                Pedido #{order.id}
-              </Heading>
-              <Paragraph>{getDateShort(order.createdAt)}</Paragraph>
-            </Box>
-            <Paragraph
-              margin="0 0 20px 0"
-              color="rgba(0, 0, 0, 0.5)"
-            >{`${order.items[0].quantity}x ${order.items[0].title}`}</Paragraph>
-            <Box
-              display="flex"
-              flexDirection="row"
-              justifyContent="space-between"
-            >
-              <Paragraph>{order.user.name}</Paragraph>
-              <Paragraph fontWeight="600">
-                {formatMoney(order.totalPrice)}
-              </Paragraph>
-            </Box>
-          </Actionable>
-        ))}
+              <Box
+                display="flex"
+                flexDirection="row"
+                justifyContent="space-between"
+                alignItems="center"
+                margin="0 0 15px 0"
+              >
+                <Heading fontWeight="600" fontSize="1.2rem">
+                  Pedido #{order.id}
+                </Heading>
+                <Paragraph>{getDateShort(order.createdAt)}</Paragraph>
+              </Box>
+              <Paragraph
+                margin="0 0 15px 0"
+                color="rgba(0, 0, 0, 0.5)"
+              >{`${order.items[0].quantity}x ${order.items[0].title}`}</Paragraph>
+              <Box
+                display="flex"
+                flexDirection="row"
+                justifyContent="space-between"
+              >
+                <Paragraph>{order.user.name}</Paragraph>
+                <Paragraph fontWeight="600">
+                  {formatMoney(order.totalPrice)}
+                </Paragraph>
+              </Box>
+            </Actionable>
+          ))
+        )}
       </Box>
     </AdminApp>
   )
