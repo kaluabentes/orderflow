@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { getAll } from '~/api/orders'
 
 import Workflow from '~/components/admin-templates/Workflow'
+import WorkflowOrder from '~/components/organisms/WorkflowOrder'
 
 function Index() {
   const [state, setState] = useState({
     data: [],
     isLoading: false
   })
+  const [order, setOrder] = useState(undefined)
 
   useEffect(() => {
     fetchOrders()
@@ -28,11 +30,19 @@ function Index() {
   }
 
   return (
-    <Workflow
-      isLoading={state.isLoading}
-      orders={state.data}
-      onTabChange={handleTabChange}
-    />
+    <>
+      <Workflow
+        onOrderPress={ord => setOrder(ord)}
+        isLoading={state.isLoading}
+        orders={state.data}
+        onTabChange={handleTabChange}
+      />
+      <WorkflowOrder
+        onClose={() => setOrder(undefined)}
+        isOpen={order}
+        order={order}
+      />
+    </>
   )
 }
 

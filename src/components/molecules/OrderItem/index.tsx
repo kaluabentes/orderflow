@@ -36,7 +36,7 @@ function OrderItem({
     <Container>
       <Box
         display="flex"
-        margin="0 0 5px 0"
+        margin="0 0 10px 0"
         flexDirection="row"
         alignItems="flex-start"
       >
@@ -49,14 +49,20 @@ function OrderItem({
           <Price>{formatMoney(price * quantity)}</Price>
         </Box>
       </Box>
-      <Paragraph
-        margin="0 0 5px 0"
-        fontWeight="500"
-        fontSize="0.875rem"
-        variant="muted"
-      >
-        {options}
-      </Paragraph>
+
+      {hideControls
+        ? options.split(',').map(optionItem => (
+            <Paragraph
+              margin="0 0 10px 0"
+              fontWeight="500"
+              fontSize="0.875rem"
+              variant="muted"
+            >
+              {optionItem}
+            </Paragraph>
+          ))
+        : options}
+
       {!hideControls && (
         <ContentGrid alignItems="center">
           <div>

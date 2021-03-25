@@ -26,7 +26,7 @@ const tabItems = [
   { key: 'finished', label: 'Finalizados' }
 ]
 
-function Workflow({ isLoading, orders, onTabChange }) {
+function Workflow({ isLoading, orders, onTabChange, onOrderPress }) {
   const isMobile = useIsMobile()
   const [activeItem, setActiveItem] = useState('sent')
   const theme: any = useContext(ThemeContext)
@@ -87,7 +87,7 @@ function Workflow({ isLoading, orders, onTabChange }) {
               display="inline-block"
               background="white"
               padding="20px"
-              onClick={() => alert(order.id)}
+              onClick={() => onOrderPress(order)}
               borderBottom="1px solid rgba(0, 0, 0, 0.07)"
             >
               <Box

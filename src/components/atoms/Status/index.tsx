@@ -15,7 +15,7 @@ function Status({ children, ...props }: CommonProps) {
   return (
     <Box
       display="inline-block"
-      padding="5px 10px"
+      padding="0 10px"
       borderRadius="20px"
       color={children !== 'finished' ? 'white' : theme.colors.text}
       fontSize="0.75rem"

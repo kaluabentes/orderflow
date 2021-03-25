@@ -131,4 +131,31 @@ export const Container = styled('button')(css`
         }
       }
     `}
+
+    ${props =>
+      props.variant === 'success' &&
+      css`
+        border-color: ${props => props.theme.colors.success};
+        background: ${props => props.theme.colors.success};
+        color: white;
+
+        &:hover {
+          background: ${props =>
+            Color(props.theme.colors.success).darken(0.1).hex()};
+        }
+
+        & ${Loader} {
+          & div {
+            background: white;
+          }
+        }
+      `}
+
+    ${props =>
+      props.background &&
+      css`
+        &:hover {
+          background: ${props => Color(props.background).darken(0.1).hex()};
+        }
+      `}
 `)

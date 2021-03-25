@@ -31,7 +31,8 @@ const order = id => ({
   id,
   user: {
     id: 1,
-    name: 'Kaluã Bentes'
+    name: 'Kaluã Bentes',
+    phone: '48996288801'
   },
   createdAt: new Date(),
   activities,

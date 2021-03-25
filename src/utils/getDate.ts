@@ -1,5 +1,8 @@
 function getDate(date) {
-  return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
+  return `${date.getDate()}/${String(date.getMonth() + 1).padStart(
+    2,
+    '0'
+  )}/${date.getFullYear()}`
 }
 
 export default getDate
