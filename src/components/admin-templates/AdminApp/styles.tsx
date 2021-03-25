@@ -25,6 +25,4 @@ export const Header = styled('header')(css`
 
 export const Main = styled('main')(css`
   width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
 `)

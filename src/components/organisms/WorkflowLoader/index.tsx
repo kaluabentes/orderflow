@@ -7,17 +7,21 @@ import {
 import range from '~/utils/range'
 
 function WorkflowLoader() {
-  return range(8).map(n => (
-    <Box
-      background="white"
-      padding="20px"
-      borderBottom="1px solid rgba(0, 0, 0, 0.07)"
-    >
-      <LoaderDescription />
-      <LoaderTitle />
-      <LoaderTitle />
-    </Box>
-  ))
+  return (
+    <>
+      {range(8).map(n => (
+        <Box
+          background="white"
+          padding="20px"
+          borderBottom="1px solid rgba(0, 0, 0, 0.07)"
+        >
+          <LoaderDescription />
+          <LoaderTitle />
+          <LoaderTitle />
+        </Box>
+      ))}
+    </>
+  )
 }
 
 export default WorkflowLoader

@@ -32,6 +32,8 @@ function OrderItem({
   onRemove,
   onQuantityChange
 }: OrderItemProps) {
+  const optionItems = options.split(',')
+
   return (
     <Container>
       <Box
@@ -39,21 +41,19 @@ function OrderItem({
         margin="0 0 10px 0"
         flexDirection="row"
         alignItems="flex-start"
+        justifyContent="space-between"
+        width="100%"
       >
-        <Box display="flex">
-          <Heading fontWeight="500" as="h4">
-            {quantity}x {title}
-          </Heading>
-        </Box>
-        <Box display="flex" flex="1 auto">
-          <Price>{formatMoney(price * quantity)}</Price>
-        </Box>
+        <Heading fontWeight="500" as="h4">
+          {quantity}x {title}
+        </Heading>
+        <Price>{formatMoney(price * quantity)}</Price>
       </Box>
 
       {hideControls
-        ? options.split(',').map(optionItem => (
+        ? optionItems.map((optionItem, index) => (
             <Paragraph
-              margin="0 0 10px 0"
+              margin={optionItems.length - 1 === index ? null : '0 0 10px 0'}
               fontWeight="500"
               fontSize="0.875rem"
               variant="muted"

@@ -46,4 +46,6 @@ export interface CommonProps {
   overflowX?: string
   overflowY?: string
   overflow?: string
+  borderRight?: string
+  borderTop?: string
 }

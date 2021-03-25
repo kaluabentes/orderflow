@@ -7,7 +7,7 @@ import Heading from '~/components/atoms/Heading'
 import Paragraph from '~/components/atoms/Paragraph'
 import Status from '~/components/atoms/Status'
 import WorkflowLoader from '~/components/organisms/WorkflowLoader'
-import theme from '~/styles/theme'
+import theme, { adminTheme } from '~/styles/theme'
 import formatMoney from '~/utils/formatMoney'
 import getCurrentStatus from '~/utils/getCurrentStatus'
 import getDate from '~/utils/getDate'
@@ -26,19 +26,34 @@ const tabItems = [
   { key: 'finished', label: 'Finalizados' }
 ]
 
-function Workflow({ isLoading, orders, onTabChange, onOrderPress }) {
+function Workflow({
+  isLoading,
+  orders,
+  onTabChange,
+  onOrderPress,
+  activeOrder = {}
+}) {
   const isMobile = useIsMobile()
   const [activeItem, setActiveItem] = useState('sent')
   const theme: any = useContext(ThemeContext)
 
   return (
-    <AdminApp title="Workflow">
+    <Box
+      maxWidth={isMobile ? null : '400px'}
+      width="100%"
+      height={isMobile ? null : '100vh'}
+      background="white"
+      overflow={isMobile ? null : 'auto'}
+      borderRight="1px solid rgba(0, 0, 0, 0.07)"
+    >
+      <Heading color={adminTheme.colors.primary} padding="15px" as="h2">
+        Pedidos
+      </Heading>
       <Box
         display="flex"
         flexDirection="row"
         background="white"
-        overflow={!isMobile && 'hidden'}
-        overflowX={isMobile && 'auto'}
+        overflowX={'auto'}
         borderBottom="1px solid rgba(0, 0, 0, 0.07)"
       >
         {tabItems.map(item => (
@@ -55,7 +70,7 @@ function Workflow({ isLoading, orders, onTabChange, onOrderPress }) {
             fontSize="0.75rem"
             fontWeight="500"
             borderBottom={
-              activeItem === item.key && `4px solid ${theme.colors.primary}`
+              activeItem === item.key && `4px solid ${theme.colors.info}`
             }
           >
             <Box
@@ -85,7 +100,12 @@ function Workflow({ isLoading, orders, onTabChange, onOrderPress }) {
           orders.map(order => (
             <Actionable
               display="inline-block"
-              background="white"
+              borderLeft={
+                activeOrder.id === order.id && `4px solid ${theme.colors.info}`
+              }
+              background={
+                activeOrder.id === order.id ? 'white' : 'rgba(0, 0, 0, 0.001)'
+              }
               padding="20px"
               onClick={() => onOrderPress(order)}
               borderBottom="1px solid rgba(0, 0, 0, 0.07)"
@@ -97,30 +117,17 @@ function Workflow({ isLoading, orders, onTabChange, onOrderPress }) {
                 alignItems="center"
                 margin="0 0 15px 0"
               >
-                <Heading fontWeight="600" fontSize="1.2rem">
+                <Heading as="h3" fontWeight="600" fontSize="1.2rem">
                   Pedido #{order.id}
                 </Heading>
                 <Paragraph>{getDateShort(order.createdAt)}</Paragraph>
               </Box>
-              <Paragraph
-                margin="0 0 15px 0"
-                color="rgba(0, 0, 0, 0.5)"
-              >{`${order.items[0].quantity}x ${order.items[0].title}`}</Paragraph>
-              <Box
-                display="flex"
-                flexDirection="row"
-                justifyContent="space-between"
-              >
-                <Paragraph>{order.user.name}</Paragraph>
-                <Paragraph fontWeight="600">
-                  {formatMoney(order.totalPrice)}
-                </Paragraph>
-              </Box>
+              <Paragraph color="rgba(0, 0, 0, 0.5)">{`${order.items[0].quantity}x ${order.items[0].title}`}</Paragraph>
             </Actionable>
           ))
         )}
       </Box>
-    </AdminApp>
+    </Box>
   )
 }
 

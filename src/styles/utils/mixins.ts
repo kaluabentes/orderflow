@@ -122,6 +122,14 @@ function mixins(props) {
       value: props['borderBottom']
     },
     {
+      name: 'border-right',
+      value: props['borderRight']
+    },
+    {
+      name: 'border-top',
+      value: props['borderTop']
+    },
+    {
       name: 'overflow-x',
       value: props['overflowX']
     },

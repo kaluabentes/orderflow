@@ -42,6 +42,7 @@ const order = id => ({
   address: 'Servidão Vitórias, 40',
   paymentMethod: 'Mastercard ***0756',
   observation: 'Retirar maionese',
+  change: 50.0,
   items: [
     {
       id: '604c0495961b29343d910f85',
