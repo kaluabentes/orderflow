@@ -26,13 +26,21 @@ const tabItems = [
   { key: 'finished', label: 'Finalizados' }
 ]
 
+interface WorkflowProps {
+  isLoading?: boolean
+  orders?: any[]
+  onTabChange?: (key?: any) => void
+  onOrderPress?: (order?: any) => void
+  activeOrder?: any
+}
+
 function Workflow({
   isLoading,
   orders,
   onTabChange,
   onOrderPress,
   activeOrder = {}
-}) {
+}: WorkflowProps) {
   const isMobile = useIsMobile()
   const [activeItem, setActiveItem] = useState('sent')
   const theme: any = useContext(ThemeContext)
