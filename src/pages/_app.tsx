@@ -15,7 +15,6 @@ import ConfirmContainer from '~/containers/ConfirmContainer'
 import PromptContainer from '~/containers/PromptContainer'
 import OrderAlertContainer from '~/containers/OrderAlertContainer'
 import AlertContainer from '~/containers/AlertContainer'
-import { useRouter } from 'next/router'
 
 Sentry.init({
   dsn:
@@ -25,11 +24,9 @@ Sentry.init({
 })
 
 function App({ Component, pageProps }: AppProps): JSX.Element {
-  const router = useRouter()
-
   return (
     <ContainersProvider>
-      <ThemeProvider theme={router.asPath.match(/admin/g) ? adminTheme : theme}>
+      <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Component {...pageProps} />
         <OrderModalContainer />

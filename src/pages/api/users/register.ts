@@ -8,7 +8,7 @@ export default async (request: NowRequest, response: NowResponse) => {
     method,
     headers: { authorization }
   } = request
-  const { name, district, street, number, complement, coords } = request.body
+  const { name } = request.body
 
   if (method !== 'POST') {
     response.setHeader('Allow', ['POST'])
@@ -30,28 +30,8 @@ export default async (request: NowRequest, response: NowResponse) => {
     return
   }
 
-  if (!district) {
-    response.status(400).send({ error: 'The district field is required' })
-    return
-  }
-
-  if (!street) {
-    response.status(400).send({ error: 'The street field is required' })
-    return
-  }
-
-  if (!number) {
-    response.status(400).send({ error: 'The number field is required' })
-    return
-  }
-
   const result = await UsersService.update(user.sub, {
-    name,
-    district,
-    street,
-    number,
-    complement,
-    coords
+    name
   })
 
   response.status(200).send(result)

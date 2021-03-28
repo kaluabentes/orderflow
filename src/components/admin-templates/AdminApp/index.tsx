@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import IconButton from '~/components/atoms/IconButton'
-import { Flasher } from '~/components/organisms/OrderAlert/styles'
 import useIsMobile from '~/utils/useIsMobile'
 
 import { Container, Header, Main } from './styles'

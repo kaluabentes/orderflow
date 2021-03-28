@@ -5,12 +5,8 @@ import Actionable from '~/components/atoms/Actionable'
 import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import Paragraph from '~/components/atoms/Paragraph'
-import Status from '~/components/atoms/Status'
 import WorkflowLoader from '~/components/organisms/WorkflowLoader'
-import theme, { adminTheme } from '~/styles/theme'
-import formatMoney from '~/utils/formatMoney'
-import getCurrentStatus from '~/utils/getCurrentStatus'
-import getDate from '~/utils/getDate'
+import { adminTheme } from '~/styles/theme'
 import getDateShort from '~/utils/getDateShort'
 import useIsMobile from '~/utils/useIsMobile'
 
@@ -66,6 +62,7 @@ function Workflow({
       >
         {tabItems.map(item => (
           <Actionable
+            key={item.key}
             onClick={() => {
               setActiveItem(item.key)
               onTabChange(item.key)
@@ -78,7 +75,7 @@ function Workflow({
             fontSize="0.75rem"
             fontWeight="500"
             borderBottom={
-              activeItem === item.key && `4px solid ${theme.colors.info}`
+              activeItem === item.key && `4px solid ${theme.colors.primary}`
             }
           >
             <Box
@@ -109,7 +106,8 @@ function Workflow({
             <Actionable
               display="inline-block"
               borderLeft={
-                activeOrder.id === order.id && `4px solid ${theme.colors.info}`
+                activeOrder.id === order.id &&
+                `4px solid ${theme.colors.primary}`
               }
               background={
                 activeOrder.id === order.id ? 'white' : 'rgba(0, 0, 0, 0.001)'

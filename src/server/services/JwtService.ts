@@ -4,7 +4,7 @@ interface JwtPayload {
   sub: string
 }
 
-class AuthService {
+class JwtService {
   static createToken(payload) {
     return jwt.sign(payload, process.env.JWT_SECRET)
   }
@@ -27,4 +27,4 @@ class AuthService {
   }
 }
 
-export default AuthService
+export default JwtService
