@@ -40,8 +40,9 @@ export const Placeholder = styled('p')(css`
   margin: 0;
   position: absolute;
   left: 50px;
-  font-weight: 400;
+  font-weight: 500;
   width: ${props => props.width};
+  color: rgba(255, 255, 255, 0.5);
 
   ${props =>
     props.variant === 'light' &&

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Icon from '~/components/atoms/Icon'
 
 import formatMoney from '~/utils/formatMoney'
 
@@ -12,7 +13,8 @@ import {
   LoaderImage,
   LoaderDescription,
   LoaderPrice,
-  LoaderTitle
+  LoaderTitle,
+  AddIconContainer
 } from './styles'
 
 interface ProductCardProps {
@@ -51,6 +53,9 @@ function ProductCard({
         <Description>{description}</Description>
         <Price>{formatMoney(price)}</Price>
       </Content>
+      <AddIconContainer>
+        <Icon name="add" />
+      </AddIconContainer>
     </Container>
   )
 }

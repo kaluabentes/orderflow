@@ -11,12 +11,14 @@ export const Container = styled('button')(css`
   display: flex;
   text-align: left;
   background: white;
-  border: 0;
   padding: 15px;
   border-radius: 10px;
   width: 100%;
   cursor: pointer;
   transition: 0.3s;
+  border-color: transparent;
+  border-width: 3px;
+  position: relative;
 
   &:focus {
     outline: 0;
@@ -28,7 +30,7 @@ export const Container = styled('button')(css`
 
   &:hover {
     box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.05);
-    transform: scale(1.01);
+    border: 1px solid ${props => props.theme.colors.primary};
   }
 `)
 
@@ -53,7 +55,7 @@ export const Title = styled(`h4`)(css`
 `)
 
 export const Description = styled(`p`)(css`
-  margin: 0 0 10px 0;
+  margin: 0 0 20px 0;
   font-size: 0.875rem;
   font-weight: 500;
   color: ${props => props.theme.colors.textMuted};
@@ -98,4 +100,19 @@ export const LoaderPrice = styled('div')(css`
   width: 25%;
 
   ${skeleton}
+`)
+
+export const AddIconContainer = styled('div')(css`
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${props => props.theme.colors.text};
+  border-radius: 50%;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.15);
 `)

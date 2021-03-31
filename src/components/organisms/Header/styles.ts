@@ -103,9 +103,9 @@ export const NavItem = styled(`button`)(css`
   background: transparent;
   border: 0;
   padding: 20px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1rem;
   transition: 0.3s;
 
   &:hover {
@@ -117,7 +117,6 @@ export const NavItem = styled(`button`)(css`
     css`
       color: ${props => props.theme.colors.text};
       border-left: 5px solid ${props => props.theme.colors.primary};
-      font-weight: 500;
     `}
 
   @media (min-width: ${DESKTOP_BREAKPOINT}px) {
@@ -125,7 +124,6 @@ export const NavItem = styled(`button`)(css`
     color: white;
     opacity: 0.6;
     margin-right: 20px;
-    font-size: ${props => props.theme.typography.size.small};
 
     ${props =>
       props.isActive &&

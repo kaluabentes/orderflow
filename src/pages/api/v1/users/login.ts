@@ -18,13 +18,13 @@ export default async (request: NowRequest, response: NowResponse) => {
   }
 
   if (!phone) {
-    response.status(400).send({ error: 'Phone field is required' })
+    response.status(400).send({ error: 'phone field is required' })
     return
   }
 
   if (phone.length < 11) {
     response.status(400).send({
-      message: 'The phone number must have 11 digits with DD included'
+      message: 'invalid phone format'
     })
     return
   }
