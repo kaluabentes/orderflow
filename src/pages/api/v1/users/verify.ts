@@ -1,9 +1,9 @@
 import { NowRequest, NowResponse } from '@vercel/node'
 import twilio from 'twilio'
 
-import AuthService from '../../server/auth/AuthService'
-import UsersService from '../../server/users/UsersService'
-import connectDb from '../../server/utils/connectDb'
+import JwtService from '~/@server/services/JwtService'
+import UsersService from '~/@server/services/UsersService'
+import connectDb from '~/@server/utils/connectDb'
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID
 const serviceSid = process.env.TWILIO_SERVICE_SID
@@ -28,7 +28,7 @@ export default async (request: NowRequest, response: NowResponse) => {
   }
 
   if (!code) {
-    response.status(400).send({ error: 'Code field is required' })
+    response.status(400).send({ error: 'code field is required' })
     return
   }
 
@@ -61,7 +61,7 @@ export default async (request: NowRequest, response: NowResponse) => {
     const user = await UsersService.getOneByPhone(phone)
 
     if (user) {
-      const token = await AuthService.createToken({ sub: user._id })
+      const token = await JwtService.createToken({ sub: user._id })
       response.status(200).send({
         token,
         user
@@ -69,16 +69,9 @@ export default async (request: NowRequest, response: NowResponse) => {
       return
     }
 
-    const newUser = await UsersService.create({
-      name: '',
-      phone,
-      district: '',
-      street: '',
-      number: '',
-      complement: ''
-    })
+    const newUser = await UsersService.create({ phone })
 
-    const token = await AuthService.createToken({ sub: newUser._id })
+    const token = await JwtService.createToken({ sub: newUser._id })
 
     response.status(200).send({
       token,
