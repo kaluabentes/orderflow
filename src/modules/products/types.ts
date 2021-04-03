@@ -1,5 +1,5 @@
-import { Input } from '~/components/organisms/OrderModal'
-import { Filter } from '~/components/organisms/OrderModal/getTotalPrice'
+import { Input } from '~/components/organisms/OrderWizard'
+import { Filter } from '~/components/organisms/OrderWizard/getTotalPrice'
 
 export interface Product {
   image: string

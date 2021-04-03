@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react'
 
-import OrderModal from '~/components/organisms/OrderModal'
-import getInitialState from '~/components/organisms/OrderModal/getInitialState'
+import OrderWizard from '~/components/organisms/OrderWizard'
+import getInitialState from '~/components/organisms/OrderWizard/getInitialState'
 import hasRequiredEmpty from '~/modules/orders/hasRequiredEmpty'
 import Cart from '~/state/Cart'
 import Modals from '~/state/Modal'
 
 function OrderModalContainer() {
   const modals = Modals.useContainer()
-  const modalOptions = modals.getOptions('OrderModal')
+  const modalOptions = modals.getOptions('OrderWizard')
   const [showRequiredError, setShowRequiredError] = useState(false)
   const [orderWizardValue, setOrderModalValue] = React.useState<any>(undefined)
   const cart = Cart.useContainer()
   const [orderQuantity, setOrderQuantity] = React.useState(1)
   const [options, setOptions] = useState([])
-  const isOpen = modals.isOpen('OrderModal')
+  const isOpen = modals.isOpen('OrderWizard')
 
   // Open in edit mode
   useEffect(() => {
@@ -25,7 +25,7 @@ function OrderModalContainer() {
         setOptions(orderItem.options)
         setOrderModalValue(orderItem.value)
         setOrderQuantity(orderItem.quantity)
-        modals.updateOptions('OrderModal', { product: orderItem.product })
+        modals.updateOptions('OrderWizard', { product: orderItem.product })
       }
     }
   }, [modalOptions.itemId, modalOptions.mode])
@@ -40,7 +40,7 @@ function OrderModalContainer() {
 
   function cleanup() {
     setOrderModalValue(undefined)
-    modals.updateOptions('OrderModal', { product: undefined })
+    modals.updateOptions('OrderWizard', { product: undefined })
     setOrderQuantity(1)
     setOptions([])
   }
@@ -72,20 +72,20 @@ function OrderModalContainer() {
     }
 
     cleanup()
-    modals.close('OrderModal')
+    modals.close('OrderWizard')
   }
 
   return (
-    <OrderModal
+    <OrderWizard
       isLoading={!options.length}
       mode={modalOptions.mode}
       hasRequiredEmpty={showRequiredError}
       quantity={orderQuantity}
       onQuantityChange={value => setOrderQuantity(value)}
-      isOpen={modals.isOpen('OrderModal')}
+      isOpen={modals.isOpen('OrderWizard')}
       onClose={() => {
         setTimeout(cleanup, 500)
-        modals.close('OrderModal', { mode: undefined })
+        modals.close('OrderWizard', { mode: undefined })
       }}
       value={orderWizardValue}
       product={modalOptions.product}

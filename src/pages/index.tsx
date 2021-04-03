@@ -26,7 +26,7 @@ function HomePage() {
   }, [])
 
   function openOrderModal(product) {
-    modals.open('OrderModal', { mode: 'add', product })
+    modals.open('OrderWizard', { mode: 'add', product })
   }
 
   return (

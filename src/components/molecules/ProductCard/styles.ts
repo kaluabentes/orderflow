@@ -16,8 +16,7 @@ export const Container = styled('button')(css`
   width: 100%;
   cursor: pointer;
   transition: 0.3s;
-  border-color: transparent;
-  border-width: 3px;
+  border: 1px solid transparent;
   position: relative;
 
   &:focus {

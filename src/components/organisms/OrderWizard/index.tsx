@@ -20,7 +20,7 @@ export interface Input {
   hasRequiredEmpty?: boolean
 }
 
-interface OrderModalProps {
+interface OrderWizardProps {
   isLoading?: boolean
   isOpen: boolean
   hasRequiredEmpty?: boolean
@@ -35,7 +35,7 @@ interface OrderModalProps {
   onQuantityChange: (value) => void
 }
 
-function OrderModal({
+function OrderWizard({
   isLoading,
   isOpen,
   mode,
@@ -48,7 +48,7 @@ function OrderModal({
   onClose,
   onQuantityChange,
   onChange
-}: OrderModalProps) {
+}: OrderWizardProps) {
   const [obs, setObs] = useState('')
 
   return (
@@ -97,4 +97,4 @@ function OrderModal({
   )
 }
 
-export default OrderModal
+export default OrderWizard

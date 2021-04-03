@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 
 import OrderSummary from '~/components/organisms/OrderSummary'
-import getOrderItem from '~/components/organisms/OrderModal/getOrderItem'
+import getOrderItem from '~/components/organisms/OrderWizard/getOrderItem'
 import Cart from '~/state/Cart'
 import Modal from '~/state/Modal'
 import User from '~/state/User'
@@ -34,7 +34,7 @@ function OrderSummaryContainer({
   }
 
   function handleOrderItemEdit(itemId) {
-    modal.updateOptions('OrderModal', { isOpen: true, mode: 'edit', itemId })
+    modal.updateOptions('OrderWizard', { isOpen: true, mode: 'edit', itemId })
   }
 
   async function sendOrder() {

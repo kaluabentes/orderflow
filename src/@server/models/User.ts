@@ -1,6 +1,17 @@
-import mongoose from 'mongoose'
+import { Schema, models, model } from 'mongoose'
 
-const UserSchema = new mongoose.Schema({
+const userLocationSchema = new Schema({
+  placeId: String,
+  icon: String,
+  street: String,
+  number: String,
+  district: String,
+  complement: String,
+  latitude: String,
+  longitude: String
+})
+
+const userSchema = new Schema({
   name: {
     type: String,
     required: false
@@ -8,7 +19,8 @@ const UserSchema = new mongoose.Schema({
   phone: {
     type: String,
     required: true
-  }
+  },
+  addresses: [userLocationSchema]
 })
 
-export default mongoose.models.User || mongoose.model('User', UserSchema)
+export default models.User || model('User', userSchema)

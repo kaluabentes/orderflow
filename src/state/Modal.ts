@@ -3,7 +3,7 @@ import { createContainer } from 'unstated-next'
 
 const MODALS = [
   'AddressModal',
-  'OrderModal',
+  'OrderWizard',
   'LoginModal',
   'Confirm',
   'Prompt',
