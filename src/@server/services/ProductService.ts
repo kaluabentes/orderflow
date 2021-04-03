@@ -1,12 +1,12 @@
 import Product from '../models/Product'
 
-class ProductsService {
-  static getAll() {
-    return Product.find({})
+class ProductService {
+  static getAll(query = {}) {
+    return Product.find(query)
   }
 
-  static getOne(id) {
-    return Product.findOne({ _id: id })
+  static getOne(query) {
+    return Product.findOne(query)
   }
 
   static create(product) {
@@ -22,4 +22,4 @@ class ProductsService {
   }
 }
 
-export default ProductsService
+export default ProductService

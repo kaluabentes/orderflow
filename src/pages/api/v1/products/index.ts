@@ -1,10 +1,19 @@
 import { NowRequest, NowResponse } from '@vercel/node'
-import ProductsService from '~/@server/services/ProductService'
+
+import JwtService from '~/@server/services/JwtService'
+import ProductService from '~/@server/services/ProductService'
 
 export default async (request: NowRequest, response: NowResponse) => {
+  const user: any = await JwtService.checkToken(request.headers.authorization)
+
+  if (!user || !user.isAdmin) {
+    response.status(401).send('Unauthorized')
+    return
+  }
+
   if (request.method === 'POST') {
     try {
-      response.send(await ProductsService.create(request.body))
+      response.send(await ProductService.create(request.body))
     } catch (error) {
       response.status(500).send(error.message)
     }
@@ -12,7 +21,7 @@ export default async (request: NowRequest, response: NowResponse) => {
   }
 
   try {
-    response.send(await ProductsService.getAll())
+    response.send(await ProductService.getAll())
   } catch (error) {
     response.status(500).send(error.message)
   }

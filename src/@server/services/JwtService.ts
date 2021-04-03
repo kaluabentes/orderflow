@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken'
 
 interface JwtPayload {
   sub: string
+  isAdmin: boolean
 }
 
 class JwtService {

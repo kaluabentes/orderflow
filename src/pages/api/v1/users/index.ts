@@ -1,6 +1,7 @@
 import { NowRequest, NowResponse } from '@vercel/node'
+
 import JwtService from '~/@server/services/JwtService'
-import ProductService from '~/@server/services/ProductService'
+import UserService from '~/@server/services/UserService'
 
 export default async (request: NowRequest, response: NowResponse) => {
   const user: any = await JwtService.checkToken(request.headers.authorization)
@@ -10,9 +11,9 @@ export default async (request: NowRequest, response: NowResponse) => {
     return
   }
 
-  if (request.method === 'PATCH') {
+  if (request.method === 'POST') {
     try {
-      response.send(await ProductService.update(request.query.id, request.body))
+      response.send(await UserService.create(request.body))
     } catch (error) {
       response.status(500).send(error.message)
     }
@@ -20,7 +21,7 @@ export default async (request: NowRequest, response: NowResponse) => {
   }
 
   try {
-    response.send(await ProductService.getOne({ _id: request.query.id }))
+    response.send(await UserService.getAll())
   } catch (error) {
     response.status(500).send(error.message)
   }

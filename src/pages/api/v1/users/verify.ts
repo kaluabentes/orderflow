@@ -2,7 +2,7 @@ import { NowRequest, NowResponse } from '@vercel/node'
 import twilio from 'twilio'
 
 import JwtService from '~/@server/services/JwtService'
-import UsersService from '~/@server/services/UsersService'
+import UsersService from '~/@server/services/UserService'
 import connectDb from '~/@server/utils/connectDb'
 
 const accountSid = process.env.TWILIO_ACCOUNT_SID
@@ -58,10 +58,13 @@ export default async (request: NowRequest, response: NowResponse) => {
       .verificationChecks.create({ to: `+55${phone}`, code })
 
     await connectDb()
-    const user = await UsersService.getOneByPhone(phone)
+    const user = await UsersService.getOne({ phone })
 
     if (user) {
-      const token = await JwtService.createToken({ sub: user._id })
+      const token = await JwtService.createToken({
+        sub: user._id,
+        isAdmin: false
+      })
       response.status(200).send({
         token,
         user
@@ -71,7 +74,10 @@ export default async (request: NowRequest, response: NowResponse) => {
 
     const newUser = await UsersService.create({ phone })
 
-    const token = await JwtService.createToken({ sub: newUser._id })
+    const token = await JwtService.createToken({
+      sub: newUser._id,
+      isAdmin: false
+    })
 
     response.status(200).send({
       token,

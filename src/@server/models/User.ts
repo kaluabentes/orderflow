@@ -20,6 +20,7 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
+  isAdmin: Boolean,
   addresses: [userLocationSchema]
 })
 
