@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import IconButton from '~/components/atoms/IconButton'
+import theme from '~/styles/theme'
 import useIsMobile from '~/utils/useIsMobile'
 
 const menuItems = [
@@ -65,8 +66,8 @@ function AdminApp({ children, title }) {
     <Container>
       <NavContainer>
         <Header variant="primary">
-          <IconButton color="white" height="60px" width="60px" name="sort" />
-          <Heading flex="1" color="white" as="h1" fontSize="1.2rem">
+          <IconButton height="58px" minWidth="58px" name="sort" />
+          <Heading flex="1" as="h1" fontSize="1.2rem">
             Orderflow
           </Heading>
           <Box position="relative">
@@ -77,14 +78,16 @@ function AdminApp({ children, title }) {
               width="50px"
               margin="0 10px 0 0"
               name="power_settings_new"
-              background={state.isOn ? 'rgba(0, 0, 0, 0.15)' : 'transparent'}
-              color={state.isOn ? 'white' : 'rgba(255, 255, 255, 0.3)'}
+              background={state.isOn ? 'rgba(0, 0, 0, 0.03)' : 'transparent'}
             />
           </Box>
         </Header>
         <Sidenav>
           {menuItems.map(item => (
-            <SidenavItem onClick={() => router.push(item.path)}>
+            <SidenavItem
+              isActive={item.path === router.asPath}
+              onClick={() => router.push(item.path)}
+            >
               <SideNavItemIcon name={item.icon} />
               {item.label}
             </SidenavItem>

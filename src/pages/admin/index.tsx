@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { getAll } from '~/api/orders'
-import AdminApp from '~/components/admin-templates/AdminApp'
+import AdminApp from '~/components/templates/AdminApp'
 
-import Workflow from '~/components/admin-templates/Workflow'
+import Workflow from '~/components/templates/AdminWorkflow'
 import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import OrderDetail from '~/components/organisms/OrderDetail'

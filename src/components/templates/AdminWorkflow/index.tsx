@@ -5,6 +5,7 @@ import Actionable from '~/components/atoms/Actionable'
 import Box from '~/components/atoms/Box'
 import Heading from '~/components/atoms/Heading'
 import Paragraph from '~/components/atoms/Paragraph'
+import WorkflowOrderCard from '~/components/molecules/WorkflowOrderCard'
 import WorkflowLoader from '~/components/organisms/WorkflowLoader'
 import { adminTheme } from '~/styles/theme'
 import getDateShort from '~/utils/getDateShort'
@@ -98,38 +99,20 @@ function Workflow({
           </Actionable>
         ))}
       </Box>
-      <Box display="grid">
+      <Box
+        background={theme.colors.background}
+        padding="10px"
+        height="calc(100vh - 122.88px)"
+      >
         {isLoading ? (
           <WorkflowLoader />
         ) : (
           orders.map(order => (
-            <Actionable
-              display="inline-block"
-              borderLeft={
-                activeOrder.id === order.id &&
-                `4px solid ${theme.colors.primary}`
-              }
-              background={
-                activeOrder.id === order.id ? 'white' : 'rgba(0, 0, 0, 0.001)'
-              }
-              padding="20px"
-              onClick={() => onOrderPress(order)}
-              borderBottom="1px solid rgba(0, 0, 0, 0.07)"
-            >
-              <Box
-                display="flex"
-                flexDirection="row"
-                justifyContent="space-between"
-                alignItems="center"
-                margin="0 0 15px 0"
-              >
-                <Heading as="h3" fontWeight="600" fontSize="1.2rem">
-                  Pedido #{order.id}
-                </Heading>
-                <Paragraph>{getDateShort(order.createdAt)}</Paragraph>
-              </Box>
-              <Paragraph color="rgba(0, 0, 0, 0.5)">{`${order.items[0].quantity}x ${order.items[0].title}`}</Paragraph>
-            </Actionable>
+            <WorkflowOrderCard
+              order={order}
+              isActive={activeOrder.id === order.id}
+              onPress={onOrderPress}
+            />
           ))
         )}
       </Box>
