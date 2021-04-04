@@ -2,6 +2,7 @@ import { NowRequest, NowResponse } from '@vercel/node'
 
 import JwtService from '~/@server/services/JwtService'
 import UserService from '~/@server/services/UserService'
+import connectDb from '~/@server/utils/connectDb'
 
 export default async (request: NowRequest, response: NowResponse) => {
   const user: any = await JwtService.checkToken(request.headers.authorization)
@@ -10,6 +11,8 @@ export default async (request: NowRequest, response: NowResponse) => {
     response.status(401).send('Unauthorized')
     return
   }
+
+  await connectDb()
 
   if (request.method === 'PATCH') {
     response

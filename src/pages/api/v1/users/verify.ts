@@ -50,6 +50,7 @@ export default async (request: NowRequest, response: NowResponse) => {
     })
   }
 
+  await connectDb()
   const client = twilio(accountSid, authToken)
 
   try {
@@ -57,7 +58,6 @@ export default async (request: NowRequest, response: NowResponse) => {
       .services(serviceSid)
       .verificationChecks.create({ to: `+55${phone}`, code })
 
-    await connectDb()
     const user = await UsersService.getOne({ phone })
 
     if (user) {

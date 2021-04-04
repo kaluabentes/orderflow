@@ -3,9 +3,12 @@ import bcrypt from 'bcrypt'
 import { USER_NOTFOUND, WRONG_PASSWORD } from '~/@server/config/errors'
 import AdminService from '~/@server/services/AdminService'
 import JwtService from '~/@server/services/JwtService'
+import connectDb from '~/@server/utils/connectDb'
 
 export default async (request: NowRequest, response: NowResponse) => {
   const { email, password } = request.body
+
+  await connectDb()
 
   try {
     const admin = await AdminService.getOne({ email })
