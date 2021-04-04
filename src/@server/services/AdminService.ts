@@ -1,4 +1,4 @@
-import Admin from '../models/Admin'
+import Admin from '~/@server/models/Admin'
 
 class AdminService {
   static getAll(query = {}) {
