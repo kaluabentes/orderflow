@@ -26,7 +26,7 @@ function Footer({ mode, totalPrice, quantity, onQuantityChange, onConfirm }) {
       justifyContent="space-between"
       alignItems="center"
       background="white"
-      padding="10px"
+      padding="15px"
       zIndex="10"
     >
       <Box display="flex" flex="1 auto">

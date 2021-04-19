@@ -56,6 +56,7 @@ import {
 
 function AdminApp({ children, title }) {
   const isMobile = useIsMobile()
+  const [isOpen, setIsOpen] = useState(false)
   const router = useRouter()
   const [state, setState] = useState({
     isOn: false,
@@ -64,10 +65,16 @@ function AdminApp({ children, title }) {
 
   return (
     <Container>
-      <NavContainer>
+      <NavContainer isOpen={isOpen}>
         <Header variant="primary">
-          <IconButton height="58px" minWidth="58px" name="sort" />
-          <Heading flex="1" as="h1" fontSize="1.2rem">
+          <IconButton
+            padding="0 20px"
+            height="58px"
+            minWidth="58px"
+            name="menu"
+            onClick={() => setIsOpen(prev => !prev)}
+          />
+          <Heading margin="0 0 0 2px" flex="1" as="h1" fontSize="1.2rem">
             Orderflow
           </Heading>
           <Box position="relative">
@@ -82,7 +89,7 @@ function AdminApp({ children, title }) {
             />
           </Box>
         </Header>
-        <Sidenav>
+        <Sidenav isOpen={isOpen}>
           {menuItems.map(item => (
             <SidenavItem
               isActive={item.path === router.asPath}
